@@ -6,3 +6,31 @@
 #
 # Pods/
 
+## Generic Files
+.DS_Store
+.Trashes
+*.swp
+*.lock
+*.out
+*.ods
+*.moved-aside
+
+## XCode Specific Files
+*~.nib
+build/*
+profile
+DerivedData/
+.idea/
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspective
+*.perspectivev3
+!default.pbxuser
+!default.mode1v3
+!default.mode2v3
+!default.perspectivev3
+
+## Private Workspace
+xcuserdata
+*.xccheckout
