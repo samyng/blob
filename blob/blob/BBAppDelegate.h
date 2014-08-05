@@ -11,5 +11,6 @@
 @interface BBAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) UIViewController *navigationController;
 
 @end
