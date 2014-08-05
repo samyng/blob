@@ -44,10 +44,25 @@
     [self displayMyBlobViewController];
 }
 
+# pragma mark - Button Pressed
+
+- (IBAction)closetButtonPressed:(UIButton *)sender {
+    [self displayClosetViewController];
+}
+
+- (IBAction)myBlobButtonPressed:(UIButton *)sender {
+    [self displayMyBlobViewController];
+}
+
+- (IBAction)secretLanguageButtonPressed:(UIButton *)sender {
+    [self displaySecretLanguageViewController];
+}
+
 # pragma mark - Child View Controller Methods
 
 - (void)displayChildViewController:(UIViewController *)childViewController;
 {
+    [self hideChildViewController];
     [self addChildViewController:childViewController];
     childViewController.view.frame = [self childViewControllerFrame];
     [self.containerView addSubview:childViewController.view];
@@ -67,21 +82,18 @@
 }
 
 - (void)displayClosetViewController {
-    [self hideChildViewController];
     BBClosetViewController *closetViewController = [[BBClosetViewController alloc] initWithNibName:nil
                                                                                       bundle:nil];
     [self displayChildViewController:closetViewController];
 }
 
 - (void)displayMyBlobViewController {
-    [self hideChildViewController];
     BBMyBlobViewController *myBlobViewController = [[BBMyBlobViewController alloc] initWithNibName:nil
                                                                                       bundle:nil];
     [self displayChildViewController:myBlobViewController];
 }
 
 - (void)displaySecretLanguageViewController {
-    [self hideChildViewController];
     BBSecretLanguageViewController *viewController = [[BBSecretLanguageViewController alloc] initWithNibName:nil
                                                                                                       bundle:nil];
     [self displayChildViewController:viewController];
