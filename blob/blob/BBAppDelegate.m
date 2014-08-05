@@ -16,8 +16,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     BBRootViewController *rootViewController = [[BBRootViewController alloc] init];
     rootViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
-    self.window.rootViewController = self.navigationController;
+    self.window.rootViewController = rootViewController;
     [self.window makeKeyAndVisible];
     return YES;
 }
