@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="5056"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BBRootViewController">
             <connections>
+                <outlet property="tabBarBackgroundView" destination="Xyk-y3-1w1" id="E7y-j6-Og2"/>
+                <outlet property="titleBarBackgroundView" destination="EEb-J0-ttH" id="ApM-wl-vmL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -13,6 +15,32 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EEb-J0-ttH" userLabel="Title Bar Background View">
+                    <rect key="frame" x="-2" y="-2" width="772" height="70"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="6ty-nw-gqa"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xyk-y3-1w1" userLabel="Tab Bar Background View">
+                    <rect key="frame" x="-2" y="960" width="772" height="70"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="14o-78-P3H"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="EEb-J0-ttH" secondAttribute="trailing" constant="-2" id="6jF-hW-CKH"/>
+                <constraint firstItem="EEb-J0-ttH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="-2" id="dew-C2-bVg"/>
+                <constraint firstAttribute="trailing" secondItem="Xyk-y3-1w1" secondAttribute="trailing" constant="-2" id="iZA-K0-Lyt"/>
+                <constraint firstItem="Xyk-y3-1w1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-2" id="lTR-Kf-GTJ"/>
+                <constraint firstAttribute="bottom" secondItem="Xyk-y3-1w1" secondAttribute="bottom" constant="-6" id="xIU-4a-7fa"/>
+                <constraint firstItem="EEb-J0-ttH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-2" id="zhL-JK-kX5"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
         </view>
     </objects>
