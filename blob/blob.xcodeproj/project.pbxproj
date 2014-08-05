@@ -21,6 +21,7 @@
 		22CCEFEB199165D6005161B5 /* blobTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCEFEA199165D6005161B5 /* blobTests.m */; };
 		22CCEFFA199166A2005161B5 /* BBRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCEFF8199166A2005161B5 /* BBRootViewController.m */; };
 		22CCEFFB199166A2005161B5 /* BBRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CCEFF9199166A2005161B5 /* BBRootViewController.xib */; };
+		22CCEFFF199168B5005161B5 /* BBConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCEFFE199168B5005161B5 /* BBConstants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		22CCEFF7199166A2005161B5 /* BBRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBRootViewController.h; sourceTree = "<group>"; };
 		22CCEFF8199166A2005161B5 /* BBRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBRootViewController.m; sourceTree = "<group>"; };
 		22CCEFF9199166A2005161B5 /* BBRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBRootViewController.xib; sourceTree = "<group>"; };
+		22CCEFFD199168B5005161B5 /* BBConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBConstants.h; sourceTree = "<group>"; };
+		22CCEFFE199168B5005161B5 /* BBConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBConstants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,7 @@
 		22CCEFCB199165D6005161B5 /* blob */ = {
 			isa = PBXGroup;
 			children = (
+				22CCEFFC1991689E005161B5 /* Constants */,
 				22CCEFF51991664F005161B5 /* Model */,
 				22CCEFF619916653005161B5 /* Views */,
 				22CCEFF41991664A005161B5 /* Controllers */,
@@ -174,6 +178,15 @@
 			children = (
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		22CCEFFC1991689E005161B5 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				22CCEFFD199168B5005161B5 /* BBConstants.h */,
+				22CCEFFE199168B5005161B5 /* BBConstants.m */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,6 +289,7 @@
 				22CCEFD6199165D6005161B5 /* BBAppDelegate.m in Sources */,
 				22CCEFFA199166A2005161B5 /* BBRootViewController.m in Sources */,
 				22CCEFD2199165D6005161B5 /* main.m in Sources */,
+				22CCEFFF199168B5005161B5 /* BBConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +488,7 @@
 				22CCEFF0199165D6005161B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		22CCEFF1199165D6005161B5 /* Build configuration list for PBXNativeTarget "blobTests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +497,7 @@
 				22CCEFF3199165D6005161B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
