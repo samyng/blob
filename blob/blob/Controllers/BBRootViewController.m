@@ -11,6 +11,7 @@
 @interface BBRootViewController ()
 @property (weak, nonatomic) IBOutlet UIView *titleBarBackgroundView;
 @property (weak, nonatomic) IBOutlet UIView *tabBarBackgroundView;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
 
 @end
 

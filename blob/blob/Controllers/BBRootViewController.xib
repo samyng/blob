@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BBRootViewController">
             <connections>
+                <outlet property="containerView" destination="6kW-fT-GFG" id="iQC-5B-7Ja"/>
                 <outlet property="tabBarBackgroundView" destination="Xyk-y3-1w1" id="E7y-j6-Og2"/>
                 <outlet property="titleBarBackgroundView" destination="EEb-J0-ttH" id="ApM-wl-vmL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -32,12 +33,20 @@
                         <constraint firstAttribute="height" constant="70" id="14o-78-P3H"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6kW-fT-GFG" userLabel="Container View">
+                    <rect key="frame" x="0.0" y="76" width="768" height="876"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </view>
             </subviews>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="6kW-fT-GFG" secondAttribute="trailing" id="0Xu-nU-0fD"/>
                 <constraint firstAttribute="trailing" secondItem="EEb-J0-ttH" secondAttribute="trailing" constant="-2" id="6jF-hW-CKH"/>
+                <constraint firstItem="6kW-fT-GFG" firstAttribute="top" secondItem="EEb-J0-ttH" secondAttribute="bottom" constant="8" id="aDr-1q-aCv"/>
                 <constraint firstItem="EEb-J0-ttH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="-2" id="dew-C2-bVg"/>
                 <constraint firstAttribute="trailing" secondItem="Xyk-y3-1w1" secondAttribute="trailing" constant="-2" id="iZA-K0-Lyt"/>
                 <constraint firstItem="Xyk-y3-1w1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-2" id="lTR-Kf-GTJ"/>
+                <constraint firstItem="Xyk-y3-1w1" firstAttribute="top" secondItem="6kW-fT-GFG" secondAttribute="bottom" constant="8" id="rP4-sH-fge"/>
+                <constraint firstItem="6kW-fT-GFG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vht-BO-g1H"/>
                 <constraint firstAttribute="bottom" secondItem="Xyk-y3-1w1" secondAttribute="bottom" constant="-6" id="xIU-4a-7fa"/>
                 <constraint firstItem="EEb-J0-ttH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-2" id="zhL-JK-kX5"/>
             </constraints>
