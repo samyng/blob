@@ -107,6 +107,9 @@
 		22CCEFCB199165D6005161B5 /* blob */ = {
 			isa = PBXGroup;
 			children = (
+				22CCEFF51991664F005161B5 /* Model */,
+				22CCEFF619916653005161B5 /* Views */,
+				22CCEFF41991664A005161B5 /* Controllers */,
 				22CCEFD4199165D6005161B5 /* BBAppDelegate.h */,
 				22CCEFD5199165D6005161B5 /* BBAppDelegate.m */,
 				22CCEFD7199165D6005161B5 /* Images.xcassets */,
@@ -142,6 +145,27 @@
 				22CCEFE7199165D6005161B5 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		22CCEFF41991664A005161B5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		22CCEFF51991664F005161B5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		22CCEFF619916653005161B5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
