@@ -269,6 +269,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Crazy Machine";
 				TargetAttributes = {
+					22CCEFC1199165D6005161B5 = {
+						DevelopmentTeam = QC4NQ4A3Z9;
+					};
 					22CCEFDC199165D6005161B5 = {
 						TestTargetID = 22CCEFC1199165D6005161B5;
 					};
@@ -446,6 +449,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "blob/blob-Prefix.pch";
 				INFOPLIST_FILE = "blob/blob-Info.plist";
@@ -459,6 +463,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "blob/blob-Prefix.pch";
 				INFOPLIST_FILE = "blob/blob-Info.plist";

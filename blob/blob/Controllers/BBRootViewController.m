@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIView *titleBarBackgroundView;
 @property (weak, nonatomic) IBOutlet UIView *tabBarBackgroundView;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) UIViewController *currentChildViewController;
 @end
 
@@ -34,6 +35,8 @@
         
         self.titleBarBackgroundView.layer.borderColor =
         self.tabBarBackgroundView.layer.borderColor = [BBConstants lightGrayBorderColor].CGColor;
+        
+        self.titleLabel.text = BLOB_TITLE;
     }
     return self;
 }
@@ -63,6 +66,7 @@
 - (void)displayChildViewController:(UIViewController *)childViewController;
 {
     [self hideChildViewController];
+    childViewController.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [self addChildViewController:childViewController];
     childViewController.view.frame = [self childViewControllerFrame];
     [self.containerView addSubview:childViewController.view];
