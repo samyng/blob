@@ -25,8 +25,8 @@
                     <rect key="frame" x="-2" y="-2" width="772" height="66"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T27-98-pMb">
-                            <rect key="frame" x="236" y="11" width="300" height="44"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T27-98-pMb">
+                            <rect key="frame" x="30" y="11" width="300" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="300" id="Y7a-Fa-Qbi"/>
@@ -36,12 +36,24 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oca-az-dwP">
+                            <rect key="frame" x="704" y="9" width="48" height="48"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="9Og-Iw-2Ai"/>
+                            </constraints>
+                            <state key="normal" image="hamburger">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="T27-98-pMb" secondAttribute="bottom" constant="11" id="FnB-C9-ef8"/>
-                        <constraint firstAttribute="centerX" secondItem="T27-98-pMb" secondAttribute="centerX" id="T9p-fm-neC"/>
+                        <constraint firstItem="T27-98-pMb" firstAttribute="leading" secondItem="EEb-J0-ttH" secondAttribute="leading" constant="30" id="U35-Pl-P9u"/>
                         <constraint firstAttribute="height" constant="66" id="XKu-1X-imH"/>
+                        <constraint firstAttribute="trailing" secondItem="Oca-az-dwP" secondAttribute="trailing" constant="20" id="dgc-xg-lya"/>
+                        <constraint firstAttribute="centerY" secondItem="Oca-az-dwP" secondAttribute="centerY" id="raP-kO-LuB"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xyk-y3-1w1" userLabel="Tab Bar Background View">
@@ -127,4 +139,7 @@
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="hamburger" width="48" height="48"/>
+    </resources>
 </document>
