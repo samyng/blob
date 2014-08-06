@@ -105,6 +105,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22A2866A1992DDD90087A311 /* Collection Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2259A77F1991D91D007A16C3 /* BBAccessoryCollectionCell.h */,
+				2259A7801991D91D007A16C3 /* BBAccessoryCollectionCell.m */,
+				2259A7821991D93D007A16C3 /* BBAccessoryCollectionCell.xib */,
+			);
+			name = "Collection Cells";
+			sourceTree = "<group>";
+		};
 		22CCEFB9199165D6005161B5 = {
 			isa = PBXGroup;
 			children = (
@@ -227,9 +237,7 @@
 				22CCF00B199176BD005161B5 /* BBMyBlobViewController.h */,
 				22CCF00C199176BD005161B5 /* BBMyBlobViewController.m */,
 				22CCF00D199176BD005161B5 /* BBMyBlobViewController.xib */,
-				2259A77F1991D91D007A16C3 /* BBAccessoryCollectionCell.h */,
-				2259A7801991D91D007A16C3 /* BBAccessoryCollectionCell.m */,
-				2259A7821991D93D007A16C3 /* BBAccessoryCollectionCell.xib */,
+				22A2866A1992DDD90087A311 /* Collection Cells */,
 			);
 			name = "Child View Controllers";
 			sourceTree = "<group>";
