@@ -38,7 +38,7 @@ static NSInteger const kPlacesSectionIndex = 4;
     [super viewDidLoad];
     [self.categoriesTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kCategoriesTableCellIdentifier];
     [self.accessoriesCollectionView registerNib:[UINib nibWithNibName:@"BBAccessoryCollectionCell" bundle:nil] forCellWithReuseIdentifier:kAccessoriesCollectionCellIdentifier];
-    self.categories = @[@"All", @"Food", @"Clothes", @"Friends", @"Places"];
+    self.categories = @[@"All", @"Food", @"Clothes", @"Friends", @"Places", @"Cooking", @"Sports", @"Special Occassions", @"Movies", @"Celebrities", @"Concerts", @"Holidays"];
     
     // Temporary test data - SY (8/5/2014)
     self.foods = [self foodTest];

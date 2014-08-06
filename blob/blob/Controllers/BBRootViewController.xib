@@ -40,9 +40,10 @@
                             <rect key="frame" x="704" y="9" width="48" height="48"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="48" id="9Og-Iw-2Ai"/>
+                                <constraint firstAttribute="width" constant="48" id="Jph-57-5iy"/>
+                                <constraint firstAttribute="height" constant="48" id="kNh-2H-dLB"/>
                             </constraints>
-                            <state key="normal" image="hamburger">
+                            <state key="normal" image="menu">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
@@ -140,6 +141,6 @@
         </view>
     </objects>
     <resources>
-        <image name="hamburger" width="48" height="48"/>
+        <image name="menu" width="64" height="64"/>
     </resources>
 </document>
