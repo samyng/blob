@@ -7,8 +7,15 @@
 //
 
 #import "BBMyBlobViewController.h"
+#import "BBFeelingCollectionCell.h"
 
-@interface BBMyBlobViewController ()
+static NSInteger const kTotalNumberOfSections = 1;
+static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCellIdentifier";
+
+
+@interface BBMyBlobViewController () <UICollectionViewDataSource>
+@property (weak, nonatomic) IBOutlet UICollectionView *feelingsCollectionView;
+@property (strong, nonatomic) NSArray *feelings;
 @end
 
 @implementation BBMyBlobViewController
@@ -17,7 +24,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        _feelings = @[@"happy", @"excited", @"nervous", @"flirty", @"frustrated", @"angry", @"sad"];
     }
     return self;
 }
@@ -25,6 +32,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.feelingsCollectionView registerNib:[UINib nibWithNibName:@"BBFeelingCollectionCell" bundle:nil] forCellWithReuseIdentifier:kFeelingCollectionCellIdentifier];
+}
+
+#pragma mark - Collection View Datasource Methods
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return kTotalNumberOfSections;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return [self.feelings count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    BBFeelingCollectionCell *cell = [self.feelingsCollectionView dequeueReusableCellWithReuseIdentifier:kFeelingCollectionCellIdentifier forIndexPath:indexPath];
+    [cell configureWithName:[self.feelings objectAtIndex:indexPath.item]];
+    return cell;
 }
 
 @end
