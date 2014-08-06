@@ -6,7 +6,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BBRootViewController">
             <connections>
+                <outlet property="closetButton" destination="yPj-fl-Ysb" id="xYT-mf-ncD"/>
                 <outlet property="containerView" destination="6kW-fT-GFG" id="iQC-5B-7Ja"/>
+                <outlet property="myBlobButton" destination="6rt-m3-Xtf" id="3IU-zU-czl"/>
+                <outlet property="secretLanguageButton" destination="Cti-Gz-cRl" id="6lu-qq-OZv"/>
                 <outlet property="tabBarBackgroundView" destination="Xyk-y3-1w1" id="E7y-j6-Og2"/>
                 <outlet property="titleBarBackgroundView" destination="EEb-J0-ttH" id="ApM-wl-vmL"/>
                 <outlet property="titleLabel" destination="T27-98-pMb" id="pLC-g2-aDP"/>
@@ -23,7 +26,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T27-98-pMb">
-                            <rect key="frame" x="236" y="22" width="300" height="44"/>
+                            <rect key="frame" x="236" y="11" width="300" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="300" id="Y7a-Fa-Qbi"/>
@@ -34,8 +37,9 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
+                    <color key="backgroundColor" red="0.40000000596046448" green="1" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="T27-98-pMb" secondAttribute="bottom" id="FnB-C9-ef8"/>
+                        <constraint firstAttribute="bottom" secondItem="T27-98-pMb" secondAttribute="bottom" constant="11" id="FnB-C9-ef8"/>
                         <constraint firstAttribute="centerX" secondItem="T27-98-pMb" secondAttribute="centerX" id="T9p-fm-neC"/>
                         <constraint firstAttribute="height" constant="66" id="XKu-1X-imH"/>
                     </constraints>
@@ -44,33 +48,48 @@
                     <rect key="frame" x="-2" y="962" width="772" height="64"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPj-fl-Ysb" userLabel="Button - Closet">
-                            <rect key="frame" x="74" y="0.0" width="66" height="56"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPj-fl-Ysb" userLabel="Button - Closet">
+                            <rect key="frame" x="235" y="0.0" width="70" height="56"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="70" id="DvW-Sw-OqN"/>
+                                <constraint firstAttribute="height" constant="56" id="VbH-eZ-DyL"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <state key="normal" title="Closet">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
                                 <action selector="closetButtonPressed:" destination="-1" eventType="touchUpInside" id="3vW-oc-98t"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rt-m3-Xtf" userLabel="Button - My Blob">
-                            <rect key="frame" x="316" y="0.0" width="81" height="56"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rt-m3-Xtf" userLabel="Button - My Blob">
+                            <rect key="frame" x="346" y="0.0" width="80" height="56"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="80" id="WhF-Kf-j0E"/>
+                                <constraint firstAttribute="height" constant="56" id="ksf-0Y-gy7"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <state key="normal" title="My Blob">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
                                 <action selector="myBlobButtonPressed:" destination="-1" eventType="touchUpInside" id="eUr-aJ-etL"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cti-Gz-cRl" userLabel="Button - Secret Language">
-                            <rect key="frame" x="535" y="0.0" width="177" height="56"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cti-Gz-cRl" userLabel="Button - Secret Language">
+                            <rect key="frame" x="456" y="0.0" width="150" height="56"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="150" id="BZ8-qx-RK4"/>
+                                <constraint firstAttribute="height" constant="56" id="p1C-HR-ueR"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <state key="normal" title="Secret Language">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -78,8 +97,14 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
+                        <constraint firstAttribute="centerY" secondItem="Cti-Gz-cRl" secondAttribute="centerY" constant="4" id="5V7-T7-Jxh"/>
+                        <constraint firstItem="6rt-m3-Xtf" firstAttribute="leading" secondItem="yPj-fl-Ysb" secondAttribute="trailing" constant="41" id="AMk-QW-nBS"/>
+                        <constraint firstAttribute="centerY" secondItem="yPj-fl-Ysb" secondAttribute="centerY" constant="4" id="CQX-0P-ZBg"/>
+                        <constraint firstAttribute="centerY" secondItem="6rt-m3-Xtf" secondAttribute="centerY" constant="4" id="G4c-As-NzI"/>
+                        <constraint firstAttribute="centerX" secondItem="6rt-m3-Xtf" secondAttribute="centerX" id="JOP-Fz-A2W"/>
+                        <constraint firstItem="Cti-Gz-cRl" firstAttribute="leading" secondItem="6rt-m3-Xtf" secondAttribute="trailing" constant="30" id="JXW-yL-Fgv"/>
                         <constraint firstAttribute="height" constant="64" id="VFR-7T-xl6"/>
                     </constraints>
                 </view>

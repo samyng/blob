@@ -16,6 +16,9 @@
 @property (weak, nonatomic) IBOutlet UIView *tabBarBackgroundView;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIButton *closetButton;
+@property (weak, nonatomic) IBOutlet UIButton *myBlobButton;
+@property (weak, nonatomic) IBOutlet UIButton *secretLanguageButton;
 @property (strong, nonatomic) UIViewController *currentChildViewController;
 @end
 
