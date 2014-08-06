@@ -8,6 +8,7 @@
 
 #import "BBClosetViewController.h"
 #import "BBAccessory.h"
+#import "BBAccessoryCollectionCell.h"
 
 static NSString * const kCategoriesTableCellIdentifier = @"categoriesTableCellIdentifier";
 static NSString * const kAccessoriesCollectionCellIdentifier = @"accessoriesCollectionCellIdentifier";
@@ -36,7 +37,7 @@ static NSInteger const kPlacesSectionIndex = 4;
 {
     [super viewDidLoad];
     [self.categoriesTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kCategoriesTableCellIdentifier];
-    [self.accessoriesCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:kAccessoriesCollectionCellIdentifier];
+    [self.accessoriesCollectionView registerNib:[UINib nibWithNibName:@"BBAccessoryCollectionCell" bundle:nil] forCellWithReuseIdentifier:kAccessoriesCollectionCellIdentifier];
     self.categories = @[@"All", @"Food", @"Clothes", @"Friends", @"Places"];
     
     // Temporary test data - SY (8/5/2014)
@@ -78,39 +79,57 @@ static NSInteger const kPlacesSectionIndex = 4;
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    NSInteger categoriesTableCellSelectedRowIndex = [self.categoriesTableView indexPathForSelectedRow].row;
-    if (categoriesTableCellSelectedRowIndex == kAllSectionIndex)
+    NSInteger selectedRowIndex = [self categoriesTableCellSelectedRowIndex];
+    switch (selectedRowIndex)
     {
-        return [self totalNumberOfAccessories];
-    }
-    else if (categoriesTableCellSelectedRowIndex == kFoodSectionIndex)
-    {
-        return [self.foods count];
-    }
-    else if (categoriesTableCellSelectedRowIndex == kClothesSectionIndex)
-    {
-        return [self.clothes count];
-    }
-    else if (categoriesTableCellSelectedRowIndex == kFriendsSectionIndex)
-    {
-        return [self.friends count];
-    }
-    else if (categoriesTableCellSelectedRowIndex == kPlacesSectionIndex)
-    {
-        return [self.places count];
-    }
-    else
-    {
-        return 0;
+        case kAllSectionIndex:
+            return [self totalNumberOfAccessories];
+        case kFoodSectionIndex:
+            return [self.foods count];
+        case kClothesSectionIndex:
+            return [self.clothes count];
+        case kFriendsSectionIndex:
+            return [self.friends count];
+        case kPlacesSectionIndex:
+            return [self.places count];
+        default:
+            return 0;
     }
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [self.accessoriesCollectionView dequeueReusableCellWithReuseIdentifier:kAccessoriesCollectionCellIdentifier forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor darkGrayColor];
-    cell.layer.borderWidth = 5.0f;
-    cell.layer.borderColor = [UIColor whiteColor].CGColor;
+    BBAccessoryCollectionCell *cell = [self.accessoriesCollectionView dequeueReusableCellWithReuseIdentifier:kAccessoriesCollectionCellIdentifier
+                                                                                                forIndexPath:indexPath];
+    
+    BBAccessory *accessory;
+    NSInteger selectedRowIndex = [self categoriesTableCellSelectedRowIndex];
+    switch (selectedRowIndex)
+    {
+        case kAllSectionIndex:
+            accessory = [[self allAccessories] objectAtIndex:indexPath.item];
+            break;
+        case kFoodSectionIndex:
+             accessory = [self.foods objectAtIndex:indexPath.item];
+            break;
+        case kClothesSectionIndex:
+            accessory = [self.clothes objectAtIndex:indexPath.item];
+            break;
+        case kFriendsSectionIndex:
+            accessory = [self.friends objectAtIndex:indexPath.item];
+            break;
+        case kPlacesSectionIndex:
+            accessory = [self.places objectAtIndex:indexPath.item];
+            break;
+        default:
+            accessory = nil;
+    }
+    
+    if (accessory)
+    {
+        [cell configureWithAccessory:accessory];
+    }
+    
     return cell;
 }
 
@@ -119,6 +138,11 @@ static NSInteger const kPlacesSectionIndex = 4;
 - (NSInteger)totalNumberOfAccessories
 {
     return [self.foods count] + [self.clothes count] + [self.friends count] + [self.places count];
+}
+
+- (NSInteger)categoriesTableCellSelectedRowIndex
+{
+    return [self.categoriesTableView indexPathForSelectedRow].row;
 }
 
 #pragma mark - Temporary Test Data
@@ -132,25 +156,22 @@ static NSInteger const kPlacesSectionIndex = 4;
 
 - (NSArray *)clothTest
 {
-    BBAccessory *raybans = [[BBAccessory alloc] initWithName:@"rayban"];
+    BBAccessory *hightops = [[BBAccessory alloc] initWithName:@"hightops"];
     BBAccessory *rainboots = [[BBAccessory alloc] initWithName:@"rainboots"];
-    BBAccessory *hoodie = [[BBAccessory alloc] initWithName:@"hoodie"];
-    return @[raybans, rainboots, hoodie];
+    BBAccessory *sweater = [[BBAccessory alloc] initWithName:@"sweater"];
+    return @[hightops, rainboots, sweater];
 }
 
 - (NSArray *)friendTest
 {
     BBAccessory *happy = [[BBAccessory alloc] initWithName:@"happy"];
-    BBAccessory *zool = [[BBAccessory alloc] initWithName:@"zool"];
-    BBAccessory *care = [[BBAccessory alloc] initWithName:@"care"];
-    BBAccessory *presh = [[BBAccessory alloc] initWithName:@"fresh"];
-    return @[happy, zool, care, presh];
+    return @[happy, happy, happy, happy];
 }
 
 - (NSArray *)placeTest
 {
-    BBAccessory *eiffelTower = [[BBAccessory alloc] initWithName:@"eiffel"];
-    return @[eiffelTower];
+    BBAccessory *colosseum = [[BBAccessory alloc] initWithName:@"colosseum"];
+    return @[colosseum];
 }
 
 - (NSArray *)allAccessories
