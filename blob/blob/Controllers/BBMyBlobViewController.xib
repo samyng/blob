@@ -15,34 +15,101 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blob" translatesAutoresizingMaskIntoConstraints="NO" id="b4W-6b-h6i">
-                    <rect key="frame" x="109" y="150" width="550" height="450"/>
+                    <rect key="frame" x="109" y="145" width="550" height="450"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="450" id="LQi-Nq-SQR"/>
                         <constraint firstAttribute="width" constant="550" id="TwA-6Z-eL3"/>
                     </constraints>
                 </imageView>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bqg-3T-TmZ">
-                    <rect key="frame" x="0.0" y="0.0" width="768" height="60"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blob is feeling " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VaV-xL-ftw">
+                    <rect key="frame" x="275" y="75" width="284" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="NUt-Uz-7c2"/>
+                        <constraint firstAttribute="width" constant="284" id="W9g-5i-vHY"/>
+                        <constraint firstAttribute="height" constant="45" id="lRs-K0-9cT"/>
                     </constraints>
-                </scrollView>
+                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="32"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lumpy-cricle" translatesAutoresizingMaskIntoConstraints="NO" id="oxN-xK-8pG">
+                    <rect key="frame" x="567" y="75" width="200" height="45"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="0AM-4j-KH3"/>
+                        <constraint firstAttribute="height" constant="45" id="3lc-eY-KJt"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONNECTED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vul-lS-Yxl">
+                    <rect key="frame" x="340" y="588" width="89" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="89" id="gJG-ln-DYY"/>
+                        <constraint firstAttribute="height" constant="21" id="pgg-y5-wT9"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="10"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SaW-jt-Do7" userLabel="Feelings View">
+                    <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lumpy-cricle" translatesAutoresizingMaskIntoConstraints="NO" id="UGS-NH-Q3C">
+                            <rect key="frame" x="20" y="7" width="110" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Happy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQd-ER-v3u">
+                            <rect key="frame" x="54" y="11" width="42" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="12"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Flirty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4HV-82-ygz">
+                            <rect key="frame" x="334" y="11" width="42" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="12"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nervous" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YEq-9L-5wq">
+                            <rect key="frame" x="189" y="11" width="50" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="12"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lumpy-cricle" translatesAutoresizingMaskIntoConstraints="NO" id="0I2-Cf-MJL">
+                            <rect key="frame" x="159" y="7" width="110" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lumpy-cricle" translatesAutoresizingMaskIntoConstraints="NO" id="Lpq-W8-ZTz">
+                            <rect key="frame" x="300" y="7" width="110" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Tob-3A-Ro7"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="Bqg-3T-TmZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="JeC-BK-sGd"/>
-                <constraint firstItem="b4W-6b-h6i" firstAttribute="top" secondItem="Bqg-3T-TmZ" secondAttribute="bottom" constant="90" id="Qye-pa-CZJ"/>
+                <constraint firstAttribute="trailing" secondItem="SaW-jt-Do7" secondAttribute="trailing" id="5z7-4I-6bj"/>
+                <constraint firstItem="oxN-xK-8pG" firstAttribute="leading" secondItem="VaV-xL-ftw" secondAttribute="trailing" constant="8" id="9eW-hi-ckL"/>
+                <constraint firstAttribute="centerX" secondItem="Vul-lS-Yxl" secondAttribute="centerX" constant="-0.5" id="BRY-ZL-Rx8"/>
+                <constraint firstItem="VaV-xL-ftw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="275" id="PZR-e7-1vR"/>
                 <constraint firstAttribute="centerX" secondItem="b4W-6b-h6i" secondAttribute="centerX" id="Rdq-JN-B6e"/>
-                <constraint firstItem="Bqg-3T-TmZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="VJc-LN-uAv"/>
-                <constraint firstAttribute="trailing" secondItem="Bqg-3T-TmZ" secondAttribute="trailing" id="csz-4M-HWK"/>
+                <constraint firstItem="oxN-xK-8pG" firstAttribute="top" secondItem="SaW-jt-Do7" secondAttribute="bottom" constant="31" id="Teb-n4-vUy"/>
+                <constraint firstItem="SaW-jt-Do7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="hUl-Ji-rEN"/>
+                <constraint firstItem="SaW-jt-Do7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="q9u-Ay-cQQ"/>
+                <constraint firstItem="b4W-6b-h6i" firstAttribute="top" secondItem="SaW-jt-Do7" secondAttribute="bottom" constant="101" id="qW3-YV-KCA"/>
+                <constraint firstItem="Vul-lS-Yxl" firstAttribute="top" secondItem="b4W-6b-h6i" secondAttribute="bottom" constant="-7" id="uRS-oT-dYF"/>
+                <constraint firstItem="VaV-xL-ftw" firstAttribute="top" secondItem="SaW-jt-Do7" secondAttribute="bottom" constant="31" id="zIj-Sr-GPv"/>
             </constraints>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
         </view>
     </objects>
     <resources>
         <image name="blob" width="997" height="867"/>
+        <image name="lumpy-cricle" width="225" height="102"/>
     </resources>
 </document>

@@ -25,14 +25,14 @@
                     <rect key="frame" x="-2" y="-2" width="772" height="66"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T27-98-pMb">
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BLOB LOGO" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T27-98-pMb">
                             <rect key="frame" x="30" y="11" width="300" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="300" id="Y7a-Fa-Qbi"/>
                                 <constraint firstAttribute="height" constant="44" id="oZD-g1-SUS"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="22"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -67,7 +67,7 @@
                                 <constraint firstAttribute="width" constant="70" id="DvW-Sw-OqN"/>
                                 <constraint firstAttribute="height" constant="56" id="VbH-eZ-DyL"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                             <state key="normal" title="Closet">
                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -83,7 +83,7 @@
                                 <constraint firstAttribute="width" constant="80" id="WhF-Kf-j0E"/>
                                 <constraint firstAttribute="height" constant="56" id="ksf-0Y-gy7"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                             <state key="normal" title="My Blob">
                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -99,7 +99,7 @@
                                 <constraint firstAttribute="width" constant="150" id="BZ8-qx-RK4"/>
                                 <constraint firstAttribute="height" constant="56" id="p1C-HR-ueR"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                             <state key="normal" title="Secret Language">
                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>

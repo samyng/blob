@@ -9,7 +9,6 @@
 #import "BBMyBlobViewController.h"
 
 @interface BBMyBlobViewController ()
-
 @end
 
 @implementation BBMyBlobViewController
@@ -26,7 +25,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
 
 @end
