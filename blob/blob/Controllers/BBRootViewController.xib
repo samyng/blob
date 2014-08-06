@@ -22,11 +22,11 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EEb-J0-ttH" userLabel="Title Bar Background View">
-                    <rect key="frame" x="-2" y="-2" width="772" height="66"/>
+                    <rect key="frame" x="-2" y="-2" width="772" height="46"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BLOB LOGO" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T27-98-pMb">
-                            <rect key="frame" x="30" y="11" width="300" height="44"/>
+                            <rect key="frame" x="20" y="0.0" width="300" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="300" id="Y7a-Fa-Qbi"/>
@@ -37,11 +37,11 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oca-az-dwP">
-                            <rect key="frame" x="704" y="9" width="48" height="48"/>
+                            <rect key="frame" x="705" y="4" width="38" height="38"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="48" id="Jph-57-5iy"/>
-                                <constraint firstAttribute="height" constant="48" id="kNh-2H-dLB"/>
+                                <constraint firstAttribute="width" constant="38" id="Jph-57-5iy"/>
+                                <constraint firstAttribute="height" constant="38" id="kNh-2H-dLB"/>
                             </constraints>
                             <state key="normal" image="menu">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -50,10 +50,10 @@
                     </subviews>
                     <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="T27-98-pMb" secondAttribute="bottom" constant="11" id="FnB-C9-ef8"/>
-                        <constraint firstItem="T27-98-pMb" firstAttribute="leading" secondItem="EEb-J0-ttH" secondAttribute="leading" constant="30" id="U35-Pl-P9u"/>
-                        <constraint firstAttribute="height" constant="66" id="XKu-1X-imH"/>
-                        <constraint firstAttribute="trailing" secondItem="Oca-az-dwP" secondAttribute="trailing" constant="20" id="dgc-xg-lya"/>
+                        <constraint firstAttribute="bottom" secondItem="T27-98-pMb" secondAttribute="bottom" constant="2" id="FnB-C9-ef8"/>
+                        <constraint firstItem="T27-98-pMb" firstAttribute="leading" secondItem="EEb-J0-ttH" secondAttribute="leading" constant="20" id="U35-Pl-P9u"/>
+                        <constraint firstAttribute="height" constant="46" id="XKu-1X-imH"/>
+                        <constraint firstAttribute="trailing" secondItem="Oca-az-dwP" secondAttribute="trailing" constant="29" id="dgc-xg-lya"/>
                         <constraint firstAttribute="centerY" secondItem="Oca-az-dwP" secondAttribute="centerY" id="raP-kO-LuB"/>
                     </constraints>
                 </view>
@@ -110,7 +110,7 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="centerY" secondItem="Cti-Gz-cRl" secondAttribute="centerY" constant="1" id="5V7-T7-Jxh"/>
                         <constraint firstItem="6rt-m3-Xtf" firstAttribute="leading" secondItem="yPj-fl-Ysb" secondAttribute="trailing" constant="100" id="AMk-QW-nBS"/>
@@ -122,7 +122,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6kW-fT-GFG" userLabel="Container View">
-                    <rect key="frame" x="0.0" y="64" width="768" height="898"/>
+                    <rect key="frame" x="0.0" y="44" width="768" height="918"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </view>
             </subviews>

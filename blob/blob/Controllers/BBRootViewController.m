@@ -30,15 +30,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.view.backgroundColor = [BBConstants lightGrayBackgroundColor];
-        self.tabBarBackgroundView.backgroundColor = [BBConstants lightGrayTabBackgroundColor];
-        
-        self.titleBarBackgroundView.layer.borderWidth =
-        self.tabBarBackgroundView.layer.borderWidth = BORDER_WIDTH;
-        
-        self.titleBarBackgroundView.layer.borderColor =
-        self.tabBarBackgroundView.layer.borderColor = [BBConstants lightGrayBorderColor].CGColor;
-        
         self.titleLabel.text = BLOB_TITLE;
     }
     return self;
