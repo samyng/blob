@@ -8,7 +8,11 @@
 
 #import "BBClosetViewController.h"
 
-@interface BBClosetViewController ()
+static NSString * const kCategoriesTableCellIdentifier = @"categoriesTableCellIdentifier";
+
+@interface BBClosetViewController () <UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *categoriesTableView;
+@property (strong, nonatomic) NSArray *categories;
 
 @end
 
@@ -26,7 +30,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self.categoriesTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kCategoriesTableCellIdentifier];
+    self.categories = @[@"All", @"Food", @"Clothes", @"Friends", @"Places"];
+}
+
+#pragma mark - Table View Datasource Methods
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.categories count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [self.categoriesTableView dequeueReusableCellWithIdentifier:kCategoriesTableCellIdentifier];
+    cell.textLabel.text = [self.categories objectAtIndex:indexPath.row];
+    return cell;
 }
 
 @end

@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BBClosetViewController">
             <connections>
+                <outlet property="categoriesTableView" destination="jeG-Yh-nhb" id="TQ4-ef-AAG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -13,7 +14,26 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="768" height="876"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <color key="backgroundColor" red="0.80000001192092896" green="0.40000000596046448" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="grouped" rowHeight="55" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="jeG-Yh-nhb">
+                    <rect key="frame" x="0.0" y="0.0" width="256" height="876"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="256" id="NzN-sQ-LYw"/>
+                    </constraints>
+                    <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="YMK-CO-KQq"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="0.93322001157095236" green="0.62233773031003592" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="jeG-Yh-nhb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="GYL-u8-UhO"/>
+                <constraint firstAttribute="bottom" secondItem="jeG-Yh-nhb" secondAttribute="bottom" id="NcN-tD-cFQ"/>
+                <constraint firstItem="jeG-Yh-nhb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bne-SA-kLB"/>
+            </constraints>
         </view>
     </objects>
 </document>
