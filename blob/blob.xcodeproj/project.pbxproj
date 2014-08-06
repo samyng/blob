@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2259A77E1991CB3D007A16C3 /* BBAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2259A77D1991CB3D007A16C3 /* BBAccessory.m */; };
 		22CCEFC6199165D6005161B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CCEFC5199165D6005161B5 /* Foundation.framework */; };
 		22CCEFC8199165D6005161B5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CCEFC7199165D6005161B5 /* CoreGraphics.framework */; };
 		22CCEFCA199165D6005161B5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CCEFC9199165D6005161B5 /* UIKit.framework */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2259A77C1991CB3D007A16C3 /* BBAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAccessory.h; sourceTree = "<group>"; };
+		2259A77D1991CB3D007A16C3 /* BBAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAccessory.m; sourceTree = "<group>"; };
 		22CCEFC2199165D6005161B5 /* blob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = blob.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22CCEFC5199165D6005161B5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		22CCEFC7199165D6005161B5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -185,8 +188,10 @@
 		22CCEFF51991664F005161B5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2259A77C1991CB3D007A16C3 /* BBAccessory.h */,
+				2259A77D1991CB3D007A16C3 /* BBAccessory.m */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		22CCEFF619916653005161B5 /* Views */ = {
@@ -324,6 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2259A77E1991CB3D007A16C3 /* BBAccessory.m in Sources */,
 				22CCF009199176A5005161B5 /* BBSecretLanguageViewController.m in Sources */,
 				22CCEFD6199165D6005161B5 /* BBAppDelegate.m in Sources */,
 				22CCEFFA199166A2005161B5 /* BBRootViewController.m in Sources */,
