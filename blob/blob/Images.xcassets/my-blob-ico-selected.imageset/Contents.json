@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "my-blob-ico.png"
+      "filename" : "my-blob-ico-selected.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "my-blob-ico@2x.png"
+      "filename" : "my-blob-ico-selected@2x.png"
     }
   ],
   "info" : {

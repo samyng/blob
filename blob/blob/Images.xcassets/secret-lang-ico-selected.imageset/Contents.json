@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "secret-lang-ico.png"
+      "filename" : "secret-lang-ico-selected.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "secret-lang-ico@2x.png"
+      "filename" : "secret-lang-ico-selected@2x.png"
     }
   ],
   "info" : {

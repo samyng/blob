@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "closet-ico.png"
+      "filename" : "closet-ico-selected.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "closet-ico@2x.png"
+      "filename" : "closet-ico-selected@2x.png"
     }
   ],
   "info" : {

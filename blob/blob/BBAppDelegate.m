@@ -17,6 +17,7 @@
     BBRootViewController *rootViewController = [[BBRootViewController alloc] init];
     rootViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.window.rootViewController = rootViewController;
+    [self.window setTintColor:[UIColor lightGrayColor]];
     [self.window makeKeyAndVisible];
     return YES;
 }

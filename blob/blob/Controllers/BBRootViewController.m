@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *myBlobButton;
 @property (weak, nonatomic) IBOutlet UIButton *secretLanguageButton;
 @property (strong, nonatomic) UIViewController *currentChildViewController;
+@property (strong, nonatomic) NSArray *tabButtons;
 @end
 
 @implementation BBRootViewController
@@ -38,22 +39,46 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self displayMyBlobViewController];
+    [self myBlobButtonPressed:self.myBlobButton];
     self.titleBarBackgroundView.backgroundColor = [BBConstants lightRedDefaultColor];
+    self.tabButtons = @[self.closetButton, self.myBlobButton, self.secretLanguageButton];
+    for (UIButton *button in self.tabButtons)
+    {
+        [button setTitleColor:[BBConstants unselectedTabTextColor] forState:UIControlStateNormal];
+    }
+    [self.closetButton setTitleColor:[BBConstants blueClosetColor] forState:UIControlStateSelected];
+    [self.myBlobButton setTitleColor:[BBConstants pinkMyBlobColor] forState:UIControlStateSelected];
+    [self.secretLanguageButton setTitleColor:[BBConstants purpleSecretLanguageColor] forState:UIControlStateSelected];
+    
+    UIImage *defaultClosetImage = [[UIImage imageNamed:@"closet-ico-selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [self.closetButton setImage:defaultClosetImage forState:UIControlStateNormal];
+    UIImage *defaultMyBlobImage = [[UIImage imageNamed:@"my-blob-ico-selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [self.myBlobButton setImage:defaultMyBlobImage forState:UIControlStateNormal];
+    UIImage *defaultSecretLanguageImage = [[UIImage imageNamed:@"secret-lang-ico-selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [self.secretLanguageButton setImage:defaultSecretLanguageImage forState:UIControlStateNormal];
 }
 
 # pragma mark - Button Pressed
 
 - (IBAction)closetButtonPressed:(UIButton *)sender {
     [self displayClosetViewController];
+    self.closetButton.selected = YES;
+    self.myBlobButton.selected =
+    self.secretLanguageButton.selected = NO;
 }
 
 - (IBAction)myBlobButtonPressed:(UIButton *)sender {
     [self displayMyBlobViewController];
+    self.myBlobButton.selected = YES;
+    self.closetButton.selected =
+    self.secretLanguageButton.selected = NO;
 }
 
 - (IBAction)secretLanguageButtonPressed:(UIButton *)sender {
     [self displaySecretLanguageViewController];
+    self.secretLanguageButton.selected = YES;
+    self.myBlobButton.selected =
+    self.closetButton.selected = NO;
 }
 
 # pragma mark - Child View Controller Methods
