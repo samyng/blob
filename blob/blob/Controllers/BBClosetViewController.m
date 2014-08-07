@@ -12,7 +12,6 @@
 
 static NSString * const kCategoriesTableCellIdentifier = @"categoriesTableCellIdentifier";
 static NSString * const kAccessoriesCollectionCellIdentifier = @"accessoriesCollectionCellIdentifier";
-static NSInteger const kTotalNumberOfSections = 1;
 
 static NSInteger const kAllSectionIndex = 0;
 static NSInteger const kFoodSectionIndex = 1;

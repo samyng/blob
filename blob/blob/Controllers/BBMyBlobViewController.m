@@ -9,7 +9,6 @@
 #import "BBMyBlobViewController.h"
 #import "BBFeelingCollectionCell.h"
 
-static NSInteger const kTotalNumberOfSections = 1;
 static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCellIdentifier";
 
 
