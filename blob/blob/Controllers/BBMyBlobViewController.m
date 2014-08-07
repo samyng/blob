@@ -19,7 +19,6 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
 @property (nonatomic) CGPoint cellCopyImageViewStartLocation;
 @property (nonatomic) UIImageView *cellCopyImageView;
 @property (nonatomic) NSIndexPath *startingIndexPath;
-@property (nonatomic) NSIndexPath *endingIndexPath;
 @end
 
 @implementation BBMyBlobViewController
@@ -71,6 +70,8 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
     {
         CGPoint finalTouchLocation = CGPointMake(667.0f, 107.0f);
         self.cellCopyImageView.center = finalTouchLocation;
+        [self.feelings removeObjectAtIndex:self.startingIndexPath.item];
+        [self.feelingsCollectionView deleteItemsAtIndexPaths:@[self.startingIndexPath]];
     }
 }
 
