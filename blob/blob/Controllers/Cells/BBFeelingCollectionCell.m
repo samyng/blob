@@ -9,7 +9,7 @@
 #import "BBFeelingCollectionCell.h"
 
 @interface BBFeelingCollectionCell ()
-@property (weak, nonatomic) IBOutlet UILabel *feelingLabel;
+
 @end
 
 @implementation BBFeelingCollectionCell

@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BBMyBlobViewController">
             <connections>
                 <outlet property="feelingsCollectionView" destination="EX7-u6-eFl" id="aQF-x3-Luc"/>
+                <outlet property="lumpyCircleImageView" destination="oxN-xK-8pG" id="1kH-ya-P2D"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
