@@ -14,7 +14,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lumpy-cricle" translatesAutoresizingMaskIntoConstraints="NO" id="RIW-SM-dFC">
-                        <rect key="frame" x="5" y="7" width="140" height="35"/>
+                        <rect key="frame" x="5" y="8" width="140" height="35"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="140" id="1wQ-Or-kl7"/>

@@ -10,4 +10,5 @@
 
 @interface BBFeelingCollectionCell : UICollectionViewCell
 - (void)configureWithName:(NSString *)name;
+- (UIImage *)getRasterizedImageCopy;
 @end

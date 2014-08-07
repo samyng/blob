@@ -34,11 +34,11 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lumpy-cricle" translatesAutoresizingMaskIntoConstraints="NO" id="oxN-xK-8pG">
-                    <rect key="frame" x="567" y="85" width="200" height="45"/>
+                    <rect key="frame" x="581" y="85" width="168" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="200" id="0AM-4j-KH3"/>
-                        <constraint firstAttribute="height" constant="45" id="3lc-eY-KJt"/>
+                        <constraint firstAttribute="width" constant="168" id="0AM-4j-KH3"/>
+                        <constraint firstAttribute="height" constant="44" id="3lc-eY-KJt"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONNECTED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vul-lS-Yxl">
@@ -73,7 +73,7 @@
             <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="VaV-xL-ftw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="85" id="9eG-8L-eUJ"/>
-                <constraint firstItem="oxN-xK-8pG" firstAttribute="leading" secondItem="VaV-xL-ftw" secondAttribute="trailing" constant="8" id="9eW-hi-ckL"/>
+                <constraint firstItem="oxN-xK-8pG" firstAttribute="leading" secondItem="VaV-xL-ftw" secondAttribute="trailing" constant="22" id="9eW-hi-ckL"/>
                 <constraint firstAttribute="centerX" secondItem="Vul-lS-Yxl" secondAttribute="centerX" constant="-0.5" id="BRY-ZL-Rx8"/>
                 <constraint firstItem="VaV-xL-ftw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="275" id="PZR-e7-1vR"/>
                 <constraint firstAttribute="centerX" secondItem="b4W-6b-h6i" secondAttribute="centerX" id="Rdq-JN-B6e"/>
