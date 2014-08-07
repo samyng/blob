@@ -38,4 +38,9 @@
     return [UIColor darkGrayColor];
 }
 
++ (UIColor *)magnesiumGrayColor
+{
+    return [UIColor colorWithRed:203.0f/255 green:203.0f/255 blue:203.0f/255 alpha:1.0f];
+}
+
 @end

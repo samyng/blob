@@ -12,6 +12,8 @@
 		2259A7831991D93D007A16C3 /* BBAccessoryCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2259A7821991D93D007A16C3 /* BBAccessoryCollectionCell.xib */; };
 		22A2866D1992E9780087A311 /* BBFeelingCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A2866C1992E9780087A311 /* BBFeelingCollectionCell.m */; };
 		22A2866F1992EA5C0087A311 /* BBFeelingCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A2866E1992EA5C0087A311 /* BBFeelingCollectionCell.xib */; };
+		22C4F7C31994009C00928EEB /* BBCodeBlockCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C4F7C21994009C00928EEB /* BBCodeBlockCollectionCell.m */; };
+		22C4F7C5199400B200928EEB /* BBCodeBlockCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22C4F7C4199400B200928EEB /* BBCodeBlockCollectionCell.xib */; };
 		22CCEFC6199165D6005161B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CCEFC5199165D6005161B5 /* Foundation.framework */; };
 		22CCEFC8199165D6005161B5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CCEFC7199165D6005161B5 /* CoreGraphics.framework */; };
 		22CCEFCA199165D6005161B5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CCEFC9199165D6005161B5 /* UIKit.framework */; };
@@ -54,6 +56,9 @@
 		22A2866B1992E9780087A311 /* BBFeelingCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBFeelingCollectionCell.h; path = Cells/BBFeelingCollectionCell.h; sourceTree = "<group>"; };
 		22A2866C1992E9780087A311 /* BBFeelingCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBFeelingCollectionCell.m; path = Cells/BBFeelingCollectionCell.m; sourceTree = "<group>"; };
 		22A2866E1992EA5C0087A311 /* BBFeelingCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBFeelingCollectionCell.xib; sourceTree = "<group>"; };
+		22C4F7C11994009C00928EEB /* BBCodeBlockCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBCodeBlockCollectionCell.h; path = Cells/BBCodeBlockCollectionCell.h; sourceTree = "<group>"; };
+		22C4F7C21994009C00928EEB /* BBCodeBlockCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBCodeBlockCollectionCell.m; path = Cells/BBCodeBlockCollectionCell.m; sourceTree = "<group>"; };
+		22C4F7C4199400B200928EEB /* BBCodeBlockCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBCodeBlockCollectionCell.xib; sourceTree = "<group>"; };
 		22CCEFC2199165D6005161B5 /* blob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = blob.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22CCEFC5199165D6005161B5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		22CCEFC7199165D6005161B5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -119,6 +124,9 @@
 				22A2866B1992E9780087A311 /* BBFeelingCollectionCell.h */,
 				22A2866C1992E9780087A311 /* BBFeelingCollectionCell.m */,
 				22A2866E1992EA5C0087A311 /* BBFeelingCollectionCell.xib */,
+				22C4F7C11994009C00928EEB /* BBCodeBlockCollectionCell.h */,
+				22C4F7C21994009C00928EEB /* BBCodeBlockCollectionCell.m */,
+				22C4F7C4199400B200928EEB /* BBCodeBlockCollectionCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -334,6 +342,7 @@
 				22CCEFD0199165D6005161B5 /* InfoPlist.strings in Resources */,
 				22CCF00A199176A5005161B5 /* BBSecretLanguageViewController.xib in Resources */,
 				22CCEFD8199165D6005161B5 /* Images.xcassets in Resources */,
+				22C4F7C5199400B200928EEB /* BBCodeBlockCollectionCell.xib in Resources */,
 				22CCEFFB199166A2005161B5 /* BBRootViewController.xib in Resources */,
 				22A2866F1992EA5C0087A311 /* BBFeelingCollectionCell.xib in Resources */,
 				2259A7831991D93D007A16C3 /* BBAccessoryCollectionCell.xib in Resources */,
@@ -356,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2259A7811991D91D007A16C3 /* BBAccessoryCollectionCell.m in Sources */,
+				22C4F7C31994009C00928EEB /* BBCodeBlockCollectionCell.m in Sources */,
 				2259A77E1991CB3D007A16C3 /* BBAccessory.m in Sources */,
 				22CCF009199176A5005161B5 /* BBSecretLanguageViewController.m in Sources */,
 				22CCEFD6199165D6005161B5 /* BBAppDelegate.m in Sources */,

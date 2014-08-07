@@ -7,11 +7,10 @@
 //
 
 #import "BBSecretLanguageViewController.h"
-#import "BBFeelingCollectionCell.h"
+#import "BBCodeBlockCollectionCell.h"
 
-static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCellIdentifier";
-static NSString * const kCodingGroupsTableCellIdentifier = @"codingGroupsTableCellIdentifier";
-static NSString * const kCodingBlocksCollectionCellIdentifier = @"codingBlocksCollectionCellIdentifier";
+static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier";
+static NSString * const kCodeBlockCollectionCellIdentifier = @"codeBlockCollectionCellIdentifier";
 
 @interface BBSecretLanguageViewController () <UICollectionViewDataSource, UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *codeBlocksCollectionView;
@@ -26,8 +25,8 @@ static NSString * const kCodingBlocksCollectionCellIdentifier = @"codingBlocksCo
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.groupsTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kCodingGroupsTableCellIdentifier];
-    [self.codeBlocksCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:kCodingBlocksCollectionCellIdentifier];
+    [self.groupsTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kGroupsTableCellIdentifier];
+    [self.codeBlocksCollectionView registerNib:[UINib nibWithNibName:@"BBCodeBlockCollectionCell" bundle:nil] forCellWithReuseIdentifier:kCodeBlockCollectionCellIdentifier];
     
     self.groups = @[@"All", @"Operators", @"Conditional", @"Sound"];
     self.codeBlocks = @[@"If", @"Then", @"While", @"Greater than", @"Less than", @"Blush", @"Shake", @"Giggle"];
@@ -56,12 +55,10 @@ static NSString * const kCodingBlocksCollectionCellIdentifier = @"codingBlocksCo
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-        UICollectionViewCell *cell = [self.codeBlocksCollectionView dequeueReusableCellWithReuseIdentifier:kCodingBlocksCollectionCellIdentifier forIndexPath:indexPath];
-        CGRect frame = CGRectInset(cell.contentView.frame, 10, 0);
-        UILabel *nameLabel = [[UILabel alloc] initWithFrame:frame];
-        [cell.contentView addSubview:nameLabel];
-        nameLabel.text = [self.codeBlocks objectAtIndex:indexPath.item];
-        cell.contentView.backgroundColor = [UIColor whiteColor];
+        BBCodeBlockCollectionCell *cell = (BBCodeBlockCollectionCell *)[self.codeBlocksCollectionView dequeueReusableCellWithReuseIdentifier:kCodeBlockCollectionCellIdentifier
+                                                                                                                                forIndexPath:indexPath];
+        NSString *name = [self.codeBlocks objectAtIndex:indexPath.item];
+        [cell configureWithName:name];
         return cell;
 }
 
@@ -79,14 +76,14 @@ static NSString * const kCodingBlocksCollectionCellIdentifier = @"codingBlocksCo
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [self.groupsTableView dequeueReusableCellWithIdentifier:kCodingGroupsTableCellIdentifier];
+    UITableViewCell *cell = [self.groupsTableView dequeueReusableCellWithIdentifier:kGroupsTableCellIdentifier];
     cell.textLabel.text = [self.groups objectAtIndex:indexPath.row];
     cell.textLabel.font = [UIFont fontWithName:@"Avenir" size:17.0f];
     cell.contentView.backgroundColor = [UIColor lightGrayColor];
     
     CGRect frame = cell.contentView.frame;
     UIView *selectedBackgroundView = [[UIView alloc] initWithFrame:frame];
-    selectedBackgroundView.backgroundColor = [UIColor whiteColor];
+    selectedBackgroundView.backgroundColor = [BBConstants magnesiumGrayColor];
     [cell setSelectedBackgroundView:selectedBackgroundView];
     return cell;
 }
