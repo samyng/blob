@@ -87,21 +87,26 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
         if ([self.feelingsCollectionView pointInside:touchLocation withEvent:nil])
         {
             NSIndexPath *endingIndexPath = [self.feelingsCollectionView indexPathForItemAtPoint:touchLocation];
-            if (endingIndexPath)
+            if (endingIndexPath != self.startingIndexPath)
             {
-                if (self.currentFeelingName)
+                if (endingIndexPath)
                 {
                     [self.feelings insertObject:self.currentFeelingName atIndex:endingIndexPath.item];
                     self.currentFeelingName = nil;
+                    [self.feelingsCollectionView insertItemsAtIndexPaths:@[endingIndexPath]];
+                    [self.feelingsCollectionView reloadItemsAtIndexPaths:@[endingIndexPath]];
+                    [self.cellCopyImageView removeFromSuperview];
                 }
-                [self.feelingsCollectionView insertItemsAtIndexPaths:@[endingIndexPath]];
-                [self.feelingsCollectionView reloadItemsAtIndexPaths:@[endingIndexPath]];
-                [self.cellCopyImageView removeFromSuperview];
+                else
+                {
+                    CGPoint finalTouchLocation = CGPointMake(667.0f, 107.0f);
+                    self.cellCopyImageView.center = finalTouchLocation;
+                }
             }
             else
             {
-                CGPoint finalTouchLocation = CGPointMake(667.0f, 107.0f);
-                self.cellCopyImageView.center = finalTouchLocation;
+                self.currentFeelingName = nil;
+                [self.cellCopyImageView removeFromSuperview];
             }
         }
         else
