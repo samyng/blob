@@ -17,47 +17,48 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blob" translatesAutoresizingMaskIntoConstraints="NO" id="b4W-6b-h6i">
-                    <rect key="frame" x="109" y="160" width="550" height="450"/>
+                    <rect key="frame" x="109" y="150" width="550" height="450"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="450" id="LQi-Nq-SQR"/>
                         <constraint firstAttribute="width" constant="550" id="TwA-6Z-eL3"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blob is feeling " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VaV-xL-ftw">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blob is feeling " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VaV-xL-ftw">
                     <rect key="frame" x="275" y="85" width="284" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="284" id="W9g-5i-vHY"/>
                         <constraint firstAttribute="height" constant="45" id="lRs-K0-9cT"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="32"/>
+                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="41"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lumpy-cricle" translatesAutoresizingMaskIntoConstraints="NO" id="oxN-xK-8pG">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oxN-xK-8pG">
                     <rect key="frame" x="581" y="85" width="168" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="168" id="0AM-4j-KH3"/>
                         <constraint firstAttribute="height" constant="44" id="3lc-eY-KJt"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONNECTED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vul-lS-Yxl">
-                    <rect key="frame" x="340" y="610" width="89" height="21"/>
+                    <rect key="frame" x="340" y="600" width="89" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="89" id="gJG-ln-DYY"/>
                         <constraint firstAttribute="height" constant="21" id="pgg-y5-wT9"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="10"/>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="EX7-u6-eFl" userLabel="Feelings Collection View">
-                    <rect key="frame" x="0.0" y="0.0" width="768" height="56"/>
+                    <rect key="frame" x="0.0" y="0.0" width="768" height="64"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" red="0.88941491168478259" green="0.71236450458496214" blue="0.35938869935542084" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="56" id="wzh-Z6-0NT"/>
+                        <constraint firstAttribute="height" constant="64" id="wzh-Z6-0NT"/>
                     </constraints>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Lep-db-bkh">
                         <size key="itemSize" width="150" height="50"/>
@@ -71,7 +72,7 @@
                     </connections>
                 </collectionView>
             </subviews>
-            <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="VaV-xL-ftw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="85" id="9eG-8L-eUJ"/>
                 <constraint firstItem="oxN-xK-8pG" firstAttribute="leading" secondItem="VaV-xL-ftw" secondAttribute="trailing" constant="22" id="9eW-hi-ckL"/>
@@ -79,7 +80,7 @@
                 <constraint firstItem="VaV-xL-ftw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="275" id="PZR-e7-1vR"/>
                 <constraint firstAttribute="centerX" secondItem="b4W-6b-h6i" secondAttribute="centerX" id="Rdq-JN-B6e"/>
                 <constraint firstItem="EX7-u6-eFl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Yqo-81-wz7"/>
-                <constraint firstItem="b4W-6b-h6i" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="160" id="cr9-ln-79r"/>
+                <constraint firstItem="b4W-6b-h6i" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="150" id="cr9-ln-79r"/>
                 <constraint firstItem="oxN-xK-8pG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="85" id="oDb-ig-aQC"/>
                 <constraint firstAttribute="trailing" secondItem="EX7-u6-eFl" secondAttribute="trailing" id="sM7-Bi-RBO"/>
                 <constraint firstItem="Vul-lS-Yxl" firstAttribute="top" secondItem="b4W-6b-h6i" secondAttribute="bottom" id="uRS-oT-dYF"/>
@@ -90,6 +91,5 @@
     </objects>
     <resources>
         <image name="blob" width="997" height="867"/>
-        <image name="lumpy-cricle" width="225" height="102"/>
     </resources>
 </document>

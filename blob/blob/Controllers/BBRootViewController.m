@@ -40,7 +40,7 @@
 {
     [super viewDidLoad];
     [self myBlobButtonPressed:self.myBlobButton];
-    self.titleBarBackgroundView.backgroundColor = [BBConstants lightRedDefaultColor];
+    self.titleBarBackgroundView.backgroundColor = [BBConstants lightGrayDefaultColor];
     self.tabButtons = @[self.closetButton, self.myBlobButton, self.secretLanguageButton];
     for (UIButton *button in self.tabButtons)
     {

@@ -5,7 +5,9 @@ static NSInteger const kTotalNumberOfSections = 1;
 
 @interface BBConstants : NSObject
 
-+ (UIColor *)lightRedDefaultColor;
++ (UIColor *)pinkDefaultColor;
++ (UIColor *)lightGrayDefaultColor;
++ (UIColor *)lightBlueDefaultColor;
 + (UIColor *)blueClosetColor;
 + (UIColor *)pinkMyBlobColor;
 + (UIColor *)purpleSecretLanguageColor;

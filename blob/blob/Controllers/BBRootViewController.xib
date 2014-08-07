@@ -32,7 +32,7 @@
                                 <constraint firstAttribute="width" constant="300" id="Y7a-Fa-Qbi"/>
                                 <constraint firstAttribute="height" constant="44" id="oZD-g1-SUS"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="22"/>
+                            <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="22"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -67,6 +67,7 @@
                                 <constraint firstAttribute="width" constant="115" id="DvW-Sw-OqN"/>
                                 <constraint firstAttribute="height" constant="62" id="VbH-eZ-DyL"/>
                             </constraints>
+                            <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="18"/>
                             <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="Closet">
                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -86,6 +87,7 @@
                                 <constraint firstAttribute="width" constant="125" id="WhF-Kf-j0E"/>
                                 <constraint firstAttribute="height" constant="62" id="ksf-0Y-gy7"/>
                             </constraints>
+                            <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="18"/>
                             <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="My Blob" image="my-blob-ico-selected">
                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -103,6 +105,7 @@
                                 <constraint firstAttribute="width" constant="190" id="BZ8-qx-RK4"/>
                                 <constraint firstAttribute="height" constant="62" id="p1C-HR-ueR"/>
                             </constraints>
+                            <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="18"/>
                             <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="Secret Language">
                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>

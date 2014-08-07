@@ -3,9 +3,19 @@
 
 @implementation BBConstants
 
-+ (UIColor *)lightRedDefaultColor
++ (UIColor *)pinkDefaultColor
 {
-    return [UIColor colorWithRed:205.0f/255 green:58.0f/255 blue:78.0f/255 alpha:1.0f];
+    return [UIColor colorWithRed:206.0f/255 green:58.0f/255 blue:78.0f/255 alpha:1.0f];
+}
+
++ (UIColor *)lightGrayDefaultColor
+{
+    return [UIColor colorWithRed:231.0f/255 green:231.0f/255 blue:231.0f/255 alpha:1.0f];
+}
+
++ (UIColor *)lightBlueDefaultColor
+{
+    return [UIColor colorWithRed:95.0f/255 green:173.0f/255 blue:219.0f/255 alpha:1.0f];
 }
 
 + (UIColor *)blueClosetColor
@@ -15,7 +25,7 @@
 
 + (UIColor *)pinkMyBlobColor
 {
-    return [BBConstants lightRedDefaultColor];
+    return [BBConstants pinkDefaultColor];
 }
 
 + (UIColor *)purpleSecretLanguageColor
