@@ -5,4 +5,6 @@ static NSInteger const kTotalNumberOfSections = 1;
 
 @interface BBConstants : NSObject
 
++ (UIColor *)lightRedDefaultColor;
+
 @end

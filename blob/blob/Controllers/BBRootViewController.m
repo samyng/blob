@@ -30,7 +30,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.titleLabel.text = BLOB_TITLE;
+        _titleLabel.text = BLOB_TITLE;
     }
     return self;
 }
@@ -39,6 +39,7 @@
 {
     [super viewDidLoad];
     [self displayMyBlobViewController];
+    self.titleBarBackgroundView.backgroundColor = [BBConstants lightRedDefaultColor];
 }
 
 # pragma mark - Button Pressed

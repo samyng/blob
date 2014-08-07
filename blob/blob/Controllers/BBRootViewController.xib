@@ -22,11 +22,11 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EEb-J0-ttH" userLabel="Title Bar Background View">
-                    <rect key="frame" x="-2" y="-2" width="772" height="46"/>
+                    <rect key="frame" x="-2" y="-2" width="772" height="66"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BLOB LOGO" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T27-98-pMb">
-                            <rect key="frame" x="20" y="0.0" width="300" height="44"/>
+                            <rect key="frame" x="20" y="11" width="300" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="300" id="Y7a-Fa-Qbi"/>
@@ -37,10 +37,10 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oca-az-dwP">
-                            <rect key="frame" x="705" y="4" width="38" height="38"/>
+                            <rect key="frame" x="717" y="14" width="35" height="38"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="38" id="Jph-57-5iy"/>
+                                <constraint firstAttribute="width" constant="35" id="Jph-57-5iy"/>
                                 <constraint firstAttribute="height" constant="38" id="kNh-2H-dLB"/>
                             </constraints>
                             <state key="normal" image="menu">
@@ -48,12 +48,11 @@
                             </state>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="T27-98-pMb" secondAttribute="bottom" constant="2" id="FnB-C9-ef8"/>
+                        <constraint firstAttribute="bottom" secondItem="T27-98-pMb" secondAttribute="bottom" constant="11" id="FnB-C9-ef8"/>
                         <constraint firstItem="T27-98-pMb" firstAttribute="leading" secondItem="EEb-J0-ttH" secondAttribute="leading" constant="20" id="U35-Pl-P9u"/>
-                        <constraint firstAttribute="height" constant="46" id="XKu-1X-imH"/>
-                        <constraint firstAttribute="trailing" secondItem="Oca-az-dwP" secondAttribute="trailing" constant="29" id="dgc-xg-lya"/>
+                        <constraint firstAttribute="height" constant="66" id="XKu-1X-imH"/>
+                        <constraint firstAttribute="trailing" secondItem="Oca-az-dwP" secondAttribute="trailing" constant="20" id="dgc-xg-lya"/>
                         <constraint firstAttribute="centerY" secondItem="Oca-az-dwP" secondAttribute="centerY" id="raP-kO-LuB"/>
                     </constraints>
                 </view>
@@ -62,14 +61,14 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPj-fl-Ysb" userLabel="Button - Closet">
-                            <rect key="frame" x="131" y="0.0" width="115" height="62"/>
+                            <rect key="frame" x="121" y="0.0" width="115" height="62"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="115" id="DvW-Sw-OqN"/>
                                 <constraint firstAttribute="height" constant="62" id="VbH-eZ-DyL"/>
                             </constraints>
                             <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" title="Closet" image="wardrobe">
+                            <state key="normal" title="Closet" image="closet-ico">
                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -77,15 +76,15 @@
                                 <action selector="closetButtonPressed:" destination="-1" eventType="touchUpInside" id="3vW-oc-98t"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rt-m3-Xtf" userLabel="Button - My Blob">
-                            <rect key="frame" x="346" y="0.0" width="80" height="62"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rt-m3-Xtf" userLabel="Button - My Blob">
+                            <rect key="frame" x="324" y="0.0" width="125" height="62"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="80" id="WhF-Kf-j0E"/>
+                                <constraint firstAttribute="width" constant="125" id="WhF-Kf-j0E"/>
                                 <constraint firstAttribute="height" constant="62" id="ksf-0Y-gy7"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
-                            <state key="normal" title="My Blob">
+                            <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="My Blob" image="my-blob-ico">
                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -93,15 +92,15 @@
                                 <action selector="myBlobButtonPressed:" destination="-1" eventType="touchUpInside" id="eUr-aJ-etL"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cti-Gz-cRl" userLabel="Button - Secret Language">
-                            <rect key="frame" x="456" y="0.0" width="150" height="62"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cti-Gz-cRl" userLabel="Button - Secret Language">
+                            <rect key="frame" x="536" y="0.0" width="190" height="62"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="150" id="BZ8-qx-RK4"/>
+                                <constraint firstAttribute="width" constant="190" id="BZ8-qx-RK4"/>
                                 <constraint firstAttribute="height" constant="62" id="p1C-HR-ueR"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
-                            <state key="normal" title="Secret Language">
+                            <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Secret Language" image="secret-lang-ico">
                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -113,16 +112,16 @@
                     <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="centerY" secondItem="Cti-Gz-cRl" secondAttribute="centerY" constant="1" id="5V7-T7-Jxh"/>
-                        <constraint firstItem="6rt-m3-Xtf" firstAttribute="leading" secondItem="yPj-fl-Ysb" secondAttribute="trailing" constant="100" id="AMk-QW-nBS"/>
+                        <constraint firstItem="6rt-m3-Xtf" firstAttribute="leading" secondItem="yPj-fl-Ysb" secondAttribute="trailing" constant="88" id="AMk-QW-nBS"/>
                         <constraint firstAttribute="centerY" secondItem="yPj-fl-Ysb" secondAttribute="centerY" constant="1" id="CQX-0P-ZBg"/>
                         <constraint firstAttribute="centerY" secondItem="6rt-m3-Xtf" secondAttribute="centerY" constant="1" id="G4c-As-NzI"/>
                         <constraint firstAttribute="centerX" secondItem="6rt-m3-Xtf" secondAttribute="centerX" id="JOP-Fz-A2W"/>
-                        <constraint firstItem="Cti-Gz-cRl" firstAttribute="leading" secondItem="6rt-m3-Xtf" secondAttribute="trailing" constant="30" id="JXW-yL-Fgv"/>
+                        <constraint firstItem="Cti-Gz-cRl" firstAttribute="leading" secondItem="6rt-m3-Xtf" secondAttribute="trailing" constant="87" id="JXW-yL-Fgv"/>
                         <constraint firstAttribute="height" constant="64" id="VFR-7T-xl6"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6kW-fT-GFG" userLabel="Container View">
-                    <rect key="frame" x="0.0" y="44" width="768" height="918"/>
+                    <rect key="frame" x="0.0" y="64" width="768" height="898"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </view>
             </subviews>
@@ -141,7 +140,9 @@
         </view>
     </objects>
     <resources>
+        <image name="closet-ico" width="32" height="32"/>
         <image name="menu" width="64" height="64"/>
-        <image name="wardrobe" width="32" height="32"/>
+        <image name="my-blob-ico" width="32" height="28"/>
+        <image name="secret-lang-ico" width="32" height="30"/>
     </resources>
 </document>
