@@ -44,6 +44,8 @@ static NSInteger const kPlacesSectionIndex = 4;
     self.clothes = [self clothTest];
     self.friends = [self friendTest];
     self.places = [self placeTest];
+    
+    [self.categoriesTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
 }
 
 #pragma mark - Table View Datasource Methods
@@ -61,6 +63,14 @@ static NSInteger const kPlacesSectionIndex = 4;
 {
     UITableViewCell *cell = [self.categoriesTableView dequeueReusableCellWithIdentifier:kCategoriesTableCellIdentifier];
     cell.textLabel.text = [self.categories objectAtIndex:indexPath.row];
+    cell.textLabel.font = [UIFont fontWithName:@"Avenir" size:17.0f];
+    cell.contentView.backgroundColor = [UIColor lightGrayColor];
+    
+    CGRect frame = cell.contentView.frame;
+    UIView *selectedBackgroundView = [[UIView alloc] initWithFrame:frame];
+    selectedBackgroundView.backgroundColor = [UIColor whiteColor];
+    [cell setSelectedBackgroundView:selectedBackgroundView];
+    
     return cell;
 }
 

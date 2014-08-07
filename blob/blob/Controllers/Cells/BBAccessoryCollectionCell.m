@@ -31,9 +31,9 @@
 
 - (void)setup
 {
-    self.backgroundColor = [UIColor darkGrayColor];
+    self.backgroundColor = [UIColor lightGrayColor];
     self.layer.borderWidth = 5.0f;
-    self.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.layer.borderColor = [UIColor darkGrayColor].CGColor;
     self.thumbnailImageView.contentMode = UIViewContentModeScaleAspectFit;
 }
 
