@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2259A77E1991CB3D007A16C3 /* BBAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2259A77D1991CB3D007A16C3 /* BBAccessory.m */; };
+		2209DB5F1995B71300EC757C /* BBConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCEFFE199168B5005161B5 /* BBConstants.m */; };
 		2259A7811991D91D007A16C3 /* BBAccessoryCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2259A7801991D91D007A16C3 /* BBAccessoryCollectionCell.m */; };
 		2259A7831991D93D007A16C3 /* BBAccessoryCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2259A7821991D93D007A16C3 /* BBAccessoryCollectionCell.xib */; };
 		22A2866D1992E9780087A311 /* BBFeelingCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A2866C1992E9780087A311 /* BBFeelingCollectionCell.m */; };
 		22A2866F1992EA5C0087A311 /* BBFeelingCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A2866E1992EA5C0087A311 /* BBFeelingCollectionCell.xib */; };
+		22B313A319958AE60006AE57 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B313A219958AE60006AE57 /* CoreData.framework */; };
+		22B313A619958B4C0006AE57 /* BlobDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22B313A419958B4C0006AE57 /* BlobDataModel.xcdatamodeld */; };
+		22B313A919959F4B0006AE57 /* BBAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B313A819959F4B0006AE57 /* BBAccessory.m */; };
+		22B313AC19959FEA0006AE57 /* BBAccessory+Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B313AB19959FEA0006AE57 /* BBAccessory+Configure.m */; };
 		22C4F7C31994009C00928EEB /* BBCodeBlockCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C4F7C21994009C00928EEB /* BBCodeBlockCollectionCell.m */; };
 		22C4F7C5199400B200928EEB /* BBCodeBlockCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22C4F7C4199400B200928EEB /* BBCodeBlockCollectionCell.xib */; };
 		22CCEFC6199165D6005161B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CCEFC5199165D6005161B5 /* Foundation.framework */; };
@@ -28,7 +32,6 @@
 		22CCEFEB199165D6005161B5 /* blobTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCEFEA199165D6005161B5 /* blobTests.m */; };
 		22CCEFFA199166A2005161B5 /* BBRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCEFF8199166A2005161B5 /* BBRootViewController.m */; };
 		22CCEFFB199166A2005161B5 /* BBRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CCEFF9199166A2005161B5 /* BBRootViewController.xib */; };
-		22CCEFFF199168B5005161B5 /* BBConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCEFFE199168B5005161B5 /* BBConstants.m */; };
 		22CCF00419917680005161B5 /* BBClosetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCF00219917680005161B5 /* BBClosetViewController.m */; };
 		22CCF00519917680005161B5 /* BBClosetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CCF00319917680005161B5 /* BBClosetViewController.xib */; };
 		22CCF009199176A5005161B5 /* BBSecretLanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCF007199176A5005161B5 /* BBSecretLanguageViewController.m */; };
@@ -48,14 +51,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2259A77C1991CB3D007A16C3 /* BBAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAccessory.h; sourceTree = "<group>"; };
-		2259A77D1991CB3D007A16C3 /* BBAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAccessory.m; sourceTree = "<group>"; };
 		2259A77F1991D91D007A16C3 /* BBAccessoryCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAccessoryCollectionCell.h; path = Cells/BBAccessoryCollectionCell.h; sourceTree = "<group>"; };
 		2259A7801991D91D007A16C3 /* BBAccessoryCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAccessoryCollectionCell.m; path = Cells/BBAccessoryCollectionCell.m; sourceTree = "<group>"; };
 		2259A7821991D93D007A16C3 /* BBAccessoryCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BBAccessoryCollectionCell.xib; path = Cells/BBAccessoryCollectionCell.xib; sourceTree = "<group>"; };
 		22A2866B1992E9780087A311 /* BBFeelingCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBFeelingCollectionCell.h; path = Cells/BBFeelingCollectionCell.h; sourceTree = "<group>"; };
 		22A2866C1992E9780087A311 /* BBFeelingCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBFeelingCollectionCell.m; path = Cells/BBFeelingCollectionCell.m; sourceTree = "<group>"; };
 		22A2866E1992EA5C0087A311 /* BBFeelingCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBFeelingCollectionCell.xib; sourceTree = "<group>"; };
+		22B313A219958AE60006AE57 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		22B313A519958B4C0006AE57 /* BlobDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BlobDataModel.xcdatamodel; sourceTree = "<group>"; };
+		22B313A719959F4B0006AE57 /* BBAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAccessory.h; sourceTree = "<group>"; };
+		22B313A819959F4B0006AE57 /* BBAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAccessory.m; sourceTree = "<group>"; };
+		22B313AA19959FEA0006AE57 /* BBAccessory+Configure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BBAccessory+Configure.h"; sourceTree = "<group>"; };
+		22B313AB19959FEA0006AE57 /* BBAccessory+Configure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BBAccessory+Configure.m"; sourceTree = "<group>"; };
 		22C4F7C11994009C00928EEB /* BBCodeBlockCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBCodeBlockCollectionCell.h; path = Cells/BBCodeBlockCollectionCell.h; sourceTree = "<group>"; };
 		22C4F7C21994009C00928EEB /* BBCodeBlockCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBCodeBlockCollectionCell.m; path = Cells/BBCodeBlockCollectionCell.m; sourceTree = "<group>"; };
 		22C4F7C4199400B200928EEB /* BBCodeBlockCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBCodeBlockCollectionCell.xib; sourceTree = "<group>"; };
@@ -96,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22B313A319958AE60006AE57 /* CoreData.framework in Frameworks */,
 				22CCEFC8199165D6005161B5 /* CoreGraphics.framework in Frameworks */,
 				22CCEFCA199165D6005161B5 /* UIKit.framework in Frameworks */,
 				22CCEFC6199165D6005161B5 /* Foundation.framework in Frameworks */,
@@ -131,6 +139,15 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		22B313AD1995A0650006AE57 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				22B313A719959F4B0006AE57 /* BBAccessory.h */,
+				22B313A819959F4B0006AE57 /* BBAccessory.m */,
+			);
+			name = Generated;
+			sourceTree = "<group>";
+		};
 		22CCEFB9199165D6005161B5 = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +170,7 @@
 		22CCEFC4199165D6005161B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				22B313A219958AE60006AE57 /* CoreData.framework */,
 				22CCEFC5199165D6005161B5 /* Foundation.framework */,
 				22CCEFC7199165D6005161B5 /* CoreGraphics.framework */,
 				22CCEFC9199165D6005161B5 /* UIKit.framework */,
@@ -219,8 +237,10 @@
 		22CCEFF51991664F005161B5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2259A77C1991CB3D007A16C3 /* BBAccessory.h */,
-				2259A77D1991CB3D007A16C3 /* BBAccessory.m */,
+				22B313A419958B4C0006AE57 /* BlobDataModel.xcdatamodeld */,
+				22B313AD1995A0650006AE57 /* Generated */,
+				22B313AA19959FEA0006AE57 /* BBAccessory+Configure.h */,
+				22B313AB19959FEA0006AE57 /* BBAccessory+Configure.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -364,15 +384,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2209DB5F1995B71300EC757C /* BBConstants.m in Sources */,
 				2259A7811991D91D007A16C3 /* BBAccessoryCollectionCell.m in Sources */,
 				22C4F7C31994009C00928EEB /* BBCodeBlockCollectionCell.m in Sources */,
-				2259A77E1991CB3D007A16C3 /* BBAccessory.m in Sources */,
 				22CCF009199176A5005161B5 /* BBSecretLanguageViewController.m in Sources */,
+				22B313A619958B4C0006AE57 /* BlobDataModel.xcdatamodeld in Sources */,
+				22B313A919959F4B0006AE57 /* BBAccessory.m in Sources */,
 				22CCEFD6199165D6005161B5 /* BBAppDelegate.m in Sources */,
 				22CCEFFA199166A2005161B5 /* BBRootViewController.m in Sources */,
+				22B313AC19959FEA0006AE57 /* BBAccessory+Configure.m in Sources */,
 				22CCEFD2199165D6005161B5 /* main.m in Sources */,
 				22CCF00419917680005161B5 /* BBClosetViewController.m in Sources */,
-				22CCEFFF199168B5005161B5 /* BBConstants.m in Sources */,
 				22A2866D1992E9780087A311 /* BBFeelingCollectionCell.m in Sources */,
 				22CCF00E199176BD005161B5 /* BBMyBlobViewController.m in Sources */,
 			);
@@ -587,6 +609,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		22B313A419958B4C0006AE57 /* BlobDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				22B313A519958B4C0006AE57 /* BlobDataModel.xcdatamodel */,
+			);
+			currentVersion = 22B313A519958B4C0006AE57 /* BlobDataModel.xcdatamodel */;
+			path = BlobDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 22CCEFBA199165D6005161B5 /* Project object */;
 }

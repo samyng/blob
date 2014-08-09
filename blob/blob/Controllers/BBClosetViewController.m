@@ -7,27 +7,19 @@
 //
 
 #import "BBClosetViewController.h"
-#import "BBAccessory.h"
 #import "BBAccessoryCollectionCell.h"
+#import "BBAccessory+Configure.h"
 
 static NSString * const kCategoriesTableCellIdentifier = @"categoriesTableCellIdentifier";
 static NSString * const kAccessoriesCollectionCellIdentifier = @"accessoriesCollectionCellIdentifier";
 
-static NSInteger const kAllSectionIndex = 0;
-static NSInteger const kFoodSectionIndex = 1;
-static NSInteger const kClothesSectionIndex = 2;
-static NSInteger const kFriendsSectionIndex = 3;
-static NSInteger const kPlacesSectionIndex = 4;
 
-@interface BBClosetViewController () <UITableViewDataSource, UICollectionViewDataSource, UITableViewDelegate>
+@interface BBClosetViewController () <UITableViewDataSource, UICollectionViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *categoriesTableView;
 @property (weak, nonatomic) IBOutlet UICollectionView *accessoriesCollectionView;
 @property (strong, nonatomic) NSArray *categories;
-
-@property (strong, nonatomic) NSArray *foods;
-@property (strong, nonatomic) NSArray *clothes;
-@property (strong, nonatomic) NSArray *friends;
-@property (strong, nonatomic) NSArray *places;
+@property (strong, nonatomic) NSArray *accessories;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @end
 
 @implementation BBClosetViewController
@@ -37,15 +29,31 @@ static NSInteger const kPlacesSectionIndex = 4;
     [super viewDidLoad];
     [self.categoriesTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kCategoriesTableCellIdentifier];
     [self.accessoriesCollectionView registerNib:[UINib nibWithNibName:@"BBAccessoryCollectionCell" bundle:nil] forCellWithReuseIdentifier:kAccessoriesCollectionCellIdentifier];
-    self.categories = @[@"All", @"Food", @"Clothes", @"Friends", @"Places", @"Cooking", @"Sports", @"Special Occassions", @"Movies", @"Celebrities", @"Concerts", @"Holidays"];
-    
-    // Temporary test data - SY (8/5/2014)
-    self.foods = [self foodTest];
-    self.clothes = [self clothTest];
-    self.friends = [self friendTest];
-    self.places = [self placeTest];
+    self.categories = @[ALL_CATEGORY, FOOD_CATEGORY, INSTRUMENTS_CATEGORY, PLACES_CATEGORY, FRIENDS_CATEGORY, FASHION_CATEGORY];
+    [self populateAccessoryData];
     
     [self.categoriesTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+}
+
+- (void)populateAccessoryData
+{
+    NSManagedObjectContext *context = self.context;
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:[self allAccessoriesFetchRequest]
+                                                                        managedObjectContext:context
+                                                                          sectionNameKeyPath:nil
+                                                                                   cacheName:nil];
+    [self.fetchedResultsController setDelegate:self];
+    [self.fetchedResultsController performFetch:nil];
+    self.accessories = [self.fetchedResultsController fetchedObjects];
+}
+
+- (NSFetchRequest *)allAccessoriesFetchRequest
+{
+    NSFetchRequest *allAccessoriesFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Accessory"];
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc]
+                              initWithKey:@"name" ascending:YES];
+    [allAccessoriesFetchRequest setSortDescriptors:[NSArray arrayWithObject:sort]];
+    return allAccessoriesFetchRequest;
 }
 
 #pragma mark - Table View Datasource Methods
@@ -88,22 +96,23 @@ static NSInteger const kPlacesSectionIndex = 4;
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    NSInteger selectedRowIndex = [self categoriesTableCellSelectedRowIndex];
-    switch (selectedRowIndex)
-    {
-        case kAllSectionIndex:
-            return [self totalNumberOfAccessories];
-        case kFoodSectionIndex:
-            return [self.foods count];
-        case kClothesSectionIndex:
-            return [self.clothes count];
-        case kFriendsSectionIndex:
-            return [self.friends count];
-        case kPlacesSectionIndex:
-            return [self.places count];
-        default:
-            return 0;
-    }
+    return 1;
+//    NSInteger selectedRowIndex = [self categoriesTableCellSelectedRowIndex];
+//    switch (selectedRowIndex)
+//    {
+//        case kAllSectionIndex:
+//            return [self totalNumberOfAccessories];
+//        case kFoodSectionIndex:
+//            return [self.foods count];
+//        case kClothesSectionIndex:
+//            return [self.clothes count];
+//        case kFriendsSectionIndex:
+//            return [self.friends count];
+//        case kPlacesSectionIndex:
+//            return [self.places count];
+//        default:
+//            return 0;
+//    }
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -111,33 +120,33 @@ static NSInteger const kPlacesSectionIndex = 4;
     BBAccessoryCollectionCell *cell = [self.accessoriesCollectionView dequeueReusableCellWithReuseIdentifier:kAccessoriesCollectionCellIdentifier
                                                                                                 forIndexPath:indexPath];
     
-    BBAccessory *accessory;
-    NSInteger selectedRowIndex = [self categoriesTableCellSelectedRowIndex];
-    switch (selectedRowIndex)
-    {
-        case kAllSectionIndex:
-            accessory = [[self allAccessories] objectAtIndex:indexPath.item];
-            break;
-        case kFoodSectionIndex:
-             accessory = [self.foods objectAtIndex:indexPath.item];
-            break;
-        case kClothesSectionIndex:
-            accessory = [self.clothes objectAtIndex:indexPath.item];
-            break;
-        case kFriendsSectionIndex:
-            accessory = [self.friends objectAtIndex:indexPath.item];
-            break;
-        case kPlacesSectionIndex:
-            accessory = [self.places objectAtIndex:indexPath.item];
-            break;
-        default:
-            accessory = nil;
-    }
-    
-    if (accessory)
-    {
-        [cell configureWithAccessory:accessory];
-    }
+//    BBAccessory *accessory;
+//    NSInteger selectedRowIndex = [self categoriesTableCellSelectedRowIndex];
+//    switch (selectedRowIndex)
+//    {
+//        case kAllSectionIndex:
+//            accessory = [[self allAccessories] objectAtIndex:indexPath.item];
+//            break;
+//        case kFoodSectionIndex:
+//             accessory = [self.foods objectAtIndex:indexPath.item];
+//            break;
+//        case kClothesSectionIndex:
+//            accessory = [self.clothes objectAtIndex:indexPath.item];
+//            break;
+//        case kFriendsSectionIndex:
+//            accessory = [self.friends objectAtIndex:indexPath.item];
+//            break;
+//        case kPlacesSectionIndex:
+//            accessory = [self.places objectAtIndex:indexPath.item];
+//            break;
+//        default:
+//            accessory = nil;
+//    }
+//    
+//    if (accessory)
+//    {
+//        [cell configureWithAccessory:accessory];
+//    }
     
     return cell;
 }
@@ -146,7 +155,7 @@ static NSInteger const kPlacesSectionIndex = 4;
 
 - (NSInteger)totalNumberOfAccessories
 {
-    return [self.foods count] + [self.clothes count] + [self.friends count] + [self.places count];
+    return 1;
 }
 
 - (NSInteger)categoriesTableCellSelectedRowIndex
@@ -154,39 +163,45 @@ static NSInteger const kPlacesSectionIndex = 4;
     return [self.categoriesTableView indexPathForSelectedRow].row;
 }
 
-#pragma mark - Temporary Test Data
+#pragma mark - NSFetchedResultsController Delegate Methods
 
-- (NSArray *)foodTest
-{
-    BBAccessory *apple = [[BBAccessory alloc] initWithName:@"apple"];
-    BBAccessory *carrot = [[BBAccessory alloc] initWithName:@"carrot"];
-    return @[apple, carrot];
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller{
+    [self.categoriesTableView beginUpdates];
 }
 
-- (NSArray *)clothTest
+- (void)controller:(NSFetchedResultsController *)controller
+   didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath
+     forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath
 {
-    BBAccessory *hightops = [[BBAccessory alloc] initWithName:@"hightops"];
-    BBAccessory *rainboots = [[BBAccessory alloc] initWithName:@"rainboots"];
-    BBAccessory *sweater = [[BBAccessory alloc] initWithName:@"sweater"];
-    return @[hightops, rainboots, sweater];
+    
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            [self.categoriesTableView insertRowsAtIndexPaths:@[newIndexPath]
+                                          withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+        case NSFetchedResultsChangeUpdate:
+            [self.categoriesTableView reloadRowsAtIndexPaths:@[indexPath]
+                                          withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+        case NSFetchedResultsChangeDelete:
+            [self.categoriesTableView deleteRowsAtIndexPaths:@[indexPath]
+                                          withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+        case NSFetchedResultsChangeMove:
+            [self.categoriesTableView deleteRowsAtIndexPaths:@[indexPath]
+                                          withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.categoriesTableView insertRowsAtIndexPaths:@[newIndexPath]
+                                          withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+    }
+    
 }
 
-- (NSArray *)friendTest
-{
-    BBAccessory *happy = [[BBAccessory alloc] initWithName:@"happy"];
-    return @[happy, happy, happy, happy];
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller{
+    [self.categoriesTableView endUpdates];
 }
 
-- (NSArray *)placeTest
-{
-    BBAccessory *colosseum = [[BBAccessory alloc] initWithName:@"colosseum"];
-    return @[colosseum];
-}
-
-- (NSArray *)allAccessories
-{
-    NSArray *allAccessories = [[[[self foodTest] arrayByAddingObjectsFromArray:[self clothTest]] arrayByAddingObjectsFromArray:[self friendTest]] arrayByAddingObjectsFromArray:[self placeTest]];
-    return allAccessories;
-}
 
 @end

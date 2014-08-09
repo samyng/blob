@@ -1,5 +1,5 @@
 //
-//  BBAccessory.m
+//  BBAccessory+Configure.h
 //  blob
 //
 //  Created by Sam Yang on 8/8/14.
@@ -8,10 +8,8 @@
 
 #import "BBAccessory.h"
 
+@interface BBAccessory (Configure)
 
-@implementation BBAccessory
-
-@dynamic category;
-@dynamic name;
+- (UIImage *)thumbnailImage;
 
 @end

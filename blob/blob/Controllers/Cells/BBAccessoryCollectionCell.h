@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BBAccessory.h"
+@class BBAccessory;
 
 @interface BBAccessoryCollectionCell : UICollectionViewCell
 - (void)configureWithAccessory:(BBAccessory *)accessory;

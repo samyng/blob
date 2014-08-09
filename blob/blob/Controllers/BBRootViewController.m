@@ -108,6 +108,7 @@
 - (void)displayClosetViewController {
     BBClosetViewController *closetViewController = [[BBClosetViewController alloc] initWithNibName:nil
                                                                                       bundle:nil];
+    closetViewController.context = self.context;
     [self displayChildViewController:closetViewController];
 }
 

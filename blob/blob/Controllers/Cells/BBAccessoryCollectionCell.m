@@ -7,6 +7,7 @@
 //
 
 #import "BBAccessoryCollectionCell.h"
+#import "BBAccessory+Configure.h"
 
 @interface BBAccessoryCollectionCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailImageView;
