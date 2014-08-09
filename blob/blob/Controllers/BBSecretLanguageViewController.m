@@ -28,7 +28,7 @@ static NSString * const kCodeBlockCollectionCellIdentifier = @"codeBlockCollecti
     [self.groupsTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kGroupsTableCellIdentifier];
     [self.codeBlocksCollectionView registerNib:[UINib nibWithNibName:@"BBCodeBlockCollectionCell" bundle:nil] forCellWithReuseIdentifier:kCodeBlockCollectionCellIdentifier];
     
-    self.groups = @[@"All", @"Operators", @"Conditional", @"Sound"];
+    self.groups = @[@"Reactions", @"Accessories", @"Controls", @"Operators"];
     self.codeBlocks = @[@"If", @"Then", @"While", @"Greater than", @"Less than", @"Blush", @"Shake", @"Giggle"];
     
     [self.groupsTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
