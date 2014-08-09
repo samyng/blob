@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+@class BBLanguageBlock;
 
 @interface BBCodeBlockCollectionCell : UICollectionViewCell
-- (void)configureWithName:(NSString *)name;
+- (void)configureWithBlock:(BBLanguageBlock *)block;
 @end

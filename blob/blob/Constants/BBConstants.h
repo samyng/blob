@@ -10,7 +10,7 @@ static NSString * const FASHION_CATEGORY = @"Fashion";
 
 static NSString * const FEELINGS_TITLE = @"Feelings";
 static NSString * const REACTIONS_GROUP = @"Reactions";
-static NSString * const ACCESSORIES_GROUP = @"Group";
+static NSString * const ACCESSORIES_GROUP = @"Accessories";
 static NSString * const CONTROL_GROUP = @"Control";
 
 static NSInteger const kTotalNumberOfSections = 1;

@@ -210,6 +210,11 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
     
     BBFeeling *sad = [[BBFeeling alloc] initWithEntity:feelingEntityDescription insertIntoManagedObjectContext:context];
     sad.name = @"sad";
+    
+    NSError *error;
+    if (![context save:&error]) {
+        NSLog(@"Could not save: %@", [error localizedDescription]);
+    }
 }
 
 @end

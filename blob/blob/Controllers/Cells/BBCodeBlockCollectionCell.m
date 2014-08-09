@@ -7,6 +7,7 @@
 //
 
 #import "BBCodeBlockCollectionCell.h"
+#import "BBLanguageBlock.h"
 
 @interface BBCodeBlockCollectionCell ()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -35,9 +36,9 @@
     self.contentView.backgroundColor = [BBConstants pinkDefaultColor];
 }
 
-- (void)configureWithName:(NSString *)name
+- (void)configureWithBlock:(BBLanguageBlock *)block
 {
-    self.nameLabel.text = name;
+    self.nameLabel.text = block.name;
 }
 
 @end
