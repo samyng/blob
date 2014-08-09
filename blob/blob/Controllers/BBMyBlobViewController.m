@@ -204,9 +204,6 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
     BBFeeling *flirty = [[BBFeeling alloc] initWithEntity:feelingEntityDescription insertIntoManagedObjectContext:context];
     flirty.name = @"flirty";
     
-    BBFeeling *frustrated = [[BBFeeling alloc] initWithEntity:feelingEntityDescription insertIntoManagedObjectContext:context];
-    frustrated.name = @"frustrated";
-    
     BBFeeling *angry = [[BBFeeling alloc] initWithEntity:feelingEntityDescription insertIntoManagedObjectContext:context];
     angry.name = @"angry";
     
