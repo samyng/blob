@@ -9,7 +9,7 @@
 #import "BBClosetViewController.h"
 #import "BBAccessoryCollectionCell.h"
 #import "BBAccessory+Configure.h"
-#import "BBCategory.h"
+#import "BBClosetCategory.h"
 
 static NSString * const kCategoriesTableCellIdentifier = @"categoriesTableCellIdentifier";
 static NSString * const kAccessoriesCollectionCellIdentifier = @"accessoriesCollectionCellIdentifier";
@@ -64,7 +64,7 @@ static NSInteger const kAllSectionIndex = 0;
     if (self.categories)
     {
         NSMutableArray *accessories = [[NSMutableArray alloc] init];
-        for (BBCategory *category in self.categories)
+        for (BBClosetCategory *category in self.categories)
         {
             [accessories addObjectsFromArray:[category.accessories allObjects]];
         }
@@ -261,27 +261,27 @@ static NSInteger const kAllSectionIndex = 0;
     
     // Categories
     
-    BBCategory *foods = [[BBCategory alloc] initWithEntity:categoryEntityDescription insertIntoManagedObjectContext:context];
+    BBClosetCategory *foods = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription insertIntoManagedObjectContext:context];
     foods.name = FOOD_CATEGORY;
     foods.accessories = [NSSet setWithObjects:apple, carrot, nil];
     
-    BBCategory *fashion = [[BBCategory alloc] initWithEntity:categoryEntityDescription insertIntoManagedObjectContext:context];
+    BBClosetCategory *fashion = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription insertIntoManagedObjectContext:context];
     fashion.name = FASHION_CATEGORY;
     fashion.accessories = [NSSet setWithObjects:hightops, rainboots, sweater, nil];
     
-    BBCategory *friends = [[BBCategory alloc] initWithEntity:categoryEntityDescription insertIntoManagedObjectContext:context];
+    BBClosetCategory *friends = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription insertIntoManagedObjectContext:context];
     friends.name = FRIENDS_CATEGORY;
     friends.accessories = [NSSet setWithObjects:babies, nil];
     
-    BBCategory *places = [[BBCategory alloc] initWithEntity:categoryEntityDescription insertIntoManagedObjectContext:context];
+    BBClosetCategory *places = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription insertIntoManagedObjectContext:context];
     places.name = PLACES_CATEGORY;
     places.accessories = [NSSet setWithObjects:colosseum, pisa, pool, nil];
     
-    BBCategory *instruments = [[BBCategory alloc] initWithEntity:categoryEntityDescription insertIntoManagedObjectContext:context];
+    BBClosetCategory *instruments = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription insertIntoManagedObjectContext:context];
     instruments.name = INSTRUMENTS_CATEGORY;
     instruments.accessories = [NSSet setWithObjects:drums, nil];
     
-    BBCategory *all = [[BBCategory alloc] initWithEntity:categoryEntityDescription
+    BBClosetCategory *all = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription
                           insertIntoManagedObjectContext:context];
     all.name = @"All";
     

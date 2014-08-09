@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2209DB5F1995B71300EC757C /* BBConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCEFFE199168B5005161B5 /* BBConstants.m */; };
-		2209DB711995C43000EC757C /* BBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2209DB701995C43000EC757C /* BBCategory.m */; };
-		2209DB741995C43100EC757C /* BBAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2209DB731995C43100EC757C /* BBAccessory.m */; };
+		222299DE199673200016BE43 /* BBClosetCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 222299DD199673200016BE43 /* BBClosetCategory.m */; };
+		222299E1199673200016BE43 /* BBFeeling.m in Sources */ = {isa = PBXBuildFile; fileRef = 222299E0199673200016BE43 /* BBFeeling.m */; };
+		222299E4199673200016BE43 /* BBLanguageBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 222299E3199673200016BE43 /* BBLanguageBlock.m */; };
+		222299E7199673200016BE43 /* BBAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 222299E6199673200016BE43 /* BBAccessory.m */; };
+		222299EA199673200016BE43 /* BBLanguageGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 222299E9199673200016BE43 /* BBLanguageGroup.m */; };
 		2259A7811991D91D007A16C3 /* BBAccessoryCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2259A7801991D91D007A16C3 /* BBAccessoryCollectionCell.m */; };
 		2259A7831991D93D007A16C3 /* BBAccessoryCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2259A7821991D93D007A16C3 /* BBAccessoryCollectionCell.xib */; };
 		22A2866D1992E9780087A311 /* BBFeelingCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A2866C1992E9780087A311 /* BBFeelingCollectionCell.m */; };
@@ -52,10 +55,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2209DB6F1995C43000EC757C /* BBCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCategory.h; sourceTree = "<group>"; };
-		2209DB701995C43000EC757C /* BBCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCategory.m; sourceTree = "<group>"; };
-		2209DB721995C43100EC757C /* BBAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAccessory.h; sourceTree = "<group>"; };
-		2209DB731995C43100EC757C /* BBAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAccessory.m; sourceTree = "<group>"; };
+		222299DC199673200016BE43 /* BBClosetCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBClosetCategory.h; sourceTree = "<group>"; };
+		222299DD199673200016BE43 /* BBClosetCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBClosetCategory.m; sourceTree = "<group>"; };
+		222299DF199673200016BE43 /* BBFeeling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBFeeling.h; sourceTree = "<group>"; };
+		222299E0199673200016BE43 /* BBFeeling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBFeeling.m; sourceTree = "<group>"; };
+		222299E2199673200016BE43 /* BBLanguageBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLanguageBlock.h; sourceTree = "<group>"; };
+		222299E3199673200016BE43 /* BBLanguageBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLanguageBlock.m; sourceTree = "<group>"; };
+		222299E5199673200016BE43 /* BBAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAccessory.h; sourceTree = "<group>"; };
+		222299E6199673200016BE43 /* BBAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAccessory.m; sourceTree = "<group>"; };
+		222299E8199673200016BE43 /* BBLanguageGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLanguageGroup.h; sourceTree = "<group>"; };
+		222299E9199673200016BE43 /* BBLanguageGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLanguageGroup.m; sourceTree = "<group>"; };
 		2259A77F1991D91D007A16C3 /* BBAccessoryCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAccessoryCollectionCell.h; path = Cells/BBAccessoryCollectionCell.h; sourceTree = "<group>"; };
 		2259A7801991D91D007A16C3 /* BBAccessoryCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAccessoryCollectionCell.m; path = Cells/BBAccessoryCollectionCell.m; sourceTree = "<group>"; };
 		2259A7821991D93D007A16C3 /* BBAccessoryCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BBAccessoryCollectionCell.xib; path = Cells/BBAccessoryCollectionCell.xib; sourceTree = "<group>"; };
@@ -240,11 +249,17 @@
 		22CCEFF51991664F005161B5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2209DB721995C43100EC757C /* BBAccessory.h */,
-				2209DB731995C43100EC757C /* BBAccessory.m */,
-				2209DB6F1995C43000EC757C /* BBCategory.h */,
-				2209DB701995C43000EC757C /* BBCategory.m */,
 				22B313A419958B4C0006AE57 /* BlobDataModel.xcdatamodeld */,
+				222299E8199673200016BE43 /* BBLanguageGroup.h */,
+				222299E9199673200016BE43 /* BBLanguageGroup.m */,
+				222299E5199673200016BE43 /* BBAccessory.h */,
+				222299E6199673200016BE43 /* BBAccessory.m */,
+				222299E2199673200016BE43 /* BBLanguageBlock.h */,
+				222299E3199673200016BE43 /* BBLanguageBlock.m */,
+				222299DF199673200016BE43 /* BBFeeling.h */,
+				222299E0199673200016BE43 /* BBFeeling.m */,
+				222299DC199673200016BE43 /* BBClosetCategory.h */,
+				222299DD199673200016BE43 /* BBClosetCategory.m */,
 				222299DB199604290016BE43 /* Categories */,
 			);
 			path = Model;
@@ -390,16 +405,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				2209DB5F1995B71300EC757C /* BBConstants.m in Sources */,
+				222299EA199673200016BE43 /* BBLanguageGroup.m in Sources */,
+				222299DE199673200016BE43 /* BBClosetCategory.m in Sources */,
 				2259A7811991D91D007A16C3 /* BBAccessoryCollectionCell.m in Sources */,
-				2209DB741995C43100EC757C /* BBAccessory.m in Sources */,
 				22C4F7C31994009C00928EEB /* BBCodeBlockCollectionCell.m in Sources */,
+				222299E4199673200016BE43 /* BBLanguageBlock.m in Sources */,
 				22CCF009199176A5005161B5 /* BBSecretLanguageViewController.m in Sources */,
 				22B313A619958B4C0006AE57 /* BlobDataModel.xcdatamodeld in Sources */,
 				22CCEFD6199165D6005161B5 /* BBAppDelegate.m in Sources */,
+				222299E7199673200016BE43 /* BBAccessory.m in Sources */,
 				22CCEFFA199166A2005161B5 /* BBRootViewController.m in Sources */,
 				22B313AC19959FEA0006AE57 /* BBAccessory+Configure.m in Sources */,
-				2209DB711995C43000EC757C /* BBCategory.m in Sources */,
 				22CCEFD2199165D6005161B5 /* main.m in Sources */,
+				222299E1199673200016BE43 /* BBFeeling.m in Sources */,
 				22CCF00419917680005161B5 /* BBClosetViewController.m in Sources */,
 				22A2866D1992E9780087A311 /* BBFeelingCollectionCell.m in Sources */,
 				22CCF00E199176BD005161B5 /* BBMyBlobViewController.m in Sources */,

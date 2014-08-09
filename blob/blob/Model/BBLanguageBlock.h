@@ -1,5 +1,5 @@
 //
-//  BBAccessory.h
+//  BBLanguageBlock.h
 //  blob
 //
 //  Created by Sam Yang on 8/9/14.
@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class BBClosetCategory;
+@class BBLanguageGroup;
 
-@interface BBAccessory : NSManagedObject
+@interface BBLanguageBlock : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) BBClosetCategory *category;
+@property (nonatomic, retain) BBLanguageGroup *group;
 
 @end

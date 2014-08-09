@@ -2,14 +2,28 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13E28" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Accessory" representedClassName="BBAccessory" syncable="YES">
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="accessories" inverseEntity="Category" syncable="YES"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ClosetCategory" inverseName="accessories" inverseEntity="ClosetCategory" syncable="YES"/>
     </entity>
-    <entity name="Category" representedClassName="BBCategory" syncable="YES">
+    <entity name="ClosetCategory" representedClassName="BBClosetCategory" syncable="YES">
         <attribute name="name" attributeType="String" syncable="YES"/>
         <relationship name="accessories" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Accessory" inverseName="category" inverseEntity="Accessory" syncable="YES"/>
     </entity>
+    <entity name="Feeling" representedClassName="BBFeeling" syncable="YES">
+        <attribute name="name" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="LanguageBlock" representedClassName="BBLanguageBlock" syncable="YES">
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LanguageGroup" inverseName="blocks" inverseEntity="LanguageGroup" syncable="YES"/>
+    </entity>
+    <entity name="LanguageGroup" representedClassName="BBLanguageGroup" syncable="YES">
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="blocks" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="LanguageBlock" inverseName="group" inverseEntity="LanguageBlock" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Accessory" positionX="-1800" positionY="-1699" width="128" height="73"/>
-        <element name="Category" positionX="-1980" positionY="-1746" width="128" height="73"/>
+        <element name="ClosetCategory" positionX="-1980" positionY="-1746" width="128" height="73"/>
+        <element name="LanguageBlock" positionX="-1800" positionY="-1585" width="128" height="73"/>
+        <element name="LanguageGroup" positionX="-1980" positionY="-1602" width="128" height="73"/>
+        <element name="Feeling" positionX="-1980" positionY="-1485" width="128" height="58"/>
     </elements>
 </model>

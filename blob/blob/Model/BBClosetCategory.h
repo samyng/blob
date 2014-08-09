@@ -1,8 +1,8 @@
 //
-//  BBCategory.h
+//  BBClosetCategory.h
 //  blob
 //
-//  Created by Sam Yang on 8/8/14.
+//  Created by Sam Yang on 8/9/14.
 //  Copyright (c) 2014 Crazy Machine. All rights reserved.
 //
 
@@ -11,13 +11,13 @@
 
 @class BBAccessory;
 
-@interface BBCategory : NSManagedObject
+@interface BBClosetCategory : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSSet *accessories;
 @end
 
-@interface BBCategory (CoreDataGeneratedAccessors)
+@interface BBClosetCategory (CoreDataGeneratedAccessors)
 
 - (void)addAccessoriesObject:(BBAccessory *)value;
 - (void)removeAccessoriesObject:(BBAccessory *)value;
