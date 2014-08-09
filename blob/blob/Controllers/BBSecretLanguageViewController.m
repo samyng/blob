@@ -78,7 +78,11 @@ static NSString * const kCodeBlockCollectionCellIdentifier = @"codeBlockCollecti
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     NSInteger selectedRowIndex = [self groupsTableCellSelectedRowIndex];
-    BBLanguageGroup *group = [self.groups objectAtIndex:selectedRowIndex];
+    BBLanguageGroup *group;
+    if (self.groups)
+    {
+        group = [self.groups objectAtIndex:selectedRowIndex];
+    }
     return [group.blocks count];
 }
 
@@ -162,10 +166,6 @@ static NSString * const kCodeBlockCollectionCellIdentifier = @"codeBlockCollecti
                                          insertIntoManagedObjectContext:context];
     controls.name = CONTROL_GROUP;
     controls.blocks = [NSSet setWithArray:@[ifBlock, repeatBlock]];
-    
-    BBLanguageGroup *accessories = [[BBLanguageGroup alloc] initWithEntity:groupEntityDescription
-                                            insertIntoManagedObjectContext:context];
-    accessories.name = ACCESSORIES_GROUP;
     
     NSError *error;
     if (![context save:&error]) {
