@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class BBFeeling;
 
 @interface BBFeelingCollectionCell : UICollectionViewCell
-- (void)configureWithName:(NSString *)name;
+- (void)configureWithFeeling:(BBFeeling *)feeling;
+@property (strong, nonatomic) BBFeeling *feeling;
 - (UIImage *)getRasterizedImageCopy;
 @property (weak, nonatomic) IBOutlet UILabel *feelingLabel;
 @end

@@ -49,14 +49,17 @@ static NSInteger const kAllSectionIndex = 0;
 - (void)populateCategories
 {
     NSManagedObjectContext *context = self.context;
-    self.categoriesFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:[self allCategoriesFetchRequest]
-                                                                                  managedObjectContext:context
-                                                                                    sectionNameKeyPath:nil
-                                                                                             cacheName:nil];
-    [self.categoriesFetchedResultsController setDelegate:self];
-    [self.categoriesFetchedResultsController performFetch:nil];
-    self.categories = [self.categoriesFetchedResultsController fetchedObjects];
-    [self populateAccessories];
+    if (context)
+    {
+        self.categoriesFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:[self allCategoriesFetchRequest]
+                                                                                      managedObjectContext:context
+                                                                                        sectionNameKeyPath:nil
+                                                                                                 cacheName:nil];
+        [self.categoriesFetchedResultsController setDelegate:self];
+        [self.categoriesFetchedResultsController performFetch:nil];
+        self.categories = [self.categoriesFetchedResultsController fetchedObjects];
+        [self populateAccessories];
+    }
 }
 
 - (void)populateAccessories

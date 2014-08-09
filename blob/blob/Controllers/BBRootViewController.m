@@ -39,7 +39,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self myBlobButtonPressed:self.myBlobButton];
     self.titleBarBackgroundView.backgroundColor = [BBConstants lightGrayDefaultColor];
     self.tabButtons = @[self.closetButton, self.myBlobButton, self.secretLanguageButton];
     for (UIButton *button in self.tabButtons)
@@ -56,6 +55,8 @@
     [self.myBlobButton setImage:defaultMyBlobImage forState:UIControlStateNormal];
     UIImage *defaultSecretLanguageImage = [[UIImage imageNamed:@"secret-lang-ico-selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [self.secretLanguageButton setImage:defaultSecretLanguageImage forState:UIControlStateNormal];
+    
+    [self myBlobButtonPressed:self.myBlobButton];
 }
 
 # pragma mark - Button Pressed
@@ -115,13 +116,15 @@
 - (void)displayMyBlobViewController {
     BBMyBlobViewController *myBlobViewController = [[BBMyBlobViewController alloc] initWithNibName:nil
                                                                                       bundle:nil];
+    myBlobViewController.context = self.context;
     [self displayChildViewController:myBlobViewController];
 }
 
 - (void)displaySecretLanguageViewController {
-    BBSecretLanguageViewController *viewController = [[BBSecretLanguageViewController alloc] initWithNibName:nil
+    BBSecretLanguageViewController *secretLanguageViewController = [[BBSecretLanguageViewController alloc] initWithNibName:nil
                                                                                                       bundle:nil];
-    [self displayChildViewController:viewController];
+    secretLanguageViewController.context = self.context;
+    [self displayChildViewController:secretLanguageViewController];
 }
 
 #pragma mark - Helper Methods

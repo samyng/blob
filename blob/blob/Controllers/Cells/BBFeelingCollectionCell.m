@@ -7,6 +7,7 @@
 //
 
 #import "BBFeelingCollectionCell.h"
+#import "BBFeeling.h"
 
 @interface BBFeelingCollectionCell ()
 
@@ -14,9 +15,10 @@
 
 @implementation BBFeelingCollectionCell
 
-- (void)configureWithName:(NSString *)name
+- (void)configureWithFeeling:(BBFeeling *)feeling
 {
-    self.feelingLabel.text = name;
+    self.feelingLabel.text = feeling.name;
+    self.feeling = feeling;
 }
 
 - (UIImage *)getRasterizedImageCopy

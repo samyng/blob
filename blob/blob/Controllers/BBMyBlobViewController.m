@@ -8,11 +8,12 @@
 
 #import "BBMyBlobViewController.h"
 #import "BBFeelingCollectionCell.h"
+#import "BBFeeling.h"
 
 static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCellIdentifier";
 
 
-@interface BBMyBlobViewController () <UICollectionViewDataSource>
+@interface BBMyBlobViewController () <UICollectionViewDataSource, NSFetchedResultsControllerDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *feelingsCollectionView;
 @property (weak, nonatomic) IBOutlet UIImageView *lumpyCircleImageView;
 
@@ -20,8 +21,10 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
 @property (nonatomic) CGPoint cellCopyImageViewStartLocation;
 @property (nonatomic) UIImageView *cellCopyImageView;
 @property (nonatomic) NSIndexPath *startingIndexPath;
-@property (strong, nonatomic) NSString *currentFeelingName;
+@property (strong, nonatomic) BBFeeling *currentFeeling;
 @property (nonatomic) BOOL shouldMoveCellCopyImageView;
+
+@property (strong, nonatomic) NSFetchedResultsController *feelingsFetchedResultsController;
 @end
 
 @implementation BBMyBlobViewController
@@ -30,11 +33,46 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
 {
     [super viewDidLoad];
     [self.feelingsCollectionView registerNib:[UINib nibWithNibName:@"BBFeelingCollectionCell" bundle:nil] forCellWithReuseIdentifier:kFeelingCollectionCellIdentifier];
-    self.feelings = [[NSMutableArray alloc] initWithObjects:@"happy", @"excited", @"nervous", @"flirty", @"frustrated", @"angry", @"sad", nil];
     
     UILongPressGestureRecognizer *longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressed:)];
     longPressGestureRecognizer.minimumPressDuration = 0.5f;
     [self.view addGestureRecognizer:longPressGestureRecognizer];
+    
+#warning - preload accessories and test heavily before shipping final product -SY (8/9/14)
+    
+    [self populateFeelings];
+#if DEBUG
+    if ([self.feelings count] == 0)
+    {
+        [self createTestData];
+        [self populateFeelings];
+    }
+#endif
+}
+
+
+- (void)populateFeelings
+{
+    NSManagedObjectContext *context = self.context;
+    if (context)
+    {
+        self.feelingsFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:[self allFeelingsFetchRequest]
+                                                                                    managedObjectContext:context
+                                                                                      sectionNameKeyPath:nil
+                                                                                               cacheName:nil];
+        [self.feelingsFetchedResultsController setDelegate:self];
+        [self.feelingsFetchedResultsController performFetch:nil];
+        self.feelings = [[self.feelingsFetchedResultsController fetchedObjects] mutableCopy];
+    }
+}
+
+- (NSFetchRequest *)allFeelingsFetchRequest
+{
+    NSFetchRequest *allFeelingsFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Feeling"];
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc]
+                              initWithKey:@"name" ascending:YES];
+    [allFeelingsFetchRequest setSortDescriptors:@[sort]];
+    return allFeelingsFetchRequest;
 }
 
 #pragma mark - Gesture Recognizer Method
@@ -45,7 +83,7 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
 
     if (sender.state == UIGestureRecognizerStateBegan)
     {
-        if ([self.feelingsCollectionView pointInside:touchLocation withEvent:nil] && !self.currentFeelingName)
+        if ([self.feelingsCollectionView pointInside:touchLocation withEvent:nil] && !self.currentFeeling)
         {
             self.shouldMoveCellCopyImageView = YES;
             self.startingIndexPath = [self.feelingsCollectionView indexPathForItemAtPoint:touchLocation];
@@ -90,8 +128,8 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
             {
                 if (endingIndexPath)
                 {
-                    [self.feelings insertObject:self.currentFeelingName atIndex:endingIndexPath.item];
-                    self.currentFeelingName = nil;
+                    [self.feelings insertObject:self.currentFeeling atIndex:endingIndexPath.item];
+                    self.currentFeeling = nil;
                     [self.feelingsCollectionView insertItemsAtIndexPaths:@[endingIndexPath]];
                     [self.feelingsCollectionView reloadItemsAtIndexPaths:@[endingIndexPath]];
                     [self.cellCopyImageView removeFromSuperview];
@@ -104,7 +142,7 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
             }
             else
             {
-                self.currentFeelingName = nil;
+                self.currentFeeling = nil;
                 [self.cellCopyImageView removeFromSuperview];
             }
         }
@@ -112,11 +150,11 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
         {
             CGPoint finalTouchLocation = CGPointMake(667.0f, 107.0f);
             self.cellCopyImageView.center = finalTouchLocation;
-            if (!self.currentFeelingName)
+            if (!self.currentFeeling)
             {
                 [self.feelings removeObjectAtIndex:self.startingIndexPath.item];
                 BBFeelingCollectionCell *cell = (BBFeelingCollectionCell *)[self.feelingsCollectionView cellForItemAtIndexPath:self.startingIndexPath];
-                self.currentFeelingName = cell.feelingLabel.text;
+                self.currentFeeling = cell.feeling;
                 [self.feelingsCollectionView deleteItemsAtIndexPaths:@[self.startingIndexPath]];
             }
         }
@@ -138,8 +176,39 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     BBFeelingCollectionCell *cell = [self.feelingsCollectionView dequeueReusableCellWithReuseIdentifier:kFeelingCollectionCellIdentifier forIndexPath:indexPath];
-    [cell configureWithName:[self.feelings objectAtIndex:indexPath.item]];
+    BBFeeling *feeling = [self.feelings objectAtIndex:indexPath.item];
+    [cell configureWithFeeling:feeling];
     return cell;
+}
+
+#pragma mark - Create test data
+
+- (void)createTestData
+{
+    NSManagedObjectContext *context = self.context;
+    NSEntityDescription *feelingEntityDescription = [NSEntityDescription entityForName:@"Feeling" inManagedObjectContext:context];
+    
+    BBFeeling *happy = [[BBFeeling alloc] initWithEntity:feelingEntityDescription
+                              insertIntoManagedObjectContext:context];
+    happy.name = @"happy";
+    
+    BBFeeling *excited = [[BBFeeling alloc] initWithEntity:feelingEntityDescription insertIntoManagedObjectContext:context];
+    excited.name = @"excited";
+    
+    BBFeeling *nervous = [[BBFeeling alloc] initWithEntity:feelingEntityDescription insertIntoManagedObjectContext:context];
+    nervous.name = @"nervous";
+    
+    BBFeeling *flirty = [[BBFeeling alloc] initWithEntity:feelingEntityDescription insertIntoManagedObjectContext:context];
+    flirty.name = @"flirty";
+    
+    BBFeeling *frustrated = [[BBFeeling alloc] initWithEntity:feelingEntityDescription insertIntoManagedObjectContext:context];
+    frustrated.name = @"frustrated";
+    
+    BBFeeling *angry = [[BBFeeling alloc] initWithEntity:feelingEntityDescription insertIntoManagedObjectContext:context];
+    angry.name = @"angry";
+    
+    BBFeeling *sad = [[BBFeeling alloc] initWithEntity:feelingEntityDescription insertIntoManagedObjectContext:context];
+    sad.name = @"sad";
 }
 
 @end

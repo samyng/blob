@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface BBSecretLanguageViewController : UIViewController
-
+@property (weak, nonatomic) NSManagedObjectContext *context;
 @end

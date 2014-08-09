@@ -20,8 +20,8 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     BBRootViewController *rootViewController = [[BBRootViewController alloc] init];
-    rootViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     rootViewController.context = [self managedObjectContext];
+    rootViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.window.rootViewController = rootViewController;
     [self.window setTintColor:[UIColor lightGrayColor]];
     [self.window makeKeyAndVisible];
