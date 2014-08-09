@@ -77,7 +77,7 @@ static NSInteger const kAllSectionIndex = 0;
 
 - (NSFetchRequest *)allCategoriesFetchRequest
 {
-    NSFetchRequest *allCategoriesFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Category"];
+    NSFetchRequest *allCategoriesFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"ClosetCategory"];
     NSSortDescriptor *sort = [[NSSortDescriptor alloc]
                               initWithKey:@"name" ascending:YES];
     [allCategoriesFetchRequest setSortDescriptors:@[sort]];
@@ -219,7 +219,7 @@ static NSInteger const kAllSectionIndex = 0;
 {
     NSManagedObjectContext *context = self.context;
     NSEntityDescription *accessoryEntityDescription = [NSEntityDescription entityForName:@"Accessory" inManagedObjectContext:context];
-    NSEntityDescription *categoryEntityDescription = [NSEntityDescription entityForName:@"Category" inManagedObjectContext:context];
+    NSEntityDescription *categoryEntityDescription = [NSEntityDescription entityForName:@"ClosetCategory" inManagedObjectContext:context];
     
     // Accessories
     
