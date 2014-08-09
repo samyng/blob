@@ -110,6 +110,7 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
         }
         else
         {
+            // TODO - make it so that the blocks switch, instead of having to put one away before grabbing a new one - SY (8/9/2014)
             self.shouldMoveCellCopyImageView = NO;
         }
     }
