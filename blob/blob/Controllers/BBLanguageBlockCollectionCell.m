@@ -8,6 +8,7 @@
 
 #import "BBLanguageBlockCollectionCell.h"
 #import "BBLanguageBlock.h"
+#import "BBLanguageGroup.h"
 
 @interface BBLanguageBlockCollectionCell ()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -16,29 +17,31 @@
 
 @implementation BBLanguageBlockCollectionCell
 
-- (void)awakeFromNib
+- (void)updateColorsForBlock:(BBLanguageBlock *)block
 {
-    [super awakeFromNib];
-    [self setup];
-}
-
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self setup];
+    UIColor *backgroundColor;
+    NSString *groupName = block.group.name;
+    
+    if ([groupName isEqualToString:REACTIONS_GROUP])
+    {
+        backgroundColor = [BBConstants blueClosetColor];
     }
-    return self;
-}
-
-- (void)setup
-{
-    self.contentView.backgroundColor = [BBConstants pinkDefaultColor];
+    else if ([groupName isEqualToString:CONTROL_GROUP])
+    {
+        backgroundColor = [BBConstants pinkDefaultColor];
+    }
+    else
+    {
+        backgroundColor = [UIColor whiteColor];
+    }
+    
+    self.contentView.backgroundColor = backgroundColor;
 }
 
 - (void)configureWithBlock:(BBLanguageBlock *)block
 {
     self.nameLabel.text = block.name;
+    [self updateColorsForBlock:block];
 }
 
 @end
