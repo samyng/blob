@@ -34,9 +34,9 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
     [super viewDidLoad];
     [self.feelingsCollectionView registerNib:[UINib nibWithNibName:@"BBFeelingCollectionCell" bundle:nil] forCellWithReuseIdentifier:kFeelingCollectionCellIdentifier];
     
-    UILongPressGestureRecognizer *longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressed:)];
-    longPressGestureRecognizer.minimumPressDuration = 0.5f;
-    [self.view addGestureRecognizer:longPressGestureRecognizer];
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panned:)];
+//    longPressGestureRecognizer.minimumPressDuration = 0.5f;
+    [self.view addGestureRecognizer:panGestureRecognizer];
     
 #warning - preload accessories and test heavily before shipping final product -SY (8/9/14)
     
@@ -77,7 +77,7 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
 
 #pragma mark - Gesture Recognizer Method
 
-- (IBAction)longPressed:(UILongPressGestureRecognizer *)sender
+- (IBAction)panned:(UIPanGestureRecognizer *)sender
 {
     CGPoint touchLocation = [sender locationInView:self.view];
 
@@ -152,10 +152,13 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
             self.cellCopyImageView.center = finalTouchLocation;
             if (!self.currentFeeling)
             {
-                [self.feelings removeObjectAtIndex:self.startingIndexPath.item];
-                BBFeelingCollectionCell *cell = (BBFeelingCollectionCell *)[self.feelingsCollectionView cellForItemAtIndexPath:self.startingIndexPath];
-                self.currentFeeling = cell.feeling;
-                [self.feelingsCollectionView deleteItemsAtIndexPaths:@[self.startingIndexPath]];
+                if (self.startingIndexPath)
+                {
+                    [self.feelings removeObjectAtIndex:self.startingIndexPath.item];
+                    BBFeelingCollectionCell *cell = (BBFeelingCollectionCell *)[self.feelingsCollectionView cellForItemAtIndexPath:self.startingIndexPath];
+                    self.currentFeeling = cell.feeling;
+                    [self.feelingsCollectionView deleteItemsAtIndexPaths:@[self.startingIndexPath]];
+                }
             }
         }
     }
