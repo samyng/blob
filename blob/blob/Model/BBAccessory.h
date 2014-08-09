@@ -9,10 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class BBCategory;
 
 @interface BBAccessory : NSManagedObject
 
-@property (nonatomic, strong) NSString *category;
-@property (nonatomic, strong) NSString *name;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) BBCategory *category;
 
 @end

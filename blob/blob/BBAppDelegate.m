@@ -9,7 +9,6 @@
 #import "BBAppDelegate.h"
 #import "BBRootViewController.h"
 #import "BBAccessory+Configure.h"
-#import "BBConstants.h"
 
 @implementation BBAppDelegate
 
@@ -26,7 +25,6 @@
     self.window.rootViewController = rootViewController;
     [self.window setTintColor:[UIColor lightGrayColor]];
     [self.window makeKeyAndVisible];
-    [self createTestData];
     return YES;
 }
 
@@ -150,59 +148,5 @@
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
-
-
-#pragma mark - Create test data
-- (void)createTestData
-{
-    NSManagedObjectContext *context = [self managedObjectContext];
-    NSEntityDescription *accessoryEntityDescription = [NSEntityDescription entityForName:@"Accessory" inManagedObjectContext:context];
-    
-    BBAccessory *apple = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
-                              insertIntoManagedObjectContext:context];
-    apple.name = @"apple";
-    apple.category = FOOD_CATEGORY;
-    
-    BBAccessory *carrot = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
-                               insertIntoManagedObjectContext:context];
-    carrot.name = @"carrot";
-    carrot.category = FOOD_CATEGORY;
-    
-    BBAccessory *hightops = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
-                                 insertIntoManagedObjectContext:context];
-    hightops.name = @"hightops";
-    hightops.category = FASHION_CATEGORY;
-    
-    BBAccessory *rainboots = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
-                                  insertIntoManagedObjectContext:context];
-    rainboots.name = @"rainboots";
-    rainboots.category = FASHION_CATEGORY;
-    
-    BBAccessory *sweater = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
-                                insertIntoManagedObjectContext:context];
-    sweater.name = @"sweater";
-    sweater.category = FASHION_CATEGORY;
-    
-    BBAccessory *babies = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
-                               insertIntoManagedObjectContext:context];
-    babies.name = @"babyblobs";
-    babies.category = FRIENDS_CATEGORY;
-    
-    BBAccessory *colosseum = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
-                                  insertIntoManagedObjectContext:context];
-    colosseum.name = @"colosseum";
-    colosseum.category = PLACES_CATEGORY;
-    
-    BBAccessory *pisa = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
-                             insertIntoManagedObjectContext:context];
-    pisa.name = @"pisa";
-    pisa.category = PLACES_CATEGORY;
-    
-    NSError *error;
-    if (![context save:&error]) {
-        NSLog(@"Could not save: %@", [error localizedDescription]);
-    }
-}
-
 
 @end

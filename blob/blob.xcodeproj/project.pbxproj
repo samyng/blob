@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		2209DB5F1995B71300EC757C /* BBConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCEFFE199168B5005161B5 /* BBConstants.m */; };
+		2209DB711995C43000EC757C /* BBCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2209DB701995C43000EC757C /* BBCategory.m */; };
+		2209DB741995C43100EC757C /* BBAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2209DB731995C43100EC757C /* BBAccessory.m */; };
 		2259A7811991D91D007A16C3 /* BBAccessoryCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2259A7801991D91D007A16C3 /* BBAccessoryCollectionCell.m */; };
 		2259A7831991D93D007A16C3 /* BBAccessoryCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2259A7821991D93D007A16C3 /* BBAccessoryCollectionCell.xib */; };
 		22A2866D1992E9780087A311 /* BBFeelingCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A2866C1992E9780087A311 /* BBFeelingCollectionCell.m */; };
 		22A2866F1992EA5C0087A311 /* BBFeelingCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A2866E1992EA5C0087A311 /* BBFeelingCollectionCell.xib */; };
 		22B313A319958AE60006AE57 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B313A219958AE60006AE57 /* CoreData.framework */; };
 		22B313A619958B4C0006AE57 /* BlobDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22B313A419958B4C0006AE57 /* BlobDataModel.xcdatamodeld */; };
-		22B313A919959F4B0006AE57 /* BBAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B313A819959F4B0006AE57 /* BBAccessory.m */; };
 		22B313AC19959FEA0006AE57 /* BBAccessory+Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B313AB19959FEA0006AE57 /* BBAccessory+Configure.m */; };
 		22C4F7C31994009C00928EEB /* BBCodeBlockCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C4F7C21994009C00928EEB /* BBCodeBlockCollectionCell.m */; };
 		22C4F7C5199400B200928EEB /* BBCodeBlockCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22C4F7C4199400B200928EEB /* BBCodeBlockCollectionCell.xib */; };
@@ -51,6 +52,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2209DB6F1995C43000EC757C /* BBCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCategory.h; sourceTree = "<group>"; };
+		2209DB701995C43000EC757C /* BBCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCategory.m; sourceTree = "<group>"; };
+		2209DB721995C43100EC757C /* BBAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAccessory.h; sourceTree = "<group>"; };
+		2209DB731995C43100EC757C /* BBAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAccessory.m; sourceTree = "<group>"; };
 		2259A77F1991D91D007A16C3 /* BBAccessoryCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAccessoryCollectionCell.h; path = Cells/BBAccessoryCollectionCell.h; sourceTree = "<group>"; };
 		2259A7801991D91D007A16C3 /* BBAccessoryCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAccessoryCollectionCell.m; path = Cells/BBAccessoryCollectionCell.m; sourceTree = "<group>"; };
 		2259A7821991D93D007A16C3 /* BBAccessoryCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BBAccessoryCollectionCell.xib; path = Cells/BBAccessoryCollectionCell.xib; sourceTree = "<group>"; };
@@ -59,8 +64,6 @@
 		22A2866E1992EA5C0087A311 /* BBFeelingCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBFeelingCollectionCell.xib; sourceTree = "<group>"; };
 		22B313A219958AE60006AE57 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		22B313A519958B4C0006AE57 /* BlobDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BlobDataModel.xcdatamodel; sourceTree = "<group>"; };
-		22B313A719959F4B0006AE57 /* BBAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAccessory.h; sourceTree = "<group>"; };
-		22B313A819959F4B0006AE57 /* BBAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAccessory.m; sourceTree = "<group>"; };
 		22B313AA19959FEA0006AE57 /* BBAccessory+Configure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BBAccessory+Configure.h"; sourceTree = "<group>"; };
 		22B313AB19959FEA0006AE57 /* BBAccessory+Configure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BBAccessory+Configure.m"; sourceTree = "<group>"; };
 		22C4F7C11994009C00928EEB /* BBCodeBlockCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBCodeBlockCollectionCell.h; path = Cells/BBCodeBlockCollectionCell.h; sourceTree = "<group>"; };
@@ -137,15 +140,6 @@
 				22C4F7C4199400B200928EEB /* BBCodeBlockCollectionCell.xib */,
 			);
 			name = Cells;
-			sourceTree = "<group>";
-		};
-		22B313AD1995A0650006AE57 /* Generated */ = {
-			isa = PBXGroup;
-			children = (
-				22B313A719959F4B0006AE57 /* BBAccessory.h */,
-				22B313A819959F4B0006AE57 /* BBAccessory.m */,
-			);
-			name = Generated;
 			sourceTree = "<group>";
 		};
 		22CCEFB9199165D6005161B5 = {
@@ -237,8 +231,11 @@
 		22CCEFF51991664F005161B5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2209DB721995C43100EC757C /* BBAccessory.h */,
+				2209DB731995C43100EC757C /* BBAccessory.m */,
+				2209DB6F1995C43000EC757C /* BBCategory.h */,
+				2209DB701995C43000EC757C /* BBCategory.m */,
 				22B313A419958B4C0006AE57 /* BlobDataModel.xcdatamodeld */,
-				22B313AD1995A0650006AE57 /* Generated */,
 				22B313AA19959FEA0006AE57 /* BBAccessory+Configure.h */,
 				22B313AB19959FEA0006AE57 /* BBAccessory+Configure.m */,
 			);
@@ -386,13 +383,14 @@
 			files = (
 				2209DB5F1995B71300EC757C /* BBConstants.m in Sources */,
 				2259A7811991D91D007A16C3 /* BBAccessoryCollectionCell.m in Sources */,
+				2209DB741995C43100EC757C /* BBAccessory.m in Sources */,
 				22C4F7C31994009C00928EEB /* BBCodeBlockCollectionCell.m in Sources */,
 				22CCF009199176A5005161B5 /* BBSecretLanguageViewController.m in Sources */,
 				22B313A619958B4C0006AE57 /* BlobDataModel.xcdatamodeld in Sources */,
-				22B313A919959F4B0006AE57 /* BBAccessory.m in Sources */,
 				22CCEFD6199165D6005161B5 /* BBAppDelegate.m in Sources */,
 				22CCEFFA199166A2005161B5 /* BBRootViewController.m in Sources */,
 				22B313AC19959FEA0006AE57 /* BBAccessory+Configure.m in Sources */,
+				2209DB711995C43000EC757C /* BBCategory.m in Sources */,
 				22CCEFD2199165D6005161B5 /* main.m in Sources */,
 				22CCF00419917680005161B5 /* BBClosetViewController.m in Sources */,
 				22A2866D1992E9780087A311 /* BBFeelingCollectionCell.m in Sources */,
