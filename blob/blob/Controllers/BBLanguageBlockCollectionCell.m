@@ -1,20 +1,20 @@
 //
-//  BBCodeBlockCollectionCell.m
+//  BBLanguageBlockCollectionCell.m
 //  blob
 //
 //  Created by Sam Yang on 8/7/14.
 //  Copyright (c) 2014 Crazy Machine. All rights reserved.
 //
 
-#import "BBCodeBlockCollectionCell.h"
+#import "BBLanguageBlockCollectionCell.h"
 #import "BBLanguageBlock.h"
 
-@interface BBCodeBlockCollectionCell ()
+@interface BBLanguageBlockCollectionCell ()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 @end
 
-@implementation BBCodeBlockCollectionCell
+@implementation BBLanguageBlockCollectionCell
 
 - (void)awakeFromNib
 {

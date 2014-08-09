@@ -7,15 +7,15 @@
 //
 
 #import "BBSecretLanguageViewController.h"
-#import "BBCodeBlockCollectionCell.h"
+#import "BBLanguageBlockCollectionCell.h"
 #import "BBLanguageBlock.h"
 #import "BBLanguageGroup.h"
 
 static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier";
-static NSString * const kCodeBlockCollectionCellIdentifier = @"codeBlockCollectionCellIdentifier";
+static NSString * const kLanguageBlockCollectionCellIdentifier = @"languageBlockCollectionCellIdentifier";
 
 @interface BBSecretLanguageViewController () <UICollectionViewDataSource, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
-@property (weak, nonatomic) IBOutlet UICollectionView *codeBlocksCollectionView;
+@property (weak, nonatomic) IBOutlet UICollectionView *languageBlocksCollectionView;
 @property (weak, nonatomic) IBOutlet UITableView *groupsTableView;
 @property (strong, nonatomic) NSArray *groups;
 @property (strong, nonatomic) NSFetchedResultsController *groupsFetchedResultsController;
@@ -27,7 +27,7 @@ static NSString * const kCodeBlockCollectionCellIdentifier = @"codeBlockCollecti
 {
     [super viewDidLoad];
     [self.groupsTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kGroupsTableCellIdentifier];
-    [self.codeBlocksCollectionView registerNib:[UINib nibWithNibName:@"BBCodeBlockCollectionCell" bundle:nil] forCellWithReuseIdentifier:kCodeBlockCollectionCellIdentifier];
+    [self.languageBlocksCollectionView registerNib:[UINib nibWithNibName:@"BBLanguageBlockCollectionCell" bundle:nil] forCellWithReuseIdentifier:kLanguageBlockCollectionCellIdentifier];
     
     [self populateLanguageGroups];
     
@@ -37,6 +37,7 @@ static NSString * const kCodeBlockCollectionCellIdentifier = @"codeBlockCollecti
     if ([self.groups count] == 0)
     {
         [self createTestData];
+        [self populateLanguageGroups];
     }
 #endif
     
@@ -79,7 +80,7 @@ static NSString * const kCodeBlockCollectionCellIdentifier = @"codeBlockCollecti
 {
     NSInteger selectedRowIndex = [self groupsTableCellSelectedRowIndex];
     BBLanguageGroup *group;
-    if (self.groups)
+    if (self.groups.count)
     {
         group = [self.groups objectAtIndex:selectedRowIndex];
     }
@@ -88,7 +89,7 @@ static NSString * const kCodeBlockCollectionCellIdentifier = @"codeBlockCollecti
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-        BBCodeBlockCollectionCell *cell = (BBCodeBlockCollectionCell *)[self.codeBlocksCollectionView dequeueReusableCellWithReuseIdentifier:kCodeBlockCollectionCellIdentifier
+        BBLanguageBlockCollectionCell *cell = (BBLanguageBlockCollectionCell *)[self.languageBlocksCollectionView dequeueReusableCellWithReuseIdentifier:kLanguageBlockCollectionCellIdentifier
                                                                                                                                 forIndexPath:indexPath];
         NSInteger selectedRowIndex = [self groupsTableCellSelectedRowIndex];
         NSArray *languageBlocks = [[[self.groups objectAtIndex:selectedRowIndex] blocks] allObjects];
@@ -126,7 +127,7 @@ static NSString * const kCodeBlockCollectionCellIdentifier = @"codeBlockCollecti
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.codeBlocksCollectionView reloadData];
+    [self.languageBlocksCollectionView reloadData];
 }
 
 #pragma mark - Create test data

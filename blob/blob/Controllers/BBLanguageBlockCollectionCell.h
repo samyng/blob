@@ -1,5 +1,5 @@
 //
-//  BBCodeBlockCollectionCell.h
+//  BBLanguageBlockCollectionCell.h
 //  blob
 //
 //  Created by Sam Yang on 8/7/14.
@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 @class BBLanguageBlock;
 
-@interface BBCodeBlockCollectionCell : UICollectionViewCell
+@interface BBLanguageBlockCollectionCell : UICollectionViewCell
 - (void)configureWithBlock:(BBLanguageBlock *)block;
 @end

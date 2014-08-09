@@ -13,6 +13,8 @@
 		222299E4199673200016BE43 /* BBLanguageBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 222299E3199673200016BE43 /* BBLanguageBlock.m */; };
 		222299E7199673200016BE43 /* BBAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 222299E6199673200016BE43 /* BBAccessory.m */; };
 		222299EA199673200016BE43 /* BBLanguageGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 222299E9199673200016BE43 /* BBLanguageGroup.m */; };
+		222299F4199689AF0016BE43 /* BBLanguageBlockCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 222299F2199689AF0016BE43 /* BBLanguageBlockCollectionCell.m */; };
+		222299F5199689AF0016BE43 /* BBLanguageBlockCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 222299F3199689AF0016BE43 /* BBLanguageBlockCollectionCell.xib */; };
 		2259A7811991D91D007A16C3 /* BBAccessoryCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2259A7801991D91D007A16C3 /* BBAccessoryCollectionCell.m */; };
 		2259A7831991D93D007A16C3 /* BBAccessoryCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2259A7821991D93D007A16C3 /* BBAccessoryCollectionCell.xib */; };
 		22A2866D1992E9780087A311 /* BBFeelingCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A2866C1992E9780087A311 /* BBFeelingCollectionCell.m */; };
@@ -20,8 +22,6 @@
 		22B313A319958AE60006AE57 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B313A219958AE60006AE57 /* CoreData.framework */; };
 		22B313A619958B4C0006AE57 /* BlobDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22B313A419958B4C0006AE57 /* BlobDataModel.xcdatamodeld */; };
 		22B313AC19959FEA0006AE57 /* BBAccessory+Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B313AB19959FEA0006AE57 /* BBAccessory+Configure.m */; };
-		22C4F7C31994009C00928EEB /* BBCodeBlockCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C4F7C21994009C00928EEB /* BBCodeBlockCollectionCell.m */; };
-		22C4F7C5199400B200928EEB /* BBCodeBlockCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22C4F7C4199400B200928EEB /* BBCodeBlockCollectionCell.xib */; };
 		22CCEFC6199165D6005161B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CCEFC5199165D6005161B5 /* Foundation.framework */; };
 		22CCEFC8199165D6005161B5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CCEFC7199165D6005161B5 /* CoreGraphics.framework */; };
 		22CCEFCA199165D6005161B5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CCEFC9199165D6005161B5 /* UIKit.framework */; };
@@ -65,6 +65,9 @@
 		222299E6199673200016BE43 /* BBAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAccessory.m; sourceTree = "<group>"; };
 		222299E8199673200016BE43 /* BBLanguageGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLanguageGroup.h; sourceTree = "<group>"; };
 		222299E9199673200016BE43 /* BBLanguageGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLanguageGroup.m; sourceTree = "<group>"; };
+		222299F1199689AF0016BE43 /* BBLanguageBlockCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLanguageBlockCollectionCell.h; sourceTree = "<group>"; };
+		222299F2199689AF0016BE43 /* BBLanguageBlockCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLanguageBlockCollectionCell.m; sourceTree = "<group>"; };
+		222299F3199689AF0016BE43 /* BBLanguageBlockCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBLanguageBlockCollectionCell.xib; sourceTree = "<group>"; };
 		2259A77F1991D91D007A16C3 /* BBAccessoryCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAccessoryCollectionCell.h; path = Cells/BBAccessoryCollectionCell.h; sourceTree = "<group>"; };
 		2259A7801991D91D007A16C3 /* BBAccessoryCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAccessoryCollectionCell.m; path = Cells/BBAccessoryCollectionCell.m; sourceTree = "<group>"; };
 		2259A7821991D93D007A16C3 /* BBAccessoryCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BBAccessoryCollectionCell.xib; path = Cells/BBAccessoryCollectionCell.xib; sourceTree = "<group>"; };
@@ -75,9 +78,6 @@
 		22B313A519958B4C0006AE57 /* BlobDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BlobDataModel.xcdatamodel; sourceTree = "<group>"; };
 		22B313AA19959FEA0006AE57 /* BBAccessory+Configure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BBAccessory+Configure.h"; sourceTree = "<group>"; };
 		22B313AB19959FEA0006AE57 /* BBAccessory+Configure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BBAccessory+Configure.m"; sourceTree = "<group>"; };
-		22C4F7C11994009C00928EEB /* BBCodeBlockCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBCodeBlockCollectionCell.h; path = Cells/BBCodeBlockCollectionCell.h; sourceTree = "<group>"; };
-		22C4F7C21994009C00928EEB /* BBCodeBlockCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBCodeBlockCollectionCell.m; path = Cells/BBCodeBlockCollectionCell.m; sourceTree = "<group>"; };
-		22C4F7C4199400B200928EEB /* BBCodeBlockCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBCodeBlockCollectionCell.xib; sourceTree = "<group>"; };
 		22CCEFC2199165D6005161B5 /* blob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = blob.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22CCEFC5199165D6005161B5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		22CCEFC7199165D6005161B5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -153,9 +153,9 @@
 				22A2866B1992E9780087A311 /* BBFeelingCollectionCell.h */,
 				22A2866C1992E9780087A311 /* BBFeelingCollectionCell.m */,
 				22A2866E1992EA5C0087A311 /* BBFeelingCollectionCell.xib */,
-				22C4F7C11994009C00928EEB /* BBCodeBlockCollectionCell.h */,
-				22C4F7C21994009C00928EEB /* BBCodeBlockCollectionCell.m */,
-				22C4F7C4199400B200928EEB /* BBCodeBlockCollectionCell.xib */,
+				222299F1199689AF0016BE43 /* BBLanguageBlockCollectionCell.h */,
+				222299F2199689AF0016BE43 /* BBLanguageBlockCollectionCell.m */,
+				222299F3199689AF0016BE43 /* BBLanguageBlockCollectionCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -380,9 +380,9 @@
 				22CCF00519917680005161B5 /* BBClosetViewController.xib in Resources */,
 				22CCF00F199176BD005161B5 /* BBMyBlobViewController.xib in Resources */,
 				22CCEFD0199165D6005161B5 /* InfoPlist.strings in Resources */,
+				222299F5199689AF0016BE43 /* BBLanguageBlockCollectionCell.xib in Resources */,
 				22CCF00A199176A5005161B5 /* BBSecretLanguageViewController.xib in Resources */,
 				22CCEFD8199165D6005161B5 /* Images.xcassets in Resources */,
-				22C4F7C5199400B200928EEB /* BBCodeBlockCollectionCell.xib in Resources */,
 				22CCEFFB199166A2005161B5 /* BBRootViewController.xib in Resources */,
 				22A2866F1992EA5C0087A311 /* BBFeelingCollectionCell.xib in Resources */,
 				2259A7831991D93D007A16C3 /* BBAccessoryCollectionCell.xib in Resources */,
@@ -408,11 +408,11 @@
 				222299EA199673200016BE43 /* BBLanguageGroup.m in Sources */,
 				222299DE199673200016BE43 /* BBClosetCategory.m in Sources */,
 				2259A7811991D91D007A16C3 /* BBAccessoryCollectionCell.m in Sources */,
-				22C4F7C31994009C00928EEB /* BBCodeBlockCollectionCell.m in Sources */,
 				222299E4199673200016BE43 /* BBLanguageBlock.m in Sources */,
 				22CCF009199176A5005161B5 /* BBSecretLanguageViewController.m in Sources */,
 				22B313A619958B4C0006AE57 /* BlobDataModel.xcdatamodeld in Sources */,
 				22CCEFD6199165D6005161B5 /* BBAppDelegate.m in Sources */,
+				222299F4199689AF0016BE43 /* BBLanguageBlockCollectionCell.m in Sources */,
 				222299E7199673200016BE43 /* BBAccessory.m in Sources */,
 				22CCEFFA199166A2005161B5 /* BBRootViewController.m in Sources */,
 				22B313AC19959FEA0006AE57 /* BBAccessory+Configure.m in Sources */,
