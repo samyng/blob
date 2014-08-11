@@ -12,6 +12,12 @@
 
 @implementation BBFeelingCollectionCell
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    [self resetDefaultUI];
+}
+
 - (void)configureWithFeeling:(BBFeeling *)feeling
 {
     self.feelingLabel.text = feeling.name;

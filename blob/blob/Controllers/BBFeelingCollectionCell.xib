@@ -7,17 +7,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="feelingCollectionCellIdentifier" id="oKM-ez-RFc" customClass="BBFeelingCollectionCell">
-            <rect key="frame" x="0.0" y="0.0" width="160" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="140" height="35"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="160" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="140" height="35"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6RI-ZV-PWd" userLabel="Label - Feeling Label">
-                        <rect key="frame" x="30" y="14" width="90" height="21"/>
+                        <rect key="frame" x="10" y="7" width="120" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="90" id="Qy6-ZE-Zjw"/>
+                            <constraint firstAttribute="width" constant="120" id="Qy6-ZE-Zjw"/>
                             <constraint firstAttribute="height" constant="21" id="h30-tu-u1h"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="16"/>
@@ -30,7 +30,7 @@
             <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="centerY" secondItem="6RI-ZV-PWd" secondAttribute="centerY" constant="0.5" id="hKh-Ap-MdX"/>
-                <constraint firstAttribute="centerX" secondItem="6RI-ZV-PWd" secondAttribute="centerX" constant="5" id="wrV-aq-BAL"/>
+                <constraint firstAttribute="centerX" secondItem="6RI-ZV-PWd" secondAttribute="centerX" id="wrV-aq-BAL"/>
             </constraints>
             <connections>
                 <outlet property="feelingLabel" destination="6RI-ZV-PWd" id="SEW-R2-eoE"/>

@@ -31,6 +31,7 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
 {
     [super viewDidLoad];
     [self.feelingsCollectionView registerNib:[UINib nibWithNibName:@"BBFeelingCollectionCell" bundle:nil] forCellWithReuseIdentifier:kFeelingCollectionCellIdentifier];
+    self.currentFeelingSlot.backgroundColor = [BBConstants spindriftDefaultColor];
     
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panned:)];
     [self.view addGestureRecognizer:panGestureRecognizer];
