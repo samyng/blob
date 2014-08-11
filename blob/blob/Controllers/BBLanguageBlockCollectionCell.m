@@ -24,7 +24,7 @@
     
     if ([groupName isEqualToString:REACTIONS_GROUP])
     {
-        backgroundColor = [BBConstants blueClosetColor];
+        backgroundColor = [BBConstants blueDefaultColor];
     }
     else if ([groupName isEqualToString:CONTROL_GROUP])
     {

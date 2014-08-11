@@ -5,32 +5,32 @@
 
 + (UIColor *)pinkDefaultColor
 {
-    return [UIColor colorWithRed:206.0f/255 green:58.0f/255 blue:78.0f/255 alpha:1.0f];
+    return [UIColor colorWithRed:251.0f/255 green:52.0f/255 blue:72.0f/255 alpha:1.0f];
+}
+
++ (UIColor *)orangeDefaultColor
+{
+    return [UIColor colorWithRed:255.0f/255 green:131.0f/255 blue:0.0f/255 alpha:1.0f];
+}
+
++ (UIColor *)yellowDefaultColor
+{
+    return [UIColor colorWithRed:255.0f/255 green:230.0f/255 blue:0.0f/255 alpha:1.0f];
+}
+
++ (UIColor *)lightBlueDefaultColor
+{
+    return [UIColor colorWithRed:148.0f/255 green:218.0f/255 blue:206.0f/255 alpha:1.0f];
+}
+
++ (UIColor *)blueDefaultColor
+{
+    return [UIColor colorWithRed:0.0f/255 green:154.0f/255 blue:221.0f/255 alpha:1.0f];
 }
 
 + (UIColor *)lightGrayDefaultColor
 {
     return [UIColor colorWithRed:231.0f/255 green:231.0f/255 blue:231.0f/255 alpha:1.0f];
-}
-
-+ (UIColor *)lightBlueDefaultColor
-{
-    return [UIColor colorWithRed:95.0f/255 green:173.0f/255 blue:219.0f/255 alpha:1.0f];
-}
-
-+ (UIColor *)blueClosetColor
-{
-    return [UIColor colorWithRed:101.0f/255 green:154.0f/255 blue:201.0f/255 alpha:1.0f];
-}
-
-+ (UIColor *)pinkMyBlobColor
-{
-    return [BBConstants pinkDefaultColor];
-}
-
-+ (UIColor *)purpleSecretLanguageColor
-{
-    return [UIColor colorWithRed:117.0f/255 green:77.0f/255 blue:154.0f/255 alpha:1.0f];
 }
 
 + (UIColor *)unselectedTabTextColor
@@ -46,21 +46,6 @@
 + (UIColor *)spindriftDefaultColor
 {
     return [UIColor colorWithRed:163.0f/255 green:252.0f/255 blue:205.0f/255 alpha:1.0f];
-}
-
-+ (UIColor *)reactionGroupBackgroundColor
-{
-    return [self pinkDefaultColor];
-}
-
-+ (UIColor *)accessoriesGroupBackgroundColor
-{
-    return [self lightBlueDefaultColor];
-}
-
-+ (UIColor *)controlGroupBackgroundColor
-{
-    return [self purpleSecretLanguageColor];
 }
 
 @end

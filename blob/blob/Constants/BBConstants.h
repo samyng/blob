@@ -18,17 +18,12 @@ static NSInteger const kTotalNumberOfSections = 1;
 @interface BBConstants : NSObject
 
 + (UIColor *)pinkDefaultColor;
-+ (UIColor *)lightGrayDefaultColor;
++ (UIColor *)orangeDefaultColor;
++ (UIColor *)yellowDefaultColor;
 + (UIColor *)lightBlueDefaultColor;
-+ (UIColor *)blueClosetColor;
-+ (UIColor *)pinkMyBlobColor;
-+ (UIColor *)purpleSecretLanguageColor;
-+ (UIColor *)unselectedTabTextColor;
++ (UIColor *)blueDefaultColor;
++ (UIColor *)lightGrayDefaultColor;
 + (UIColor *)magnesiumGrayColor;
 + (UIColor *)spindriftDefaultColor;
-
-+ (UIColor *)reactionGroupBackgroundColor;
-+ (UIColor *)accessoriesGroupBackgroundColor;
-+ (UIColor *)controlGroupBackgroundColor;
 
 @end
