@@ -245,7 +245,7 @@ static NSInteger const kAllSectionIndex = 0;
     
     BBAccessory *babies = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
                                insertIntoManagedObjectContext:context];
-    babies.name = @"babyblobs";
+    babies.name = @"babies";
     
     BBAccessory *colosseum = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
                                   insertIntoManagedObjectContext:context];

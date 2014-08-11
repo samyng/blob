@@ -42,7 +42,7 @@
 - (void)resetDefaultUI
 {
     self.feelingLabel.alpha = 1.0f;
-    self.contentView.backgroundColor = [BBConstants spindriftDefaultColor];
+    self.contentView.backgroundColor = [BBConstants lightBlueColor];
 }
 
 

@@ -39,15 +39,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.titleBarBackgroundView.backgroundColor = [BBConstants lightGrayDefaultColor];
+    self.titleBarBackgroundView.backgroundColor = [BBConstants lightGrayColor];
     self.tabButtons = @[self.closetButton, self.myBlobButton, self.secretLanguageButton];
     for (UIButton *button in self.tabButtons)
     {
         [button setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
     }
-    [self.closetButton setTitleColor:[BBConstants blueDefaultColor] forState:UIControlStateSelected];
-    [self.myBlobButton setTitleColor:[BBConstants pinkDefaultColor] forState:UIControlStateSelected];
-    [self.secretLanguageButton setTitleColor:[BBConstants orangeDefaultColor] forState:UIControlStateSelected];
+    [self.closetButton setTitleColor:[BBConstants blueColor] forState:UIControlStateSelected];
+    [self.myBlobButton setTitleColor:[BBConstants pinkColor] forState:UIControlStateSelected];
+    [self.secretLanguageButton setTitleColor:[BBConstants orangeColor] forState:UIControlStateSelected];
     
     UIImage *defaultClosetImage = [[UIImage imageNamed:@"closet-ico-selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [self.closetButton setImage:defaultClosetImage forState:UIControlStateNormal];

@@ -24,11 +24,11 @@
     
     if ([groupName isEqualToString:REACTIONS_GROUP])
     {
-        backgroundColor = [BBConstants blueDefaultColor];
+        backgroundColor = [BBConstants blueColor];
     }
     else if ([groupName isEqualToString:CONTROL_GROUP])
     {
-        backgroundColor = [BBConstants pinkDefaultColor];
+        backgroundColor = [BBConstants pinkColor];
     }
     else
     {

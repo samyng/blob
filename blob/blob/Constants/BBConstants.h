@@ -10,20 +10,28 @@ static NSString * const FASHION_CATEGORY = @"Fashion";
 
 static NSString * const FEELINGS_TITLE = @"Feelings";
 static NSString * const REACTIONS_GROUP = @"Reactions";
-static NSString * const ACCESSORIES_GROUP = @"Accessories";
+static NSString * const FROM_CLOSET_GROUP = @"From Closet";
 static NSString * const CONTROL_GROUP = @"Control";
+static NSString * const OPERATORS_GROUP = @"Operators";
+static NSString * const VARIABLES_GROUP = @"Variables";
 
 static NSInteger const kTotalNumberOfSections = 1;
 
 @interface BBConstants : NSObject
 
-+ (UIColor *)pinkDefaultColor;
-+ (UIColor *)orangeDefaultColor;
-+ (UIColor *)yellowDefaultColor;
-+ (UIColor *)lightBlueDefaultColor;
-+ (UIColor *)blueDefaultColor;
-+ (UIColor *)lightGrayDefaultColor;
++ (UIColor *)pinkColor;
++ (UIColor *)pinkBackgroundColor;
++ (UIColor *)orangeColor;
++ (UIColor *)orangeBackgroundColor;
++ (UIColor *)yellowColor;
++ (UIColor *)yellowBackgroundColor;
++ (UIColor *)lightBlueColor;
++ (UIColor *)lightBlueBackgroundColor;
++ (UIColor *)blueColor;
++ (UIColor *)blueBackgroundColor;
+
+
++ (UIColor *)lightGrayColor;
 + (UIColor *)magnesiumGrayColor;
-+ (UIColor *)spindriftDefaultColor;
 
 @end
