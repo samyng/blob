@@ -6,8 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BBMyBlobViewController">
             <connections>
+                <outlet property="currentFeelingSlot" destination="oxN-xK-8pG" id="dlS-Rf-sMY"/>
                 <outlet property="feelingsCollectionView" destination="EX7-u6-eFl" id="aQF-x3-Luc"/>
-                <outlet property="lumpyCircleImageView" destination="oxN-xK-8pG" id="1kH-ya-P2D"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -34,7 +34,7 @@
                     <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="41"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oxN-xK-8pG">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oxN-xK-8pG" userLabel="Current Feeling Slot">
                     <rect key="frame" x="581" y="85" width="168" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>

@@ -13,15 +13,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="160" height="50"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RIW-SM-dFC">
-                        <rect key="frame" x="10" y="7" width="140" height="35"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="140" id="1wQ-Or-kl7"/>
-                            <constraint firstAttribute="height" constant="35" id="qWt-hI-9e2"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6RI-ZV-PWd" userLabel="Label - Feeling Label">
                         <rect key="frame" x="30" y="14" width="90" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -36,11 +27,10 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
+            <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="6RI-ZV-PWd" firstAttribute="centerX" secondItem="RIW-SM-dFC" secondAttribute="centerX" constant="-5" id="0AF-bg-peC"/>
-                <constraint firstAttribute="centerX" secondItem="RIW-SM-dFC" secondAttribute="centerX" id="R1a-dE-JHm"/>
-                <constraint firstItem="6RI-ZV-PWd" firstAttribute="centerY" secondItem="RIW-SM-dFC" secondAttribute="centerY" constant="-0.5" id="UuS-hI-wRf"/>
-                <constraint firstAttribute="centerY" secondItem="RIW-SM-dFC" secondAttribute="centerY" id="fec-lp-8KK"/>
+                <constraint firstAttribute="centerY" secondItem="6RI-ZV-PWd" secondAttribute="centerY" constant="0.5" id="hKh-Ap-MdX"/>
+                <constraint firstAttribute="centerX" secondItem="6RI-ZV-PWd" secondAttribute="centerX" constant="5" id="wrV-aq-BAL"/>
             </constraints>
             <connections>
                 <outlet property="feelingLabel" destination="6RI-ZV-PWd" id="SEW-R2-eoE"/>

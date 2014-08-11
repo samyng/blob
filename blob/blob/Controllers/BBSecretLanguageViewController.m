@@ -31,7 +31,7 @@ static NSString * const kLanguageBlockCollectionCellIdentifier = @"languageBlock
     
     [self populateLanguageGroups];
     
-#warning - test heavily before shipping final product -SY (8/8/14)
+//TODO - preload model data and test heavily before shipping final product -SY (8/8/14)
     
 #if DEBUG
     if ([self.groups count] == 0)

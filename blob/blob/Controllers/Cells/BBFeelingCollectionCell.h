@@ -12,6 +12,8 @@
 @interface BBFeelingCollectionCell : UICollectionViewCell
 - (void)configureWithFeeling:(BBFeeling *)feeling;
 @property (strong, nonatomic) BBFeeling *feeling;
-- (UIImage *)getRasterizedImageCopy;
+- (UIImage *)rasterizedImageCopy;
+- (void)setToBlankState;
+- (void)resetDefaultUI;
 @property (weak, nonatomic) IBOutlet UILabel *feelingLabel;
 @end

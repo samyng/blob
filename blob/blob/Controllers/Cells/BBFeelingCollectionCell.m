@@ -9,9 +9,6 @@
 #import "BBFeelingCollectionCell.h"
 #import "BBFeeling.h"
 
-@interface BBFeelingCollectionCell ()
-
-@end
 
 @implementation BBFeelingCollectionCell
 
@@ -21,7 +18,7 @@
     self.feeling = feeling;
 }
 
-- (UIImage *)getRasterizedImageCopy
+- (UIImage *)rasterizedImageCopy
 {
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.isOpaque, 0.0f);
     [self.layer renderInContext:UIGraphicsGetCurrentContext()];
@@ -29,5 +26,18 @@
     UIGraphicsEndImageContext();
     return image;
 }
+
+- (void)setToBlankState
+{
+    self.feelingLabel.alpha = 0.0f;
+    self.contentView.backgroundColor = [UIColor lightGrayColor];
+}
+
+- (void)resetDefaultUI
+{
+    self.feelingLabel.alpha = 1.0f;
+    self.contentView.backgroundColor = [BBConstants spindriftDefaultColor];
+}
+
 
 @end

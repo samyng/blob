@@ -15,15 +15,13 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
 
 @interface BBMyBlobViewController () <UICollectionViewDataSource, NSFetchedResultsControllerDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *feelingsCollectionView;
-@property (weak, nonatomic) IBOutlet UIImageView *lumpyCircleImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *currentFeelingSlot;
 
 @property (strong, nonatomic) NSMutableArray *feelings;
-@property (nonatomic) CGPoint cellCopyImageViewStartLocation;
-@property (nonatomic) UIImageView *cellCopyImageView;
-@property (nonatomic) NSIndexPath *startingIndexPath;
+@property (nonatomic) UIImageView *draggableCellImageView;
 @property (strong, nonatomic) BBFeeling *currentFeeling;
-@property (nonatomic) BOOL shouldMoveCellCopyImageView;
-
+@property (nonatomic) NSIndexPath *currentFeelingIndexPath;
+@property (nonatomic) BOOL allowDrag;
 @property (strong, nonatomic) NSFetchedResultsController *feelingsFetchedResultsController;
 @end
 
@@ -35,10 +33,9 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
     [self.feelingsCollectionView registerNib:[UINib nibWithNibName:@"BBFeelingCollectionCell" bundle:nil] forCellWithReuseIdentifier:kFeelingCollectionCellIdentifier];
     
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panned:)];
-//    longPressGestureRecognizer.minimumPressDuration = 0.5f;
     [self.view addGestureRecognizer:panGestureRecognizer];
     
-#warning - preload accessories and test heavily before shipping final product -SY (8/9/14)
+//TODO - preload model data and test heavily before shipping final product -SY (8/9/14)
     
     [self populateFeelings];
 #if DEBUG
@@ -80,88 +77,41 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
 - (IBAction)panned:(UIPanGestureRecognizer *)sender
 {
     CGPoint touchLocation = [sender locationInView:self.view];
-
-    if (sender.state == UIGestureRecognizerStateBegan)
+    
+    if ([self touchBeganInFeelingsCollectionView:touchLocation forPanGestureRecognizer:sender])
     {
-        if ([self.feelingsCollectionView pointInside:touchLocation withEvent:nil] && !self.currentFeeling)
+        NSIndexPath *startingIndexPath = [self.feelingsCollectionView indexPathForItemAtPoint:touchLocation];
+        if (startingIndexPath)
         {
-            self.shouldMoveCellCopyImageView = YES;
-            self.startingIndexPath = [self.feelingsCollectionView indexPathForItemAtPoint:touchLocation];
-            
-            if (self.startingIndexPath)
+            if (self.currentFeeling)
             {
-                BBFeelingCollectionCell *cell = (BBFeelingCollectionCell *)[self.feelingsCollectionView cellForItemAtIndexPath:self.startingIndexPath];
-                self.cellCopyImageView = [[UIImageView alloc] initWithImage:[cell getRasterizedImageCopy]];
-                
-                [self.view addSubview:self.cellCopyImageView];
-                self.cellCopyImageView.center = touchLocation;
-                self.cellCopyImageViewStartLocation = self.cellCopyImageView.center;
-                [self.view bringSubviewToFront:self.cellCopyImageView];
-                
-                [UIView animateWithDuration:0.4f animations:^{
-                    CGAffineTransform transform = CGAffineTransformMakeScale(1.2f, 1.2f);
-                    self.cellCopyImageView.transform = transform;
-                }];
+                [self returnCurrentFeelingToFeelingsCollectionView];
             }
-        }
-        else if ([self.lumpyCircleImageView pointInside:touchLocation withEvent:nil])
-        {
-            self.shouldMoveCellCopyImageView = YES;
-        }
-        else
-        {
-            // TODO - make it so that the blocks switch, instead of having to put one away before grabbing a new one - SY (8/9/2014)
-            self.shouldMoveCellCopyImageView = NO;
+            [self createDraggableCurrentFeelingForCellAtIndexPath:startingIndexPath atTouchLocation:touchLocation];
         }
     }
-    
-    if (sender.state == UIGestureRecognizerStateChanged)
+    else if ([self touchBeganInDraggableCell:touchLocation forPanGestureRecognizer:sender])
     {
-        self.cellCopyImageView.center = touchLocation;
+        self.allowDrag = YES;
     }
-    
-    if (sender.state == UIGestureRecognizerStateEnded)
+    else if (sender.state == UIGestureRecognizerStateBegan) // if touch began anywhere else
     {
-        if ([self.feelingsCollectionView pointInside:touchLocation withEvent:nil])
+        self.allowDrag = NO;
+    }
+    else if ([self touchChangedWithDraggableCell:touchLocation forPanGestureRecognizer:sender])
+    {
+        self.draggableCellImageView.center = touchLocation;
+    }
+    else if ([self touchEndedInFeelingsCollectionView:touchLocation forPanGestureRecognizer:sender])
+    {
+        if (self.currentFeelingIndexPath)
         {
-            NSIndexPath *endingIndexPath = [self.feelingsCollectionView indexPathForItemAtPoint:touchLocation];
-            if (endingIndexPath != self.startingIndexPath)
-            {
-                if (endingIndexPath)
-                {
-                    [self.feelings insertObject:self.currentFeeling atIndex:endingIndexPath.item];
-                    self.currentFeeling = nil;
-                    [self.feelingsCollectionView insertItemsAtIndexPaths:@[endingIndexPath]];
-                    [self.feelingsCollectionView reloadItemsAtIndexPaths:@[endingIndexPath]];
-                    [self.cellCopyImageView removeFromSuperview];
-                }
-                else
-                {
-                    CGPoint finalTouchLocation = CGPointMake(667.0f, 107.0f);
-                    self.cellCopyImageView.center = finalTouchLocation;
-                }
-            }
-            else
-            {
-                self.currentFeeling = nil;
-                [self.cellCopyImageView removeFromSuperview];
-            }
+            [self returnCurrentFeelingToFeelingsCollectionView];
         }
-        else
-        {
-            CGPoint finalTouchLocation = CGPointMake(667.0f, 107.0f);
-            self.cellCopyImageView.center = finalTouchLocation;
-            if (!self.currentFeeling)
-            {
-                if (self.startingIndexPath)
-                {
-                    [self.feelings removeObjectAtIndex:self.startingIndexPath.item];
-                    BBFeelingCollectionCell *cell = (BBFeelingCollectionCell *)[self.feelingsCollectionView cellForItemAtIndexPath:self.startingIndexPath];
-                    self.currentFeeling = cell.feeling;
-                    [self.feelingsCollectionView deleteItemsAtIndexPaths:@[self.startingIndexPath]];
-                }
-            }
-        }
+    }
+    else if (sender.state == UIGestureRecognizerStateEnded) // if touch ended anywhere else
+    {
+        self.draggableCellImageView.center = self.currentFeelingSlot.center;
     }
 }
 
@@ -183,6 +133,57 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
     BBFeeling *feeling = [self.feelings objectAtIndex:indexPath.item];
     [cell configureWithFeeling:feeling];
     return cell;
+}
+
+
+#pragma mark - Helper Methods
+
+- (BOOL)touchBeganInFeelingsCollectionView:(CGPoint)touchPoint forPanGestureRecognizer:(UIPanGestureRecognizer *)sender
+{
+    return (sender.state == UIGestureRecognizerStateBegan && [self.feelingsCollectionView pointInside:touchPoint withEvent:nil]) ? YES : NO;
+}
+
+- (BOOL)touchBeganInDraggableCell:(CGPoint)touchPoint forPanGestureRecognizer:(UIPanGestureRecognizer *)sender
+{
+    return (sender.state == UIGestureRecognizerStateBegan && CGRectContainsPoint(self.currentFeelingSlot.frame, touchPoint)) ? YES : NO;
+}
+
+- (BOOL)touchChangedWithDraggableCell:(CGPoint)touchPoint forPanGestureRecognizer:(UIPanGestureRecognizer *)sender
+{
+    return (sender.state == UIGestureRecognizerStateChanged && self.allowDrag) ? YES : NO;
+}
+
+- (BOOL)touchEndedInFeelingsCollectionView:(CGPoint)touchPoint forPanGestureRecognizer:(UIPanGestureRecognizer *)sender
+{
+    return (sender.state == UIGestureRecognizerStateEnded && [self.feelingsCollectionView pointInside:touchPoint withEvent:nil] && self.allowDrag) ? YES : NO;
+}
+
+
+- (void)createDraggableCurrentFeelingForCellAtIndexPath:(NSIndexPath *)startingIndexPath atTouchLocation:(CGPoint)touchLocation
+{
+    self.allowDrag = YES;
+    BBFeelingCollectionCell *cell = (BBFeelingCollectionCell *)[self.feelingsCollectionView cellForItemAtIndexPath:startingIndexPath];
+    self.draggableCellImageView = [[UIImageView alloc] initWithImage:[cell rasterizedImageCopy]];
+    [self.view addSubview:self.draggableCellImageView];
+    self.draggableCellImageView.center = touchLocation;
+    [self.view bringSubviewToFront:self.draggableCellImageView];
+    [cell setToBlankState];
+    self.currentFeeling = cell.feeling;
+    self.currentFeelingIndexPath = startingIndexPath;
+    [UIView animateWithDuration:0.4f animations:^{
+        CGAffineTransform transform = CGAffineTransformMakeScale(1.2f, 1.2f);
+        self.draggableCellImageView.transform = transform;
+    }];
+}
+
+- (void)returnCurrentFeelingToFeelingsCollectionView
+{
+    BBFeelingCollectionCell *cell = (BBFeelingCollectionCell *)[self.feelingsCollectionView cellForItemAtIndexPath:self.currentFeelingIndexPath];
+    [cell resetDefaultUI];
+    [self.draggableCellImageView removeFromSuperview];
+    self.draggableCellImageView = nil;
+    self.currentFeeling = nil;
+    self.currentFeelingIndexPath = nil;
 }
 
 #pragma mark - Create test data
@@ -216,5 +217,6 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
         NSLog(@"Could not save: %@", [error localizedDescription]);
     }
 }
+
 
 @end

@@ -43,6 +43,11 @@
     return [UIColor colorWithRed:203.0f/255 green:203.0f/255 blue:203.0f/255 alpha:1.0f];
 }
 
++ (UIColor *)spindriftDefaultColor
+{
+    return [UIColor colorWithRed:163.0f/255 green:252.0f/255 blue:205.0f/255 alpha:1.0f];
+}
+
 + (UIColor *)reactionGroupBackgroundColor
 {
     return [self pinkDefaultColor];

@@ -25,6 +25,7 @@ static NSInteger const kTotalNumberOfSections = 1;
 + (UIColor *)purpleSecretLanguageColor;
 + (UIColor *)unselectedTabTextColor;
 + (UIColor *)magnesiumGrayColor;
++ (UIColor *)spindriftDefaultColor;
 
 + (UIColor *)reactionGroupBackgroundColor;
 + (UIColor *)accessoriesGroupBackgroundColor;

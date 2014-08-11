@@ -33,7 +33,7 @@ static NSInteger const kAllSectionIndex = 0;
     [self.accessoriesCollectionView registerNib:[UINib nibWithNibName:@"BBAccessoryCollectionCell" bundle:nil] forCellWithReuseIdentifier:kAccessoriesCollectionCellIdentifier];
     [self populateCategories];
 
-#warning - preload accessories and test heavily before shipping final product -SY (8/8/14)
+//TODO - preload model data and test heavily before shipping final product -SY (8/8/14)
     
 #if DEBUG
     if ([self.categories count] == 0)
