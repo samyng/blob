@@ -42,6 +42,7 @@ static NSString * const kLanguageBlockCollectionCellIdentifier = @"languageBlock
 #endif
     
     [self.groupsTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+    self.languageBlocksCollectionView.backgroundColor = [self backgroundColorOfBlocksCollectionViewForGroup:CONTROL_GROUP]; // hack to set initial background color to pink default - SY
 }
 
 
@@ -95,6 +96,7 @@ static NSString * const kLanguageBlockCollectionCellIdentifier = @"languageBlock
         NSArray *languageBlocks = [[[self.groups objectAtIndex:selectedRowIndex] blocks] allObjects];
         BBLanguageBlock *block = [languageBlocks objectAtIndex:indexPath.item];
         [cell configureWithBlock:block];
+        cell.contentView.backgroundColor = [self backgroundColorForGroupTableCellWithName:block.group.name];
         return cell;
 }
 
@@ -116,19 +118,77 @@ static NSString * const kLanguageBlockCollectionCellIdentifier = @"languageBlock
     NSString *name = [[self.groups objectAtIndex:indexPath.row] name];
     cell.textLabel.text = name;
     cell.textLabel.font = [UIFont fontWithName:@"Avenir" size:17.0f];
-    cell.contentView.backgroundColor = [UIColor lightGrayColor];
+    cell.contentView.backgroundColor = [self backgroundColorForGroupTableCellWithName:name];
     
     CGRect frame = cell.contentView.frame;
     UIView *selectedBackgroundView = [[UIView alloc] initWithFrame:frame];
-    selectedBackgroundView.backgroundColor = [BBConstants magnesiumGrayColor];
+    selectedBackgroundView.backgroundColor = [self backgroundColorForGroupTableCellWithName:name];
     [cell setSelectedBackgroundView:selectedBackgroundView];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSString *name = [[self.groups objectAtIndex:indexPath.row] name];
+    self.languageBlocksCollectionView.backgroundColor = [self backgroundColorOfBlocksCollectionViewForGroup:name];
     [self.languageBlocksCollectionView reloadData];
 }
+
+- (UIColor *)backgroundColorForGroupTableCellWithName:(NSString *)name
+{
+    if ([name isEqualToString:CONTROL_GROUP])
+    {
+        return [BBConstants pinkColor];
+    }
+    else if ([name isEqualToString:FROM_CLOSET_GROUP])
+    {
+        return [BBConstants orangeColor];
+    }
+    else if ([name isEqualToString:REACTIONS_GROUP])
+    {
+        return [BBConstants yellowColor];
+    }
+    else if ([name isEqualToString:OPERATORS_GROUP])
+    {
+        return [BBConstants lightBlueColor];
+    }
+    else if ([name isEqualToString:VARIABLES_GROUP])
+    {
+        return [BBConstants blueColor];
+    }
+    else
+    {
+        return [UIColor grayColor];
+    }
+}
+                                                         
+- (UIColor *)backgroundColorOfBlocksCollectionViewForGroup:(NSString *)name
+    {
+        if ([name isEqualToString:CONTROL_GROUP])
+        {
+            return [BBConstants pinkBackgroundColor];
+        }
+        else if ([name isEqualToString:FROM_CLOSET_GROUP])
+        {
+            return [BBConstants orangeBackgroundColor];
+        }
+        else if ([name isEqualToString:REACTIONS_GROUP])
+        {
+            return [BBConstants yellowBackgroundColor];
+        }
+        else if ([name isEqualToString:OPERATORS_GROUP])
+        {
+            return [BBConstants lightBlueBackgroundColor];
+        }
+        else if ([name isEqualToString:VARIABLES_GROUP])
+        {
+            return [BBConstants blueBackgroundColor];
+        }
+        else
+        {
+            return [UIColor lightGrayColor];
+        }
+    }
 
 #pragma mark - Create test data
 
@@ -151,22 +211,38 @@ static NSString * const kLanguageBlockCollectionCellIdentifier = @"languageBlock
     BBLanguageBlock *cry = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
     cry.name = @"cry";
     
-    BBLanguageBlock *ifBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
-    ifBlock.name = @"if";
+    BBLanguageBlock *yawn = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+    yawn.name = @"yawn";
+    
+    BBLanguageBlock *ifNearBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+    ifNearBlock.name = @"if near";
     
     BBLanguageBlock *repeatBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
     repeatBlock.name = @"repeat";
     
+    BBLanguageBlock *switchState = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+    switchState.name = @"switch state to";
+
+    
+    BBLanguageGroup *control = [[BBLanguageGroup alloc] initWithEntity:groupEntityDescription
+                                         insertIntoManagedObjectContext:context];
+    control.name = CONTROL_GROUP;
+    control.blocks = [NSSet setWithArray:@[ifNearBlock, repeatBlock, switchState]];
+    
+    BBLanguageGroup *fromCloset = [[BBLanguageGroup alloc] initWithEntity:groupEntityDescription insertIntoManagedObjectContext:context];
+    fromCloset.name = FROM_CLOSET_GROUP;
+    
     BBLanguageGroup *reactions = [[BBLanguageGroup alloc] initWithEntity:groupEntityDescription
-                              
+                                  
                                           insertIntoManagedObjectContext:context];
     reactions.name = REACTIONS_GROUP;
-    reactions.blocks = [NSSet setWithArray:@[blush, giggle, shake, cry]];
+    reactions.blocks = [NSSet setWithArray:@[blush, giggle, shake, cry, yawn]];
     
-    BBLanguageGroup *controls = [[BBLanguageGroup alloc] initWithEntity:groupEntityDescription
-                                         insertIntoManagedObjectContext:context];
-    controls.name = CONTROL_GROUP;
-    controls.blocks = [NSSet setWithArray:@[ifBlock, repeatBlock]];
+    BBLanguageGroup *operators = [[BBLanguageGroup alloc] initWithEntity:groupEntityDescription insertIntoManagedObjectContext:context];
+    operators.name = OPERATORS_GROUP;
+    
+    BBLanguageGroup *variables = [[BBLanguageGroup alloc] initWithEntity:groupEntityDescription insertIntoManagedObjectContext:context];
+    variables.name = VARIABLES_GROUP;
     
     NSError *error;
     if (![context save:&error]) {
