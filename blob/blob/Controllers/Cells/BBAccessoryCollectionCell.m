@@ -32,9 +32,9 @@
 
 - (void)setup
 {
-    self.backgroundColor = [UIColor lightGrayColor];
+    self.backgroundColor = [BBConstants blueBackgroundColor];
     self.layer.borderWidth = 5.0f;
-    self.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    self.layer.borderColor = [BBConstants blueColor].CGColor;
     self.thumbnailImageView.contentMode = UIViewContentModeScaleAspectFit;
 }
 

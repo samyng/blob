@@ -31,7 +31,7 @@
                         <constraint firstAttribute="width" constant="235" id="W9g-5i-vHY"/>
                         <constraint firstAttribute="height" constant="45" id="lRs-K0-9cT"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="24"/>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="26"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oxN-xK-8pG" userLabel="Current Feeling Image View">
@@ -43,7 +43,7 @@
                         <constraint firstAttribute="height" constant="44" id="3lc-eY-KJt"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="CONNECTED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vul-lS-Yxl">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONNECTED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vul-lS-Yxl">
                     <rect key="frame" x="341" y="600" width="89" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
@@ -56,7 +56,6 @@
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="EX7-u6-eFl" userLabel="Feelings Collection View">
                     <rect key="frame" x="0.0" y="0.0" width="768" height="64"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="64" id="wzh-Z6-0NT"/>
                     </constraints>
@@ -76,7 +75,7 @@
             <constraints>
                 <constraint firstItem="VaV-xL-ftw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="85" id="9eG-8L-eUJ"/>
                 <constraint firstItem="oxN-xK-8pG" firstAttribute="leading" secondItem="VaV-xL-ftw" secondAttribute="trailing" constant="22" id="9eW-hi-ckL"/>
-                <constraint firstAttribute="centerX" secondItem="Vul-lS-Yxl" secondAttribute="centerX" constant="-0.5" id="BRY-ZL-Rx8"/>
+                <constraint firstAttribute="centerX" secondItem="Vul-lS-Yxl" secondAttribute="centerX" constant="-1.5" id="BRY-ZL-Rx8"/>
                 <constraint firstItem="VaV-xL-ftw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="324" id="PZR-e7-1vR"/>
                 <constraint firstAttribute="centerX" secondItem="b4W-6b-h6i" secondAttribute="centerX" id="Rdq-JN-B6e"/>
                 <constraint firstItem="EX7-u6-eFl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Yqo-81-wz7"/>

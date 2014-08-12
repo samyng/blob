@@ -30,7 +30,6 @@ static NSString * const kLanguageBlockCollectionCellIdentifier = @"languageBlock
     [super viewDidLoad];
     [self.groupsTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kGroupsTableCellIdentifier];
     [self.languageBlocksCollectionView registerNib:[UINib nibWithNibName:@"BBLanguageBlockCollectionCell" bundle:nil] forCellWithReuseIdentifier:kLanguageBlockCollectionCellIdentifier];
-    
     [self populateLanguageGroups];
     
 //TODO - preload model data and test heavily before shipping final product -SY (8/8/14)

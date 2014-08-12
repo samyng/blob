@@ -33,6 +33,7 @@ static NSInteger const kAllSectionIndex = 0;
     [super viewDidLoad];
     [self.categoriesTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kCategoriesTableCellIdentifier];
     [self.accessoriesCollectionView registerNib:[UINib nibWithNibName:@"BBAccessoryCollectionCell" bundle:nil] forCellWithReuseIdentifier:kAccessoriesCollectionCellIdentifier];
+    self.categoriesTableView.backgroundColor = [BBConstants blueColor];
     [self populateCategories];
 
 //TODO - preload model data and test heavily before shipping final product -SY (8/8/14)
@@ -110,8 +111,9 @@ static NSInteger const kAllSectionIndex = 0;
     }
     cell.textLabel.text = name;
     cell.textLabel.font = [UIFont fontWithName:BLOB_FONT_BOLD size:19.0f];
+    cell.textLabel.textColor = [BBConstants blueTextColor];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
-    cell.contentView.backgroundColor = [UIColor lightGrayColor];
+    cell.contentView.backgroundColor = [BBConstants blueColor];
     
     CGRect frame = cell.contentView.frame;
     UIView *selectedBackgroundView = [[UIView alloc] initWithFrame:frame];
