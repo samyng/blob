@@ -123,7 +123,7 @@ static NSString * const kLanguageBlockCollectionCellIdentifier = @"languageBlock
     
     CGRect frame = cell.contentView.frame;
     UIView *selectedBackgroundView = [[UIView alloc] initWithFrame:frame];
-    selectedBackgroundView.backgroundColor = [BBConstants colorForCellWithLanguageGroupName:name];
+    selectedBackgroundView.backgroundColor = [BBConstants backgroundColorForCellWithLanguageGroupName:name];
     [cell setSelectedBackgroundView:selectedBackgroundView];
     return cell;
 }
