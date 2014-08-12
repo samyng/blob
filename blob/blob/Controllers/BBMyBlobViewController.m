@@ -66,9 +66,9 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
 
 - (NSFetchRequest *)allFeelingsFetchRequest
 {
-    NSFetchRequest *allFeelingsFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Feeling"];
+    NSFetchRequest *allFeelingsFetchRequest = [NSFetchRequest fetchRequestWithEntityName:FEELING_ENTITY_DESCRIPTION];
     NSSortDescriptor *sort = [[NSSortDescriptor alloc]
-                              initWithKey:@"name" ascending:YES];
+                              initWithKey:NAME_SORT_DESCRIPTOR_KEY ascending:YES];
     [allFeelingsFetchRequest setSortDescriptors:@[sort]];
     return allFeelingsFetchRequest;
 }
@@ -192,7 +192,7 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
 - (void)createTestData
 {
     NSManagedObjectContext *context = self.context;
-    NSEntityDescription *feelingEntityDescription = [NSEntityDescription entityForName:@"Feeling" inManagedObjectContext:context];
+    NSEntityDescription *feelingEntityDescription = [NSEntityDescription entityForName:FEELING_ENTITY_DESCRIPTION inManagedObjectContext:context];
     
     BBFeeling *happy = [[BBFeeling alloc] initWithEntity:feelingEntityDescription
                               insertIntoManagedObjectContext:context];

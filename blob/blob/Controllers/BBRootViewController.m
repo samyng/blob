@@ -49,11 +49,11 @@
     [self.myBlobButton setTitleColor:[BBConstants pinkColor] forState:UIControlStateSelected];
     [self.secretLanguageButton setTitleColor:[BBConstants orangeColor] forState:UIControlStateSelected];
     
-    UIImage *defaultClosetImage = [[UIImage imageNamed:@"closet-ico-selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImage *defaultClosetImage = [[UIImage imageNamed:CLOSET_ICON_NAME] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [self.closetButton setImage:defaultClosetImage forState:UIControlStateNormal];
-    UIImage *defaultMyBlobImage = [[UIImage imageNamed:@"my-blob-ico-selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImage *defaultMyBlobImage = [[UIImage imageNamed:MY_BLOB_ICON_NAME] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [self.myBlobButton setImage:defaultMyBlobImage forState:UIControlStateNormal];
-    UIImage *defaultSecretLanguageImage = [[UIImage imageNamed:@"secret-lang-ico-selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImage *defaultSecretLanguageImage = [[UIImage imageNamed:SECRET_LANGUAGE_ICON_NAME] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [self.secretLanguageButton setImage:defaultSecretLanguageImage forState:UIControlStateNormal];
     
     [self myBlobButtonPressed:self.myBlobButton];

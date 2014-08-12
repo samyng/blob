@@ -77,9 +77,9 @@ static NSInteger const kAllSectionIndex = 0;
 
 - (NSFetchRequest *)allCategoriesFetchRequest
 {
-    NSFetchRequest *allCategoriesFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"ClosetCategory"];
+    NSFetchRequest *allCategoriesFetchRequest = [NSFetchRequest fetchRequestWithEntityName:CLOSET_CATEGORY_ENTITY_DESCRIPTION];
     NSSortDescriptor *sort = [[NSSortDescriptor alloc]
-                              initWithKey:@"name" ascending:YES];
+                              initWithKey:NAME_SORT_DESCRIPTOR_KEY ascending:YES];
     [allCategoriesFetchRequest setSortDescriptors:@[sort]];
     return allCategoriesFetchRequest;
 }
@@ -104,7 +104,7 @@ static NSInteger const kAllSectionIndex = 0;
         name = [[self.categories objectAtIndex:indexPath.row] name];
     }
     cell.textLabel.text = name;
-    cell.textLabel.font = [UIFont fontWithName:@"GillSans-Bold" size:19.0f];
+    cell.textLabel.font = [UIFont fontWithName:BLOB_FONT_BOLD size:19.0f];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.contentView.backgroundColor = [UIColor lightGrayColor];
     
@@ -219,8 +219,8 @@ static NSInteger const kAllSectionIndex = 0;
 - (void)createTestData
 {
     NSManagedObjectContext *context = self.context;
-    NSEntityDescription *accessoryEntityDescription = [NSEntityDescription entityForName:@"Accessory" inManagedObjectContext:context];
-    NSEntityDescription *categoryEntityDescription = [NSEntityDescription entityForName:@"ClosetCategory" inManagedObjectContext:context];
+    NSEntityDescription *accessoryEntityDescription = [NSEntityDescription entityForName:ACCESSORY_ENTITY_DESCRIPTION inManagedObjectContext:context];
+    NSEntityDescription *categoryEntityDescription = [NSEntityDescription entityForName:CLOSET_CATEGORY_ENTITY_DESCRIPTION inManagedObjectContext:context];
     
     // Accessories
     

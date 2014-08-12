@@ -1,6 +1,17 @@
 #import <Foundation/Foundation.h>
 
 static NSString * const BLOB_TITLE = @"BLOB LOGO";
+static NSString * const BLOB_FONT_BOLD = @"GillSans-Bold";
+static NSString * const CLOSET_ICON_NAME = @"closet-ico-selected";
+static NSString * const MY_BLOB_ICON_NAME = @"my-blob-ico-selected";
+static NSString * const SECRET_LANGUAGE_ICON_NAME = @"secret-lang-ico-selected";
+
+static NSString * const ACCESSORY_ENTITY_DESCRIPTION = @"Accessory";
+static NSString * const CLOSET_CATEGORY_ENTITY_DESCRIPTION = @"ClosetCategory";
+static NSString * const LANGUAGE_GROUP_ENTITY_DESCRIPTION = @"LanguageGroup";
+static NSString * const LANGUAGE_BLOCK_ENTITY_DESCRIPTION = @"LanguageBlock";
+static NSString * const FEELING_ENTITY_DESCRIPTION = @"Feeling";
+static NSString * const NAME_SORT_DESCRIPTOR_KEY = @"name";
 
 static NSString * const FOOD_CATEGORY = @"Food";
 static NSString * const FRIENDS_CATEGORY = @"Friends";

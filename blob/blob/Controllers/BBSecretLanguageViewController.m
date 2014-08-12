@@ -63,9 +63,9 @@ static NSString * const kLanguageBlockCollectionCellIdentifier = @"languageBlock
 
 - (NSFetchRequest *)allGroupsFetchRequest
 {
-    NSFetchRequest *allGroupsFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"LanguageGroup"];
+    NSFetchRequest *allGroupsFetchRequest = [NSFetchRequest fetchRequestWithEntityName:LANGUAGE_GROUP_ENTITY_DESCRIPTION];
     NSSortDescriptor *sort = [[NSSortDescriptor alloc]
-                              initWithKey:@"name" ascending:YES];
+                              initWithKey:NAME_SORT_DESCRIPTOR_KEY ascending:YES];
     [allGroupsFetchRequest setSortDescriptors:@[sort]];
     return allGroupsFetchRequest;
 }
@@ -116,7 +116,7 @@ static NSString * const kLanguageBlockCollectionCellIdentifier = @"languageBlock
     UITableViewCell *cell = [self.groupsTableView dequeueReusableCellWithIdentifier:kGroupsTableCellIdentifier];
     NSString *name = [[self.groups objectAtIndex:indexPath.row] name];
     cell.textLabel.text = name;
-    cell.textLabel.font = [UIFont fontWithName:@"GillSans-Bold" size:17.0f];
+    cell.textLabel.font = [UIFont fontWithName:BLOB_FONT_BOLD size:17.0f];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.textLabel.textColor = [BBConstants textColorForCellWithLanguageGroupName:name];
     cell.contentView.backgroundColor = [BBConstants colorForCellWithLanguageGroupName:name];
@@ -140,8 +140,8 @@ static NSString * const kLanguageBlockCollectionCellIdentifier = @"languageBlock
 - (void)createTestData
 {
     NSManagedObjectContext *context = self.context;
-    NSEntityDescription *groupEntityDescription = [NSEntityDescription entityForName:@"LanguageGroup" inManagedObjectContext:context];
-    NSEntityDescription *languageBlockEntityDescription = [NSEntityDescription entityForName:@"LanguageBlock" inManagedObjectContext:context];
+    NSEntityDescription *groupEntityDescription = [NSEntityDescription entityForName:LANGUAGE_GROUP_ENTITY_DESCRIPTION inManagedObjectContext:context];
+    NSEntityDescription *languageBlockEntityDescription = [NSEntityDescription entityForName:LANGUAGE_BLOCK_ENTITY_DESCRIPTION inManagedObjectContext:context];
     
     // Blocks
     BBLanguageBlock *blush = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
