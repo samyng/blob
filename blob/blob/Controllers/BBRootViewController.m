@@ -29,8 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.title = NSLocalizedString(@"My Blob", nil);
+
     SWRevealViewController *revealViewController = [self revealViewController];
     [revealViewController panGestureRecognizer];
     [revealViewController tapGestureRecognizer];
