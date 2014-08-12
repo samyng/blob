@@ -17,6 +17,7 @@
 		222299F5199689AF0016BE43 /* BBLanguageBlockCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 222299F3199689AF0016BE43 /* BBLanguageBlockCollectionCell.xib */; };
 		2259A7811991D91D007A16C3 /* BBAccessoryCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2259A7801991D91D007A16C3 /* BBAccessoryCollectionCell.m */; };
 		2259A7831991D93D007A16C3 /* BBAccessoryCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2259A7821991D93D007A16C3 /* BBAccessoryCollectionCell.xib */; };
+		227C6FA6199A5AEE0025BA2F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227C6FA5199A5AEE0025BA2F /* SWRevealViewController.m */; };
 		22A2866D1992E9780087A311 /* BBFeelingCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A2866C1992E9780087A311 /* BBFeelingCollectionCell.m */; };
 		22A2866F1992EA5C0087A311 /* BBFeelingCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A2866E1992EA5C0087A311 /* BBFeelingCollectionCell.xib */; };
 		22B313A319958AE60006AE57 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B313A219958AE60006AE57 /* CoreData.framework */; };
@@ -71,6 +72,8 @@
 		2259A77F1991D91D007A16C3 /* BBAccessoryCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBAccessoryCollectionCell.h; path = Cells/BBAccessoryCollectionCell.h; sourceTree = "<group>"; };
 		2259A7801991D91D007A16C3 /* BBAccessoryCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBAccessoryCollectionCell.m; path = Cells/BBAccessoryCollectionCell.m; sourceTree = "<group>"; };
 		2259A7821991D93D007A16C3 /* BBAccessoryCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BBAccessoryCollectionCell.xib; path = Cells/BBAccessoryCollectionCell.xib; sourceTree = "<group>"; };
+		227C6FA4199A5AEE0025BA2F /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		227C6FA5199A5AEE0025BA2F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		22A2866B1992E9780087A311 /* BBFeelingCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBFeelingCollectionCell.h; path = Cells/BBFeelingCollectionCell.h; sourceTree = "<group>"; };
 		22A2866C1992E9780087A311 /* BBFeelingCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBFeelingCollectionCell.m; path = Cells/BBFeelingCollectionCell.m; sourceTree = "<group>"; };
 		22A2866E1992EA5C0087A311 /* BBFeelingCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBFeelingCollectionCell.xib; sourceTree = "<group>"; };
@@ -209,6 +212,8 @@
 		22CCEFCC199165D6005161B5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				227C6FA4199A5AEE0025BA2F /* SWRevealViewController.h */,
+				227C6FA5199A5AEE0025BA2F /* SWRevealViewController.m */,
 				22CCEFCD199165D6005161B5 /* blob-Info.plist */,
 				22CCEFCE199165D6005161B5 /* InfoPlist.strings */,
 				22CCEFD1199165D6005161B5 /* main.m */,
@@ -409,6 +414,7 @@
 				222299DE199673200016BE43 /* BBClosetCategory.m in Sources */,
 				2259A7811991D91D007A16C3 /* BBAccessoryCollectionCell.m in Sources */,
 				222299E4199673200016BE43 /* BBLanguageBlock.m in Sources */,
+				227C6FA6199A5AEE0025BA2F /* SWRevealViewController.m in Sources */,
 				22CCF009199176A5005161B5 /* BBSecretLanguageViewController.m in Sources */,
 				22B313A619958B4C0006AE57 /* BlobDataModel.xcdatamodeld in Sources */,
 				22CCEFD6199165D6005161B5 /* BBAppDelegate.m in Sources */,
