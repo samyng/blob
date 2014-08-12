@@ -20,17 +20,17 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xyk-y3-1w1" userLabel="Tab Bar Background View">
-                    <rect key="frame" x="-2" y="918" width="772" height="64"/>
+                    <rect key="frame" x="0.0" y="926" width="768" height="54"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPj-fl-Ysb" userLabel="Button - Closet">
-                            <rect key="frame" x="121" y="0.0" width="115" height="62"/>
+                            <rect key="frame" x="121" y="0.0" width="115" height="54"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="115" id="DvW-Sw-OqN"/>
-                                <constraint firstAttribute="height" constant="62" id="VbH-eZ-DyL"/>
+                                <constraint firstAttribute="height" constant="54" id="VbH-eZ-DyL"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                            <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
                             <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="Closet" image="closet-ico-selected">
                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -44,13 +44,13 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rt-m3-Xtf" userLabel="Button - My Blob">
-                            <rect key="frame" x="324" y="0.0" width="125" height="62"/>
+                            <rect key="frame" x="322" y="0.0" width="125" height="54"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="125" id="WhF-Kf-j0E"/>
-                                <constraint firstAttribute="height" constant="62" id="ksf-0Y-gy7"/>
+                                <constraint firstAttribute="height" constant="54" id="ksf-0Y-gy7"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                            <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
                             <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="My Blob" image="my-blob-ico-selected">
                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -62,13 +62,13 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cti-Gz-cRl" userLabel="Button - Secret Language">
-                            <rect key="frame" x="536" y="0.0" width="190" height="62"/>
+                            <rect key="frame" x="536" y="0.0" width="180" height="54"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="190" id="BZ8-qx-RK4"/>
-                                <constraint firstAttribute="height" constant="62" id="p1C-HR-ueR"/>
+                                <constraint firstAttribute="width" constant="180" id="BZ8-qx-RK4"/>
+                                <constraint firstAttribute="height" constant="54" id="p1C-HR-ueR"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                            <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
                             <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="Secret Language" image="secret-lang-ico-selected">
                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -82,26 +82,26 @@
                     </subviews>
                     <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="centerY" secondItem="Cti-Gz-cRl" secondAttribute="centerY" constant="1" id="5V7-T7-Jxh"/>
-                        <constraint firstItem="6rt-m3-Xtf" firstAttribute="leading" secondItem="yPj-fl-Ysb" secondAttribute="trailing" constant="88" id="AMk-QW-nBS"/>
-                        <constraint firstAttribute="centerY" secondItem="yPj-fl-Ysb" secondAttribute="centerY" constant="1" id="CQX-0P-ZBg"/>
-                        <constraint firstAttribute="centerY" secondItem="6rt-m3-Xtf" secondAttribute="centerY" constant="1" id="G4c-As-NzI"/>
+                        <constraint firstAttribute="centerY" secondItem="Cti-Gz-cRl" secondAttribute="centerY" id="5V7-T7-Jxh"/>
+                        <constraint firstItem="6rt-m3-Xtf" firstAttribute="leading" secondItem="yPj-fl-Ysb" secondAttribute="trailing" constant="86" id="AMk-QW-nBS"/>
+                        <constraint firstAttribute="centerY" secondItem="yPj-fl-Ysb" secondAttribute="centerY" id="CQX-0P-ZBg"/>
+                        <constraint firstAttribute="centerY" secondItem="6rt-m3-Xtf" secondAttribute="centerY" id="G4c-As-NzI"/>
                         <constraint firstAttribute="centerX" secondItem="6rt-m3-Xtf" secondAttribute="centerX" id="JOP-Fz-A2W"/>
-                        <constraint firstItem="Cti-Gz-cRl" firstAttribute="leading" secondItem="6rt-m3-Xtf" secondAttribute="trailing" constant="87" id="JXW-yL-Fgv"/>
-                        <constraint firstAttribute="height" constant="64" id="VFR-7T-xl6"/>
+                        <constraint firstItem="Cti-Gz-cRl" firstAttribute="leading" secondItem="6rt-m3-Xtf" secondAttribute="trailing" constant="89" id="JXW-yL-Fgv"/>
+                        <constraint firstAttribute="height" constant="54" id="VFR-7T-xl6"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6kW-fT-GFG" userLabel="Container View">
-                    <rect key="frame" x="0.0" y="0.0" width="768" height="918"/>
+                    <rect key="frame" x="0.0" y="0.0" width="768" height="926"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </view>
             </subviews>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Xyk-y3-1w1" secondAttribute="trailing" constant="-2" id="3zK-Ha-REJ"/>
-                <constraint firstItem="Xyk-y3-1w1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-2" id="SY9-Nu-BgT"/>
-                <constraint firstItem="Xyk-y3-1w1" firstAttribute="top" secondItem="6kW-fT-GFG" secondAttribute="bottom" id="iBn-P5-lcm"/>
-                <constraint firstAttribute="bottom" secondItem="Xyk-y3-1w1" secondAttribute="bottom" constant="-2" id="lnr-2p-ejV"/>
+                <constraint firstAttribute="bottom" secondItem="Xyk-y3-1w1" secondAttribute="bottom" id="8m3-Ni-kjK"/>
+                <constraint firstItem="Xyk-y3-1w1" firstAttribute="top" secondItem="6kW-fT-GFG" secondAttribute="bottom" id="8uu-hG-lag"/>
+                <constraint firstItem="Xyk-y3-1w1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ScA-QT-Wq2"/>
                 <constraint firstItem="6kW-fT-GFG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="m7Y-IA-ZSO"/>
+                <constraint firstAttribute="trailing" secondItem="Xyk-y3-1w1" secondAttribute="trailing" id="mJC-1O-MLP"/>
                 <constraint firstItem="6kW-fT-GFG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="np3-Jw-Fcw"/>
                 <constraint firstAttribute="trailing" secondItem="6kW-fT-GFG" secondAttribute="trailing" id="rfD-RJ-fbP"/>
             </constraints>

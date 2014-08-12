@@ -6,36 +6,49 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BBMyBlobViewController">
             <connections>
+                <outlet property="beLabel" destination="VH9-gM-3NO" id="33w-PX-PDL"/>
+                <outlet property="connectedLabel" destination="Vul-lS-Yxl" id="eN5-tJ-ChQ"/>
                 <outlet property="currentFeelingSlot" destination="oxN-xK-8pG" id="dlS-Rf-sMY"/>
                 <outlet property="feelingsCollectionView" destination="EX7-u6-eFl" id="aQF-x3-Luc"/>
+                <outlet property="letsMakeLabel" destination="VaV-xL-ftw" id="Zt5-en-kIA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="768" height="876"/>
+            <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blob" translatesAutoresizingMaskIntoConstraints="NO" id="b4W-6b-h6i">
-                    <rect key="frame" x="109" y="150" width="550" height="450"/>
+                    <rect key="frame" x="134" y="294" width="500" height="435"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="450" id="LQi-Nq-SQR"/>
-                        <constraint firstAttribute="width" constant="550" id="TwA-6Z-eL3"/>
+                        <constraint firstAttribute="height" constant="435" id="LQi-Nq-SQR"/>
+                        <constraint firstAttribute="width" constant="500" id="TwA-6Z-eL3"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BLOB IS FEELING" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VaV-xL-ftw">
-                    <rect key="frame" x="324" y="85" width="235" height="45"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's make" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VaV-xL-ftw">
+                    <rect key="frame" x="43" y="41" width="235" height="60"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="235" id="W9g-5i-vHY"/>
-                        <constraint firstAttribute="height" constant="45" id="lRs-K0-9cT"/>
+                        <constraint firstAttribute="height" constant="60" id="lRs-K0-9cT"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="26"/>
+                    <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="40"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="be" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VH9-gM-3NO">
+                    <rect key="frame" x="500" y="41" width="54" height="60"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="54" id="6Ev-ug-X5z"/>
+                        <constraint firstAttribute="height" constant="60" id="aMo-7A-g31"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="40"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oxN-xK-8pG" userLabel="Current Feeling Image View">
-                    <rect key="frame" x="581" y="85" width="168" height="44"/>
+                    <rect key="frame" x="568" y="49" width="168" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -44,20 +57,20 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONNECTED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vul-lS-Yxl">
-                    <rect key="frame" x="341" y="600" width="89" height="21"/>
+                    <rect key="frame" x="304" y="737" width="160" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="89" id="gJG-ln-DYY"/>
+                        <constraint firstAttribute="width" constant="160" id="gJG-ln-DYY"/>
                         <constraint firstAttribute="height" constant="21" id="pgg-y5-wT9"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="12"/>
+                    <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="21"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="EX7-u6-eFl" userLabel="Feelings Collection View">
-                    <rect key="frame" x="0.0" y="0.0" width="768" height="64"/>
+                    <rect key="frame" x="0.0" y="949" width="768" height="75"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="64" id="wzh-Z6-0NT"/>
+                        <constraint firstAttribute="height" constant="75" id="wzh-Z6-0NT"/>
                     </constraints>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="20" minimumInteritemSpacing="10" id="Lep-db-bkh">
                         <size key="itemSize" width="140" height="35"/>
@@ -70,25 +83,37 @@
                         <outlet property="dataSource" destination="-1" id="kYD-91-Wxh"/>
                     </connections>
                 </collectionView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blob-letters" translatesAutoresizingMaskIntoConstraints="NO" id="9yV-fi-2u5">
+                    <rect key="frame" x="286" y="20" width="197" height="81"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="81" id="DiT-jt-a6L"/>
+                        <constraint firstAttribute="width" constant="197" id="N7P-HA-bNN"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="VaV-xL-ftw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="85" id="9eG-8L-eUJ"/>
-                <constraint firstItem="oxN-xK-8pG" firstAttribute="leading" secondItem="VaV-xL-ftw" secondAttribute="trailing" constant="22" id="9eW-hi-ckL"/>
-                <constraint firstAttribute="centerX" secondItem="Vul-lS-Yxl" secondAttribute="centerX" constant="-1.5" id="BRY-ZL-Rx8"/>
-                <constraint firstItem="VaV-xL-ftw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="324" id="PZR-e7-1vR"/>
-                <constraint firstAttribute="centerX" secondItem="b4W-6b-h6i" secondAttribute="centerX" id="Rdq-JN-B6e"/>
-                <constraint firstItem="EX7-u6-eFl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Yqo-81-wz7"/>
-                <constraint firstItem="b4W-6b-h6i" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="150" id="cr9-ln-79r"/>
-                <constraint firstItem="oxN-xK-8pG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="85" id="oDb-ig-aQC"/>
-                <constraint firstAttribute="trailing" secondItem="EX7-u6-eFl" secondAttribute="trailing" id="sM7-Bi-RBO"/>
-                <constraint firstItem="Vul-lS-Yxl" firstAttribute="top" secondItem="b4W-6b-h6i" secondAttribute="bottom" id="uRS-oT-dYF"/>
-                <constraint firstItem="EX7-u6-eFl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="y2l-zr-yYz"/>
+                <constraint firstItem="b4W-6b-h6i" firstAttribute="bottom" secondItem="Vul-lS-Yxl" secondAttribute="bottom" constant="-29" id="0Vk-q7-pbP"/>
+                <constraint firstAttribute="centerX" secondItem="b4W-6b-h6i" secondAttribute="centerX" id="9yc-aC-b66"/>
+                <constraint firstItem="9yV-fi-2u5" firstAttribute="leading" secondItem="VaV-xL-ftw" secondAttribute="trailing" constant="8" id="Bl3-hU-4fY"/>
+                <constraint firstItem="b4W-6b-h6i" firstAttribute="centerX" secondItem="Vul-lS-Yxl" secondAttribute="centerX" constant="-0.5" id="P8o-TO-Vec"/>
+                <constraint firstAttribute="bottom" secondItem="EX7-u6-eFl" secondAttribute="bottom" id="RTP-AG-YC7"/>
+                <constraint firstAttribute="centerX" secondItem="9yV-fi-2u5" secondAttribute="centerX" id="V5b-9c-jgL"/>
+                <constraint firstItem="VaV-xL-ftw" firstAttribute="top" secondItem="9yV-fi-2u5" secondAttribute="bottom" constant="-60" id="WH5-Jn-cdv"/>
+                <constraint firstItem="oxN-xK-8pG" firstAttribute="top" secondItem="9yV-fi-2u5" secondAttribute="bottom" constant="-52" id="WOe-NI-W97"/>
+                <constraint firstAttribute="trailing" secondItem="EX7-u6-eFl" secondAttribute="trailing" id="c99-OW-lMM"/>
+                <constraint firstItem="VH9-gM-3NO" firstAttribute="top" secondItem="9yV-fi-2u5" secondAttribute="bottom" constant="-60" id="lIR-66-XvJ"/>
+                <constraint firstItem="oxN-xK-8pG" firstAttribute="leading" secondItem="VH9-gM-3NO" secondAttribute="trailing" constant="14" id="pxK-ec-lCs"/>
+                <constraint firstItem="9yV-fi-2u5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="rkU-AT-dUG"/>
+                <constraint firstItem="EX7-u6-eFl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="s7W-Yp-BcQ"/>
+                <constraint firstAttribute="centerY" secondItem="b4W-6b-h6i" secondAttribute="centerY" constant="0.5" id="v9q-fd-4ss"/>
+                <constraint firstItem="VH9-gM-3NO" firstAttribute="leading" secondItem="9yV-fi-2u5" secondAttribute="trailing" constant="17" id="w78-13-Zli"/>
             </constraints>
-            <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
         </view>
     </objects>
     <resources>
-        <image name="blob" width="997" height="867"/>
+        <image name="blob" width="500" height="435"/>
+        <image name="blob-letters" width="197" height="81"/>
     </resources>
 </document>

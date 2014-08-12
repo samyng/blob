@@ -20,7 +20,7 @@
                             <constraint firstAttribute="width" constant="120" id="Qy6-ZE-Zjw"/>
                             <constraint firstAttribute="height" constant="21" id="h30-tu-u1h"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="15"/>
+                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="21"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>

@@ -16,6 +16,9 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
 @interface BBMyBlobViewController () <UICollectionViewDataSource, NSFetchedResultsControllerDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *feelingsCollectionView;
 @property (weak, nonatomic) IBOutlet UIImageView *currentFeelingSlot;
+@property (weak, nonatomic) IBOutlet UILabel *letsMakeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *beLabel;
+@property (weak, nonatomic) IBOutlet UILabel *connectedLabel;
 
 @property (strong, nonatomic) NSMutableArray *feelings;
 @property (nonatomic) UIImageView *draggableCellImageView;
@@ -33,8 +36,11 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
 {
     [super viewDidLoad];
     [self.feelingsCollectionView registerNib:[UINib nibWithNibName:@"BBFeelingCollectionCell" bundle:nil] forCellWithReuseIdentifier:kFeelingCollectionCellIdentifier];
-    self.currentFeelingSlot.backgroundColor = [BBConstants blueColor];
-    self.feelingsCollectionView.backgroundColor = [BBConstants blueBackgroundColor];
+    self.currentFeelingSlot.backgroundColor = [BBConstants yellowColor];
+    self.connectedLabel.textColor = [BBConstants lightBlueColor];
+    self.letsMakeLabel.textColor = [BBConstants blueColor];
+    self.beLabel.textColor = [BBConstants orangeColor];
+    self.feelingsCollectionView.backgroundColor = [BBConstants yellowBackgroundColor];
     
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panned:)];
     [self.view addGestureRecognizer:panGestureRecognizer];

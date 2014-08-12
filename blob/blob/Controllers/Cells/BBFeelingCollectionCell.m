@@ -23,7 +23,7 @@
 
 - (void)configureWithFeeling:(BBFeeling *)feeling
 {
-    self.feelingLabel.text = [feeling.name uppercaseString];
+    self.feelingLabel.text = [feeling.name lowercaseString];
     self.feeling = feeling;
 }
 
@@ -39,14 +39,14 @@
 - (void)setToBlankState
 {
     self.feelingLabel.alpha = 0.0f;
-    self.contentView.backgroundColor = [UIColor whiteColor];
+    self.contentView.backgroundColor = [BBConstants yellowTextColor];
 }
 
 - (void)resetDefaultUI
 {
     self.feelingLabel.alpha = 1.0f;
-    self.feelingLabel.textColor = [BBConstants blueTextColor];
-    self.contentView.backgroundColor = [BBConstants blueColor];
+    self.feelingLabel.textColor = [BBConstants yellowTextColor];
+    self.contentView.backgroundColor = [BBConstants yellowColor];
 }
 
 
