@@ -78,6 +78,16 @@
     return [UIColor colorWithRed:0.0f/255 green:94.0f/255 blue:127.0f/255 alpha:1.0f];
 }
 
++ (UIColor *)tealColor
+{
+    return [UIColor colorWithRed:167.0f/255 green:216.0f/255 blue:207.0f/255 alpha:1.0f];
+}
+
++ (UIColor *)tealBackgroundColor
+{
+    return [UIColor colorWithRed:182.0f/255 green:227.0f/255 blue:218.0f/255 alpha:1.0f];
+}
+
 + (UIColor *)lightGrayColor
 {
     return [UIColor colorWithRed:231.0f/255 green:231.0f/255 blue:231.0f/255 alpha:1.0f];

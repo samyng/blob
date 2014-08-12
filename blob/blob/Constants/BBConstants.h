@@ -45,6 +45,9 @@ static NSInteger const kTotalNumberOfSections = 1;
 + (UIColor *)blueColor;
 + (UIColor *)blueBackgroundColor;
 + (UIColor *)blueTextColor;
++ (UIColor *)tealColor;
++ (UIColor *)tealBackgroundColor;
+
 + (UIColor *)textColorForCellWithLanguageGroupName:(NSString *)name;
 + (UIColor *)backgroundColorForCellWithLanguageGroupName:(NSString *)name;
 + (UIColor *)colorForCellWithLanguageGroupName:(NSString *)name;

@@ -33,15 +33,13 @@
     
     UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
     frontNavigationController.navigationBar.translucent = NO;
-    UINavigationController *sideMenuNavigationController = [[UINavigationController alloc] initWithRootViewController:sideMenuViewController];
-    sideMenuNavigationController.navigationBar.translucent = NO;
     
-    SWRevealViewController *revealViewController = [[SWRevealViewController alloc] initWithRearViewController:sideMenuNavigationController frontViewController:frontNavigationController];
+    SWRevealViewController *revealViewController = [[SWRevealViewController alloc] initWithRearViewController:sideMenuViewController frontViewController:frontNavigationController];
     revealViewController.delegate = self;
     self.revealViewController = revealViewController;
 
     self.window.rootViewController = self.revealViewController;
-    [self.window setTintColor:[UIColor lightGrayColor]];
+    [self.window setTintColor:[BBConstants tealColor]];
     [self.window makeKeyAndVisible];
     return YES;
 }
