@@ -15,5 +15,4 @@
 - (UIImage *)rasterizedImageCopy;
 - (void)setToBlankState;
 - (void)resetDefaultUI;
-@property (weak, nonatomic) IBOutlet UILabel *feelingLabel;
 @end

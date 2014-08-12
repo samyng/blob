@@ -26,6 +26,8 @@ static NSInteger const kAllSectionIndex = 0;
 
 @implementation BBClosetViewController
 
+#pragma mark - Lifecycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -45,6 +47,8 @@ static NSInteger const kAllSectionIndex = 0;
     
     [self.categoriesTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
 }
+
+#pragma mark - Fetch Data
 
 - (void)populateCategories
 {
@@ -85,6 +89,7 @@ static NSInteger const kAllSectionIndex = 0;
 }
 
 #pragma mark - Table View Datasource Methods
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return kTotalNumberOfSections;

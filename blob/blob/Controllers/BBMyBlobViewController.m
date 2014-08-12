@@ -27,6 +27,8 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
 
 @implementation BBMyBlobViewController
 
+#pragma mark - Lifecycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -48,6 +50,7 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
 #endif
 }
 
+#pragma mark - Fetch Data
 
 - (void)populateFeelings
 {
@@ -73,7 +76,7 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
     return allFeelingsFetchRequest;
 }
 
-#pragma mark - Gesture Recognizer Method
+#pragma mark - Pan Gesture Recognizer
 
 - (IBAction)panned:(UIPanGestureRecognizer *)sender
 {
@@ -137,7 +140,7 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
 }
 
 
-#pragma mark - Helper Methods
+#pragma mark - Touch Helper Methods
 
 - (BOOL)touchBeganInFeelingsCollectionView:(CGPoint)touchPoint forPanGestureRecognizer:(UIPanGestureRecognizer *)sender
 {
@@ -159,6 +162,7 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
     return (sender.state == UIGestureRecognizerStateEnded && [self.feelingsCollectionView pointInside:touchPoint withEvent:nil] && self.allowDrag) ? YES : NO;
 }
 
+#pragma mark - Other Helper Methods
 
 - (void)createDraggableCurrentFeelingForCellAtIndexPath:(NSIndexPath *)startingIndexPath atTouchLocation:(CGPoint)touchLocation
 {

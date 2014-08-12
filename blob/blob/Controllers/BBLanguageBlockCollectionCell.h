@@ -10,5 +10,5 @@
 @class BBLanguageBlock;
 
 @interface BBLanguageBlockCollectionCell : UICollectionViewCell
-- (void)configureWithBlock:(BBLanguageBlock *)block;
+- (void)configureWithLanguageBlock:(BBLanguageBlock *)block;
 @end

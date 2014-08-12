@@ -17,7 +17,7 @@
 
 @implementation BBLanguageBlockCollectionCell
 
-- (void)configureWithBlock:(BBLanguageBlock *)block
+- (void)configureWithLanguageBlock:(BBLanguageBlock *)block
 {
     self.nameLabel.text = block.name;
     NSString *groupName = block.group.name;

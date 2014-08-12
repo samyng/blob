@@ -15,7 +15,6 @@
 @property (weak, nonatomic) IBOutlet UIView *titleBarBackgroundView;
 @property (weak, nonatomic) IBOutlet UIView *tabBarBackgroundView;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *closetButton;
 @property (weak, nonatomic) IBOutlet UIButton *myBlobButton;
 @property (weak, nonatomic) IBOutlet UIButton *secretLanguageButton;
@@ -26,15 +25,6 @@
 @implementation BBRootViewController
 
 #pragma mark - Lifecycle
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        _titleLabel.text = BLOB_TITLE;
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {

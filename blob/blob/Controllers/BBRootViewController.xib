@@ -12,7 +12,6 @@
                 <outlet property="secretLanguageButton" destination="Cti-Gz-cRl" id="6lu-qq-OZv"/>
                 <outlet property="tabBarBackgroundView" destination="Xyk-y3-1w1" id="E7y-j6-Og2"/>
                 <outlet property="titleBarBackgroundView" destination="EEb-J0-ttH" id="ApM-wl-vmL"/>
-                <outlet property="titleLabel" destination="T27-98-pMb" id="pLC-g2-aDP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,19 +24,8 @@
                     <rect key="frame" x="-2" y="-2" width="772" height="66"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BLOB LOGO" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T27-98-pMb">
-                            <rect key="frame" x="20" y="11" width="300" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="300" id="Y7a-Fa-Qbi"/>
-                                <constraint firstAttribute="height" constant="44" id="oZD-g1-SUS"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="22"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oca-az-dwP">
-                            <rect key="frame" x="717" y="14" width="35" height="38"/>
+                            <rect key="frame" x="20" y="14" width="35" height="38"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="35" id="Jph-57-5iy"/>
@@ -49,11 +37,9 @@
                         </button>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="T27-98-pMb" secondAttribute="bottom" constant="11" id="FnB-C9-ef8"/>
-                        <constraint firstItem="T27-98-pMb" firstAttribute="leading" secondItem="EEb-J0-ttH" secondAttribute="leading" constant="20" id="U35-Pl-P9u"/>
                         <constraint firstAttribute="height" constant="66" id="XKu-1X-imH"/>
-                        <constraint firstAttribute="trailing" secondItem="Oca-az-dwP" secondAttribute="trailing" constant="20" id="dgc-xg-lya"/>
                         <constraint firstAttribute="centerY" secondItem="Oca-az-dwP" secondAttribute="centerY" id="raP-kO-LuB"/>
+                        <constraint firstItem="Oca-az-dwP" firstAttribute="leading" secondItem="EEb-J0-ttH" secondAttribute="leading" constant="20" id="scH-8y-M1c"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xyk-y3-1w1" userLabel="Tab Bar Background View">

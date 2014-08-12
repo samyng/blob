@@ -23,6 +23,8 @@ static NSString * const kLanguageBlockCollectionCellIdentifier = @"languageBlock
 
 @implementation BBSecretLanguageViewController
 
+#pragma mark - Lifecycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -45,6 +47,7 @@ static NSString * const kLanguageBlockCollectionCellIdentifier = @"languageBlock
     self.languageBlocksCollectionView.backgroundColor = [BBConstants backgroundColorForCellWithLanguageGroupName:CONTROL_GROUP]; // hack to set initial background color to pink default - SY
 }
 
+#pragma mark - Fetch Data
 
 - (void)populateLanguageGroups
 {
@@ -95,7 +98,7 @@ static NSString * const kLanguageBlockCollectionCellIdentifier = @"languageBlock
         NSInteger selectedRowIndex = [self groupsTableCellSelectedRowIndex];
         NSArray *languageBlocks = [[[self.groups objectAtIndex:selectedRowIndex] blocks] allObjects];
         BBLanguageBlock *block = [languageBlocks objectAtIndex:indexPath.item];
-        [cell configureWithBlock:block];
+        [cell configureWithLanguageBlock:block];
         return cell;
 }
 
