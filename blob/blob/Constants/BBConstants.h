@@ -21,15 +21,22 @@ static NSInteger const kTotalNumberOfSections = 1;
 
 + (UIColor *)pinkColor;
 + (UIColor *)pinkBackgroundColor;
++ (UIColor *)pinkTextColor;
 + (UIColor *)orangeColor;
 + (UIColor *)orangeBackgroundColor;
++ (UIColor *)orangeTextColor;
 + (UIColor *)yellowColor;
 + (UIColor *)yellowBackgroundColor;
++ (UIColor *)yellowTextColor;
 + (UIColor *)lightBlueColor;
 + (UIColor *)lightBlueBackgroundColor;
++ (UIColor *)lightBlueTextColor;
 + (UIColor *)blueColor;
 + (UIColor *)blueBackgroundColor;
-
++ (UIColor *)blueTextColor;
++ (UIColor *)textColorForCellWithLanguageGroupName:(NSString *)name;
++ (UIColor *)backgroundColorForCellWithLanguageGroupName:(NSString *)name;
++ (UIColor *)colorForCellWithLanguageGroupName:(NSString *)name;
 
 + (UIColor *)lightGrayColor;
 + (UIColor *)magnesiumGrayColor;

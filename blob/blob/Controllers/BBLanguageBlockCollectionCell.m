@@ -17,31 +17,12 @@
 
 @implementation BBLanguageBlockCollectionCell
 
-- (void)updateColorsForBlock:(BBLanguageBlock *)block
-{
-    UIColor *backgroundColor;
-    NSString *groupName = block.group.name;
-    
-    if ([groupName isEqualToString:REACTIONS_GROUP])
-    {
-        backgroundColor = [BBConstants blueColor];
-    }
-    else if ([groupName isEqualToString:CONTROL_GROUP])
-    {
-        backgroundColor = [BBConstants pinkColor];
-    }
-    else
-    {
-        backgroundColor = [UIColor whiteColor];
-    }
-    
-    self.contentView.backgroundColor = backgroundColor;
-}
-
 - (void)configureWithBlock:(BBLanguageBlock *)block
 {
     self.nameLabel.text = block.name;
-    [self updateColorsForBlock:block];
+    NSString *groupName = block.group.name;
+    self.contentView.backgroundColor = [BBConstants colorForCellWithLanguageGroupName:groupName];
+    self.nameLabel.textColor = [BBConstants textColorForCellWithLanguageGroupName:groupName];
 }
 
 @end

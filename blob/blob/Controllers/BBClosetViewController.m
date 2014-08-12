@@ -104,7 +104,8 @@ static NSInteger const kAllSectionIndex = 0;
         name = [[self.categories objectAtIndex:indexPath.row] name];
     }
     cell.textLabel.text = name;
-    cell.textLabel.font = [UIFont fontWithName:@"Avenir" size:17.0f];
+    cell.textLabel.font = [UIFont fontWithName:@"GillSans-Bold" size:19.0f];
+    cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.contentView.backgroundColor = [UIColor lightGrayColor];
     
     CGRect frame = cell.contentView.frame;

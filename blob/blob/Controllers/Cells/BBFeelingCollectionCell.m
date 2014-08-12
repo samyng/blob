@@ -20,7 +20,7 @@
 
 - (void)configureWithFeeling:(BBFeeling *)feeling
 {
-    self.feelingLabel.text = feeling.name;
+    self.feelingLabel.text = [feeling.name uppercaseString];
     self.feeling = feeling;
 }
 

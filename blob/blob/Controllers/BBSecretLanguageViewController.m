@@ -42,7 +42,7 @@ static NSString * const kLanguageBlockCollectionCellIdentifier = @"languageBlock
 #endif
     
     [self.groupsTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
-    self.languageBlocksCollectionView.backgroundColor = [self backgroundColorOfBlocksCollectionViewForGroup:CONTROL_GROUP]; // hack to set initial background color to pink default - SY
+    self.languageBlocksCollectionView.backgroundColor = [BBConstants backgroundColorForCellWithLanguageGroupName:CONTROL_GROUP]; // hack to set initial background color to pink default - SY
 }
 
 
@@ -96,7 +96,6 @@ static NSString * const kLanguageBlockCollectionCellIdentifier = @"languageBlock
         NSArray *languageBlocks = [[[self.groups objectAtIndex:selectedRowIndex] blocks] allObjects];
         BBLanguageBlock *block = [languageBlocks objectAtIndex:indexPath.item];
         [cell configureWithBlock:block];
-        cell.contentView.backgroundColor = [self backgroundColorForGroupTableCellWithName:block.group.name];
         return cell;
 }
 
@@ -117,12 +116,14 @@ static NSString * const kLanguageBlockCollectionCellIdentifier = @"languageBlock
     UITableViewCell *cell = [self.groupsTableView dequeueReusableCellWithIdentifier:kGroupsTableCellIdentifier];
     NSString *name = [[self.groups objectAtIndex:indexPath.row] name];
     cell.textLabel.text = name;
-    cell.textLabel.font = [UIFont fontWithName:@"Avenir" size:17.0f];
-    cell.contentView.backgroundColor = [self backgroundColorForGroupTableCellWithName:name];
+    cell.textLabel.font = [UIFont fontWithName:@"GillSans-Bold" size:17.0f];
+    cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    cell.textLabel.textColor = [BBConstants textColorForCellWithLanguageGroupName:name];
+    cell.contentView.backgroundColor = [BBConstants colorForCellWithLanguageGroupName:name];
     
     CGRect frame = cell.contentView.frame;
     UIView *selectedBackgroundView = [[UIView alloc] initWithFrame:frame];
-    selectedBackgroundView.backgroundColor = [self backgroundColorForGroupTableCellWithName:name];
+    selectedBackgroundView.backgroundColor = [BBConstants colorForCellWithLanguageGroupName:name];
     [cell setSelectedBackgroundView:selectedBackgroundView];
     return cell;
 }
@@ -130,65 +131,9 @@ static NSString * const kLanguageBlockCollectionCellIdentifier = @"languageBlock
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *name = [[self.groups objectAtIndex:indexPath.row] name];
-    self.languageBlocksCollectionView.backgroundColor = [self backgroundColorOfBlocksCollectionViewForGroup:name];
+    self.languageBlocksCollectionView.backgroundColor = [BBConstants backgroundColorForCellWithLanguageGroupName:name];
     [self.languageBlocksCollectionView reloadData];
 }
-
-- (UIColor *)backgroundColorForGroupTableCellWithName:(NSString *)name
-{
-    if ([name isEqualToString:CONTROL_GROUP])
-    {
-        return [BBConstants pinkColor];
-    }
-    else if ([name isEqualToString:FROM_CLOSET_GROUP])
-    {
-        return [BBConstants orangeColor];
-    }
-    else if ([name isEqualToString:REACTIONS_GROUP])
-    {
-        return [BBConstants yellowColor];
-    }
-    else if ([name isEqualToString:OPERATORS_GROUP])
-    {
-        return [BBConstants lightBlueColor];
-    }
-    else if ([name isEqualToString:VARIABLES_GROUP])
-    {
-        return [BBConstants blueColor];
-    }
-    else
-    {
-        return [UIColor grayColor];
-    }
-}
-                                                         
-- (UIColor *)backgroundColorOfBlocksCollectionViewForGroup:(NSString *)name
-    {
-        if ([name isEqualToString:CONTROL_GROUP])
-        {
-            return [BBConstants pinkBackgroundColor];
-        }
-        else if ([name isEqualToString:FROM_CLOSET_GROUP])
-        {
-            return [BBConstants orangeBackgroundColor];
-        }
-        else if ([name isEqualToString:REACTIONS_GROUP])
-        {
-            return [BBConstants yellowBackgroundColor];
-        }
-        else if ([name isEqualToString:OPERATORS_GROUP])
-        {
-            return [BBConstants lightBlueBackgroundColor];
-        }
-        else if ([name isEqualToString:VARIABLES_GROUP])
-        {
-            return [BBConstants blueBackgroundColor];
-        }
-        else
-        {
-            return [UIColor lightGrayColor];
-        }
-    }
 
 #pragma mark - Create test data
 
