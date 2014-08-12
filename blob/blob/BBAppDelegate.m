@@ -9,9 +9,15 @@
 #import "BBAppDelegate.h"
 #import "BBRootViewController.h"
 #import "BBAccessory+Configure.h"
+#import "SWRevealViewController.h"
+#import "BBSideMenuViewController.h"
+
+@interface BBAppDelegate () <SWRevealViewControllerDelegate>
+
+@end
 
 @implementation BBAppDelegate
-
+@synthesize revealViewController = _revealViewController;
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
@@ -22,7 +28,19 @@
     BBRootViewController *rootViewController = [[BBRootViewController alloc] init];
     rootViewController.context = [self managedObjectContext];
     rootViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.window.rootViewController = rootViewController;
+    
+    BBSideMenuViewController *sideMenuViewController = [[BBSideMenuViewController alloc] init];
+    
+    UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+    frontNavigationController.navigationBar.translucent = NO;
+    UINavigationController *sideMenuNavigationController = [[UINavigationController alloc] initWithRootViewController:sideMenuViewController];
+    sideMenuNavigationController.navigationBar.translucent = NO;
+    
+    SWRevealViewController *revealViewController = [[SWRevealViewController alloc] initWithRearViewController:sideMenuNavigationController frontViewController:frontNavigationController];
+    revealViewController.delegate = self;
+    self.revealViewController = revealViewController;
+
+    self.window.rootViewController = self.revealViewController;
     [self.window setTintColor:[UIColor lightGrayColor]];
     [self.window makeKeyAndVisible];
     return YES;

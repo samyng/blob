@@ -10,9 +10,9 @@
 #import "BBClosetViewController.h"
 #import "BBMyBlobViewController.h"
 #import "BBSecretLanguageViewController.h"
+#import "SWRevealViewController.h"
 
 @interface BBRootViewController ()
-@property (weak, nonatomic) IBOutlet UIView *titleBarBackgroundView;
 @property (weak, nonatomic) IBOutlet UIView *tabBarBackgroundView;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UIButton *closetButton;
@@ -29,7 +29,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.titleBarBackgroundView.backgroundColor = [BBConstants lightGrayColor];
+    
+    self.title = NSLocalizedString(@"My Blob", nil);
+    SWRevealViewController *revealViewController = [self revealViewController];
+    [revealViewController panGestureRecognizer];
+    [revealViewController tapGestureRecognizer];
+    UIBarButtonItem *menuBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStylePlain target:revealViewController action:@selector(revealToggle:)];
+    self.navigationItem.leftBarButtonItem = menuBarButtonItem;
+
     self.tabButtons = @[self.closetButton, self.myBlobButton, self.secretLanguageButton];
     for (UIButton *button in self.tabButtons)
     {
