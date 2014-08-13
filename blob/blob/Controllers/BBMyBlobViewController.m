@@ -120,14 +120,15 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
     }
     else if ([self touchEndedInFeelingsCollectionView:touchLocation forPanGestureRecognizer:sender])
     {
-        if (self.currentFeelingIndexPath)
-        {
-            [self returnCurrentFeelingToFeelingsCollectionView];
-        }
+        [self returnCurrentFeelingToFeelingsCollectionView];
     }
-    else if (sender.state == UIGestureRecognizerStateEnded) // if touch ended anywhere else
+    else if ([self touchEndedNearCurrentFeelingSlot:touchLocation forPanGestureRecognizer:sender])
     {
         self.draggableCellImageView.center = self.currentFeelingSlot.center;
+    }
+    else if (sender.state == UIGestureRecognizerStateEnded)  // if touch ended anywhere else
+    {
+        [self returnCurrentFeelingToFeelingsCollectionView];
     }
 }
 
@@ -174,6 +175,13 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
     return (sender.state == UIGestureRecognizerStateEnded && CGRectContainsPoint(self.feelingsCollectionView.frame, touchPoint)) ? YES : NO;
 }
 
+- (BOOL)touchEndedNearCurrentFeelingSlot:(CGPoint)touchPoint forPanGestureRecognizer:(UIPanGestureRecognizer *)sender
+{
+    const CGFloat buffer = 100.0f;
+    CGRect expandedFrame = CGRectInset(self.currentFeelingSlot.frame, -buffer, -buffer);
+    return (sender.state == UIGestureRecognizerStateEnded && CGRectContainsPoint(expandedFrame, touchPoint));
+}
+
 #pragma mark - Other Helper Methods
 
 - (void)createDraggableCurrentFeelingForCellAtIndexPath:(NSIndexPath *)startingIndexPath atTouchLocation:(CGPoint)touchLocation
@@ -195,12 +203,15 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
 
 - (void)returnCurrentFeelingToFeelingsCollectionView
 {
-    BBFeelingCollectionCell *cell = (BBFeelingCollectionCell *)[self.feelingsCollectionView cellForItemAtIndexPath:self.currentFeelingIndexPath];
-    [cell resetDefaultUI];
-    [self.draggableCellImageView removeFromSuperview];
-    self.draggableCellImageView = nil;
-    self.currentFeeling = nil;
-    self.currentFeelingIndexPath = nil;
+    if (self.currentFeelingIndexPath)
+    {
+        BBFeelingCollectionCell *cell = (BBFeelingCollectionCell *)[self.feelingsCollectionView cellForItemAtIndexPath:self.currentFeelingIndexPath];
+        [cell resetDefaultUI];
+        [self.draggableCellImageView removeFromSuperview];
+        self.draggableCellImageView = nil;
+        self.currentFeeling = nil;
+        self.currentFeelingIndexPath = nil;
+    }
 }
 
 #pragma mark - Create test data
@@ -211,7 +222,7 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
     NSEntityDescription *feelingEntityDescription = [NSEntityDescription entityForName:FEELING_ENTITY_DESCRIPTION inManagedObjectContext:context];
     
     BBFeeling *happy = [[BBFeeling alloc] initWithEntity:feelingEntityDescription
-                              insertIntoManagedObjectContext:context];
+                          insertIntoManagedObjectContext:context];
     happy.name = @"happy";
     
     BBFeeling *excited = [[BBFeeling alloc] initWithEntity:feelingEntityDescription insertIntoManagedObjectContext:context];
