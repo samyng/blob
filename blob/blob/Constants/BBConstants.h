@@ -28,6 +28,8 @@ static NSString * const VARIABLES_GROUP = @"Variables";
 
 static NSInteger const kTotalNumberOfSections = 1;
 
+static CGFloat const kViewAnimationDuration = 0.25f;
+
 @interface BBConstants : NSObject
 
 + (UIColor *)pinkColor;

@@ -124,7 +124,9 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
     }
     else if ([self touchEndedNearCurrentFeelingSlot:touchLocation forPanGestureRecognizer:sender])
     {
-        self.draggableCellImageView.center = self.currentFeelingSlot.center;
+        [UIView animateWithDuration:kViewAnimationDuration animations:^{
+            self.draggableCellImageView.center = self.currentFeelingSlot.center;
+        }];
     }
     else if (sender.state == UIGestureRecognizerStateEnded)  // if touch ended anywhere else
     {
@@ -206,11 +208,19 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
     if (self.currentFeelingIndexPath)
     {
         BBFeelingCollectionCell *cell = (BBFeelingCollectionCell *)[self.feelingsCollectionView cellForItemAtIndexPath:self.currentFeelingIndexPath];
-        [cell resetDefaultUI];
-        [self.draggableCellImageView removeFromSuperview];
-        self.draggableCellImageView = nil;
-        self.currentFeeling = nil;
-        self.currentFeelingIndexPath = nil;
+        
+        CGFloat translatedYOrigin = self.feelingsCollectionView.frame.origin.y + cell.frame.origin.y;
+        CGPoint translatedOrigin = CGPointMake(cell.frame.origin.x, translatedYOrigin);
+        CGRect translatedFrame = CGRectMake(translatedOrigin.x, translatedOrigin.y, CGRectGetWidth(cell.frame), CGRectGetHeight(cell.frame));
+        [UIView animateWithDuration:kViewAnimationDuration animations:^{
+            self.draggableCellImageView.frame = translatedFrame;
+        } completion:^(BOOL finished) {
+            [self.draggableCellImageView removeFromSuperview];
+            [cell resetDefaultUI];
+            self.draggableCellImageView = nil;
+            self.currentFeeling = nil;
+            self.currentFeelingIndexPath = nil;
+        }];
     }
 }
 
