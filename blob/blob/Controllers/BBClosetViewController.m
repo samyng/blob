@@ -19,6 +19,8 @@ static NSInteger const kAllSectionIndex = 0;
 @interface BBClosetViewController () <UITableViewDataSource, UICollectionViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *categoriesTableView;
 @property (weak, nonatomic) IBOutlet UICollectionView *accessoriesCollectionView;
+@property (weak, nonatomic) IBOutlet UIButton *addNewAccessoryButton;
+
 @property (strong, nonatomic) NSArray *categories;
 @property (strong, nonatomic) NSArray *accessories;
 @property (strong, nonatomic) NSFetchedResultsController *categoriesFetchedResultsController;
@@ -35,6 +37,7 @@ static NSInteger const kAllSectionIndex = 0;
     [self.accessoriesCollectionView registerNib:[UINib nibWithNibName:@"BBAccessoryCollectionCell" bundle:nil] forCellWithReuseIdentifier:kAccessoriesCollectionCellIdentifier];
     self.categoriesTableView.backgroundColor = [UIColor whiteColor];
     self.view.backgroundColor = [UIColor whiteColor];
+    self.addNewAccessoryButton.backgroundColor = [BBConstants tealBackgroundColor];
     [self populateCategories];
 
 //TODO - preload model data and test heavily before shipping final product -SY (8/8/14)

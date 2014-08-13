@@ -88,6 +88,11 @@
     return [UIColor colorWithRed:182.0f/255 green:227.0f/255 blue:218.0f/255 alpha:1.0f];
 }
 
++ (UIColor *)tealTextColor
+{
+    return [UIColor colorWithRed:0.0f/255 green:174.0f/255 blue:141.0f/255 alpha:1.0f];
+}
+
 + (UIColor *)lightGrayColor
 {
     return [UIColor colorWithRed:231.0f/255 green:231.0f/255 blue:231.0f/255 alpha:1.0f];

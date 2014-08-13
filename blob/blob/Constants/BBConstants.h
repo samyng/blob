@@ -52,6 +52,7 @@ static CGFloat const kViewAnimationDuration = 0.25f;
 + (UIColor *)blueTextColor;
 + (UIColor *)tealColor;
 + (UIColor *)tealBackgroundColor;
++ (UIColor *)tealTextColor;
 
 + (UIColor *)textColorForCellWithLanguageGroupName:(NSString *)name;
 + (UIColor *)backgroundColorForCellWithLanguageGroupName:(NSString *)name;

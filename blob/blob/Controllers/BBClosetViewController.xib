@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BBClosetViewController">
             <connections>
                 <outlet property="accessoriesCollectionView" destination="ZdU-CE-8Pb" id="4YW-gJ-uIU"/>
+                <outlet property="addNewAccessoryButton" destination="8zm-Vf-c1c" id="Mdi-Oa-WGv"/>
                 <outlet property="categoriesTableView" destination="jeG-Yh-nhb" id="TQ4-ef-AAG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -17,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="grouped" rowHeight="55" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="jeG-Yh-nhb" userLabel="Categories Table View">
-                    <rect key="frame" x="0.0" y="75" width="256" height="726"/>
+                    <rect key="frame" x="0.0" y="64" width="256" height="726"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -30,29 +31,44 @@
                     </connections>
                 </tableView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ZdU-CE-8Pb" userLabel="Accessories Collection View">
-                    <rect key="frame" x="256" y="0.0" width="512" height="876"/>
+                    <rect key="frame" x="256" y="55" width="512" height="821"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="30" minimumInteritemSpacing="20" id="wxO-lE-XCm">
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="wxO-lE-XCm">
                         <size key="itemSize" width="145" height="165"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="50" minY="50" maxX="50" maxY="50"/>
+                        <inset key="sectionInset" minX="50" minY="44" maxX="50" maxY="50"/>
                     </collectionViewFlowLayout>
                     <cells/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="Ut5-uM-0AC"/>
                     </connections>
                 </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zm-Vf-c1c" userLabel="Button - Add Button">
+                    <rect key="frame" x="0.0" y="0.0" width="768" height="55"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="55" id="JvU-dF-vkM"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="17"/>
+                    <state key="normal" title="+ New">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="ZdU-CE-8Pb" secondAttribute="bottom" id="1QT-As-GSt"/>
-                <constraint firstItem="ZdU-CE-8Pb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="NFY-ri-GOH"/>
+                <constraint firstAttribute="trailing" secondItem="8zm-Vf-c1c" secondAttribute="trailing" id="4b3-74-DqD"/>
+                <constraint firstItem="ZdU-CE-8Pb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="55" id="NFY-ri-GOH"/>
                 <constraint firstItem="ZdU-CE-8Pb" firstAttribute="leading" secondItem="jeG-Yh-nhb" secondAttribute="trailing" id="R9X-rY-RlM"/>
+                <constraint firstItem="8zm-Vf-c1c" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Uz4-he-pz5"/>
                 <constraint firstItem="jeG-Yh-nhb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bv5-TN-sAd"/>
-                <constraint firstItem="jeG-Yh-nhb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="75" id="eEM-he-LQM"/>
+                <constraint firstItem="jeG-Yh-nhb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="eEM-he-LQM"/>
                 <constraint firstAttribute="trailing" secondItem="ZdU-CE-8Pb" secondAttribute="trailing" id="gJp-y5-s57"/>
-                <constraint firstAttribute="bottom" secondItem="jeG-Yh-nhb" secondAttribute="bottom" constant="75" id="kp6-fs-fn2"/>
+                <constraint firstAttribute="bottom" secondItem="jeG-Yh-nhb" secondAttribute="bottom" constant="86" id="kp6-fs-fn2"/>
+                <constraint firstItem="8zm-Vf-c1c" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="v2Y-hg-thj"/>
             </constraints>
         </view>
     </objects>
