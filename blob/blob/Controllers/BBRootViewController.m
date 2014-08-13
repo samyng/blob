@@ -39,7 +39,7 @@
     self.tabButtons = @[self.closetButton, self.myBlobButton, self.secretLanguageButton];
     for (UIButton *button in self.tabButtons)
     {
-        [button setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+        [button setTitleColor:[BBConstants tealColor] forState:UIControlStateNormal];
     }
     [self.closetButton setTitleColor:[BBConstants blueColor] forState:UIControlStateSelected];
     [self.myBlobButton setTitleColor:[BBConstants pinkColor] forState:UIControlStateSelected];

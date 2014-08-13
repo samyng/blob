@@ -11,6 +11,7 @@
                 <outlet property="currentFeelingSlot" destination="oxN-xK-8pG" id="dlS-Rf-sMY"/>
                 <outlet property="feelingsCollectionView" destination="EX7-u6-eFl" id="aQF-x3-Luc"/>
                 <outlet property="letsMakeLabel" destination="VaV-xL-ftw" id="Zt5-en-kIA"/>
+                <outlet property="periodLabel" destination="LAm-Zn-0wu" id="e1I-cJ-KlO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,11 +21,11 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blob" translatesAutoresizingMaskIntoConstraints="NO" id="b4W-6b-h6i">
-                    <rect key="frame" x="134" y="294" width="500" height="435"/>
+                    <rect key="frame" x="159" y="316" width="450" height="392"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="435" id="LQi-Nq-SQR"/>
-                        <constraint firstAttribute="width" constant="500" id="TwA-6Z-eL3"/>
+                        <constraint firstAttribute="height" constant="392" id="LQi-Nq-SQR"/>
+                        <constraint firstAttribute="width" constant="450" id="TwA-6Z-eL3"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's make" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VaV-xL-ftw">
@@ -72,7 +73,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="75" id="wzh-Z6-0NT"/>
                     </constraints>
-                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="20" minimumInteritemSpacing="10" id="Lep-db-bkh">
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="15" minimumInteritemSpacing="10" id="Lep-db-bkh">
                         <size key="itemSize" width="140" height="35"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -91,14 +92,27 @@
                         <constraint firstAttribute="width" constant="197" id="N7P-HA-bNN"/>
                     </constraints>
                 </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAm-Zn-0wu" userLabel="Label - Period">
+                    <rect key="frame" x="744" y="77" width="14" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="14" id="dFl-p2-Fgy"/>
+                        <constraint firstAttribute="height" constant="14" id="fH8-2g-Ahm"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="b4W-6b-h6i" firstAttribute="bottom" secondItem="Vul-lS-Yxl" secondAttribute="bottom" constant="-29" id="0Vk-q7-pbP"/>
+                <constraint firstItem="b4W-6b-h6i" firstAttribute="bottom" secondItem="Vul-lS-Yxl" secondAttribute="bottom" constant="-50" id="0Vk-q7-pbP"/>
+                <constraint firstItem="LAm-Zn-0wu" firstAttribute="leading" secondItem="oxN-xK-8pG" secondAttribute="trailing" constant="8" id="6Kf-LL-b1e"/>
                 <constraint firstAttribute="centerX" secondItem="b4W-6b-h6i" secondAttribute="centerX" id="9yc-aC-b66"/>
                 <constraint firstItem="9yV-fi-2u5" firstAttribute="leading" secondItem="VaV-xL-ftw" secondAttribute="trailing" constant="8" id="Bl3-hU-4fY"/>
                 <constraint firstItem="b4W-6b-h6i" firstAttribute="centerX" secondItem="Vul-lS-Yxl" secondAttribute="centerX" constant="-0.5" id="P8o-TO-Vec"/>
                 <constraint firstAttribute="bottom" secondItem="EX7-u6-eFl" secondAttribute="bottom" id="RTP-AG-YC7"/>
+                <constraint firstItem="LAm-Zn-0wu" firstAttribute="top" secondItem="oxN-xK-8pG" secondAttribute="bottom" constant="-16" id="SfY-Tw-ISP"/>
                 <constraint firstAttribute="centerX" secondItem="9yV-fi-2u5" secondAttribute="centerX" id="V5b-9c-jgL"/>
                 <constraint firstItem="VaV-xL-ftw" firstAttribute="top" secondItem="9yV-fi-2u5" secondAttribute="bottom" constant="-60" id="WH5-Jn-cdv"/>
                 <constraint firstItem="oxN-xK-8pG" firstAttribute="top" secondItem="9yV-fi-2u5" secondAttribute="bottom" constant="-52" id="WOe-NI-W97"/>
@@ -113,7 +127,7 @@
         </view>
     </objects>
     <resources>
-        <image name="blob" width="500" height="435"/>
+        <image name="blob" width="450" height="392"/>
         <image name="blob-letters" width="197" height="81"/>
     </resources>
 </document>

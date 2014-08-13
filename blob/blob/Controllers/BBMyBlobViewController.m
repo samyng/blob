@@ -19,6 +19,7 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
 @property (weak, nonatomic) IBOutlet UILabel *letsMakeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *beLabel;
 @property (weak, nonatomic) IBOutlet UILabel *connectedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *periodLabel;
 
 @property (strong, nonatomic) NSMutableArray *feelings;
 @property (nonatomic) UIImageView *draggableCellImageView;
@@ -41,6 +42,8 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
     self.letsMakeLabel.textColor = [BBConstants blueColor];
     self.beLabel.textColor = [BBConstants orangeColor];
     self.feelingsCollectionView.backgroundColor = [BBConstants yellowBackgroundColor];
+    self.periodLabel.backgroundColor = [BBConstants lightBlueColor];
+    self.periodLabel.layer.cornerRadius = CGRectGetWidth(self.periodLabel.frame)/2;
     
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panned:)];
     [self.view addGestureRecognizer:panGestureRecognizer];
@@ -220,11 +223,17 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
     BBFeeling *flirty = [[BBFeeling alloc] initWithEntity:feelingEntityDescription insertIntoManagedObjectContext:context];
     flirty.name = @"flirty";
     
-    BBFeeling *angry = [[BBFeeling alloc] initWithEntity:feelingEntityDescription insertIntoManagedObjectContext:context];
-    angry.name = @"angry";
+    BBFeeling *hungry = [[BBFeeling alloc] initWithEntity:feelingEntityDescription insertIntoManagedObjectContext:context];
+    hungry.name = @"hungry";
     
     BBFeeling *sad = [[BBFeeling alloc] initWithEntity:feelingEntityDescription insertIntoManagedObjectContext:context];
-    sad.name = @"sad";
+    sad.name = @"talkative";
+    
+    BBFeeling *lazy = [[BBFeeling alloc] initWithEntity:feelingEntityDescription insertIntoManagedObjectContext:context];
+    lazy.name = @"lazy";
+    
+    BBFeeling *confused = [[BBFeeling alloc] initWithEntity:feelingEntityDescription insertIntoManagedObjectContext:context];
+    confused.name = @"confused";
     
     NSError *error;
     if (![context save:&error]) {
