@@ -33,7 +33,8 @@ static NSInteger const kAllSectionIndex = 0;
     [super viewDidLoad];
     [self.categoriesTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kCategoriesTableCellIdentifier];
     [self.accessoriesCollectionView registerNib:[UINib nibWithNibName:@"BBAccessoryCollectionCell" bundle:nil] forCellWithReuseIdentifier:kAccessoriesCollectionCellIdentifier];
-    self.categoriesTableView.backgroundColor = [BBConstants tealColor];
+    self.categoriesTableView.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self populateCategories];
 
 //TODO - preload model data and test heavily before shipping final product -SY (8/8/14)
@@ -113,11 +114,11 @@ static NSInteger const kAllSectionIndex = 0;
     cell.textLabel.font = [UIFont fontWithName:BLOB_FONT_BOLD size:19.0f];
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
-    cell.contentView.backgroundColor = [BBConstants tealColor];
+    cell.contentView.backgroundColor = [BBConstants blueColor];
     
     CGRect frame = cell.contentView.frame;
     UIView *selectedBackgroundView = [[UIView alloc] initWithFrame:frame];
-    selectedBackgroundView.backgroundColor = [BBConstants tealBackgroundColor];
+    selectedBackgroundView.backgroundColor = [BBConstants blueBackgroundColor];
     [cell setSelectedBackgroundView:selectedBackgroundView];
     
     return cell;
@@ -276,9 +277,9 @@ static NSInteger const kAllSectionIndex = 0;
     foods.name = FOOD_CATEGORY;
     foods.accessories = [NSSet setWithObjects:apple, carrot, nil];
     
-    BBClosetCategory *fashion = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription insertIntoManagedObjectContext:context];
-    fashion.name = FASHION_CATEGORY;
-    fashion.accessories = [NSSet setWithObjects:hightops, rainboots, sweater, nil];
+    BBClosetCategory *clothes = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription insertIntoManagedObjectContext:context];
+    clothes.name = CLOTHES_CATEGORY;
+    clothes.accessories = [NSSet setWithObjects:hightops, rainboots, sweater, nil];
     
     BBClosetCategory *friends = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription insertIntoManagedObjectContext:context];
     friends.name = FRIENDS_CATEGORY;
@@ -294,7 +295,15 @@ static NSInteger const kAllSectionIndex = 0;
     
     BBClosetCategory *all = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription
                           insertIntoManagedObjectContext:context];
-    all.name = @"All";
+    all.name = ALL_CATEGORY;
+    
+    BBClosetCategory *furniture = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription
+                                      insertIntoManagedObjectContext:context];
+    furniture.name = FURNITURE_CATEGORY;
+    
+    BBClosetCategory *artSupplies = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription
+                                      insertIntoManagedObjectContext:context];
+    artSupplies.name = ART_SUPPLIES_CATEGORY;
     
     NSError *error;
     if (![context save:&error]) {

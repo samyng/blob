@@ -11,6 +11,7 @@
 
 @interface BBAccessoryCollectionCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @end
 
 @implementation BBAccessoryCollectionCell
@@ -32,15 +33,16 @@
 
 - (void)setup
 {
-    self.backgroundColor = [UIColor whiteColor];
-    self.layer.borderWidth = 2.0f;
-    self.layer.borderColor = [BBConstants tealColor].CGColor;
+    self.backgroundColor = [BBConstants pinkBackgroundColor];
     self.thumbnailImageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.nameLabel.textColor = [BBConstants blueTextColor];
+    self.nameLabel.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)configureWithAccessory:(BBAccessory *)accessory
 {
     self.thumbnailImageView.image = accessory.thumbnailImage;
+    self.nameLabel.text = [accessory.name capitalizedString];
 }
 
 @end

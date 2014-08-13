@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="grouped" rowHeight="55" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="jeG-Yh-nhb" userLabel="Categories Table View">
-                    <rect key="frame" x="0.0" y="0.0" width="256" height="876"/>
+                    <rect key="frame" x="0.0" y="75" width="256" height="726"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -33,8 +33,8 @@
                     <rect key="frame" x="256" y="0.0" width="512" height="876"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="50" minimumInteritemSpacing="50" id="wxO-lE-XCm">
-                        <size key="itemSize" width="125" height="125"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="30" minimumInteritemSpacing="20" id="wxO-lE-XCm">
+                        <size key="itemSize" width="145" height="165"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="50" minY="50" maxX="50" maxY="50"/>
@@ -47,12 +47,12 @@
             </subviews>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="ZdU-CE-8Pb" secondAttribute="bottom" id="1QT-As-GSt"/>
-                <constraint firstItem="jeG-Yh-nhb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="GYL-u8-UhO"/>
                 <constraint firstItem="ZdU-CE-8Pb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="NFY-ri-GOH"/>
-                <constraint firstAttribute="bottom" secondItem="jeG-Yh-nhb" secondAttribute="bottom" id="NcN-tD-cFQ"/>
                 <constraint firstItem="ZdU-CE-8Pb" firstAttribute="leading" secondItem="jeG-Yh-nhb" secondAttribute="trailing" id="R9X-rY-RlM"/>
-                <constraint firstItem="jeG-Yh-nhb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bne-SA-kLB"/>
+                <constraint firstItem="jeG-Yh-nhb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bv5-TN-sAd"/>
+                <constraint firstItem="jeG-Yh-nhb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="75" id="eEM-he-LQM"/>
                 <constraint firstAttribute="trailing" secondItem="ZdU-CE-8Pb" secondAttribute="trailing" id="gJp-y5-s57"/>
+                <constraint firstAttribute="bottom" secondItem="jeG-Yh-nhb" secondAttribute="bottom" constant="75" id="kp6-fs-fn2"/>
             </constraints>
         </view>
     </objects>

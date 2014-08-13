@@ -13,11 +13,14 @@ static NSString * const LANGUAGE_BLOCK_ENTITY_DESCRIPTION = @"LanguageBlock";
 static NSString * const FEELING_ENTITY_DESCRIPTION = @"Feeling";
 static NSString * const NAME_SORT_DESCRIPTOR_KEY = @"name";
 
+static NSString * const ALL_CATEGORY = @"All";
 static NSString * const FOOD_CATEGORY = @"Food";
 static NSString * const FRIENDS_CATEGORY = @"Friends";
 static NSString * const PLACES_CATEGORY = @"Places";
 static NSString * const INSTRUMENTS_CATEGORY = @"Instruments";
-static NSString * const FASHION_CATEGORY = @"Fashion";
+static NSString * const CLOTHES_CATEGORY = @"Clothes";
+static NSString * const FURNITURE_CATEGORY = @"Furniture";
+static NSString * const ART_SUPPLIES_CATEGORY = @"Art Supplies";
 
 static NSString * const FEELINGS_TITLE = @"Feelings";
 static NSString * const REACTIONS_GROUP = @"Reactions";
