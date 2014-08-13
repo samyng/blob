@@ -13,6 +13,8 @@
 static NSString * const kSearchFeelingsTableCellIdentifier = @"searchFeelingsTableCellIdentifier";
 static NSInteger kAddNewRowIndex = 0;
 static NSInteger kAddNewRowOffset = 1;
+#define offscreenFrame CGRectMake(2*CGRectGetWidth(self.view.frame), 0.0f, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame))
+#define onscreenFrame CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame))
 
 @interface BBChooseFeelingViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, NSFetchedResultsControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *feelingsTableView;
@@ -99,8 +101,6 @@ static NSInteger kAddNewRowOffset = 1;
     self.secretLanguageViewController = [[BBSecretLanguageViewController alloc] initWithNibName:nil bundle:nil];
     self.secretLanguageViewController.context = self.context;
     self.secretLanguageViewController.feeling = [self feelingAtIndexPath:indexPath];
-    CGRect offscreenFrame = CGRectMake(2*CGRectGetWidth(self.view.frame), 0.0f, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
-    CGRect onscreenFrame = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
     self.secretLanguageViewController.view.frame = offscreenFrame;
     [self.view addSubview:self.secretLanguageViewController.view];
     [UIView animateWithDuration:0.5f animations:^{
@@ -120,9 +120,14 @@ static NSInteger kAddNewRowOffset = 1;
 
 - (void)doneButtonPressed:(UIBarButtonItem *)doneButton
 {
-    [self.secretLanguageViewController.view removeFromSuperview];
     self.parentViewController.navigationItem.title = CHOOSE_FEELING_TITLE;
-    self.parentViewController.navigationItem.rightBarButtonItem = nil;
+    [UIView animateWithDuration:0.5f animations:^{
+        self.secretLanguageViewController.view.frame = offscreenFrame;
+    } completion:^(BOOL finished) {
+        [self.secretLanguageViewController.view removeFromSuperview];
+        self.secretLanguageViewController = nil;
+        self.parentViewController.navigationItem.rightBarButtonItem = nil;
+    }];
 }
 
 @end
