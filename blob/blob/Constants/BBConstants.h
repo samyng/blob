@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 
 static NSString * const BLOB_TITLE = @"BLOB LOGO";
+static NSString * const BLOB_FONT_REGULAR = @"GillSans";
 static NSString * const BLOB_FONT_BOLD = @"GillSans-Bold";
 static NSString * const CLOSET_ICON_NAME = @"closet-ico-selected";
 static NSString * const MY_BLOB_ICON_NAME = @"my-blob-ico-selected";
@@ -28,6 +29,11 @@ static NSString * const FROM_CLOSET_GROUP = @"From Closet";
 static NSString * const CONTROL_GROUP = @"Control";
 static NSString * const OPERATORS_GROUP = @"Operators";
 static NSString * const VARIABLES_GROUP = @"Variables";
+
+static NSString * const CHOOSE_FEELING_TITLE = @"Choose a feeling to code!";
+static NSString * const MY_BLOB_TITLE = @"My Blob";
+static NSString * const CLOSET_TITLE = @"Closet";
+static NSString * const PLUS_ADD_NEW_LABEL = @"+ add new";
 
 static NSInteger const kTotalNumberOfSections = 1;
 

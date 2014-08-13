@@ -10,6 +10,7 @@
 #import "BBLanguageBlockCollectionCell.h"
 #import "BBLanguageBlock.h"
 #import "BBLanguageGroup.h"
+#import "BBFeeling.h"
 
 static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier";
 static NSString * const kLanguageBlockCollectionCellIdentifier = @"languageBlockCollectionCellIdentifier";
@@ -28,6 +29,7 @@ static NSString * const kLanguageBlockCollectionCellIdentifier = @"languageBlock
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [self.groupsTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kGroupsTableCellIdentifier];
     [self.languageBlocksCollectionView registerNib:[UINib nibWithNibName:@"BBLanguageBlockCollectionCell" bundle:nil] forCellWithReuseIdentifier:kLanguageBlockCollectionCellIdentifier];
     [self populateLanguageGroups];
@@ -44,6 +46,13 @@ static NSString * const kLanguageBlockCollectionCellIdentifier = @"languageBlock
     
     [self.groupsTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
     self.languageBlocksCollectionView.backgroundColor = [BBConstants backgroundColorForCellWithLanguageGroupName:CONTROL_GROUP]; // hack to set initial background color to pink default - SY
+}
+
+- (void)doneButtonPressed:(UIBarButtonItem *)sender
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        NSLog(@"did dismiss self");
+    }];
 }
 
 #pragma mark - Fetch Data

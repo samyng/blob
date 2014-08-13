@@ -11,6 +11,7 @@
 #import "BBMyBlobViewController.h"
 #import "BBSecretLanguageViewController.h"
 #import "SWRevealViewController.h"
+#import "BBChooseFeelingViewController.h"
 
 @interface BBRootViewController ()
 @property (weak, nonatomic) IBOutlet UIView *tabBarBackgroundView;
@@ -117,10 +118,10 @@
 }
 
 - (void)displaySecretLanguageViewController {
-    BBSecretLanguageViewController *secretLanguageViewController = [[BBSecretLanguageViewController alloc] initWithNibName:nil
-                                                                                                      bundle:nil];
-    secretLanguageViewController.context = self.context;
-    [self displayChildViewController:secretLanguageViewController];
+    BBChooseFeelingViewController *feelingViewController = [[BBChooseFeelingViewController alloc] initWithNibName:nil bundle:nil];
+    self.navigationItem.title = CHOOSE_FEELING_TITLE;
+    feelingViewController.context = self.context;
+    [self displayChildViewController:feelingViewController];
 }
 
 #pragma mark - Helper Methods
