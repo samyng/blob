@@ -14,11 +14,11 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6RI-ZV-PWd" userLabel="Label - Feeling Label">
-                        <rect key="frame" x="10" y="7" width="120" height="21"/>
+                        <rect key="frame" x="10" y="6" width="120" height="24"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="120" id="Qy6-ZE-Zjw"/>
-                            <constraint firstAttribute="height" constant="21" id="h30-tu-u1h"/>
+                            <constraint firstAttribute="height" constant="24" id="h30-tu-u1h"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="21"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -28,7 +28,7 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="6RI-ZV-PWd" secondAttribute="centerY" constant="0.5" id="hKh-Ap-MdX"/>
+                <constraint firstAttribute="centerY" secondItem="6RI-ZV-PWd" secondAttribute="centerY" constant="-0.5" id="hKh-Ap-MdX"/>
                 <constraint firstAttribute="centerX" secondItem="6RI-ZV-PWd" secondAttribute="centerX" id="wrV-aq-BAL"/>
             </constraints>
             <connections>

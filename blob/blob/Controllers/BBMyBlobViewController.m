@@ -91,7 +91,9 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
     
     if ([self touchBeganInFeelingsCollectionView:touchLocation forPanGestureRecognizer:sender])
     {
-        NSIndexPath *startingIndexPath = [self.feelingsCollectionView indexPathForItemAtPoint:touchLocation];
+        CGFloat yOriginOffset = self.feelingsCollectionView.frame.origin.y;
+        CGPoint translatedPoint = CGPointMake(touchLocation.x, touchLocation.y - yOriginOffset);
+        NSIndexPath *startingIndexPath = [self.feelingsCollectionView indexPathForItemAtPoint:translatedPoint];
         if (startingIndexPath)
         {
             if (self.currentFeeling)
@@ -151,7 +153,7 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
 
 - (BOOL)touchBeganInFeelingsCollectionView:(CGPoint)touchPoint forPanGestureRecognizer:(UIPanGestureRecognizer *)sender
 {
-    return (sender.state == UIGestureRecognizerStateBegan && [self.feelingsCollectionView pointInside:touchPoint withEvent:nil]) ? YES : NO;
+    return (sender.state == UIGestureRecognizerStateBegan && CGRectContainsPoint(self.feelingsCollectionView.frame, touchPoint)) ? YES : NO;
 }
 
 - (BOOL)touchBeganInDraggableCell:(CGPoint)touchPoint forPanGestureRecognizer:(UIPanGestureRecognizer *)sender
@@ -166,7 +168,7 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
 
 - (BOOL)touchEndedInFeelingsCollectionView:(CGPoint)touchPoint forPanGestureRecognizer:(UIPanGestureRecognizer *)sender
 {
-    return (sender.state == UIGestureRecognizerStateEnded && [self.feelingsCollectionView pointInside:touchPoint withEvent:nil] && self.allowDrag) ? YES : NO;
+    return (sender.state == UIGestureRecognizerStateEnded && CGRectContainsPoint(self.feelingsCollectionView.frame, touchPoint)) ? YES : NO;
 }
 
 #pragma mark - Other Helper Methods
