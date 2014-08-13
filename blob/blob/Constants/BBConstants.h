@@ -30,7 +30,7 @@ static NSString * const CONTROL_GROUP = @"Control";
 static NSString * const OPERATORS_GROUP = @"Operators";
 static NSString * const VARIABLES_GROUP = @"Variables";
 
-static NSString * const CHOOSE_FEELING_TITLE = @"Choose a feeling to code!";
+static NSString * const CHOOSE_FEELING_TITLE = @"Choose a feeling to code";
 static NSString * const MY_BLOB_TITLE = @"My Blob";
 static NSString * const CLOSET_TITLE = @"Closet";
 static NSString * const PLUS_ADD_NEW_LABEL = @"+ add new";

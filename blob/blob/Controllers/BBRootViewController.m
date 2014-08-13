@@ -59,6 +59,7 @@
 # pragma mark - Button Pressed
 
 - (IBAction)closetButtonPressed:(UIButton *)sender {
+    [self resetNavigationBar];
     [self displayClosetViewController];
     self.closetButton.selected = YES;
     self.myBlobButton.selected =
@@ -66,6 +67,7 @@
 }
 
 - (IBAction)myBlobButtonPressed:(UIButton *)sender {
+    [self resetNavigationBar];
     [self displayMyBlobViewController];
     self.myBlobButton.selected = YES;
     self.closetButton.selected =
@@ -73,6 +75,7 @@
 }
 
 - (IBAction)secretLanguageButtonPressed:(UIButton *)sender {
+    [self resetNavigationBar];
     [self displaySecretLanguageViewController];
     self.secretLanguageButton.selected = YES;
     self.myBlobButton.selected =
@@ -132,6 +135,12 @@
     CGFloat width = CGRectGetWidth(self.containerView.frame);
     CGFloat height = CGRectGetHeight(self.containerView.frame);
     return CGRectMake(origin.x, origin.y, width, height);
+}
+
+- (void)resetNavigationBar
+{
+    self.navigationItem.title = nil;
+    self.navigationItem.rightBarButtonItem = nil;
 }
 
 @end
