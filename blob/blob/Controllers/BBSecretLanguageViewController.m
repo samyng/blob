@@ -11,14 +11,17 @@
 #import "BBLanguageBlock.h"
 #import "BBLanguageGroup.h"
 #import "BBFeeling.h"
+#import "BBLanguageBlockView.h"
+#import "BBDraggableLanguageBlockImageView.h"
 
 static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier";
 
-@interface BBSecretLanguageViewController () <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
+@interface BBSecretLanguageViewController () <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, LanguageBlockViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *groupsTableView;
 @property (weak, nonatomic) IBOutlet UIView *blocksContainerView;
 @property (strong, nonatomic) NSArray *groups;
 @property (strong, nonatomic) NSFetchedResultsController *groupsFetchedResultsController;
+@property (strong, nonatomic) BBDraggableLanguageBlockImageView *draggableLanguageBlock;
 @end
 
 @implementation BBSecretLanguageViewController
@@ -43,6 +46,9 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
 #endif
     
     [self.groupsTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+    
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panned:)];
+    [self.view addGestureRecognizer:panGestureRecognizer];
 }
 
 - (void)doneButtonPressed:(UIBarButtonItem *)sender
@@ -109,8 +115,52 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *name = [[self.groups objectAtIndex:indexPath.row] name];
+    BBLanguageGroup *group = [self.groups objectAtIndex:indexPath.row];
+    NSString *name = group.name;
     self.blocksContainerView.backgroundColor = [BBConstants backgroundColorForCellWithLanguageGroupName:name];
+    
+    // temporary hack to test customer uiview for language block - SY
+    BBLanguageBlockView *blockView = [[BBLanguageBlockView alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 200.0f, 40.0f)];
+    blockView.backgroundColor = [BBConstants pinkColor];
+    blockView.languageBlock = [[group.blocks allObjects] firstObject];
+    blockView.delegate = self;
+    [self.blocksContainerView addSubview:blockView];
+}
+
+- (void)panned:(UIPanGestureRecognizer *)sender
+{
+    CGPoint touchLocation = [sender locationInView:self.view];
+    if (sender.state == UIGestureRecognizerStateChanged)
+    {
+        self.draggableLanguageBlock.center = touchLocation;
+    }
+    else if (sender.state == UIGestureRecognizerStateEnded && CGRectContainsPoint(self.blocksContainerView.frame, touchLocation))
+    {
+        [self.draggableLanguageBlock removeFromSuperview];
+        self.draggableLanguageBlock = nil;
+    }
+}
+
+- (void)panDidChange:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)languageBlockView
+{
+    CGPoint touchLocation = [sender locationInView:self.view];
+    NSLog(@"touch location: %@", NSStringFromCGPoint(touchLocation));
+    self.draggableLanguageBlock.center = touchLocation;
+}
+
+- (void)panDidBegin:(UIPanGestureRecognizer *)sender inLanguageBlockView:(BBLanguageBlockView *)languageBlockView
+{
+    NSLog(@"pan did begin in block view");
+    self.draggableLanguageBlock = [[BBDraggableLanguageBlockImageView alloc] initWithLanguageBlockView:languageBlockView];
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panned:)];
+    [self.draggableLanguageBlock addGestureRecognizer:panGestureRecognizer];
+    [self.view addSubview:self.draggableLanguageBlock];
+    [self.view bringSubviewToFront:self.draggableLanguageBlock];
+}
+
+- (void)panDidEnd:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)langaugeBlockView
+{
+    NSLog(@"pan did end in block view");
 }
 
 #pragma mark - Create test data

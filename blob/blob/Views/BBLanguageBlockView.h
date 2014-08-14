@@ -13,13 +13,13 @@
 @protocol LanguageBlockViewDelegate <NSObject>
 
 - (void)panDidBegin:(UIPanGestureRecognizer *)sender inLanguageBlockView:(BBLanguageBlockView *)languageBlockView;
-- (void)panDidEnd:(UIPanGestureRecognizer *)sender inLanguageBlockView:(BBLanguageBlockView *)langaugeBlockView;
+- (void)panDidChange:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)languageBlockView;
+- (void)panDidEnd:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)langaugeBlockView;
 
 @end
 
 @interface BBLanguageBlockView : UIView
 @property (weak, nonatomic) id <LanguageBlockViewDelegate> delegate;
 @property (strong, nonatomic) BBLanguageBlock *languageBlock;
-- (void)updateViewForState:(BOOL)isCollapsed;
 - (UIImage *)rasterizedImageCopy;
 @end

@@ -10,7 +10,6 @@
 #import "BBLanguageBlock.h"
 
 @interface BBLanguageBlockView ()
-@property (strong, nonatomic) UIView *currentBlockView;
 @end
 
 @implementation BBLanguageBlockView
@@ -21,21 +20,37 @@
     self = [super initWithFrame:frame];
     if (self)
     {
-        CGRect currentBlockFrame = CGRectMake(CGPointZero.x, CGPointZero.y, frame.size.width, frame.size.height);
-        _currentBlockView = [[UIView alloc] initWithFrame:currentBlockFrame];
-        [self addSubview:_currentBlockView];
+        UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panned:)];
+        [self addGestureRecognizer:recognizer];
     }
     return self;
 }
 
 - (void)updateViewForState:(BOOL)isCollapsed
 {
-    NSString *nibName = [self nibNameForLanguageBlockState:isCollapsed];
-    if (nibName)
+    if (isCollapsed)
     {
-        UIView *currentView = [[[NSBundle mainBundle] loadNibNamed:nibName owner:self options:nil] lastObject];
-        currentView.frame = self.currentBlockView.frame;
-        self.currentBlockView = currentView;
+        self.backgroundColor = [BBConstants pinkColor];
+    }
+    else
+    {
+        self.backgroundColor = [UIColor blackColor];
+    }
+}
+
+- (void)panned:(UIPanGestureRecognizer *)sender
+{
+    if (sender.state == UIGestureRecognizerStateBegan)
+    {
+        [self.delegate panDidBegin:sender inLanguageBlockView:self];
+    }
+    else if (sender.state == UIGestureRecognizerStateChanged)
+    {
+        [self.delegate panDidChange:sender forLanguageBlockView:self];
+    }
+    else if (sender.state == UIGestureRecognizerStateEnded)
+    {
+        [self.delegate panDidEnd:sender forLanguageBlockView:self];
     }
 }
 
@@ -46,20 +61,6 @@
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
-}
-
-#pragma mark - Helper Methods
-
-- (NSString *)nibNameForLanguageBlockState:(BOOL)isCollapsed
-{
-    if (isCollapsed)
-    {
-        return [NSString stringWithFormat:@"BB%@View_Collapsed", self.languageBlock.name];
-    }
-    else
-    {
-        return [NSString stringWithFormat:@"BB%@View_Expanded", self.languageBlock.name];
-    }
 }
 
 @end
