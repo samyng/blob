@@ -52,11 +52,8 @@
 
 - (UIImage *)rasterizedImageCopy
 {
-    UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.isOpaque, 0.0f);
-    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return image;
+    NSString *imageName = [NSString stringWithFormat:@"%@Block-expanded", self.languageBlock.name];
+    return [UIImage imageNamed:imageName];
 }
 
 @end

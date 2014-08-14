@@ -116,11 +116,21 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
     self.blocksContainerView.backgroundColor = [BBConstants backgroundColorForCellWithLanguageGroupName:name];
     
     // temporary hack to test customer uiview for language block - SY
+    [self resetBlocksContainerView];
     BBLanguageBlockView *blockView = [[BBLanguageBlockView alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 200.0f, 40.0f)];
     blockView.backgroundColor = [BBConstants pinkColor];
     blockView.languageBlock = [[group.blocks allObjects] firstObject];
+    NSLog(@"%@",blockView.languageBlock.name);
     blockView.delegate = self;
     [self.blocksContainerView addSubview:blockView];
+}
+
+- (void)resetBlocksContainerView
+{
+    for (UIView *subview in self.blocksContainerView.subviews)
+    {
+        [subview removeFromSuperview];
+    }
 }
 
 #pragma mark - Draggable Language Block Delegate Methods
@@ -129,12 +139,16 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
 {
     CGPoint touchLocation = [sender locationInView:self.view];
     draggableImageView.center = touchLocation;
+    draggableImageView.alpha = CGRectIntersectsRect(self.blocksContainerView.frame, draggableImageView.frame) ? 0.5f : 1.0f;
 }
 
 - (void)panDidEnd:(UIPanGestureRecognizer *)sender forDraggableLanguageBlockImageView:(BBDraggableLanguageBlockImageView *)draggableImageView
 {
     if (CGRectIntersectsRect(self.blocksContainerView.frame, draggableImageView.frame))
     {
+        [UIView animateWithDuration:0.25f animations:^{
+            draggableImageView.alpha = 0.0f;
+        }];
         [draggableImageView removeFromSuperview];
         draggableImageView = nil;
     }
@@ -147,14 +161,21 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
     BBDraggableLanguageBlockImageView *draggableImageView = [[BBDraggableLanguageBlockImageView alloc] initWithImage:[languageBlockView rasterizedImageCopy]];
     draggableImageView.delegate = self;
     languageBlockView.draggableCopyImageView = draggableImageView;
+    
+    draggableImageView.alpha = 0.0f;
     [self.view addSubview:draggableImageView];
-    [self.view bringSubviewToFront:draggableImageView];
+    [UIView animateWithDuration:0.25f animations:^{
+        draggableImageView.alpha = 1.0f;
+    } completion:^(BOOL finished) {
+        [self.view bringSubviewToFront:draggableImageView];
+    }];
 }
 
 - (void)panDidChange:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)languageBlockView
 {
     CGPoint touchLocation = [sender locationInView:self.view];
     languageBlockView.draggableCopyImageView.center = touchLocation;
+    languageBlockView.draggableCopyImageView.alpha = CGRectIntersectsRect(self.blocksContainerView.frame, languageBlockView.draggableCopyImageView.frame) ? 0.5f : 1.0f;
 }
 
 #pragma mark - Create test data
@@ -166,35 +187,41 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
     NSEntityDescription *languageBlockEntityDescription = [NSEntityDescription entityForName:LANGUAGE_BLOCK_ENTITY_DESCRIPTION inManagedObjectContext:context];
     
     // Blocks
-    BBLanguageBlock *blush = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
-    blush.name = @"blush";
+//    BBLanguageBlock *blush = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+//    blush.name = @"blush";
+//    
+//    BBLanguageBlock *giggle = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+//    giggle.name = @"giggle";
+//    
+//    BBLanguageBlock *shake = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+//    shake.name = @"shake";
+//    
+//    BBLanguageBlock *cry = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+//    cry.name = @"cry";
+//    
+//    BBLanguageBlock *yawn = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+//    yawn.name = @"yawn";
     
-    BBLanguageBlock *giggle = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
-    giggle.name = @"giggle";
+    BBLanguageBlock *ifThenBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+    ifThenBlock.name = @"ifThen";
     
-    BBLanguageBlock *shake = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
-    shake.name = @"shake";
-    
-    BBLanguageBlock *cry = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
-    cry.name = @"cry";
-    
-    BBLanguageBlock *yawn = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
-    yawn.name = @"yawn";
-    
-    BBLanguageBlock *ifNearBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
-    ifNearBlock.name = @"if near";
+    BBLanguageBlock *ifThenElseBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+    ifThenElseBlock.name = @"ifThenElse";
     
     BBLanguageBlock *repeatBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
     repeatBlock.name = @"repeat";
     
-    BBLanguageBlock *switchState = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
-    switchState.name = @"switch state to";
+    BBLanguageBlock *waitBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+    waitBlock.name = @"wait";
+//    
+//    BBLanguageBlock *switchStateToBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+//    switchStateToBlock.name = @"switchStateTo";
 
     
     BBLanguageGroup *control = [[BBLanguageGroup alloc] initWithEntity:groupEntityDescription
                                          insertIntoManagedObjectContext:context];
     control.name = CONTROL_GROUP;
-    control.blocks = [NSSet setWithArray:@[ifNearBlock, repeatBlock, switchState]];
+    control.blocks = [NSSet setWithArray:@[ifThenBlock, ifThenElseBlock, repeatBlock, waitBlock]];
     
     BBLanguageGroup *fromCloset = [[BBLanguageGroup alloc] initWithEntity:groupEntityDescription insertIntoManagedObjectContext:context];
     fromCloset.name = FROM_CLOSET_GROUP;
@@ -203,7 +230,7 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
                                   
                                           insertIntoManagedObjectContext:context];
     reactions.name = REACTIONS_GROUP;
-    reactions.blocks = [NSSet setWithArray:@[blush, giggle, shake, cry, yawn]];
+//    reactions.blocks = [NSSet setWithArray:@[blush, giggle, shake, cry, yawn]];
     
     BBLanguageGroup *operators = [[BBLanguageGroup alloc] initWithEntity:groupEntityDescription insertIntoManagedObjectContext:context];
     operators.name = OPERATORS_GROUP;
