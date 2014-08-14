@@ -21,6 +21,7 @@
 @interface BBCollapsedLanguageBlockImageView : UIImageView
 @property (weak, nonatomic) id <CollapsedLanguageBlockDelegate> delegate;
 @property (strong, nonatomic) BBLanguageBlock *languageBlock;
+@property (strong, nonatomic) UILabel *languageBlockLabel;
 @property (strong, nonatomic) BBExpandedLanguageBlockImageView *draggableCopyImageView;
 - (UIImage *)rasterizedImageCopy;
 @end

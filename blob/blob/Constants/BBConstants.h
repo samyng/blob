@@ -3,6 +3,7 @@
 static NSString * const BLOB_TITLE = @"BLOB LOGO";
 static NSString * const BLOB_FONT_REGULAR = @"GillSans";
 static NSString * const BLOB_FONT_BOLD = @"GillSans-Bold";
+static CGFloat const BLOB_FONT_19PT = 19.0f;
 static NSString * const CLOSET_ICON_NAME = @"closet-ico-selected";
 static NSString * const MY_BLOB_ICON_NAME = @"my-blob-ico-selected";
 static NSString * const SECRET_LANGUAGE_ICON_NAME = @"secret-lang-ico-selected";

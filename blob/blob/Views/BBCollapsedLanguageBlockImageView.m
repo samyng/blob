@@ -12,28 +12,38 @@
 @implementation BBCollapsedLanguageBlockImageView
 @synthesize delegate;
 
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self)
+    {
+        [self setup];
+        CGSize frameSize = frame.size;
+        CGRect labelFrame = CGRectMake(CGPointZero.x, CGPointZero.y, frameSize.width, frameSize.height);
+        _languageBlockLabel = [[UILabel alloc] initWithFrame:labelFrame];
+        _languageBlockLabel.font = [UIFont fontWithName:BLOB_FONT_REGULAR size:BLOB_FONT_19PT];
+        _languageBlockLabel.textAlignment = NSTextAlignmentCenter;
+        [self addSubview:_languageBlockLabel];
+    }
+    return self;
+}
+
 - (id)initWithImage:(UIImage *)image
 {
     self = [super initWithImage:image];
     if (self)
     {
-        UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panned:)];
-        [self addGestureRecognizer:recognizer];
-        self.userInteractionEnabled = YES;
+        [self setup];
     }
     return self;
 }
 
-- (void)updateViewForState:(BOOL)isCollapsed
+- (void)setup
 {
-    if (isCollapsed)
-    {
-        self.backgroundColor = [BBConstants pinkColor];
-    }
-    else
-    {
-        self.backgroundColor = [UIColor blackColor];
-    }
+    UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panned:)];
+    [self addGestureRecognizer:recognizer];
+    self.userInteractionEnabled = YES;
+    self.layer.borderWidth = 0.0f;
 }
 
 - (void)panned:(UIPanGestureRecognizer *)sender
@@ -51,7 +61,19 @@
 - (UIImage *)rasterizedImageCopy
 {
     NSString *imageName = [NSString stringWithFormat:@"%@Block-expanded", self.languageBlock.name];
-    return [UIImage imageNamed:imageName];
+    UIImage *imageCopy = [UIImage imageNamed:imageName];
+    if (imageCopy)
+    {
+        return imageCopy;
+    }
+    else
+    {
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.isOpaque, 0.0f);
+        [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return image;
+    }
 }
 
 @end

@@ -112,15 +112,41 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BBLanguageGroup *group = [self.groups objectAtIndex:indexPath.row];
-    NSString *name = group.name;
-    self.blocksContainerView.backgroundColor = [BBConstants backgroundColorForCellWithLanguageGroupName:name];
+    NSString *groupName = group.name;
+    self.blocksContainerView.backgroundColor = [BBConstants backgroundColorForCellWithLanguageGroupName:groupName];
     
-    // temporary hack to test customer uiview for language block - SY
     [self resetBlocksContainerView];
+    NSArray *languageBlocks = [group.blocks allObjects];
+    if ([groupName isEqualToString:CONTROL_GROUP])
+    {
+        [self arrangeControlBlocks:languageBlocks];
+    }
+    else if ([groupName isEqualToString:FROM_CLOSET_GROUP])
+    {
+        [self arrangeAccessoryBlocks];
+    }
+    else if ([groupName isEqualToString:REACTIONS_GROUP])
+    {
+        [self arrangeReactionBlocks:languageBlocks];
+    }
+    else if ([groupName isEqualToString:OPERATORS_GROUP])
+    {
+        NSLog(@"operators");
+    }
+    else if ([groupName isEqualToString:VARIABLES_GROUP])
+    {
+        NSLog(@"variables");
+    }
+}
+
+#pragma mark - Arrange Blocks
+
+- (void)arrangeControlBlocks:(NSArray *)controlBlocks
+{
     const CGFloat xPadding = 30.0f;
     CGFloat xOrigin = 20.0f;
     CGFloat yOrigin = 20.0f;
-    for (BBLanguageBlock *languageBlock in group.blocks)
+    for (BBLanguageBlock *languageBlock in controlBlocks)
     {
         NSString *imageName = [NSString stringWithFormat:@"%@Block-collapsed",languageBlock.name];
         BBCollapsedLanguageBlockImageView *blockView = [[BBCollapsedLanguageBlockImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
@@ -133,6 +159,54 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
     }
 }
 
+- (void)arrangeAccessoryBlocks
+{
+    NSLog(@"arrange accessories");
+}
+
+- (void)arrangeReactionBlocks:(NSArray *)reactionBlocks
+{
+    const CGFloat xPadding = 15.0f;
+    const CGFloat yPadding = 15.0f;
+    const CGFloat xBackgroundPadding = 25.0f;
+    const CGFloat yBackgroundPadding = 10.0f;
+    CGFloat xOrigin = 20.0f;
+    CGFloat yOrigin = 20.0f;
+    for (BBLanguageBlock *languageBlock in reactionBlocks)
+    {
+        NSString *languageBlockName = languageBlock.name;
+        CGSize nameStringSize = [languageBlockName sizeWithAttributes: @{NSFontAttributeName:[UIFont fontWithName:BLOB_FONT_REGULAR size:BLOB_FONT_19PT]}];
+        CGFloat frameWidth = nameStringSize.width + 2*xBackgroundPadding;
+        CGFloat frameHeight = nameStringSize.height + 2*yBackgroundPadding;
+        CGFloat calculatedEndingX = xOrigin + frameWidth + xPadding;
+        
+        if (calculatedEndingX >= self.blocksContainerView.frame.size.width)
+        {
+            xOrigin = 20.0f;
+            yOrigin += (frameHeight + yPadding);
+        }
+        
+        CGRect languageBlockFrame = CGRectMake(xOrigin, yOrigin, frameWidth, frameHeight);
+        BBCollapsedLanguageBlockImageView *blockView = [[BBCollapsedLanguageBlockImageView alloc] initWithFrame:languageBlockFrame];
+        blockView.languageBlockLabel.text = languageBlockName;
+        blockView.languageBlockLabel.textColor = [BBConstants yellowTextColor];
+        blockView.backgroundColor = [BBConstants yellowColor];
+        
+        xOrigin = calculatedEndingX;
+        blockView.languageBlock = languageBlock;
+        blockView.delegate = self;
+        [self.blocksContainerView addSubview:blockView];
+    }
+}
+
+#pragma mark - Helper Methods
+
+- (NSInteger)groupsTableCellSelectedRowIndex
+{
+    return [self.groupsTableView indexPathForSelectedRow].row;
+}
+
+
 - (void)resetBlocksContainerView
 {
     for (UIView *subview in self.blocksContainerView.subviews)
@@ -141,7 +215,7 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
     }
 }
 
-#pragma mark - Draggable Language Block Delegate Methods
+#pragma mark - Expanded Language Block Delegate Methods
 
 - (void)panDidChange:(UIPanGestureRecognizer *)sender forExpandedLanguageBlockImageView:(BBExpandedLanguageBlockImageView *)draggableImageView
 {
@@ -162,7 +236,7 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
     }
 }
 
-#pragma mark - Language Block Delegate Methods
+#pragma mark - Collpased Language Block Delegate Methods
 
 - (void)panDidBegin:(UIPanGestureRecognizer *)sender inCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)languageBlockView
 {
@@ -195,20 +269,26 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
     NSEntityDescription *languageBlockEntityDescription = [NSEntityDescription entityForName:LANGUAGE_BLOCK_ENTITY_DESCRIPTION inManagedObjectContext:context];
     
     // Blocks
-//    BBLanguageBlock *blush = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
-//    blush.name = @"blush";
-//    
-//    BBLanguageBlock *giggle = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
-//    giggle.name = @"giggle";
-//    
-//    BBLanguageBlock *shake = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
-//    shake.name = @"shake";
-//    
-//    BBLanguageBlock *cry = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
-//    cry.name = @"cry";
-//    
-//    BBLanguageBlock *yawn = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
-//    yawn.name = @"yawn";
+    BBLanguageBlock *blush = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+    blush.name = @"blush";
+    
+    BBLanguageBlock *giggle = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+    giggle.name = @"giggle";
+    
+    BBLanguageBlock *shake = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+    shake.name = @"shake";
+    
+    BBLanguageBlock *cry = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+    cry.name = @"cry";
+    
+    BBLanguageBlock *yawn = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+    yawn.name = @"yawn";
+    
+    BBLanguageBlock *sayYes = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+    sayYes.name = @"say 'yes'";
+    
+    BBLanguageBlock *sayNo = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+    sayNo.name = @"say 'no'";
     
     BBLanguageBlock *ifThenBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
     ifThenBlock.name = @"ifThen";
@@ -221,7 +301,7 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
     
     BBLanguageBlock *waitBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
     waitBlock.name = @"wait";
-//    
+    
 //    BBLanguageBlock *switchStateToBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
 //    switchStateToBlock.name = @"switchStateTo";
 
@@ -238,7 +318,7 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
                                   
                                           insertIntoManagedObjectContext:context];
     reactions.name = REACTIONS_GROUP;
-//    reactions.blocks = [NSSet setWithArray:@[blush, giggle, shake, cry, yawn]];
+    reactions.blocks = [NSSet setWithArray:@[blush, giggle, shake, cry, yawn, sayYes, sayNo]];
     
     BBLanguageGroup *operators = [[BBLanguageGroup alloc] initWithEntity:groupEntityDescription insertIntoManagedObjectContext:context];
     operators.name = OPERATORS_GROUP;
@@ -251,13 +331,5 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
         NSLog(@"Could not save: %@", [error localizedDescription]);
     }
 }
-
-#pragma mark - Helper Methods
-
-- (NSInteger)groupsTableCellSelectedRowIndex
-{
-    return [self.groupsTableView indexPathForSelectedRow].row;
-}
-
 
 @end
