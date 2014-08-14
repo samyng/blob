@@ -9,20 +9,34 @@
 #import "BBDraggableLanguageBlockImageView.h"
 #import "BBLanguageBlockView.h"
 
-@interface BBDraggableLanguageBlockImageView ()
-@property (strong, nonatomic) BBLanguageBlockView *languageBlockView;
-@end
-
 @implementation BBDraggableLanguageBlockImageView
 
-- (id)initWithLanguageBlockView:(BBLanguageBlockView *)languageBlockView
+- (id)initWithImage:(UIImage *)image
 {
-    self = [super initWithImage:[languageBlockView rasterizedImageCopy]];
+    self = [super initWithImage:image];
     if (self)
     {
-        _languageBlockView = languageBlockView;
+        UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panned:)];
+        [self addGestureRecognizer:panGestureRecognizer];
+        self.userInteractionEnabled = YES;
     }
     return self;
+}
+
+- (void)panned:(UIPanGestureRecognizer *)sender
+{
+    if (sender.state == UIGestureRecognizerStateChanged)
+    {
+        [self.delegate panDidChange:sender forDraggableLanguageBlockImageView:self];
+    }
+    else if (sender.state == UIGestureRecognizerStateEnded)
+    {
+        [self.delegate panDidEnd:sender forDraggableLanguageBlockImageView:self];
+    }
+    else if (sender.state == UIGestureRecognizerStateBegan)
+    {
+        
+    }
 }
 
 @end

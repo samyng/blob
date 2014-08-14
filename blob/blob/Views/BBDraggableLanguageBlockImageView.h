@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 @class BBLanguageBlockView;
+@class BBDraggableLanguageBlockImageView;
+
+@protocol DraggableLanguageBlockDelegate <NSObject>
+
+- (void)panDidChange:(UIPanGestureRecognizer *)sender forDraggableLanguageBlockImageView:(BBDraggableLanguageBlockImageView *)draggableImageView;
+- (void)panDidEnd:(UIPanGestureRecognizer *)sender forDraggableLanguageBlockImageView:(BBDraggableLanguageBlockImageView *)draggableImageView;
+
+@end
 
 @interface BBDraggableLanguageBlockImageView : UIImageView
-- (id)initWithLanguageBlockView:(BBLanguageBlockView *)languageBlockView;
+@property (weak, nonatomic) id <DraggableLanguageBlockDelegate> delegate;
 @end

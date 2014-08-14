@@ -48,10 +48,6 @@
     {
         [self.delegate panDidChange:sender forLanguageBlockView:self];
     }
-    else if (sender.state == UIGestureRecognizerStateEnded)
-    {
-        [self.delegate panDidEnd:sender forLanguageBlockView:self];
-    }
 }
 
 - (UIImage *)rasterizedImageCopy

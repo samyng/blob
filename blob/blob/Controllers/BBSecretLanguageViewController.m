@@ -16,12 +16,11 @@
 
 static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier";
 
-@interface BBSecretLanguageViewController () <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, LanguageBlockViewDelegate>
+@interface BBSecretLanguageViewController () <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, LanguageBlockViewDelegate, DraggableLanguageBlockDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *groupsTableView;
 @property (weak, nonatomic) IBOutlet UIView *blocksContainerView;
 @property (strong, nonatomic) NSArray *groups;
 @property (strong, nonatomic) NSFetchedResultsController *groupsFetchedResultsController;
-@property (strong, nonatomic) BBDraggableLanguageBlockImageView *draggableLanguageBlock;
 @end
 
 @implementation BBSecretLanguageViewController
@@ -46,9 +45,6 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
 #endif
     
     [self.groupsTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
-    
-    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panned:)];
-    [self.view addGestureRecognizer:panGestureRecognizer];
 }
 
 - (void)doneButtonPressed:(UIBarButtonItem *)sender
@@ -127,40 +123,38 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
     [self.blocksContainerView addSubview:blockView];
 }
 
-- (void)panned:(UIPanGestureRecognizer *)sender
+#pragma mark - Draggable Language Block Delegate Methods
+
+- (void)panDidChange:(UIPanGestureRecognizer *)sender forDraggableLanguageBlockImageView:(BBDraggableLanguageBlockImageView *)draggableImageView
 {
     CGPoint touchLocation = [sender locationInView:self.view];
-    if (sender.state == UIGestureRecognizerStateChanged)
+    draggableImageView.center = touchLocation;
+}
+
+- (void)panDidEnd:(UIPanGestureRecognizer *)sender forDraggableLanguageBlockImageView:(BBDraggableLanguageBlockImageView *)draggableImageView
+{
+    if (CGRectIntersectsRect(self.blocksContainerView.frame, draggableImageView.frame))
     {
-        self.draggableLanguageBlock.center = touchLocation;
+        [draggableImageView removeFromSuperview];
+        draggableImageView = nil;
     }
-    else if (sender.state == UIGestureRecognizerStateEnded && CGRectContainsPoint(self.blocksContainerView.frame, touchLocation))
-    {
-        [self.draggableLanguageBlock removeFromSuperview];
-        self.draggableLanguageBlock = nil;
-    }
+}
+
+#pragma mark - Language Block Delegate Methods
+
+- (void)panDidBegin:(UIPanGestureRecognizer *)sender inLanguageBlockView:(BBLanguageBlockView *)languageBlockView
+{
+    BBDraggableLanguageBlockImageView *draggableImageView = [[BBDraggableLanguageBlockImageView alloc] initWithImage:[languageBlockView rasterizedImageCopy]];
+    draggableImageView.delegate = self;
+    languageBlockView.draggableCopyImageView = draggableImageView;
+    [self.view addSubview:draggableImageView];
+    [self.view bringSubviewToFront:draggableImageView];
 }
 
 - (void)panDidChange:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)languageBlockView
 {
     CGPoint touchLocation = [sender locationInView:self.view];
-    NSLog(@"touch location: %@", NSStringFromCGPoint(touchLocation));
-    self.draggableLanguageBlock.center = touchLocation;
-}
-
-- (void)panDidBegin:(UIPanGestureRecognizer *)sender inLanguageBlockView:(BBLanguageBlockView *)languageBlockView
-{
-    NSLog(@"pan did begin in block view");
-    self.draggableLanguageBlock = [[BBDraggableLanguageBlockImageView alloc] initWithLanguageBlockView:languageBlockView];
-    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panned:)];
-    [self.draggableLanguageBlock addGestureRecognizer:panGestureRecognizer];
-    [self.view addSubview:self.draggableLanguageBlock];
-    [self.view bringSubviewToFront:self.draggableLanguageBlock];
-}
-
-- (void)panDidEnd:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)langaugeBlockView
-{
-    NSLog(@"pan did end in block view");
+    languageBlockView.draggableCopyImageView.center = touchLocation;
 }
 
 #pragma mark - Create test data
