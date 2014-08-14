@@ -1,15 +1,15 @@
 //
-//  BBDraggableLanguageBlockImageView.m
+//  BBExpandedLanguageBlockImageView.m
 //  blob
 //
 //  Created by Sam Yang on 8/14/14.
 //  Copyright (c) 2014 Crazy Machine. All rights reserved.
 //
 
-#import "BBDraggableLanguageBlockImageView.h"
-#import "BBLanguageBlockView.h"
+#import "BBExpandedLanguageBlockImageView.h"
+#import "BBCollapsedLanguageBlockView.h"
 
-@implementation BBDraggableLanguageBlockImageView
+@implementation BBExpandedLanguageBlockImageView
 
 - (id)initWithImage:(UIImage *)image
 {
@@ -27,11 +27,11 @@
 {
     if (sender.state == UIGestureRecognizerStateChanged)
     {
-        [self.delegate panDidChange:sender forDraggableLanguageBlockImageView:self];
+        [self.delegate panDidChange:sender forExpandedLanguageBlockImageView:self];
     }
     else if (sender.state == UIGestureRecognizerStateEnded)
     {
-        [self.delegate panDidEnd:sender forDraggableLanguageBlockImageView:self];
+        [self.delegate panDidEnd:sender forExpandedLanguageBlockImageView:self];
     }
     else if (sender.state == UIGestureRecognizerStateBegan)
     {

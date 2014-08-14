@@ -1,18 +1,15 @@
 //
-//  BBLanguageBlockView.m
+//  BBCollapsedLanguageBlockView.m
 //  blob
 //
 //  Created by Sam Yang on 8/14/14.
 //  Copyright (c) 2014 Crazy Machine. All rights reserved.
 //
 
-#import "BBLanguageBlockView.h"
+#import "BBCollapsedLanguageBlockView.h"
 #import "BBLanguageBlock.h"
 
-@interface BBLanguageBlockView ()
-@end
-
-@implementation BBLanguageBlockView
+@implementation BBCollapsedLanguageBlockView
 @synthesize delegate;
 
 - (id)initWithFrame:(CGRect)frame
@@ -42,11 +39,11 @@
 {
     if (sender.state == UIGestureRecognizerStateBegan)
     {
-        [self.delegate panDidBegin:sender inLanguageBlockView:self];
+        [self.delegate panDidBegin:sender inCollapsedLanguageBlockView:self];
     }
     else if (sender.state == UIGestureRecognizerStateChanged)
     {
-        [self.delegate panDidChange:sender forLanguageBlockView:self];
+        [self.delegate panDidChange:sender forCollapsedLanguageBlockView:self];
     }
 }
 

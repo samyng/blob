@@ -11,12 +11,12 @@
 #import "BBLanguageBlock.h"
 #import "BBLanguageGroup.h"
 #import "BBFeeling.h"
-#import "BBLanguageBlockView.h"
-#import "BBDraggableLanguageBlockImageView.h"
+#import "BBCollapsedLanguageBlockView.h"
+#import "BBExpandedLanguageBlockImageView.h"
 
 static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier";
 
-@interface BBSecretLanguageViewController () <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, LanguageBlockViewDelegate, DraggableLanguageBlockDelegate>
+@interface BBSecretLanguageViewController () <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, CollapsedLanguageBlockViewDelegate, ExpandedLanguageBlockDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *groupsTableView;
 @property (weak, nonatomic) IBOutlet UIView *blocksContainerView;
 @property (strong, nonatomic) NSArray *groups;
@@ -117,7 +117,7 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
     
     // temporary hack to test customer uiview for language block - SY
     [self resetBlocksContainerView];
-    BBLanguageBlockView *blockView = [[BBLanguageBlockView alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 200.0f, 40.0f)];
+    BBCollapsedLanguageBlockView *blockView = [[BBCollapsedLanguageBlockView alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 200.0f, 40.0f)];
     blockView.backgroundColor = [BBConstants pinkColor];
     blockView.languageBlock = [[group.blocks allObjects] firstObject];
     NSLog(@"%@",blockView.languageBlock.name);
@@ -135,14 +135,14 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
 
 #pragma mark - Draggable Language Block Delegate Methods
 
-- (void)panDidChange:(UIPanGestureRecognizer *)sender forDraggableLanguageBlockImageView:(BBDraggableLanguageBlockImageView *)draggableImageView
+- (void)panDidChange:(UIPanGestureRecognizer *)sender forExpandedLanguageBlockImageView:(BBExpandedLanguageBlockImageView *)draggableImageView
 {
     CGPoint touchLocation = [sender locationInView:self.view];
     draggableImageView.center = touchLocation;
     draggableImageView.alpha = CGRectIntersectsRect(self.blocksContainerView.frame, draggableImageView.frame) ? 0.5f : 1.0f;
 }
 
-- (void)panDidEnd:(UIPanGestureRecognizer *)sender forDraggableLanguageBlockImageView:(BBDraggableLanguageBlockImageView *)draggableImageView
+- (void)panDidEnd:(UIPanGestureRecognizer *)sender forExpandedLanguageBlockImageView:(BBExpandedLanguageBlockImageView *)draggableImageView
 {
     if (CGRectIntersectsRect(self.blocksContainerView.frame, draggableImageView.frame))
     {
@@ -156,9 +156,9 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
 
 #pragma mark - Language Block Delegate Methods
 
-- (void)panDidBegin:(UIPanGestureRecognizer *)sender inLanguageBlockView:(BBLanguageBlockView *)languageBlockView
+- (void)panDidBegin:(UIPanGestureRecognizer *)sender inCollapsedLanguageBlockView:(BBCollapsedLanguageBlockView *)languageBlockView
 {
-    BBDraggableLanguageBlockImageView *draggableImageView = [[BBDraggableLanguageBlockImageView alloc] initWithImage:[languageBlockView rasterizedImageCopy]];
+    BBExpandedLanguageBlockImageView *draggableImageView = [[BBExpandedLanguageBlockImageView alloc] initWithImage:[languageBlockView rasterizedImageCopy]];
     draggableImageView.delegate = self;
     languageBlockView.draggableCopyImageView = draggableImageView;
     
@@ -171,7 +171,7 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
     }];
 }
 
-- (void)panDidChange:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)languageBlockView
+- (void)panDidChange:(UIPanGestureRecognizer *)sender forCollapsedLanguageBlockView:(BBCollapsedLanguageBlockView *)languageBlockView
 {
     CGPoint touchLocation = [sender locationInView:self.view];
     languageBlockView.draggableCopyImageView.center = touchLocation;
