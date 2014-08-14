@@ -1,24 +1,25 @@
 //
-//  BBCollapsedLanguageBlockView.m
+//  BBCollapsedLanguageBlockImageView.m
 //  blob
 //
 //  Created by Sam Yang on 8/14/14.
 //  Copyright (c) 2014 Crazy Machine. All rights reserved.
 //
 
-#import "BBCollapsedLanguageBlockView.h"
+#import "BBCollapsedLanguageBlockImageView.h"
 #import "BBLanguageBlock.h"
 
-@implementation BBCollapsedLanguageBlockView
+@implementation BBCollapsedLanguageBlockImageView
 @synthesize delegate;
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithImage:(UIImage *)image
 {
-    self = [super initWithFrame:frame];
+    self = [super initWithImage:image];
     if (self)
     {
         UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panned:)];
         [self addGestureRecognizer:recognizer];
+        self.userInteractionEnabled = YES;
     }
     return self;
 }

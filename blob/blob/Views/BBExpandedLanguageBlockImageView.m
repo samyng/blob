@@ -7,7 +7,6 @@
 //
 
 #import "BBExpandedLanguageBlockImageView.h"
-#import "BBCollapsedLanguageBlockView.h"
 
 @implementation BBExpandedLanguageBlockImageView
 

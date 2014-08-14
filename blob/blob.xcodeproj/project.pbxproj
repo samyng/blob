@@ -27,8 +27,8 @@
 		22B313AC19959FEA0006AE57 /* BBAccessory+Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B313AB19959FEA0006AE57 /* BBAccessory+Configure.m */; };
 		22CA6B71199C018100CDD665 /* BBChooseFeelingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CA6B6F199C018100CDD665 /* BBChooseFeelingViewController.m */; };
 		22CA6B72199C018100CDD665 /* BBChooseFeelingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CA6B70199C018100CDD665 /* BBChooseFeelingViewController.xib */; };
-		22CA6B7B199D1B8000CDD665 /* BBCollapsedLanguageBlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CA6B7A199D1B8000CDD665 /* BBCollapsedLanguageBlockView.m */; };
 		22CA6B7E199D2B4700CDD665 /* BBExpandedLanguageBlockImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CA6B7D199D2B4700CDD665 /* BBExpandedLanguageBlockImageView.m */; };
+		22CA6B81199D583E00CDD665 /* BBCollapsedLanguageBlockImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CA6B80199D583E00CDD665 /* BBCollapsedLanguageBlockImageView.m */; };
 		22CCEFC6199165D6005161B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CCEFC5199165D6005161B5 /* Foundation.framework */; };
 		22CCEFC8199165D6005161B5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CCEFC7199165D6005161B5 /* CoreGraphics.framework */; };
 		22CCEFCA199165D6005161B5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CCEFC9199165D6005161B5 /* UIKit.framework */; };
@@ -93,10 +93,10 @@
 		22CA6B6E199C018100CDD665 /* BBChooseFeelingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBChooseFeelingViewController.h; sourceTree = "<group>"; };
 		22CA6B6F199C018100CDD665 /* BBChooseFeelingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBChooseFeelingViewController.m; sourceTree = "<group>"; };
 		22CA6B70199C018100CDD665 /* BBChooseFeelingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBChooseFeelingViewController.xib; sourceTree = "<group>"; };
-		22CA6B79199D1B8000CDD665 /* BBCollapsedLanguageBlockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCollapsedLanguageBlockView.h; sourceTree = "<group>"; };
-		22CA6B7A199D1B8000CDD665 /* BBCollapsedLanguageBlockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCollapsedLanguageBlockView.m; sourceTree = "<group>"; };
 		22CA6B7C199D2B4700CDD665 /* BBExpandedLanguageBlockImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBExpandedLanguageBlockImageView.h; sourceTree = "<group>"; };
 		22CA6B7D199D2B4700CDD665 /* BBExpandedLanguageBlockImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBExpandedLanguageBlockImageView.m; sourceTree = "<group>"; };
+		22CA6B7F199D583E00CDD665 /* BBCollapsedLanguageBlockImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCollapsedLanguageBlockImageView.h; sourceTree = "<group>"; };
+		22CA6B80199D583E00CDD665 /* BBCollapsedLanguageBlockImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCollapsedLanguageBlockImageView.m; sourceTree = "<group>"; };
 		22CCEFC2199165D6005161B5 /* blob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = blob.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22CCEFC5199165D6005161B5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		22CCEFC7199165D6005161B5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -292,10 +292,10 @@
 		22CCEFF619916653005161B5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				22CA6B79199D1B8000CDD665 /* BBCollapsedLanguageBlockView.h */,
-				22CA6B7A199D1B8000CDD665 /* BBCollapsedLanguageBlockView.m */,
 				22CA6B7C199D2B4700CDD665 /* BBExpandedLanguageBlockImageView.h */,
 				22CA6B7D199D2B4700CDD665 /* BBExpandedLanguageBlockImageView.m */,
+				22CA6B7F199D583E00CDD665 /* BBCollapsedLanguageBlockImageView.h */,
+				22CA6B80199D583E00CDD665 /* BBCollapsedLanguageBlockImageView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -442,7 +442,6 @@
 				222299DE199673200016BE43 /* BBClosetCategory.m in Sources */,
 				2259A7811991D91D007A16C3 /* BBAccessoryCollectionCell.m in Sources */,
 				22CA6B71199C018100CDD665 /* BBChooseFeelingViewController.m in Sources */,
-				22CA6B7B199D1B8000CDD665 /* BBCollapsedLanguageBlockView.m in Sources */,
 				22CA6B7E199D2B4700CDD665 /* BBExpandedLanguageBlockImageView.m in Sources */,
 				222299E4199673200016BE43 /* BBLanguageBlock.m in Sources */,
 				227C6FA6199A5AEE0025BA2F /* SWRevealViewController.m in Sources */,
@@ -458,6 +457,7 @@
 				222299E1199673200016BE43 /* BBFeeling.m in Sources */,
 				22CCF00419917680005161B5 /* BBClosetViewController.m in Sources */,
 				22A2866D1992E9780087A311 /* BBFeelingCollectionCell.m in Sources */,
+				22CA6B81199D583E00CDD665 /* BBCollapsedLanguageBlockImageView.m in Sources */,
 				22CCF00E199176BD005161B5 /* BBMyBlobViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

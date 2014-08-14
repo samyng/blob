@@ -11,12 +11,12 @@
 #import "BBLanguageBlock.h"
 #import "BBLanguageGroup.h"
 #import "BBFeeling.h"
-#import "BBCollapsedLanguageBlockView.h"
+#import "BBCollapsedLanguageBlockImageView.h"
 #import "BBExpandedLanguageBlockImageView.h"
 
 static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier";
 
-@interface BBSecretLanguageViewController () <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, CollapsedLanguageBlockViewDelegate, ExpandedLanguageBlockDelegate>
+@interface BBSecretLanguageViewController () <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, CollapsedLanguageBlockDelegate, ExpandedLanguageBlockDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *groupsTableView;
 @property (weak, nonatomic) IBOutlet UIView *blocksContainerView;
 @property (strong, nonatomic) NSArray *groups;
@@ -117,12 +117,20 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
     
     // temporary hack to test customer uiview for language block - SY
     [self resetBlocksContainerView];
-    BBCollapsedLanguageBlockView *blockView = [[BBCollapsedLanguageBlockView alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 200.0f, 40.0f)];
-    blockView.backgroundColor = [BBConstants pinkColor];
-    blockView.languageBlock = [[group.blocks allObjects] firstObject];
-    NSLog(@"%@",blockView.languageBlock.name);
-    blockView.delegate = self;
-    [self.blocksContainerView addSubview:blockView];
+    const CGFloat xPadding = 30.0f;
+    CGFloat xOrigin = 20.0f;
+    CGFloat yOrigin = 20.0f;
+    for (BBLanguageBlock *languageBlock in group.blocks)
+    {
+        NSString *imageName = [NSString stringWithFormat:@"%@Block-collapsed",languageBlock.name];
+        BBCollapsedLanguageBlockImageView *blockView = [[BBCollapsedLanguageBlockImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
+        CGSize blockViewSize = blockView.frame.size;
+        blockView.frame = CGRectMake(xOrigin, yOrigin, blockViewSize.width, blockViewSize.height);
+        xOrigin += (blockViewSize.width + xPadding);
+        blockView.languageBlock = languageBlock;
+        blockView.delegate = self;
+        [self.blocksContainerView addSubview:blockView];
+    }
 }
 
 - (void)resetBlocksContainerView
@@ -156,7 +164,7 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
 
 #pragma mark - Language Block Delegate Methods
 
-- (void)panDidBegin:(UIPanGestureRecognizer *)sender inCollapsedLanguageBlockView:(BBCollapsedLanguageBlockView *)languageBlockView
+- (void)panDidBegin:(UIPanGestureRecognizer *)sender inCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)languageBlockView
 {
     BBExpandedLanguageBlockImageView *draggableImageView = [[BBExpandedLanguageBlockImageView alloc] initWithImage:[languageBlockView rasterizedImageCopy]];
     draggableImageView.delegate = self;
@@ -171,7 +179,7 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
     }];
 }
 
-- (void)panDidChange:(UIPanGestureRecognizer *)sender forCollapsedLanguageBlockView:(BBCollapsedLanguageBlockView *)languageBlockView
+- (void)panDidChange:(UIPanGestureRecognizer *)sender forCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)languageBlockView
 {
     CGPoint touchLocation = [sender locationInView:self.view];
     languageBlockView.draggableCopyImageView.center = touchLocation;
