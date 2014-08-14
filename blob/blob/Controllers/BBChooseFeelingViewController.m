@@ -98,19 +98,28 @@ static NSInteger kAddNewRowOffset = 1;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.secretLanguageViewController = [[BBSecretLanguageViewController alloc] initWithNibName:nil bundle:nil];
-    self.secretLanguageViewController.context = self.context;
-    self.secretLanguageViewController.feeling = [self feelingAtIndexPath:indexPath];
-    self.secretLanguageViewController.view.frame = offscreenFrame;
-    [self.view addSubview:self.secretLanguageViewController.view];
-    [UIView animateWithDuration:0.5f animations:^{
-        self.secretLanguageViewController.view.frame = onscreenFrame;
-    } completion:^(BOOL finished) {
+    if (indexPath.row == kAddNewRowIndex)
+    {
+        UIAlertView *comingSoon = [[UIAlertView alloc] initWithTitle:@"Oh darn" message:@"Functionality coming soon" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
+        [comingSoon show];
         [self.feelingsTableView deselectRowAtIndexPath:indexPath animated:NO];
-        self.parentViewController.navigationItem.title = [NSString stringWithFormat:@"When Blob is %@", self.secretLanguageViewController.feeling.name];
-        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonPressed:)];
-        self.parentViewController.navigationItem.rightBarButtonItem = doneButton;
-    }];
+    }
+    else
+    {
+        self.secretLanguageViewController = [[BBSecretLanguageViewController alloc] initWithNibName:nil bundle:nil];
+        self.secretLanguageViewController.context = self.context;
+        self.secretLanguageViewController.feeling = [self feelingAtIndexPath:indexPath];
+        self.secretLanguageViewController.view.frame = offscreenFrame;
+        [self.view addSubview:self.secretLanguageViewController.view];
+        [UIView animateWithDuration:0.5f animations:^{
+            self.secretLanguageViewController.view.frame = onscreenFrame;
+        } completion:^(BOOL finished) {
+            [self.feelingsTableView deselectRowAtIndexPath:indexPath animated:NO];
+            self.parentViewController.navigationItem.title = [NSString stringWithFormat:@"When Blob is %@", self.secretLanguageViewController.feeling.name];
+            UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonPressed:)];
+            self.parentViewController.navigationItem.rightBarButtonItem = doneButton;
+        }];
+    }
 }
 
 - (BBFeeling *)feelingAtIndexPath:(NSIndexPath *)indexPath
