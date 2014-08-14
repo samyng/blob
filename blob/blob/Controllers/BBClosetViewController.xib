@@ -51,9 +51,9 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="JvU-dF-vkM"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="17"/>
-                    <state key="normal" title="+ add new">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="19"/>
+                    <state key="normal">
+                        <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>

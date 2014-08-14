@@ -38,7 +38,8 @@ static NSInteger const kAllSectionIndex = 0;
     self.categoriesTableView.backgroundColor = [UIColor whiteColor];
     self.view.backgroundColor = [UIColor whiteColor];
     self.addNewAccessoryButton.backgroundColor = [BBConstants tealBackgroundColor];
-    self.addNewAccessoryButton.titleLabel.text = PLUS_ADD_NEW_LABEL;
+    [self.addNewAccessoryButton setTitle:PLUS_ADD_NEW_LABEL forState:UIControlStateNormal];
+    [self.addNewAccessoryButton setTitleColor:[BBConstants tealTextColor] forState:UIControlStateNormal];
     [self populateCategories];
 
 //TODO - preload model data and test heavily before shipping final product -SY (8/8/14)
