@@ -13,11 +13,10 @@
 #import "BBFeeling.h"
 
 static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier";
-static NSString * const kLanguageBlockCollectionCellIdentifier = @"languageBlockCollectionCellIdentifier";
 
-@interface BBSecretLanguageViewController () <UICollectionViewDataSource, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
-@property (weak, nonatomic) IBOutlet UICollectionView *languageBlocksCollectionView;
+@interface BBSecretLanguageViewController () <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *groupsTableView;
+@property (weak, nonatomic) IBOutlet UIView *blocksContainerView;
 @property (strong, nonatomic) NSArray *groups;
 @property (strong, nonatomic) NSFetchedResultsController *groupsFetchedResultsController;
 @end
@@ -31,7 +30,6 @@ static NSString * const kLanguageBlockCollectionCellIdentifier = @"languageBlock
     [super viewDidLoad];
     
     [self.groupsTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kGroupsTableCellIdentifier];
-    [self.languageBlocksCollectionView registerNib:[UINib nibWithNibName:@"BBLanguageBlockCollectionCell" bundle:nil] forCellWithReuseIdentifier:kLanguageBlockCollectionCellIdentifier];
     [self populateLanguageGroups];
     
 //TODO - preload model data and test heavily before shipping final product -SY (8/8/14)
@@ -45,7 +43,6 @@ static NSString * const kLanguageBlockCollectionCellIdentifier = @"languageBlock
 #endif
     
     [self.groupsTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
-    self.languageBlocksCollectionView.backgroundColor = [BBConstants backgroundColorForCellWithLanguageGroupName:CONTROL_GROUP]; // hack to set initial background color to pink default - SY
 }
 
 - (void)doneButtonPressed:(UIBarButtonItem *)sender
@@ -81,35 +78,6 @@ static NSString * const kLanguageBlockCollectionCellIdentifier = @"languageBlock
     return allGroupsFetchRequest;
 }
 
-#pragma mark - Collection View Datasource Methods
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
-    return kTotalNumberOfSections;
-}
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    NSInteger selectedRowIndex = [self groupsTableCellSelectedRowIndex];
-    BBLanguageGroup *group;
-    if (self.groups.count)
-    {
-        group = [self.groups objectAtIndex:selectedRowIndex];
-    }
-    return [group.blocks count];
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-        BBLanguageBlockCollectionCell *cell = (BBLanguageBlockCollectionCell *)[self.languageBlocksCollectionView dequeueReusableCellWithReuseIdentifier:kLanguageBlockCollectionCellIdentifier
-                                                                                                                                forIndexPath:indexPath];
-        NSInteger selectedRowIndex = [self groupsTableCellSelectedRowIndex];
-        NSArray *languageBlocks = [[[self.groups objectAtIndex:selectedRowIndex] blocks] allObjects];
-        BBLanguageBlock *block = [languageBlocks objectAtIndex:indexPath.item];
-        [cell configureWithLanguageBlock:block];
-        return cell;
-}
-
 #pragma mark - Table View Datasource Methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -142,8 +110,7 @@ static NSString * const kLanguageBlockCollectionCellIdentifier = @"languageBlock
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *name = [[self.groups objectAtIndex:indexPath.row] name];
-    self.languageBlocksCollectionView.backgroundColor = [BBConstants backgroundColorForCellWithLanguageGroupName:name];
-    [self.languageBlocksCollectionView reloadData];
+    self.blocksContainerView.backgroundColor = [BBConstants backgroundColorForCellWithLanguageGroupName:name];
 }
 
 #pragma mark - Create test data
