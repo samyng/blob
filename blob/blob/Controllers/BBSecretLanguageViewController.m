@@ -21,7 +21,7 @@ static NSInteger const kControlGroupIndexRow = 0;
 
 @interface BBSecretLanguageViewController () <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, CollapsedLanguageBlockDelegate, ExpandedLanguageBlockDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *groupsTableView;
-@property (weak, nonatomic) IBOutlet UIView *blocksContainerView;
+@property (weak, nonatomic) IBOutlet UIScrollView *blocksContainerView;
 @property (strong, nonatomic) NSArray *groups;
 @property (strong, nonatomic) NSArray *accessories;
 @property (strong, nonatomic) NSFetchedResultsController *groupsFetchedResultsController;
@@ -48,7 +48,11 @@ static NSInteger const kControlGroupIndexRow = 0;
         [self populateLanguageGroups];
     }
 #endif
-    
+
+    self.blocksContainerView.userInteractionEnabled = YES;
+    self.blocksContainerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    self.blocksContainerView.scrollEnabled = YES;
+    self.blocksContainerView.pagingEnabled = YES;
     [self.groupsTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
     [self updateBlocksContainerViewForGroup:[self.groups objectAtIndex:kControlGroupIndexRow]];
 }
@@ -163,6 +167,7 @@ static NSInteger const kControlGroupIndexRow = 0;
         CGSize blockViewSize = blockView.frame.size;
         blockView.frame = CGRectMake(xOrigin, yOrigin, blockViewSize.width, blockViewSize.height);
         xOrigin += (blockViewSize.width + xPadding);
+        self.blocksContainerView.contentSize = CGSizeMake(xOrigin, CGRectGetHeight(self.blocksContainerView.frame));
         [blockView configureWithLanguageBlock:languageBlock];
         blockView.delegate = self;
         [self.blocksContainerView addSubview:blockView];
