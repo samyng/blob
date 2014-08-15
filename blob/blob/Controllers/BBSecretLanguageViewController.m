@@ -144,7 +144,7 @@ static NSInteger const kControlGroupIndexRow = 0;
     }
     else if ([groupName isEqualToString:VARIABLES_GROUP])
     {
-        NSLog(@"variables");
+        [self arrangeVariableBlocks:languageBlocks];
     }
 
 }
@@ -153,9 +153,9 @@ static NSInteger const kControlGroupIndexRow = 0;
 
 - (void)arrangeControlBlocks:(NSArray *)controlBlocks
 {
-    const CGFloat xPadding = 30.0f;
-    CGFloat xOrigin = 20.0f;
-    CGFloat yOrigin = 20.0f;
+    const CGFloat xPadding = BLOB_PADDING_30PX;
+    CGFloat xOrigin = BLOB_PADDING_20PX;
+    CGFloat yOrigin = BLOB_PADDING_20PX;
     for (BBLanguageBlock *languageBlock in controlBlocks)
     {
         NSString *imageName = [NSString stringWithFormat:kCollapsedImageStringFormat,languageBlock.name];
@@ -256,6 +256,24 @@ static NSInteger const kControlGroupIndexRow = 0;
         }
 }
 
+- (void)arrangeVariableBlocks:(NSArray *)variableBlocks
+{
+    const CGFloat xPadding = BLOB_PADDING_10PX;
+    CGFloat xOrigin = BLOB_PADDING_20PX;
+    CGFloat yOrigin = BLOB_PADDING_20PX;
+    for (BBLanguageBlock *languageBlock in variableBlocks)
+    {
+        NSString *imageName = [NSString stringWithFormat:kCollapsedImageStringFormat,languageBlock.name];
+        BBCollapsedLanguageBlockImageView *blockView = [[BBCollapsedLanguageBlockImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
+        CGSize blockViewSize = blockView.frame.size;
+        blockView.frame = CGRectMake(xOrigin, yOrigin, blockViewSize.width, blockViewSize.height);
+        xOrigin += (blockViewSize.width + xPadding);
+        [blockView configureWithLanguageBlock:languageBlock];
+        blockView.delegate = self;
+        [self.blocksContainerView addSubview:blockView];
+    }
+}
+
 #pragma mark - Helper Methods
 
 - (NSInteger)groupsTableCellSelectedRowIndex
@@ -315,7 +333,19 @@ static NSInteger const kControlGroupIndexRow = 0;
     CGPoint touchLocation = [sender locationInView:self.view];
     languageBlockView.draggableCopyImageView.center = touchLocation;
     languageBlockView.draggableCopyImageView.alpha = CGRectIntersectsRect(self.blocksContainerView.frame, languageBlockView.draggableCopyImageView.frame) ? kAlphaHalf : kAlphaOpaque;
-    [self.view bringSubviewToFront:languageBlockView.draggableCopyImageView];
+   [self.view bringSubviewToFront:languageBlockView.draggableCopyImageView];
+}
+
+- (void)panDidEnd:(UIPanGestureRecognizer *)sender forCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)languageBlockView
+{
+    if (CGRectIntersectsRect(self.blocksContainerView.frame, languageBlockView.draggableCopyImageView.frame))
+    {
+        [UIView animateWithDuration:kViewAnimationDuration animations:^{
+            languageBlockView.draggableCopyImageView.alpha = kAlphaZero;
+        }];
+        [languageBlockView.draggableCopyImageView removeFromSuperview];
+        languageBlockView.draggableCopyImageView = nil;
+    }
 }
 
 #pragma mark - Create test data
@@ -360,8 +390,8 @@ static NSInteger const kControlGroupIndexRow = 0;
     BBLanguageBlock *waitBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
     waitBlock.name = @"wait";
     
-//    BBLanguageBlock *switchStateToBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
-//    switchStateToBlock.name = @"switchStateTo";
+    BBLanguageBlock *switchStateToBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+    switchStateToBlock.name = @"switchStateTo";
 
     BBLanguageBlock *greaterThanBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
     greaterThanBlock.name = @"greaterThan";
@@ -393,6 +423,12 @@ static NSInteger const kControlGroupIndexRow = 0;
     BBLanguageBlock *multiplicationBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
     multiplicationBlock.name = @"multiplication";
     
+    BBLanguageBlock *newBooleanVariable = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+    newBooleanVariable.name = @"newBooleanVariable";
+    
+    BBLanguageBlock *newIntegerVariable = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+    newIntegerVariable.name = @"newIntegerVariable";
+    
     [self populateAccessories];
     NSMutableArray *accessoryBlocks = [[NSMutableArray alloc] initWithCapacity:[self.accessories count]];
     for (BBAccessory *accessory in self.accessories)
@@ -405,7 +441,7 @@ static NSInteger const kControlGroupIndexRow = 0;
     BBLanguageGroup *control = [[BBLanguageGroup alloc] initWithEntity:groupEntityDescription
                                          insertIntoManagedObjectContext:context];
     control.name = CONTROL_GROUP;
-    control.blocks = [NSSet setWithArray:@[ifThenBlock, ifThenElseBlock, repeatBlock, waitBlock]];
+    control.blocks = [NSSet setWithArray:@[ifThenBlock, ifThenElseBlock, repeatBlock, waitBlock, switchStateToBlock]];
     
     BBLanguageGroup *fromCloset = [[BBLanguageGroup alloc] initWithEntity:groupEntityDescription insertIntoManagedObjectContext:context];
     fromCloset.name = FROM_CLOSET_GROUP;
@@ -423,6 +459,7 @@ static NSInteger const kControlGroupIndexRow = 0;
     
     BBLanguageGroup *variables = [[BBLanguageGroup alloc] initWithEntity:groupEntityDescription insertIntoManagedObjectContext:context];
     variables.name = VARIABLES_GROUP;
+    variables.blocks = [NSSet setWithArray:@[newBooleanVariable, newIntegerVariable]];
     
     NSError *error;
     if (![context save:&error]) {

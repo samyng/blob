@@ -43,6 +43,7 @@ static CGFloat const BLOB_PADDING_10PX = 10.0f;
 static CGFloat const BLOB_PADDING_15PX = 15.0f;
 static CGFloat const BLOB_PADDING_20PX = 20.0f;
 static CGFloat const BLOB_PADDING_25PX = 25.0f;
+static CGFloat const BLOB_PADDING_30PX = 30.0f;
 static CGFloat const BLOB_PADDING_45PX = 45.0f;
 static CGFloat const kAlphaZero = 0.0f;
 static CGFloat const kAlphaHalf = 0.5f;
