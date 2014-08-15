@@ -137,7 +137,7 @@ static NSInteger const kControlGroupIndexRow = 0;
     }
     else if ([groupName isEqualToString:OPERATORS_GROUP])
     {
-        NSLog(@"operators");
+        [self arrangeOperatorBlocks:languageBlocks];
     }
     else if ([groupName isEqualToString:VARIABLES_GROUP])
     {
@@ -199,6 +199,33 @@ static NSInteger const kControlGroupIndexRow = 0;
         [self.blocksContainerView addSubview:blockView];
         xOrigin = calculatedEndingX;
     }
+}
+
+- (void)arrangeOperatorBlocks:(NSArray *)operatorBlocks
+{
+        const CGFloat xPadding = BLOB_PADDING_25PX;
+        const CGFloat yPadding = BLOB_PADDING_20PX;
+        CGFloat xOrigin = BLOB_PADDING_20PX;
+        CGFloat yOrigin = BLOB_PADDING_20PX;
+        for (BBLanguageBlock *languageBlock in operatorBlocks)
+        {
+            NSString *imageName = [NSString stringWithFormat:kCollapsedImageStringFormat,languageBlock.name];
+            BBCollapsedLanguageBlockImageView *blockView = [[BBCollapsedLanguageBlockImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
+            CGSize blockViewSize = blockView.frame.size;
+            
+            CGFloat calculatedEndingX = xOrigin + blockViewSize.width + xPadding;
+            if (calculatedEndingX >= self.blocksContainerView.frame.size.width)
+            {
+                xOrigin = BLOB_PADDING_20PX;
+                yOrigin += (blockViewSize.height + yPadding);
+            }
+            
+            blockView.frame = CGRectMake(xOrigin, yOrigin, blockViewSize.width, blockViewSize.height);
+            [blockView configureWithLanguageBlock:languageBlock];
+            blockView.delegate = self;
+            [self.blocksContainerView addSubview:blockView];
+            xOrigin += (blockViewSize.width + xPadding);
+        }
 }
 
 #pragma mark - Helper Methods
@@ -308,6 +335,36 @@ static NSInteger const kControlGroupIndexRow = 0;
 //    BBLanguageBlock *switchStateToBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
 //    switchStateToBlock.name = @"switchStateTo";
 
+    BBLanguageBlock *greaterThanBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+    greaterThanBlock.name = @"greaterThan";
+    
+    BBLanguageBlock *lessThanBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+    lessThanBlock.name = @"lessThan";
+    
+    BBLanguageBlock *equalToBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+    equalToBlock.name = @"equalTo";
+    
+    BBLanguageBlock *orBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+    orBlock.name = @"or";
+    
+    BBLanguageBlock *andBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+    andBlock.name = @"and";
+    
+    BBLanguageBlock *notBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+    notBlock.name = @"not";
+    
+    BBLanguageBlock *additionBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+    additionBlock.name = @"addition";
+    
+    BBLanguageBlock *subtractionBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+    subtractionBlock.name = @"subtraction";
+    
+    BBLanguageBlock *divisionBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+    divisionBlock.name = @"division";
+    
+    BBLanguageBlock *multiplicationBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+    multiplicationBlock.name = @"multiplication";
+    
     
     BBLanguageGroup *control = [[BBLanguageGroup alloc] initWithEntity:groupEntityDescription
                                          insertIntoManagedObjectContext:context];
@@ -325,6 +382,7 @@ static NSInteger const kControlGroupIndexRow = 0;
     
     BBLanguageGroup *operators = [[BBLanguageGroup alloc] initWithEntity:groupEntityDescription insertIntoManagedObjectContext:context];
     operators.name = OPERATORS_GROUP;
+    operators.blocks = [NSSet setWithArray:@[greaterThanBlock, lessThanBlock, equalToBlock, andBlock, orBlock, notBlock, additionBlock, subtractionBlock, multiplicationBlock, divisionBlock]];
     
     BBLanguageGroup *variables = [[BBLanguageGroup alloc] initWithEntity:groupEntityDescription insertIntoManagedObjectContext:context];
     variables.name = VARIABLES_GROUP;
