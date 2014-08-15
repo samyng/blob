@@ -19,9 +19,11 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
 static NSString * const kCollapsedImageStringFormat = @"%@Block-collapsed";
 static NSInteger const kControlGroupIndexRow = 0;
 
-@interface BBSecretLanguageViewController () <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, CollapsedLanguageBlockDelegate, ExpandedLanguageBlockDelegate>
+@interface BBSecretLanguageViewController () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, NSFetchedResultsControllerDelegate, CollapsedLanguageBlockDelegate, ExpandedLanguageBlockDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *groupsTableView;
 @property (weak, nonatomic) IBOutlet UIScrollView *blocksContainerView;
+@property (weak, nonatomic) IBOutlet UIPageControl *blocksContainerPageControl;
+
 @property (strong, nonatomic) NSArray *groups;
 @property (strong, nonatomic) NSArray *accessories;
 @property (strong, nonatomic) NSFetchedResultsController *groupsFetchedResultsController;
@@ -53,6 +55,7 @@ static NSInteger const kControlGroupIndexRow = 0;
     self.blocksContainerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     self.blocksContainerView.scrollEnabled = YES;
     self.blocksContainerView.pagingEnabled = YES;
+    self.blocksContainerPageControl.hidesForSinglePage = YES;
     [self.groupsTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
     [self updateBlocksContainerViewForGroup:[self.groups objectAtIndex:kControlGroupIndexRow]];
 }
@@ -127,6 +130,9 @@ static NSInteger const kControlGroupIndexRow = 0;
 {
     NSString *groupName = group.name;
     self.blocksContainerView.backgroundColor = [BBConstants backgroundColorForCellWithLanguageGroupName:groupName];
+    self.blocksContainerPageControl.currentPageIndicatorTintColor = [BBConstants colorForCellWithLanguageGroupName:groupName];
+    self.blocksContainerPageControl.pageIndicatorTintColor = [BBConstants textColorForCellWithLanguageGroupName:groupName];
+    self.blocksContainerPageControl.numberOfPages = 1;
     
     [self resetBlocksContainerView];
     NSArray *languageBlocks = [group.blocks allObjects];
@@ -153,6 +159,15 @@ static NSInteger const kControlGroupIndexRow = 0;
 
 }
 
+#pragma mark - Scroll View Delegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)sender {
+    // Update the page when more than 50% of the previous/next page is visible
+    CGFloat pageWidth = self.blocksContainerView.frame.size.width;
+    int page = floor((self.blocksContainerView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    self.blocksContainerPageControl.currentPage = page;
+}
+
 #pragma mark - Arrange Blocks
 
 - (void)arrangeControlBlocks:(NSArray *)controlBlocks
@@ -172,6 +187,8 @@ static NSInteger const kControlGroupIndexRow = 0;
         blockView.delegate = self;
         [self.blocksContainerView addSubview:blockView];
     }
+    // hack until find out how to control page control - SY
+    self.blocksContainerPageControl.numberOfPages = 2;
 }
 
 - (void)arrangeAccessoryBlocks:(NSArray *)accessoryBlocks
