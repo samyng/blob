@@ -26,7 +26,8 @@ static NSString * const kExpandedImageStringFormat = @"%@Block-expanded";
     {
         [self setup];
         CGSize frameSize = frame.size;
-        CGRect labelFrame = CGRectMake(CGPointZero.x, CGPointZero.y, frameSize.width, frameSize.height);
+        CGFloat xOffset = BLOB_PADDING_25PX;
+        CGRect labelFrame = CGRectMake(xOffset, CGPointZero.y, frameSize.width - 2*xOffset, frameSize.height);
         _languageBlockLabel = [[UILabel alloc] initWithFrame:labelFrame];
         _languageBlockLabel.font = [UIFont fontWithName:BLOB_FONT_REGULAR size:BLOB_FONT_19PT];
         _languageBlockLabel.textAlignment = NSTextAlignmentCenter;
@@ -53,6 +54,19 @@ static NSString * const kExpandedImageStringFormat = @"%@Block-expanded";
         self.languageBlockLabel.textColor = [BBConstants textColorForCellWithLanguageGroupName:groupName];
         self.backgroundColor = [BBConstants colorForCellWithLanguageGroupName:groupName];
         self.languageBlockLabel.text = languageBlock.name;
+        if ([groupName isEqualToString:FROM_CLOSET_GROUP])
+        {
+            self.languageBlockLabel.text = [languageBlock.name capitalizedString];
+            self.languageBlockLabel.textAlignment = NSTextAlignmentLeft;
+            CGFloat sideLength = CGRectGetHeight(self.frame) - BLOB_PADDING_10PX;
+            CGFloat xOffset = CGRectGetWidth(self.frame) - sideLength - BLOB_PADDING_20PX;
+            CGRect thumbnailImageFrame = CGRectMake(xOffset, BLOB_PADDING_5PX, sideLength, sideLength);
+            UIImage *thumbnailImage = [UIImage imageNamed:[NSString stringWithFormat:ACCESSORY_THUMBNAIL_FORMAT, languageBlock.name]];
+            UIImageView *thumbnailImageView = [[UIImageView alloc] initWithImage:thumbnailImage];
+            thumbnailImageView.frame = thumbnailImageFrame;
+            thumbnailImageView.contentMode = UIViewContentModeScaleAspectFit;
+            [self addSubview:thumbnailImageView];
+        }
     }
     self.languageBlock = languageBlock;
 }

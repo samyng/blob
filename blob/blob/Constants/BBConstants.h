@@ -7,6 +7,7 @@ static NSString * const CLOSET_ICON_NAME = @"closet-ico-selected";
 static NSString * const MY_BLOB_ICON_NAME = @"my-blob-ico-selected";
 static NSString * const SECRET_LANGUAGE_ICON_NAME = @"secret-lang-ico-selected";
 
+static NSString * const ACCESSORY_THUMBNAIL_FORMAT = @"thumbnail_%@";
 static NSString * const ACCESSORY_ENTITY_DESCRIPTION = @"Accessory";
 static NSString * const CLOSET_CATEGORY_ENTITY_DESCRIPTION = @"ClosetCategory";
 static NSString * const LANGUAGE_GROUP_ENTITY_DESCRIPTION = @"LanguageGroup";
@@ -37,10 +38,12 @@ static NSString * const PLUS_ADD_NEW_LABEL = @"+ NEW";
 
 static NSInteger const kTotalNumberOfSections = 1;
 static CGFloat const BLOB_FONT_19PT = 19.0f;
+static CGFloat const BLOB_PADDING_5PX = 5.0f;
 static CGFloat const BLOB_PADDING_10PX = 10.0f;
 static CGFloat const BLOB_PADDING_15PX = 15.0f;
 static CGFloat const BLOB_PADDING_20PX = 20.0f;
 static CGFloat const BLOB_PADDING_25PX = 25.0f;
+static CGFloat const BLOB_PADDING_45PX = 45.0f;
 static CGFloat const kAlphaZero = 0.0f;
 static CGFloat const kAlphaHalf = 0.5f;
 static CGFloat const kAlphaOpaque = 1.0f;

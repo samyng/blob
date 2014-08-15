@@ -13,6 +13,7 @@
 #import "BBFeeling.h"
 #import "BBCollapsedLanguageBlockImageView.h"
 #import "BBExpandedLanguageBlockImageView.h"
+#import "BBAccessory.h"
 
 static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier";
 static NSString * const kCollapsedImageStringFormat = @"%@Block-collapsed";
@@ -22,7 +23,9 @@ static NSInteger const kControlGroupIndexRow = 0;
 @property (weak, nonatomic) IBOutlet UITableView *groupsTableView;
 @property (weak, nonatomic) IBOutlet UIView *blocksContainerView;
 @property (strong, nonatomic) NSArray *groups;
+@property (strong, nonatomic) NSArray *accessories;
 @property (strong, nonatomic) NSFetchedResultsController *groupsFetchedResultsController;
+@property (strong, nonatomic) NSFetchedResultsController *accessoriesFetchedResultsController;
 @end
 
 @implementation BBSecretLanguageViewController
@@ -129,7 +132,7 @@ static NSInteger const kControlGroupIndexRow = 0;
     }
     else if ([groupName isEqualToString:FROM_CLOSET_GROUP])
     {
-        [self arrangeAccessoryBlocks];
+        [self arrangeAccessoryBlocks:languageBlocks];
     }
     else if ([groupName isEqualToString:REACTIONS_GROUP])
     {
@@ -166,9 +169,34 @@ static NSInteger const kControlGroupIndexRow = 0;
     }
 }
 
-- (void)arrangeAccessoryBlocks
+- (void)arrangeAccessoryBlocks:(NSArray *)accessoryBlocks
 {
-    NSLog(@"arrange accessories");
+    const CGFloat xPadding = BLOB_PADDING_15PX;
+    const CGFloat yPadding = BLOB_PADDING_15PX;
+    const CGFloat xBackgroundPadding = BLOB_PADDING_45PX;
+    const CGFloat yBackgroundPadding = BLOB_PADDING_10PX;
+    CGFloat xOrigin = BLOB_PADDING_20PX;
+    CGFloat yOrigin = BLOB_PADDING_20PX;
+    for (BBLanguageBlock *languageBlock in accessoryBlocks)
+    {
+        NSString *languageBlockName = languageBlock.name;
+        CGSize nameStringSize = [languageBlockName sizeWithAttributes: @{NSFontAttributeName:[UIFont fontWithName:BLOB_FONT_REGULAR size:BLOB_FONT_19PT]}];
+        CGFloat frameWidth = nameStringSize.width + 2*xBackgroundPadding;
+        CGFloat frameHeight = nameStringSize.height + 2*yBackgroundPadding;
+        CGFloat calculatedEndingX = xOrigin + frameWidth + xPadding;
+        
+        if (calculatedEndingX >= self.blocksContainerView.frame.size.width)
+        {
+            xOrigin = BLOB_PADDING_20PX;
+            yOrigin += (frameHeight + yPadding);
+        }
+        CGRect languageBlockFrame = CGRectMake(xOrigin, yOrigin, frameWidth, frameHeight);
+        BBCollapsedLanguageBlockImageView *blockView = [[BBCollapsedLanguageBlockImageView alloc] initWithFrame:languageBlockFrame];
+        [blockView configureWithLanguageBlock:languageBlock];
+        blockView.delegate = self;
+        [self.blocksContainerView addSubview:blockView];
+        xOrigin += (frameWidth + xPadding);
+    }
 }
 
 - (void)arrangeReactionBlocks:(NSArray *)reactionBlocks
@@ -197,7 +225,7 @@ static NSInteger const kControlGroupIndexRow = 0;
         [blockView configureWithLanguageBlock:languageBlock];
         blockView.delegate = self;
         [self.blocksContainerView addSubview:blockView];
-        xOrigin = calculatedEndingX;
+        xOrigin += (frameWidth + xPadding);
     }
 }
 
@@ -365,6 +393,14 @@ static NSInteger const kControlGroupIndexRow = 0;
     BBLanguageBlock *multiplicationBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
     multiplicationBlock.name = @"multiplication";
     
+    [self populateAccessories];
+    NSMutableArray *accessoryBlocks = [[NSMutableArray alloc] initWithCapacity:[self.accessories count]];
+    for (BBAccessory *accessory in self.accessories)
+    {
+        BBLanguageBlock *accessoryBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+        accessoryBlock.name = accessory.name;
+        [accessoryBlocks addObject:accessoryBlock];
+    }
     
     BBLanguageGroup *control = [[BBLanguageGroup alloc] initWithEntity:groupEntityDescription
                                          insertIntoManagedObjectContext:context];
@@ -373,6 +409,7 @@ static NSInteger const kControlGroupIndexRow = 0;
     
     BBLanguageGroup *fromCloset = [[BBLanguageGroup alloc] initWithEntity:groupEntityDescription insertIntoManagedObjectContext:context];
     fromCloset.name = FROM_CLOSET_GROUP;
+    fromCloset.blocks = [NSSet setWithArray:[accessoryBlocks copy]];
     
     BBLanguageGroup *reactions = [[BBLanguageGroup alloc] initWithEntity:groupEntityDescription
                                   
@@ -391,6 +428,31 @@ static NSInteger const kControlGroupIndexRow = 0;
     if (![context save:&error]) {
         NSLog(@"Could not save: %@", [error localizedDescription]);
     }
+}
+
+
+- (void)populateAccessories
+{
+    NSManagedObjectContext *context = self.context;
+    if (context)
+    {
+        self.accessoriesFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:[self allAccessoriesFetchRequest]
+                                                                                       managedObjectContext:context
+                                                                                         sectionNameKeyPath:nil
+                                                                                                  cacheName:nil];
+        [self.accessoriesFetchedResultsController setDelegate:self];
+        [self.accessoriesFetchedResultsController performFetch:nil];
+        self.accessories = [self.accessoriesFetchedResultsController fetchedObjects];
+    }
+}
+
+- (NSFetchRequest *)allAccessoriesFetchRequest
+{
+    NSFetchRequest *allCategoriesFetchRequest = [NSFetchRequest fetchRequestWithEntityName:ACCESSORY_ENTITY_DESCRIPTION];
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc]
+                              initWithKey:NAME_SORT_DESCRIPTOR_KEY ascending:YES];
+    [allCategoriesFetchRequest setSortDescriptors:@[sort]];
+    return allCategoriesFetchRequest;
 }
 
 @end

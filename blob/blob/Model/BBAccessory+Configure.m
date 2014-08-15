@@ -12,7 +12,7 @@
 
 - (UIImage *)thumbnailImage
 {
-    return [UIImage imageNamed:[NSString stringWithFormat:@"thumbnail_%@", self.name]];
+    return [UIImage imageNamed:[NSString stringWithFormat:ACCESSORY_THUMBNAIL_FORMAT, self.name]];
 }
 
 @end
