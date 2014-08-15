@@ -9,6 +9,8 @@
 #import "BBMyBlobViewController.h"
 #import "BBFeelingCollectionCell.h"
 #import "BBFeeling.h"
+#import "BBAccessory.h"
+#import "BBClosetCategory.h"
 
 static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCellIdentifier";
 
@@ -255,6 +257,86 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
     
     BBFeeling *confused = [[BBFeeling alloc] initWithEntity:feelingEntityDescription insertIntoManagedObjectContext:context];
     confused.name = @"confused";
+    
+    // Accessories
+    
+    NSEntityDescription *accessoryEntityDescription = [NSEntityDescription entityForName:ACCESSORY_ENTITY_DESCRIPTION inManagedObjectContext:context];
+    NSEntityDescription *categoryEntityDescription = [NSEntityDescription entityForName:CLOSET_CATEGORY_ENTITY_DESCRIPTION inManagedObjectContext:context];
+    
+    // Accessories
+    
+    BBAccessory *apple = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
+                              insertIntoManagedObjectContext:context];
+    apple.name = @"apple";
+    
+    BBAccessory *carrot = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
+                               insertIntoManagedObjectContext:context];
+    carrot.name = @"carrot";
+    
+    BBAccessory *hightops = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
+                                 insertIntoManagedObjectContext:context];
+    hightops.name = @"hightops";
+    
+    BBAccessory *rainboots = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
+                                  insertIntoManagedObjectContext:context];
+    rainboots.name = @"rainboots";
+    
+    BBAccessory *sweater = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
+                                insertIntoManagedObjectContext:context];
+    sweater.name = @"sweater";
+    
+    BBAccessory *babies = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
+                               insertIntoManagedObjectContext:context];
+    babies.name = @"babies";
+    
+    BBAccessory *colosseum = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
+                                  insertIntoManagedObjectContext:context];
+    colosseum.name = @"colosseum";
+    
+    BBAccessory *pisa = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
+                             insertIntoManagedObjectContext:context];
+    pisa.name = @"pisa";
+    
+    BBAccessory *pool = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription insertIntoManagedObjectContext:context];
+    pool.name = @"pool";
+    
+    BBAccessory *drums = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
+                              insertIntoManagedObjectContext:context];
+    drums.name = @"drums";
+    
+    // Categories
+    
+    BBClosetCategory *foods = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription insertIntoManagedObjectContext:context];
+    foods.name = FOOD_CATEGORY;
+    foods.accessories = [NSSet setWithObjects:apple, carrot, nil];
+    
+    BBClosetCategory *clothes = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription insertIntoManagedObjectContext:context];
+    clothes.name = CLOTHES_CATEGORY;
+    clothes.accessories = [NSSet setWithObjects:hightops, rainboots, sweater, nil];
+    
+    BBClosetCategory *friends = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription insertIntoManagedObjectContext:context];
+    friends.name = FRIENDS_CATEGORY;
+    friends.accessories = [NSSet setWithObjects:babies, nil];
+    
+    BBClosetCategory *places = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription insertIntoManagedObjectContext:context];
+    places.name = PLACES_CATEGORY;
+    places.accessories = [NSSet setWithObjects:colosseum, pisa, pool, nil];
+    
+    BBClosetCategory *instruments = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription insertIntoManagedObjectContext:context];
+    instruments.name = INSTRUMENTS_CATEGORY;
+    instruments.accessories = [NSSet setWithObjects:drums, nil];
+    
+    BBClosetCategory *all = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription
+                                      insertIntoManagedObjectContext:context];
+    all.name = ALL_CATEGORY;
+    
+    BBClosetCategory *furniture = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription
+                                            insertIntoManagedObjectContext:context];
+    furniture.name = FURNITURE_CATEGORY;
+    
+    BBClosetCategory *artSupplies = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription
+                                              insertIntoManagedObjectContext:context];
+    artSupplies.name = ART_SUPPLIES_CATEGORY;
     
     NSError *error;
     if (![context save:&error]) {
