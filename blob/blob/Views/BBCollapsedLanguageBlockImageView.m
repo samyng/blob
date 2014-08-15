@@ -88,6 +88,10 @@ static NSString * const kExpandedImageStringFormat = @"%@Block-expanded";
     {
         [self.delegate panDidChange:sender forCollapsedLanguageBlockView:self];
     }
+    else if (sender.state == UIGestureRecognizerStateEnded)
+    {
+        [self.delegate panDidEnd:sender forCollapsedLanguageBlockView:self];
+    }
 }
 
 - (UIImage *)rasterizedImageCopy
