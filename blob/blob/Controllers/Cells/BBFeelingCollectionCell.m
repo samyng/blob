@@ -38,13 +38,13 @@
 
 - (void)setToBlankState
 {
-    self.feelingLabel.alpha = 0.0f;
+    self.feelingLabel.alpha = kAlphaZero;
     self.contentView.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)resetDefaultUI
 {
-    self.feelingLabel.alpha = 1.0f;
+    self.feelingLabel.alpha = kAlphaOpaque;
     self.feelingLabel.textColor = [BBConstants yellowTextColor];
     self.contentView.backgroundColor = [BBConstants yellowColor];
 }

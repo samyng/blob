@@ -8,6 +8,13 @@
 
 #import "BBCollapsedLanguageBlockImageView.h"
 #import "BBLanguageBlock.h"
+#import "BBLanguageGroup.h"
+
+static NSString * const kExpandedImageStringFormat = @"%@Block-expanded";
+
+@interface BBCollapsedLanguageBlockImageView ()
+@property (strong, nonatomic) BBLanguageBlock *languageBlock;
+@end
 
 @implementation BBCollapsedLanguageBlockImageView
 @synthesize delegate;
@@ -38,12 +45,23 @@
     return self;
 }
 
+- (void)configureWithLanguageBlock:(BBLanguageBlock *)languageBlock
+{
+    NSString *groupName = languageBlock.group.name;
+    if ([groupName isEqualToString:REACTIONS_GROUP] || [groupName isEqualToString:FROM_CLOSET_GROUP])
+    {
+        self.languageBlockLabel.textColor = [BBConstants textColorForCellWithLanguageGroupName:groupName];
+        self.backgroundColor = [BBConstants colorForCellWithLanguageGroupName:groupName];
+        self.languageBlockLabel.text = languageBlock.name;
+    }
+    self.languageBlock = languageBlock;
+}
+
 - (void)setup
 {
     UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panned:)];
     [self addGestureRecognizer:recognizer];
     self.userInteractionEnabled = YES;
-    self.layer.borderWidth = 0.0f;
 }
 
 - (void)panned:(UIPanGestureRecognizer *)sender
@@ -60,7 +78,7 @@
 
 - (UIImage *)rasterizedImageCopy
 {
-    NSString *imageName = [NSString stringWithFormat:@"%@Block-expanded", self.languageBlock.name];
+    NSString *imageName = [NSString stringWithFormat:kExpandedImageStringFormat, self.languageBlock.name];
     UIImage *imageCopy = [UIImage imageNamed:imageName];
     if (imageCopy)
     {

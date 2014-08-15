@@ -15,6 +15,8 @@
 #import "BBExpandedLanguageBlockImageView.h"
 
 static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier";
+static NSString * const kCollapsedImageStringFormat = @"%@Block-collapsed";
+static NSInteger const kControlGroupIndexRow = 0;
 
 @interface BBSecretLanguageViewController () <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, CollapsedLanguageBlockDelegate, ExpandedLanguageBlockDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *groupsTableView;
@@ -45,13 +47,12 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
 #endif
     
     [self.groupsTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+    [self updateBlocksContainerViewForGroup:[self.groups objectAtIndex:kControlGroupIndexRow]];
 }
 
 - (void)doneButtonPressed:(UIBarButtonItem *)sender
 {
-    [self dismissViewControllerAnimated:YES completion:^{
-        NSLog(@"did dismiss self");
-    }];
+    [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
 #pragma mark - Fetch Data
@@ -112,6 +113,11 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BBLanguageGroup *group = [self.groups objectAtIndex:indexPath.row];
+    [self updateBlocksContainerViewForGroup:group];
+}
+
+- (void)updateBlocksContainerViewForGroup:(BBLanguageGroup *)group
+{
     NSString *groupName = group.name;
     self.blocksContainerView.backgroundColor = [BBConstants backgroundColorForCellWithLanguageGroupName:groupName];
     
@@ -137,6 +143,7 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
     {
         NSLog(@"variables");
     }
+
 }
 
 #pragma mark - Arrange Blocks
@@ -148,12 +155,12 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
     CGFloat yOrigin = 20.0f;
     for (BBLanguageBlock *languageBlock in controlBlocks)
     {
-        NSString *imageName = [NSString stringWithFormat:@"%@Block-collapsed",languageBlock.name];
+        NSString *imageName = [NSString stringWithFormat:kCollapsedImageStringFormat,languageBlock.name];
         BBCollapsedLanguageBlockImageView *blockView = [[BBCollapsedLanguageBlockImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
         CGSize blockViewSize = blockView.frame.size;
         blockView.frame = CGRectMake(xOrigin, yOrigin, blockViewSize.width, blockViewSize.height);
         xOrigin += (blockViewSize.width + xPadding);
-        blockView.languageBlock = languageBlock;
+        [blockView configureWithLanguageBlock:languageBlock];
         blockView.delegate = self;
         [self.blocksContainerView addSubview:blockView];
     }
@@ -166,12 +173,12 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
 
 - (void)arrangeReactionBlocks:(NSArray *)reactionBlocks
 {
-    const CGFloat xPadding = 15.0f;
-    const CGFloat yPadding = 15.0f;
-    const CGFloat xBackgroundPadding = 25.0f;
-    const CGFloat yBackgroundPadding = 10.0f;
-    CGFloat xOrigin = 20.0f;
-    CGFloat yOrigin = 20.0f;
+    const CGFloat xPadding = BLOB_PADDING_15PX;
+    const CGFloat yPadding = BLOB_PADDING_15PX;
+    const CGFloat xBackgroundPadding = BLOB_PADDING_25PX;
+    const CGFloat yBackgroundPadding = BLOB_PADDING_10PX;
+    CGFloat xOrigin = BLOB_PADDING_20PX;
+    CGFloat yOrigin = BLOB_PADDING_20PX;
     for (BBLanguageBlock *languageBlock in reactionBlocks)
     {
         NSString *languageBlockName = languageBlock.name;
@@ -182,20 +189,15 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
         
         if (calculatedEndingX >= self.blocksContainerView.frame.size.width)
         {
-            xOrigin = 20.0f;
+            xOrigin = BLOB_PADDING_20PX;
             yOrigin += (frameHeight + yPadding);
         }
-        
         CGRect languageBlockFrame = CGRectMake(xOrigin, yOrigin, frameWidth, frameHeight);
         BBCollapsedLanguageBlockImageView *blockView = [[BBCollapsedLanguageBlockImageView alloc] initWithFrame:languageBlockFrame];
-        blockView.languageBlockLabel.text = languageBlockName;
-        blockView.languageBlockLabel.textColor = [BBConstants yellowTextColor];
-        blockView.backgroundColor = [BBConstants yellowColor];
-        
-        xOrigin = calculatedEndingX;
-        blockView.languageBlock = languageBlock;
+        [blockView configureWithLanguageBlock:languageBlock];
         blockView.delegate = self;
         [self.blocksContainerView addSubview:blockView];
+        xOrigin = calculatedEndingX;
     }
 }
 
@@ -221,15 +223,15 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
 {
     CGPoint touchLocation = [sender locationInView:self.view];
     draggableImageView.center = touchLocation;
-    draggableImageView.alpha = CGRectIntersectsRect(self.blocksContainerView.frame, draggableImageView.frame) ? 0.5f : 1.0f;
+    draggableImageView.alpha = CGRectIntersectsRect(self.blocksContainerView.frame, draggableImageView.frame) ? kAlphaHalf : kAlphaOpaque;
 }
 
 - (void)panDidEnd:(UIPanGestureRecognizer *)sender forExpandedLanguageBlockImageView:(BBExpandedLanguageBlockImageView *)draggableImageView
 {
     if (CGRectIntersectsRect(self.blocksContainerView.frame, draggableImageView.frame))
     {
-        [UIView animateWithDuration:0.25f animations:^{
-            draggableImageView.alpha = 0.0f;
+        [UIView animateWithDuration:kViewAnimationDuration animations:^{
+            draggableImageView.alpha = kAlphaZero;
         }];
         [draggableImageView removeFromSuperview];
         draggableImageView = nil;
@@ -244,10 +246,10 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
     draggableImageView.delegate = self;
     languageBlockView.draggableCopyImageView = draggableImageView;
     
-    draggableImageView.alpha = 0.0f;
+    draggableImageView.alpha = kAlphaZero;
     [self.view addSubview:draggableImageView];
-    [UIView animateWithDuration:0.25f animations:^{
-        draggableImageView.alpha = 1.0f;
+    [UIView animateWithDuration:kViewAnimationDuration animations:^{
+        draggableImageView.alpha = kAlphaOpaque;
     } completion:^(BOOL finished) {
         [self.view bringSubviewToFront:draggableImageView];
     }];
@@ -257,7 +259,7 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
 {
     CGPoint touchLocation = [sender locationInView:self.view];
     languageBlockView.draggableCopyImageView.center = touchLocation;
-    languageBlockView.draggableCopyImageView.alpha = CGRectIntersectsRect(self.blocksContainerView.frame, languageBlockView.draggableCopyImageView.frame) ? 0.5f : 1.0f;
+    languageBlockView.draggableCopyImageView.alpha = CGRectIntersectsRect(self.blocksContainerView.frame, languageBlockView.draggableCopyImageView.frame) ? kAlphaHalf : kAlphaOpaque;
 }
 
 #pragma mark - Create test data
