@@ -224,6 +224,7 @@ static NSInteger const kControlGroupIndexRow = 0;
     CGPoint touchLocation = [sender locationInView:self.view];
     draggableImageView.center = touchLocation;
     draggableImageView.alpha = CGRectIntersectsRect(self.blocksContainerView.frame, draggableImageView.frame) ? kAlphaHalf : kAlphaOpaque;
+    [self.view bringSubviewToFront:draggableImageView];
 }
 
 - (void)panDidEnd:(UIPanGestureRecognizer *)sender forExpandedLanguageBlockImageView:(BBExpandedLanguageBlockImageView *)draggableImageView
@@ -248,10 +249,9 @@ static NSInteger const kControlGroupIndexRow = 0;
     
     draggableImageView.alpha = kAlphaZero;
     [self.view addSubview:draggableImageView];
+    [self.view bringSubviewToFront:draggableImageView];
     [UIView animateWithDuration:kViewAnimationDuration animations:^{
         draggableImageView.alpha = kAlphaOpaque;
-    } completion:^(BOOL finished) {
-        [self.view bringSubviewToFront:draggableImageView];
     }];
 }
 
@@ -260,6 +260,7 @@ static NSInteger const kControlGroupIndexRow = 0;
     CGPoint touchLocation = [sender locationInView:self.view];
     languageBlockView.draggableCopyImageView.center = touchLocation;
     languageBlockView.draggableCopyImageView.alpha = CGRectIntersectsRect(self.blocksContainerView.frame, languageBlockView.draggableCopyImageView.frame) ? kAlphaHalf : kAlphaOpaque;
+    [self.view bringSubviewToFront:languageBlockView.draggableCopyImageView];
 }
 
 #pragma mark - Create test data
