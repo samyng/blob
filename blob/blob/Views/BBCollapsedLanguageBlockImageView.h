@@ -9,20 +9,21 @@
 #import <UIKit/UIKit.h>
 @class BBLanguageBlock;
 @class BBCollapsedLanguageBlockImageView;
-@class BBExpandedLanguageBlockImageView;
+@class BBLanguageBlockView;
 
 @protocol CollapsedLanguageBlockDelegate <NSObject>
 
-- (void)panDidBegin:(UIPanGestureRecognizer *)sender inCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)languageBlockView;
-- (void)panDidChange:(UIPanGestureRecognizer *)sender forCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)languageBlockView;
-- (void)panDidEnd:(UIPanGestureRecognizer *)sender forCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)languageBlockView;
+- (void)panDidBegin:(UIPanGestureRecognizer *)sender inCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)collapsedView;
+- (void)panDidChange:(UIPanGestureRecognizer *)sender forCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)collapsedView;
+- (void)panDidEnd:(UIPanGestureRecognizer *)sender forCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)collapsedView;
 
 @end
 
 @interface BBCollapsedLanguageBlockImageView : UIImageView
 @property (weak, nonatomic) id <CollapsedLanguageBlockDelegate> delegate;
 @property (strong, nonatomic) UILabel *languageBlockLabel;
-@property (strong, nonatomic) BBExpandedLanguageBlockImageView *draggableCopyImageView;
+@property (strong, nonatomic) BBLanguageBlockView *expandedBlockView;
 - (UIImage *)rasterizedImageCopy;
 - (void)configureWithLanguageBlock:(BBLanguageBlock *)languageBlock;
+@property (strong, nonatomic) BBLanguageBlock *languageBlock;
 @end

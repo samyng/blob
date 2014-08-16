@@ -31,6 +31,21 @@ static NSString * const CONTROL_GROUP = @"Control";
 static NSString * const OPERATORS_GROUP = @"Operators";
 static NSString * const VARIABLES_GROUP = @"Variables";
 
+static NSString * const IF_THEN_BLOCK_NAME = @"ifThen";
+static NSString * const IF_THEN_ELSE_BLOCK_NAME = @"ifThenElse";
+static NSString * const WAIT_BLOCK_NAME = @"wait";
+static NSString * const REPEAT_BLOCK_NAME = @"repeat";
+static NSString * const NOT_BLOCK_NAME = @"not";
+
+static NSString * const IF_THEN_BLOCK_NIB_NAME = @"ifThenBlockView";
+static NSString * const IF_THEN_ELSE_BLOCK_NIB_NAME = @"ifThenElseBlockView";
+static NSString * const WAIT_BLOCK_NIB_NAME = @"waitBlockView";
+static NSString * const REPEAT_BLOCK_NIB_NAME = @"repeatBlockView";
+static NSString * const NOT_BLOCK_NIB_NAME = @"notBlockView";
+static NSString * const ACCESSORY_BLOCK_NIB_NAME = @"accessoryBlockView";
+static NSString * const OPERATOR_BLOCK_NIB_NAME = @"operatorBlockView";
+static NSString * const REACTION_BLOCK_NIB_NAME = @"reactionBlockView";
+
 static NSString * const CHOOSE_FEELING_TITLE = @"Choose a feeling to code";
 static NSString * const MY_BLOB_TITLE = @"My Blob";
 static NSString * const CLOSET_TITLE = @"Closet";

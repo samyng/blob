@@ -12,14 +12,15 @@
 #import "BBLanguageGroup.h"
 #import "BBFeeling.h"
 #import "BBCollapsedLanguageBlockImageView.h"
-#import "BBExpandedLanguageBlockImageView.h"
 #import "BBAccessory.h"
+#import "BBLanguageBlockView.h"
+#import "BBLanguageBlockViewFactory.h"
 
 static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier";
 static NSString * const kCollapsedImageStringFormat = @"%@Block-collapsed";
 static NSInteger const kControlGroupIndexRow = 0;
 
-@interface BBSecretLanguageViewController () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, NSFetchedResultsControllerDelegate, CollapsedLanguageBlockDelegate, ExpandedLanguageBlockDelegate>
+@interface BBSecretLanguageViewController () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, NSFetchedResultsControllerDelegate, CollapsedLanguageBlockDelegate> // , ExpandedLanguageBlockDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *groupsTableView;
 @property (weak, nonatomic) IBOutlet UIScrollView *blocksContainerView;
 @property (weak, nonatomic) IBOutlet UIPageControl *blocksContainerPageControl;
@@ -309,62 +310,61 @@ static NSInteger const kControlGroupIndexRow = 0;
         [subview removeFromSuperview];
     }
 }
-
-#pragma mark - Expanded Language Block Delegate Methods
-
-- (void)panDidChange:(UIPanGestureRecognizer *)sender forExpandedLanguageBlockImageView:(BBExpandedLanguageBlockImageView *)draggableImageView
-{
-    CGPoint touchLocation = [sender locationInView:self.view];
-    draggableImageView.center = touchLocation;
-    draggableImageView.alpha = CGRectIntersectsRect(self.blocksContainerView.frame, draggableImageView.frame) ? kAlphaHalf : kAlphaOpaque;
-    [self.view bringSubviewToFront:draggableImageView];
-}
-
-- (void)panDidEnd:(UIPanGestureRecognizer *)sender forExpandedLanguageBlockImageView:(BBExpandedLanguageBlockImageView *)draggableImageView
-{
-    if (CGRectIntersectsRect(self.blocksContainerView.frame, draggableImageView.frame))
-    {
-        [UIView animateWithDuration:kViewAnimationDuration animations:^{
-            draggableImageView.alpha = kAlphaZero;
-        }];
-        [draggableImageView removeFromSuperview];
-        draggableImageView = nil;
-    }
-}
+//
+//#pragma mark - Expanded Language Block Delegate Methods
+//
+//- (void)panDidChange:(UIPanGestureRecognizer *)sender forExpandedLanguageBlockImageView:(BBExpandedLanguageBlockImageView *)draggableImageView
+//{
+//    CGPoint touchLocation = [sender locationInView:self.view];
+//    draggableImageView.center = touchLocation;
+//    draggableImageView.alpha = CGRectIntersectsRect(self.blocksContainerView.frame, draggableImageView.frame) ? kAlphaHalf : kAlphaOpaque;
+//    [self.view bringSubviewToFront:draggableImageView];
+//}
+//
+//- (void)panDidEnd:(UIPanGestureRecognizer *)sender forExpandedLanguageBlockImageView:(BBExpandedLanguageBlockImageView *)draggableImageView
+//{
+//    if (CGRectIntersectsRect(self.blocksContainerView.frame, draggableImageView.frame))
+//    {
+//        [UIView animateWithDuration:kViewAnimationDuration animations:^{
+//            draggableImageView.alpha = kAlphaZero;
+//        }];
+//        [draggableImageView removeFromSuperview];
+//        draggableImageView = nil;
+//    }
+//}
 
 #pragma mark - Collpased Language Block Delegate Methods
 
-- (void)panDidBegin:(UIPanGestureRecognizer *)sender inCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)languageBlockView
+- (void)panDidBegin:(UIPanGestureRecognizer *)sender inCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)collapsedView
 {
-    BBExpandedLanguageBlockImageView *draggableImageView = [[BBExpandedLanguageBlockImageView alloc] initWithImage:[languageBlockView rasterizedImageCopy]];
-    draggableImageView.delegate = self;
-    languageBlockView.draggableCopyImageView = draggableImageView;
+    BBLanguageBlockView *expandedBlockView = [BBLanguageBlockViewFactory viewForBlock:collapsedView.languageBlock];
+    collapsedView.expandedBlockView = expandedBlockView;
     
-    draggableImageView.alpha = kAlphaZero;
-    [self.view addSubview:draggableImageView];
-    [self.view bringSubviewToFront:draggableImageView];
+    expandedBlockView.alpha = kAlphaZero;
+    [self.view addSubview:expandedBlockView];
+    [self.view bringSubviewToFront:expandedBlockView];
     [UIView animateWithDuration:kViewAnimationDuration animations:^{
-        draggableImageView.alpha = kAlphaOpaque;
+        expandedBlockView.alpha = kAlphaOpaque;
     }];
 }
 
-- (void)panDidChange:(UIPanGestureRecognizer *)sender forCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)languageBlockView
+- (void)panDidChange:(UIPanGestureRecognizer *)sender forCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)collapsedView
 {
     CGPoint touchLocation = [sender locationInView:self.view];
-    languageBlockView.draggableCopyImageView.center = touchLocation;
-    languageBlockView.draggableCopyImageView.alpha = CGRectIntersectsRect(self.blocksContainerView.frame, languageBlockView.draggableCopyImageView.frame) ? kAlphaHalf : kAlphaOpaque;
-   [self.view bringSubviewToFront:languageBlockView.draggableCopyImageView];
+    collapsedView.expandedBlockView.center = touchLocation;
+    collapsedView.expandedBlockView.alpha = CGRectIntersectsRect(self.blocksContainerView.frame, collapsedView.expandedBlockView.frame) ? kAlphaHalf : kAlphaOpaque;
+   [self.view bringSubviewToFront:collapsedView.expandedBlockView];
 }
 
-- (void)panDidEnd:(UIPanGestureRecognizer *)sender forCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)languageBlockView
+- (void)panDidEnd:(UIPanGestureRecognizer *)sender forCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)collapsedView
 {
-    if (CGRectIntersectsRect(self.blocksContainerView.frame, languageBlockView.draggableCopyImageView.frame))
+    if (CGRectIntersectsRect(self.blocksContainerView.frame, collapsedView.expandedBlockView.frame))
     {
         [UIView animateWithDuration:kViewAnimationDuration animations:^{
-            languageBlockView.draggableCopyImageView.alpha = kAlphaZero;
+            collapsedView.expandedBlockView.alpha = kAlphaZero;
         }];
-        [languageBlockView.draggableCopyImageView removeFromSuperview];
-        languageBlockView.draggableCopyImageView = nil;
+        [collapsedView.expandedBlockView removeFromSuperview];
+        collapsedView.expandedBlockView = nil;
     }
 }
 
@@ -399,16 +399,16 @@ static NSInteger const kControlGroupIndexRow = 0;
     sayNo.name = @"say 'no'";
     
     BBLanguageBlock *ifThenBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
-    ifThenBlock.name = @"ifThen";
+    ifThenBlock.name = IF_THEN_BLOCK_NAME;
     
     BBLanguageBlock *ifThenElseBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
-    ifThenElseBlock.name = @"ifThenElse";
+    ifThenElseBlock.name = IF_THEN_ELSE_BLOCK_NAME;
     
     BBLanguageBlock *repeatBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
-    repeatBlock.name = @"repeat";
+    repeatBlock.name = REPEAT_BLOCK_NAME;
     
     BBLanguageBlock *waitBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
-    waitBlock.name = @"wait";
+    waitBlock.name = WAIT_BLOCK_NAME;
     
     BBLanguageBlock *switchStateToBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
     switchStateToBlock.name = @"switchStateTo";
@@ -429,7 +429,7 @@ static NSInteger const kControlGroupIndexRow = 0;
     andBlock.name = @"and";
     
     BBLanguageBlock *notBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
-    notBlock.name = @"not";
+    notBlock.name = NOT_BLOCK_NAME;
     
     BBLanguageBlock *additionBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
     additionBlock.name = @"addition";

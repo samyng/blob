@@ -12,10 +12,6 @@
 
 static NSString * const kExpandedImageStringFormat = @"%@Block-expanded";
 
-@interface BBCollapsedLanguageBlockImageView ()
-@property (strong, nonatomic) BBLanguageBlock *languageBlock;
-@end
-
 @implementation BBCollapsedLanguageBlockImageView
 @synthesize delegate;
 

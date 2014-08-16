@@ -49,6 +49,9 @@
 		22CCF00A199176A5005161B5 /* BBSecretLanguageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CCF008199176A5005161B5 /* BBSecretLanguageViewController.xib */; };
 		22CCF00E199176BD005161B5 /* BBMyBlobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCF00C199176BD005161B5 /* BBMyBlobViewController.m */; };
 		22CCF00F199176BD005161B5 /* BBMyBlobViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CCF00D199176BD005161B5 /* BBMyBlobViewController.xib */; };
+		22DA5D0F199FE71300A61A85 /* BBLanguageBlockViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DA5D0E199FE71300A61A85 /* BBLanguageBlockViewFactory.m */; };
+		22DA5D12199FE78E00A61A85 /* BBLanguageBlock+Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DA5D11199FE78E00A61A85 /* BBLanguageBlock+Configure.m */; };
+		22DA5D15199FEC1C00A61A85 /* BBLanguageBlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DA5D14199FEC1C00A61A85 /* BBLanguageBlockView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +130,12 @@
 		22CCF00B199176BD005161B5 /* BBMyBlobViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMyBlobViewController.h; sourceTree = "<group>"; };
 		22CCF00C199176BD005161B5 /* BBMyBlobViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMyBlobViewController.m; sourceTree = "<group>"; };
 		22CCF00D199176BD005161B5 /* BBMyBlobViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBMyBlobViewController.xib; sourceTree = "<group>"; };
+		22DA5D0D199FE71300A61A85 /* BBLanguageBlockViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLanguageBlockViewFactory.h; sourceTree = "<group>"; };
+		22DA5D0E199FE71300A61A85 /* BBLanguageBlockViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLanguageBlockViewFactory.m; sourceTree = "<group>"; };
+		22DA5D10199FE78E00A61A85 /* BBLanguageBlock+Configure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BBLanguageBlock+Configure.h"; sourceTree = "<group>"; };
+		22DA5D11199FE78E00A61A85 /* BBLanguageBlock+Configure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BBLanguageBlock+Configure.m"; sourceTree = "<group>"; };
+		22DA5D13199FEC1C00A61A85 /* BBLanguageBlockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLanguageBlockView.h; sourceTree = "<group>"; };
+		22DA5D14199FEC1C00A61A85 /* BBLanguageBlockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLanguageBlockView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +168,8 @@
 			children = (
 				22B313AA19959FEA0006AE57 /* BBAccessory+Configure.h */,
 				22B313AB19959FEA0006AE57 /* BBAccessory+Configure.m */,
+				22DA5D10199FE78E00A61A85 /* BBLanguageBlock+Configure.h */,
+				22DA5D11199FE78E00A61A85 /* BBLanguageBlock+Configure.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -296,6 +307,10 @@
 				22CA6B7D199D2B4700CDD665 /* BBExpandedLanguageBlockImageView.m */,
 				22CA6B7F199D583E00CDD665 /* BBCollapsedLanguageBlockImageView.h */,
 				22CA6B80199D583E00CDD665 /* BBCollapsedLanguageBlockImageView.m */,
+				22DA5D0D199FE71300A61A85 /* BBLanguageBlockViewFactory.h */,
+				22DA5D0E199FE71300A61A85 /* BBLanguageBlockViewFactory.m */,
+				22DA5D13199FEC1C00A61A85 /* BBLanguageBlockView.h */,
+				22DA5D14199FEC1C00A61A85 /* BBLanguageBlockView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -438,13 +453,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				2209DB5F1995B71300EC757C /* BBConstants.m in Sources */,
+				22DA5D15199FEC1C00A61A85 /* BBLanguageBlockView.m in Sources */,
 				222299EA199673200016BE43 /* BBLanguageGroup.m in Sources */,
 				222299DE199673200016BE43 /* BBClosetCategory.m in Sources */,
 				2259A7811991D91D007A16C3 /* BBAccessoryCollectionCell.m in Sources */,
 				22CA6B71199C018100CDD665 /* BBChooseFeelingViewController.m in Sources */,
 				22CA6B7E199D2B4700CDD665 /* BBExpandedLanguageBlockImageView.m in Sources */,
+				22DA5D12199FE78E00A61A85 /* BBLanguageBlock+Configure.m in Sources */,
 				222299E4199673200016BE43 /* BBLanguageBlock.m in Sources */,
 				227C6FA6199A5AEE0025BA2F /* SWRevealViewController.m in Sources */,
+				22DA5D0F199FE71300A61A85 /* BBLanguageBlockViewFactory.m in Sources */,
 				22CCF009199176A5005161B5 /* BBSecretLanguageViewController.m in Sources */,
 				22B313A619958B4C0006AE57 /* BlobDataModel.xcdatamodeld in Sources */,
 				22CCEFD6199165D6005161B5 /* BBAppDelegate.m in Sources */,
