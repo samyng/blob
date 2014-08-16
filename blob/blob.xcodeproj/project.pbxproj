@@ -52,6 +52,14 @@
 		22DA5D0F199FE71300A61A85 /* BBLanguageBlockViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DA5D0E199FE71300A61A85 /* BBLanguageBlockViewFactory.m */; };
 		22DA5D12199FE78E00A61A85 /* BBLanguageBlock+Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DA5D11199FE78E00A61A85 /* BBLanguageBlock+Configure.m */; };
 		22DA5D15199FEC1C00A61A85 /* BBLanguageBlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DA5D14199FEC1C00A61A85 /* BBLanguageBlockView.m */; };
+		22DA5D18199FEDC700A61A85 /* BBIfThenBlockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22DA5D17199FEDC700A61A85 /* BBIfThenBlockView.xib */; };
+		22DA5D1A199FEEA300A61A85 /* BBIfThenElseBlockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22DA5D19199FEEA300A61A85 /* BBIfThenElseBlockView.xib */; };
+		22DA5D1C199FEEE800A61A85 /* BBWaitBlockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22DA5D1B199FEEE800A61A85 /* BBWaitBlockView.xib */; };
+		22DA5D1E199FEF1700A61A85 /* BBRepeatBlockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22DA5D1D199FEF1700A61A85 /* BBRepeatBlockView.xib */; };
+		22DA5D20199FEF4900A61A85 /* BBAccessoryBlockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22DA5D1F199FEF4900A61A85 /* BBAccessoryBlockView.xib */; };
+		22DA5D22199FEF6300A61A85 /* BBOperatorBlockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22DA5D21199FEF6300A61A85 /* BBOperatorBlockView.xib */; };
+		22DA5D24199FEFC400A61A85 /* BBNotBlockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22DA5D23199FEFC400A61A85 /* BBNotBlockView.xib */; };
+		22DA5D26199FEFD100A61A85 /* BBReactionBlockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22DA5D25199FEFD100A61A85 /* BBReactionBlockView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +144,14 @@
 		22DA5D11199FE78E00A61A85 /* BBLanguageBlock+Configure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BBLanguageBlock+Configure.m"; sourceTree = "<group>"; };
 		22DA5D13199FEC1C00A61A85 /* BBLanguageBlockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLanguageBlockView.h; sourceTree = "<group>"; };
 		22DA5D14199FEC1C00A61A85 /* BBLanguageBlockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLanguageBlockView.m; sourceTree = "<group>"; };
+		22DA5D17199FEDC700A61A85 /* BBIfThenBlockView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBIfThenBlockView.xib; sourceTree = "<group>"; };
+		22DA5D19199FEEA300A61A85 /* BBIfThenElseBlockView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBIfThenElseBlockView.xib; sourceTree = "<group>"; };
+		22DA5D1B199FEEE800A61A85 /* BBWaitBlockView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBWaitBlockView.xib; sourceTree = "<group>"; };
+		22DA5D1D199FEF1700A61A85 /* BBRepeatBlockView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBRepeatBlockView.xib; sourceTree = "<group>"; };
+		22DA5D1F199FEF4900A61A85 /* BBAccessoryBlockView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBAccessoryBlockView.xib; sourceTree = "<group>"; };
+		22DA5D21199FEF6300A61A85 /* BBOperatorBlockView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBOperatorBlockView.xib; sourceTree = "<group>"; };
+		22DA5D23199FEFC400A61A85 /* BBNotBlockView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBNotBlockView.xib; sourceTree = "<group>"; };
+		22DA5D25199FEFD100A61A85 /* BBReactionBlockView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBReactionBlockView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,6 +327,7 @@
 				22DA5D0E199FE71300A61A85 /* BBLanguageBlockViewFactory.m */,
 				22DA5D13199FEC1C00A61A85 /* BBLanguageBlockView.h */,
 				22DA5D14199FEC1C00A61A85 /* BBLanguageBlockView.m */,
+				22DA5D16199FED9500A61A85 /* LanguageBlockViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -342,6 +359,21 @@
 				22A2866A1992DDD90087A311 /* Cells */,
 			);
 			name = "Child View Controllers";
+			sourceTree = "<group>";
+		};
+		22DA5D16199FED9500A61A85 /* LanguageBlockViews */ = {
+			isa = PBXGroup;
+			children = (
+				22DA5D17199FEDC700A61A85 /* BBIfThenBlockView.xib */,
+				22DA5D19199FEEA300A61A85 /* BBIfThenElseBlockView.xib */,
+				22DA5D1B199FEEE800A61A85 /* BBWaitBlockView.xib */,
+				22DA5D1D199FEF1700A61A85 /* BBRepeatBlockView.xib */,
+				22DA5D1F199FEF4900A61A85 /* BBAccessoryBlockView.xib */,
+				22DA5D21199FEF6300A61A85 /* BBOperatorBlockView.xib */,
+				22DA5D23199FEFC400A61A85 /* BBNotBlockView.xib */,
+				22DA5D25199FEFD100A61A85 /* BBReactionBlockView.xib */,
+			);
+			name = LanguageBlockViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -423,17 +455,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22DA5D22199FEF6300A61A85 /* BBOperatorBlockView.xib in Resources */,
 				22CA6B72199C018100CDD665 /* BBChooseFeelingViewController.xib in Resources */,
 				22CCF00519917680005161B5 /* BBClosetViewController.xib in Resources */,
 				22CCF00F199176BD005161B5 /* BBMyBlobViewController.xib in Resources */,
 				22CCEFD0199165D6005161B5 /* InfoPlist.strings in Resources */,
+				22DA5D26199FEFD100A61A85 /* BBReactionBlockView.xib in Resources */,
 				222299F5199689AF0016BE43 /* BBLanguageBlockCollectionCell.xib in Resources */,
 				22CCF00A199176A5005161B5 /* BBSecretLanguageViewController.xib in Resources */,
+				22DA5D18199FEDC700A61A85 /* BBIfThenBlockView.xib in Resources */,
+				22DA5D24199FEFC400A61A85 /* BBNotBlockView.xib in Resources */,
 				22CCEFD8199165D6005161B5 /* Images.xcassets in Resources */,
 				22CCEFFB199166A2005161B5 /* BBRootViewController.xib in Resources */,
 				22A2866F1992EA5C0087A311 /* BBFeelingCollectionCell.xib in Resources */,
 				22641E69199A6D3600A4E5EA /* BBSideMenuViewController.xib in Resources */,
+				22DA5D1C199FEEE800A61A85 /* BBWaitBlockView.xib in Resources */,
+				22DA5D1E199FEF1700A61A85 /* BBRepeatBlockView.xib in Resources */,
+				22DA5D1A199FEEA300A61A85 /* BBIfThenElseBlockView.xib in Resources */,
 				2259A7831991D93D007A16C3 /* BBAccessoryCollectionCell.xib in Resources */,
+				22DA5D20199FEF4900A61A85 /* BBAccessoryBlockView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

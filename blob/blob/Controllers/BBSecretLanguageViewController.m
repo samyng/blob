@@ -410,8 +410,8 @@ static NSInteger const kControlGroupIndexRow = 0;
     BBLanguageBlock *waitBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
     waitBlock.name = WAIT_BLOCK_NAME;
     
-    BBLanguageBlock *switchStateToBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
-    switchStateToBlock.name = @"switchStateTo";
+//    BBLanguageBlock *switchStateToBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+//    switchStateToBlock.name = @"switchStateTo";
 
     BBLanguageBlock *greaterThanBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
     greaterThanBlock.name = @"greaterThan";
@@ -461,7 +461,7 @@ static NSInteger const kControlGroupIndexRow = 0;
     BBLanguageGroup *control = [[BBLanguageGroup alloc] initWithEntity:groupEntityDescription
                                          insertIntoManagedObjectContext:context];
     control.name = CONTROL_GROUP;
-    control.blocks = [NSSet setWithArray:@[ifThenBlock, ifThenElseBlock, repeatBlock, waitBlock, switchStateToBlock]];
+    control.blocks = [NSSet setWithArray:@[ifThenBlock, ifThenElseBlock, repeatBlock, waitBlock]];
     
     BBLanguageGroup *fromCloset = [[BBLanguageGroup alloc] initWithEntity:groupEntityDescription insertIntoManagedObjectContext:context];
     fromCloset.name = FROM_CLOSET_GROUP;
@@ -477,9 +477,9 @@ static NSInteger const kControlGroupIndexRow = 0;
     operators.name = OPERATORS_GROUP;
     operators.blocks = [NSSet setWithArray:@[greaterThanBlock, lessThanBlock, equalToBlock, andBlock, orBlock, notBlock, additionBlock, subtractionBlock, multiplicationBlock, divisionBlock]];
     
-    BBLanguageGroup *variables = [[BBLanguageGroup alloc] initWithEntity:groupEntityDescription insertIntoManagedObjectContext:context];
-    variables.name = VARIABLES_GROUP;
-    variables.blocks = [NSSet setWithArray:@[newBooleanVariable, newIntegerVariable]];
+    //BBLanguageGroup *variables = [[BBLanguageGroup alloc] initWithEntity:groupEntityDescription insertIntoManagedObjectContext:context];
+    //variables.name = VARIABLES_GROUP;
+    //variables.blocks = [NSSet setWithArray:@[newBooleanVariable, newIntegerVariable]];
     
     NSError *error;
     if (![context save:&error]) {

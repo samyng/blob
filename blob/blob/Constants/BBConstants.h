@@ -37,14 +37,14 @@ static NSString * const WAIT_BLOCK_NAME = @"wait";
 static NSString * const REPEAT_BLOCK_NAME = @"repeat";
 static NSString * const NOT_BLOCK_NAME = @"not";
 
-static NSString * const IF_THEN_BLOCK_NIB_NAME = @"ifThenBlockView";
-static NSString * const IF_THEN_ELSE_BLOCK_NIB_NAME = @"ifThenElseBlockView";
-static NSString * const WAIT_BLOCK_NIB_NAME = @"waitBlockView";
-static NSString * const REPEAT_BLOCK_NIB_NAME = @"repeatBlockView";
-static NSString * const NOT_BLOCK_NIB_NAME = @"notBlockView";
-static NSString * const ACCESSORY_BLOCK_NIB_NAME = @"accessoryBlockView";
-static NSString * const OPERATOR_BLOCK_NIB_NAME = @"operatorBlockView";
-static NSString * const REACTION_BLOCK_NIB_NAME = @"reactionBlockView";
+static NSString * const IF_THEN_BLOCK_NIB_NAME = @"BBIfThenBlockView";
+static NSString * const IF_THEN_ELSE_BLOCK_NIB_NAME = @"BBIfThenElseBlockView";
+static NSString * const WAIT_BLOCK_NIB_NAME = @"BBWaitBlockView";
+static NSString * const REPEAT_BLOCK_NIB_NAME = @"BBRepeatBlockView";
+static NSString * const NOT_BLOCK_NIB_NAME = @"BBNotBlockView";
+static NSString * const ACCESSORY_BLOCK_NIB_NAME = @"BBAccessoryBlockView";
+static NSString * const OPERATOR_BLOCK_NIB_NAME = @"BBOperatorBlockView";
+static NSString * const REACTION_BLOCK_NIB_NAME = @"BBReactionBlockView";
 
 static NSString * const CHOOSE_FEELING_TITLE = @"Choose a feeling to code";
 static NSString * const MY_BLOB_TITLE = @"My Blob";
