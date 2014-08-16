@@ -27,7 +27,6 @@
 		22B313AC19959FEA0006AE57 /* BBAccessory+Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B313AB19959FEA0006AE57 /* BBAccessory+Configure.m */; };
 		22CA6B71199C018100CDD665 /* BBChooseFeelingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CA6B6F199C018100CDD665 /* BBChooseFeelingViewController.m */; };
 		22CA6B72199C018100CDD665 /* BBChooseFeelingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CA6B70199C018100CDD665 /* BBChooseFeelingViewController.xib */; };
-		22CA6B7E199D2B4700CDD665 /* BBExpandedLanguageBlockImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CA6B7D199D2B4700CDD665 /* BBExpandedLanguageBlockImageView.m */; };
 		22CA6B81199D583E00CDD665 /* BBCollapsedLanguageBlockImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CA6B80199D583E00CDD665 /* BBCollapsedLanguageBlockImageView.m */; };
 		22CCEFC6199165D6005161B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CCEFC5199165D6005161B5 /* Foundation.framework */; };
 		22CCEFC8199165D6005161B5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CCEFC7199165D6005161B5 /* CoreGraphics.framework */; };
@@ -104,8 +103,6 @@
 		22CA6B6E199C018100CDD665 /* BBChooseFeelingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBChooseFeelingViewController.h; sourceTree = "<group>"; };
 		22CA6B6F199C018100CDD665 /* BBChooseFeelingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBChooseFeelingViewController.m; sourceTree = "<group>"; };
 		22CA6B70199C018100CDD665 /* BBChooseFeelingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBChooseFeelingViewController.xib; sourceTree = "<group>"; };
-		22CA6B7C199D2B4700CDD665 /* BBExpandedLanguageBlockImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBExpandedLanguageBlockImageView.h; sourceTree = "<group>"; };
-		22CA6B7D199D2B4700CDD665 /* BBExpandedLanguageBlockImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBExpandedLanguageBlockImageView.m; sourceTree = "<group>"; };
 		22CA6B7F199D583E00CDD665 /* BBCollapsedLanguageBlockImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCollapsedLanguageBlockImageView.h; sourceTree = "<group>"; };
 		22CA6B80199D583E00CDD665 /* BBCollapsedLanguageBlockImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCollapsedLanguageBlockImageView.m; sourceTree = "<group>"; };
 		22CCEFC2199165D6005161B5 /* blob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = blob.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -319,8 +316,6 @@
 		22CCEFF619916653005161B5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				22CA6B7C199D2B4700CDD665 /* BBExpandedLanguageBlockImageView.h */,
-				22CA6B7D199D2B4700CDD665 /* BBExpandedLanguageBlockImageView.m */,
 				22CA6B7F199D583E00CDD665 /* BBCollapsedLanguageBlockImageView.h */,
 				22CA6B80199D583E00CDD665 /* BBCollapsedLanguageBlockImageView.m */,
 				22DA5D0D199FE71300A61A85 /* BBLanguageBlockViewFactory.h */,
@@ -498,7 +493,6 @@
 				222299DE199673200016BE43 /* BBClosetCategory.m in Sources */,
 				2259A7811991D91D007A16C3 /* BBAccessoryCollectionCell.m in Sources */,
 				22CA6B71199C018100CDD665 /* BBChooseFeelingViewController.m in Sources */,
-				22CA6B7E199D2B4700CDD665 /* BBExpandedLanguageBlockImageView.m in Sources */,
 				22DA5D12199FE78E00A61A85 /* BBLanguageBlock+Configure.m in Sources */,
 				222299E4199673200016BE43 /* BBLanguageBlock.m in Sources */,
 				227C6FA6199A5AEE0025BA2F /* SWRevealViewController.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "BBLanguageBlockViewFactory.h"
 #import "BBLanguageBlock+Configure.h"
+#import "BBLanguageBlockView.h"
 
 @implementation BBLanguageBlockViewFactory
 
@@ -55,7 +56,7 @@
     NSArray *array = [[NSBundle mainBundle] loadNibNamed:nibName
                                                    owner:nil
                                                  options:nil];
-    BBLanguageBlockView *view = array[0];
+    BBLanguageBlockView *view = (BBLanguageBlockView *)array[0];
     return view;
 }
 

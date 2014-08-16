@@ -20,7 +20,7 @@ static NSString * const kGroupsTableCellIdentifier = @"groupsTableCellIdentifier
 static NSString * const kCollapsedImageStringFormat = @"%@Block-collapsed";
 static NSInteger const kControlGroupIndexRow = 0;
 
-@interface BBSecretLanguageViewController () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, NSFetchedResultsControllerDelegate, CollapsedLanguageBlockDelegate> // , ExpandedLanguageBlockDelegate>
+@interface BBSecretLanguageViewController () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, NSFetchedResultsControllerDelegate, CollapsedLanguageBlockDelegate, LanguageBlockDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *groupsTableView;
 @property (weak, nonatomic) IBOutlet UIScrollView *blocksContainerView;
 @property (weak, nonatomic) IBOutlet UIPageControl *blocksContainerPageControl;
@@ -310,34 +310,35 @@ static NSInteger const kControlGroupIndexRow = 0;
         [subview removeFromSuperview];
     }
 }
-//
-//#pragma mark - Expanded Language Block Delegate Methods
-//
-//- (void)panDidChange:(UIPanGestureRecognizer *)sender forExpandedLanguageBlockImageView:(BBExpandedLanguageBlockImageView *)draggableImageView
-//{
-//    CGPoint touchLocation = [sender locationInView:self.view];
-//    draggableImageView.center = touchLocation;
-//    draggableImageView.alpha = CGRectIntersectsRect(self.blocksContainerView.frame, draggableImageView.frame) ? kAlphaHalf : kAlphaOpaque;
-//    [self.view bringSubviewToFront:draggableImageView];
-//}
-//
-//- (void)panDidEnd:(UIPanGestureRecognizer *)sender forExpandedLanguageBlockImageView:(BBExpandedLanguageBlockImageView *)draggableImageView
-//{
-//    if (CGRectIntersectsRect(self.blocksContainerView.frame, draggableImageView.frame))
-//    {
-//        [UIView animateWithDuration:kViewAnimationDuration animations:^{
-//            draggableImageView.alpha = kAlphaZero;
-//        }];
-//        [draggableImageView removeFromSuperview];
-//        draggableImageView = nil;
-//    }
-//}
+
+#pragma mark - Expanded Language Block Delegate Methods
+
+- (void)panDidChange:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)blockView
+{
+    CGPoint touchLocation = [sender locationInView:self.view];
+    blockView.center = touchLocation;
+    blockView.alpha = CGRectIntersectsRect(self.blocksContainerView.frame, blockView.frame) ? kAlphaHalf : kAlphaOpaque;
+    [self.view bringSubviewToFront:blockView];
+}
+
+- (void)panDidEnd:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)blockView
+{
+    if (CGRectIntersectsRect(self.blocksContainerView.frame, blockView.frame))
+    {
+        [UIView animateWithDuration:kViewAnimationDuration animations:^{
+            blockView.alpha = kAlphaZero;
+        }];
+        [blockView removeFromSuperview];
+        blockView = nil;
+    }
+}
 
 #pragma mark - Collpased Language Block Delegate Methods
 
 - (void)panDidBegin:(UIPanGestureRecognizer *)sender inCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)collapsedView
 {
     BBLanguageBlockView *expandedBlockView = [BBLanguageBlockViewFactory viewForBlock:collapsedView.languageBlock];
+    expandedBlockView.delegate = self;
     collapsedView.expandedBlockView = expandedBlockView;
     
     expandedBlockView.alpha = kAlphaZero;
@@ -477,8 +478,8 @@ static NSInteger const kControlGroupIndexRow = 0;
     operators.name = OPERATORS_GROUP;
     operators.blocks = [NSSet setWithArray:@[greaterThanBlock, lessThanBlock, equalToBlock, andBlock, orBlock, notBlock, additionBlock, subtractionBlock, multiplicationBlock, divisionBlock]];
     
-    //BBLanguageGroup *variables = [[BBLanguageGroup alloc] initWithEntity:groupEntityDescription insertIntoManagedObjectContext:context];
-    //variables.name = VARIABLES_GROUP;
+    BBLanguageGroup *variables = [[BBLanguageGroup alloc] initWithEntity:groupEntityDescription insertIntoManagedObjectContext:context];
+    variables.name = VARIABLES_GROUP;
     //variables.blocks = [NSSet setWithArray:@[newBooleanVariable, newIntegerVariable]];
     
     NSError *error;

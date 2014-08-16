@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+@class BBLanguageBlockView;
+
+@protocol LanguageBlockDelegate <NSObject>
+
+- (void)panDidChange:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)blockView;
+- (void)panDidEnd:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)blockView;
+
+@end
 
 @interface BBLanguageBlockView : UIView
-
+@property (weak, nonatomic) id <LanguageBlockDelegate> delegate;
 @end

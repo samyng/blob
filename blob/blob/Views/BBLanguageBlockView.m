@@ -10,22 +10,38 @@
 
 @implementation BBLanguageBlockView
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    [self setup];
+}
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        [self setup];
     }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (void)setup
 {
-    // Drawing code
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panned:)];
+    [self addGestureRecognizer:panGestureRecognizer];
+    self.userInteractionEnabled = YES;
 }
-*/
+
+- (void)panned:(UIPanGestureRecognizer *)sender
+{
+    if (sender.state == UIGestureRecognizerStateChanged)
+    {
+        [self.delegate panDidChange:sender forLanguageBlockView:self];
+    }
+    else if (sender.state == UIGestureRecognizerStateEnded)
+    {
+        [self.delegate panDidEnd:sender forLanguageBlockView:self];
+    }
+}
 
 @end
