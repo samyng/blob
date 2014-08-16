@@ -159,16 +159,15 @@ static NSInteger const kControlGroupIndexRow = 0;
 
 }
 
-#pragma mark - Scroll View Delegate
-
-- (void)scrollViewDidScroll:(UIScrollView *)sender {
-    // Update the page when more than 50% of the previous/next page is visible
-    CGFloat pageWidth = self.blocksContainerView.frame.size.width;
-    int page = floor((self.blocksContainerView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-    self.blocksContainerPageControl.currentPage = page;
-}
-
 #pragma mark - Arrange Blocks
+
+- (void)updateNumberOfScrollViewPages
+{
+    if (self.blocksContainerView.contentSize.width > CGRectGetWidth(self.blocksContainerView.frame))
+    {
+        self.blocksContainerPageControl.numberOfPages = ceil(self.blocksContainerView.contentSize.width / CGRectGetWidth(self.blocksContainerView.frame));
+    }
+}
 
 - (void)arrangeControlBlocks:(NSArray *)controlBlocks
 {
@@ -182,13 +181,12 @@ static NSInteger const kControlGroupIndexRow = 0;
         CGSize blockViewSize = blockView.frame.size;
         blockView.frame = CGRectMake(xOrigin, yOrigin, blockViewSize.width, blockViewSize.height);
         xOrigin += (blockViewSize.width + xPadding);
-        self.blocksContainerView.contentSize = CGSizeMake(xOrigin, CGRectGetHeight(self.blocksContainerView.frame));
         [blockView configureWithLanguageBlock:languageBlock];
         blockView.delegate = self;
         [self.blocksContainerView addSubview:blockView];
     }
-    // hack until find out how to control page control - SY
-    self.blocksContainerPageControl.numberOfPages = 2;
+    self.blocksContainerView.contentSize = CGSizeMake(xOrigin, CGRectGetHeight(self.blocksContainerView.frame));
+    [self updateNumberOfScrollViewPages];
 }
 
 - (void)arrangeAccessoryBlocks:(NSArray *)accessoryBlocks
