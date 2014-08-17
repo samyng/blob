@@ -50,9 +50,9 @@
                 <constraint firstItem="k4s-n4-jFA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="18" id="zeA-VN-Jga"/>
             </constraints>
             <connections>
-                <outlet property="leftSlot" destination="k4s-n4-jFA" id="mY9-EY-81h"/>
+                <outlet property="leftQuantityParameter" destination="k4s-n4-jFA" id="v4d-hi-UJn"/>
                 <outlet property="nameLabel" destination="xlq-PV-Jsi" id="4oI-ZM-agC"/>
-                <outlet property="rightSlot" destination="GED-AU-PKl" id="LG3-hH-rZW"/>
+                <outlet property="rightQuantityParameter" destination="GED-AU-PKl" id="w4w-dh-bc9"/>
             </connections>
         </view>
     </objects>

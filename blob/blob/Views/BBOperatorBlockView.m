@@ -7,13 +7,13 @@
 //
 
 #import "BBOperatorBlockView.h"
-#import "BBLanguageBlock.h"
+#import "BBLanguageBlock+Configure.h"
 #import "BBQuantityParameterView.h"
 
 @interface BBOperatorBlockView ()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet BBQuantityParameterView *leftSlot;
-@property (weak, nonatomic) IBOutlet BBQuantityParameterView *rightSlot;
+@property (weak, nonatomic) IBOutlet BBQuantityParameterView *leftQuantityParameter;
+@property (weak, nonatomic) IBOutlet BBQuantityParameterView *rightQuantityParameter;
 
 @end
 
@@ -22,12 +22,32 @@
 - (void)setLanguageBlock:(BBLanguageBlock *)languageBlock
 {
     [super setLanguageBlock:languageBlock];
+    if ([languageBlock isMathOperatorBlock])
+    {
+        [self updateUIForMathOperator];
+    }
+    else if ([languageBlock isComparisonOperatorBlock])
+    {
+        [self updateUIForComparisonOperator];
+    }
+}
+
+- (void)updateUIForMathOperator
+{
+    self.layer.cornerRadius = BLOB_QUANTITY_CORNER_RADIUS;
+    [self updateUI];
+}
+
+- (void)updateUIForComparisonOperator
+{
+    self.layer.cornerRadius = BLOB_BLOCK_SLOT_CORNER_RADIUS;
     [self updateUI];
 }
 
 - (void)updateUI
 {
-    self.layer.cornerRadius = 7.0f;
+    self.leftQuantityParameter.layer.cornerRadius = BLOB_QUANTITY_CORNER_RADIUS;
+    self.rightQuantityParameter.layer.cornerRadius = BLOB_QUANTITY_CORNER_RADIUS;
     
     self.nameLabel.text = self.languageBlock.abbreviation ? self.languageBlock.abbreviation : self.languageBlock.name;
     
@@ -38,11 +58,10 @@
     const CGFloat xOffset = 18.0f;
     const CGFloat xPadding = 8.0f;
     
-    CGFloat calculatedWidth = labelStringSize.width + xOffset * 2 + xPadding * 2 + CGRectGetWidth(self.leftSlot.frame) + CGRectGetWidth(self.rightSlot.frame);
+    CGFloat calculatedWidth = labelStringSize.width + xOffset * 2 + xPadding * 2 + CGRectGetWidth(self.leftQuantityParameter.frame) + CGRectGetWidth(self.rightQuantityParameter.frame);
     CGFloat height = CGRectGetHeight(self.frame);
     CGRect calculatedFrame = CGRectMake(CGPointZero.x, CGPointZero.y, calculatedWidth, height);
     self.frame = calculatedFrame;
-
 }
 
 @end

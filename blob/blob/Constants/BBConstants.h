@@ -36,12 +36,22 @@ static NSString * const IF_THEN_ELSE_BLOCK_NAME = @"ifThenElse";
 static NSString * const WAIT_BLOCK_NAME = @"wait";
 static NSString * const REPEAT_BLOCK_NAME = @"repeat";
 static NSString * const NOT_BLOCK_NAME = @"not";
+static NSString * const GREATER_THAN_BLOCK_NAME = @"greaterThan";
+static NSString * const LESS_THAN_BLOCK_NAME = @"lessThan";
+static NSString * const EQUAL_TO_BLOCK_NAME = @"equalTo";
+static NSString * const ADDITION_BLOCK_NAME = @"addition";
+static NSString * const SUBTRACTION_BLOCK_NAME = @"subtraction";
+static NSString * const MULTIPLICATION_BLOCK_NAME = @"multiplication";
+static NSString * const DIVISION_BLOCK_NAME = @"division";
+static NSString * const AND_BLOCK_NAME = @"and";
+static NSString * const OR_BLOCK_NAME = @"or";
 
 static NSString * const IF_THEN_BLOCK_NIB_NAME = @"BBIfThenBlockView";
 static NSString * const IF_THEN_ELSE_BLOCK_NIB_NAME = @"BBIfThenElseBlockView";
 static NSString * const WAIT_BLOCK_NIB_NAME = @"BBWaitBlockView";
 static NSString * const REPEAT_BLOCK_NIB_NAME = @"BBRepeatBlockView";
-static NSString * const NOT_BLOCK_NIB_NAME = @"BBNotBlockView";
+static NSString * const NOT_OPERATOR_BLOCK_NIB_NAME = @"BBNotBlockView";
+static NSString * const LOGIC_OPERATOR_BLOCK_NIB_NAME = @"BBLogicOperatorBlockView";
 static NSString * const ACCESSORY_BLOCK_NIB_NAME = @"BBAccessoryBlockView";
 static NSString * const OPERATOR_BLOCK_NIB_NAME = @"BBOperatorBlockView";
 static NSString * const REACTION_BLOCK_NIB_NAME = @"BBReactionBlockView";
@@ -65,6 +75,9 @@ static CGFloat const kAlphaZero = 0.0f;
 static CGFloat const kAlphaHalf = 0.5f;
 static CGFloat const kAlphaOpaque = 1.0f;
 static CGFloat const kViewAnimationDuration = 0.25f;
+
+static CGFloat const BLOB_BLOCK_SLOT_CORNER_RADIUS = 5.0f;
+static CGFloat const BLOB_QUANTITY_CORNER_RADIUS = 18.0f;
 
 
 @interface BBConstants : NSObject

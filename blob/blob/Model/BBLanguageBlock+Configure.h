@@ -15,6 +15,9 @@
 - (BOOL)isRepeatBlock;
 - (BOOL)isAccessoryBlock;
 - (BOOL)isOperatorBlock;
+- (BOOL)isMathOperatorBlock;
+- (BOOL)isComparisonOperatorBlock;
+- (BOOL)isLogicOperatorBlock;
 - (BOOL)isNotBlock;
 - (BOOL)isReactionBlock;
 @end

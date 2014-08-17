@@ -35,9 +35,13 @@
     {
         blockView = [self viewFromNibName:ACCESSORY_BLOCK_NIB_NAME];
     }
-    else if ([languageBlock isNotBlock])
+    else if([languageBlock isNotBlock])
     {
-        blockView = [self viewFromNibName:NOT_BLOCK_NIB_NAME];
+        blockView = [self viewFromNibName:NOT_OPERATOR_BLOCK_NIB_NAME];
+    }
+    else if ([languageBlock isLogicOperatorBlock])
+    {
+        blockView = [self viewFromNibName:LOGIC_OPERATOR_BLOCK_NIB_NAME];
     }
     else if ([languageBlock isOperatorBlock])
     {

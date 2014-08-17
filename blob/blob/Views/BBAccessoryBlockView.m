@@ -19,7 +19,7 @@
 
 - (void)updateUI
 {
-    self.layer.cornerRadius = 7.0f;
+    self.layer.cornerRadius = BLOB_BLOCK_SLOT_CORNER_RADIUS;
     const CGFloat xPadding = 12.0f;
     const CGFloat yPadding = 15.0f;
     

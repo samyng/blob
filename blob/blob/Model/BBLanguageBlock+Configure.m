@@ -45,6 +45,32 @@
     return ([self.group.name isEqualToString:OPERATORS_GROUP]) ? YES : NO;
 }
 
+- (BOOL)isMathOperatorBlock
+{
+    return ([self.group.name isEqualToString:OPERATORS_GROUP] &&
+            ([self.name isEqualToString:ADDITION_BLOCK_NAME] ||
+             [self.name isEqualToString:SUBTRACTION_BLOCK_NAME] ||
+             [self.name isEqualToString:MULTIPLICATION_BLOCK_NAME] ||
+             [self.name isEqualToString:DIVISION_BLOCK_NAME]
+             )) ? YES : NO;
+}
+
+- (BOOL)isComparisonOperatorBlock
+{
+    return ([self.group.name isEqualToString:OPERATORS_GROUP] &&
+           ([self.name isEqualToString:GREATER_THAN_BLOCK_NAME] ||
+            [self.name isEqualToString:LESS_THAN_BLOCK_NAME] ||
+            [self.name isEqualToString:EQUAL_TO_BLOCK_NAME]
+            )) ? YES : NO;
+}
+
+- (BOOL)isLogicOperatorBlock
+{
+    return ([self.group.name isEqualToString:OPERATORS_GROUP] &&
+           ([self.name isEqualToString:AND_BLOCK_NAME] ||
+            [self.name isEqualToString:OR_BLOCK_NAME])) ? YES : NO;
+}
+
 - (BOOL)isNotBlock
 {
     return ([self.group.name isEqualToString:OPERATORS_GROUP] &&

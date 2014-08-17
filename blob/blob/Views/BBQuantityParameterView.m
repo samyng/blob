@@ -27,7 +27,7 @@
 
 - (void)setup
 {
-    self.layer.cornerRadius = 18.0f;
+    self.layer.cornerRadius = BLOB_QUANTITY_CORNER_RADIUS;
 }
 
 @end
