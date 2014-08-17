@@ -59,6 +59,9 @@
 		22DA5D22199FEF6300A61A85 /* BBOperatorBlockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22DA5D21199FEF6300A61A85 /* BBOperatorBlockView.xib */; };
 		22DA5D24199FEFC400A61A85 /* BBNotBlockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22DA5D23199FEFC400A61A85 /* BBNotBlockView.xib */; };
 		22DA5D26199FEFD100A61A85 /* BBReactionBlockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22DA5D25199FEFD100A61A85 /* BBReactionBlockView.xib */; };
+		22DA5D2A19A062D900A61A85 /* BBBlockSlotParameterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DA5D2919A062D900A61A85 /* BBBlockSlotParameterView.m */; };
+		22DA5D2D19A0687C00A61A85 /* BBBlockStackParameterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DA5D2C19A0687C00A61A85 /* BBBlockStackParameterView.m */; };
+		22DA5D3019A0688B00A61A85 /* BBQuantityParameterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DA5D2F19A0688B00A61A85 /* BBQuantityParameterView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +152,12 @@
 		22DA5D21199FEF6300A61A85 /* BBOperatorBlockView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBOperatorBlockView.xib; sourceTree = "<group>"; };
 		22DA5D23199FEFC400A61A85 /* BBNotBlockView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBNotBlockView.xib; sourceTree = "<group>"; };
 		22DA5D25199FEFD100A61A85 /* BBReactionBlockView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBReactionBlockView.xib; sourceTree = "<group>"; };
+		22DA5D2819A062D900A61A85 /* BBBlockSlotParameterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlockSlotParameterView.h; sourceTree = "<group>"; };
+		22DA5D2919A062D900A61A85 /* BBBlockSlotParameterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBlockSlotParameterView.m; sourceTree = "<group>"; };
+		22DA5D2B19A0687C00A61A85 /* BBBlockStackParameterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBlockStackParameterView.h; sourceTree = "<group>"; };
+		22DA5D2C19A0687C00A61A85 /* BBBlockStackParameterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBlockStackParameterView.m; sourceTree = "<group>"; };
+		22DA5D2E19A0688B00A61A85 /* BBQuantityParameterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBQuantityParameterView.h; sourceTree = "<group>"; };
+		22DA5D2F19A0688B00A61A85 /* BBQuantityParameterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBQuantityParameterView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -375,6 +384,12 @@
 		22DA5D2719A050B200A61A85 /* ParameterViews */ = {
 			isa = PBXGroup;
 			children = (
+				22DA5D2819A062D900A61A85 /* BBBlockSlotParameterView.h */,
+				22DA5D2919A062D900A61A85 /* BBBlockSlotParameterView.m */,
+				22DA5D2B19A0687C00A61A85 /* BBBlockStackParameterView.h */,
+				22DA5D2C19A0687C00A61A85 /* BBBlockStackParameterView.m */,
+				22DA5D2E19A0688B00A61A85 /* BBQuantityParameterView.h */,
+				22DA5D2F19A0688B00A61A85 /* BBQuantityParameterView.m */,
 			);
 			name = ParameterViews;
 			sourceTree = "<group>";
@@ -500,7 +515,9 @@
 				222299EA199673200016BE43 /* BBLanguageGroup.m in Sources */,
 				222299DE199673200016BE43 /* BBClosetCategory.m in Sources */,
 				2259A7811991D91D007A16C3 /* BBAccessoryCollectionCell.m in Sources */,
+				22DA5D2D19A0687C00A61A85 /* BBBlockStackParameterView.m in Sources */,
 				22CA6B71199C018100CDD665 /* BBChooseFeelingViewController.m in Sources */,
+				22DA5D3019A0688B00A61A85 /* BBQuantityParameterView.m in Sources */,
 				22DA5D12199FE78E00A61A85 /* BBLanguageBlock+Configure.m in Sources */,
 				222299E4199673200016BE43 /* BBLanguageBlock.m in Sources */,
 				227C6FA6199A5AEE0025BA2F /* SWRevealViewController.m in Sources */,
@@ -514,6 +531,7 @@
 				22CCEFFA199166A2005161B5 /* BBRootViewController.m in Sources */,
 				22B313AC19959FEA0006AE57 /* BBAccessory+Configure.m in Sources */,
 				22CCEFD2199165D6005161B5 /* main.m in Sources */,
+				22DA5D2A19A062D900A61A85 /* BBBlockSlotParameterView.m in Sources */,
 				222299E1199673200016BE43 /* BBFeeling.m in Sources */,
 				22CCF00419917680005161B5 /* BBClosetViewController.m in Sources */,
 				22A2866D1992E9780087A311 /* BBFeelingCollectionCell.m in Sources */,
