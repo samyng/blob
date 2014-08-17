@@ -7,17 +7,70 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BBLanguageBlockView">
-            <rect key="frame" x="0.0" y="0.0" width="200" height="40"/>
+            <rect key="frame" x="0.0" y="0.0" width="222" height="54"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wait" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39A-QW-YJW">
-                    <rect key="frame" x="79" y="9" width="34" height="21"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wait seconds" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39A-QW-YJW">
+                    <rect key="frame" x="41" y="14" width="110" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="KV6-lw-CAF"/>
+                        <constraint firstAttribute="width" constant="110" id="fuo-7R-VAb"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="21"/>
+                    <color key="textColor" red="0.59999999999999998" green="0.12549019607843137" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="svU-hS-7AW">
+                    <rect key="frame" x="12" y="20" width="16" height="1"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.59999999999999998" green="0.12549019610000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="H2f-lz-Zee"/>
+                        <constraint firstAttribute="width" constant="16" id="dmu-3G-8hN"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jc4-wg-Hua">
+                    <rect key="frame" x="12" y="27" width="16" height="1"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.59999999999999998" green="0.12549019610000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="agr-ng-YR2"/>
+                        <constraint firstAttribute="width" constant="16" id="od2-dh-Mg9"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vka-YI-q2r">
+                    <rect key="frame" x="12" y="34" width="16" height="1"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.59999999999999998" green="0.12549019610000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="ZeP-60-6Zh"/>
+                        <constraint firstAttribute="width" constant="16" id="t5m-v4-3cV"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rnq-hV-27r" customClass="BBQuantityParameterView">
+                    <rect key="frame" x="163" y="10" width="48" height="34"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="34" id="Byw-FV-j7w"/>
+                        <constraint firstAttribute="width" constant="48" id="ae2-WI-7Fw"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.98431372549999996" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="vka-YI-q2r" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="3zA-lL-Ibv"/>
+                <constraint firstItem="rnq-hV-27r" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="7hu-N7-pa3"/>
+                <constraint firstItem="vka-YI-q2r" firstAttribute="top" secondItem="jc4-wg-Hua" secondAttribute="bottom" constant="6" id="Dog-Lx-OGr"/>
+                <constraint firstItem="rnq-hV-27r" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="163" id="RMy-XE-aQE"/>
+                <constraint firstItem="jc4-wg-Hua" firstAttribute="top" secondItem="svU-hS-7AW" secondAttribute="bottom" constant="6" id="XIf-iU-2ab"/>
+                <constraint firstItem="39A-QW-YJW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="14" id="hgg-iz-HDm"/>
+                <constraint firstItem="39A-QW-YJW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="41" id="l7u-EU-1N1"/>
+                <constraint firstItem="svU-hS-7AW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="mFS-4f-AaA"/>
+                <constraint firstItem="jc4-wg-Hua" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="pZE-4Y-zjP"/>
+                <constraint firstItem="svU-hS-7AW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="ys9-Kw-Zbv"/>
+            </constraints>
         </view>
     </objects>
 </document>

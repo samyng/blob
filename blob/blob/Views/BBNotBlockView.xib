@@ -7,17 +7,36 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BBLanguageBlockView">
-            <rect key="frame" x="0.0" y="0.0" width="200" height="40"/>
+            <rect key="frame" x="0.0" y="0.0" width="117" height="55"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Not" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeP-c4-phK">
-                    <rect key="frame" x="86" y="9" width="28" height="21"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xfT-3h-7dO" customClass="BBQuantityParameterView">
+                    <rect key="frame" x="51" y="11" width="48" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="48" id="Bs0-2l-MB6"/>
+                        <constraint firstAttribute="height" constant="34" id="zNf-QV-c1P"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="not" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cco-jc-kk6">
+                    <rect key="frame" x="18" y="17" width="25" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="IMY-pt-3nt"/>
+                        <constraint firstAttribute="width" constant="25" id="SKY-cD-icE"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="0.58039215690000001" green="0.85490196080000003" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="cco-jc-kk6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="18" id="8LN-z5-bAG"/>
+                <constraint firstItem="xfT-3h-7dO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="11" id="PZY-0V-Cs6"/>
+                <constraint firstItem="xfT-3h-7dO" firstAttribute="leading" secondItem="cco-jc-kk6" secondAttribute="trailing" constant="8" id="Q7U-c9-MjQ"/>
+                <constraint firstItem="cco-jc-kk6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="17" id="Vzs-1T-osU"/>
+            </constraints>
         </view>
     </objects>
 </document>

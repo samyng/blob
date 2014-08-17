@@ -27,7 +27,7 @@
 
 - (void)setup
 {
-    self.layer.cornerRadius = 12.0f;
+    self.layer.cornerRadius = 18.0f;
 }
 
 @end
