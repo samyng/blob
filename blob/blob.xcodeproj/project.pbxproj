@@ -10,7 +10,6 @@
 		2209DB5F1995B71300EC757C /* BBConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CCEFFE199168B5005161B5 /* BBConstants.m */; };
 		222299DE199673200016BE43 /* BBClosetCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 222299DD199673200016BE43 /* BBClosetCategory.m */; };
 		222299E1199673200016BE43 /* BBFeeling.m in Sources */ = {isa = PBXBuildFile; fileRef = 222299E0199673200016BE43 /* BBFeeling.m */; };
-		222299E4199673200016BE43 /* BBLanguageBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 222299E3199673200016BE43 /* BBLanguageBlock.m */; };
 		222299E7199673200016BE43 /* BBAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 222299E6199673200016BE43 /* BBAccessory.m */; };
 		222299EA199673200016BE43 /* BBLanguageGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 222299E9199673200016BE43 /* BBLanguageGroup.m */; };
 		222299F4199689AF0016BE43 /* BBLanguageBlockCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 222299F2199689AF0016BE43 /* BBLanguageBlockCollectionCell.m */; };
@@ -63,6 +62,9 @@
 		22DA5D2D19A0687C00A61A85 /* BBBlockStackParameterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DA5D2C19A0687C00A61A85 /* BBBlockStackParameterView.m */; };
 		22DA5D3019A0688B00A61A85 /* BBQuantityParameterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DA5D2F19A0688B00A61A85 /* BBQuantityParameterView.m */; };
 		22DA5D3819A072EF00A61A85 /* BBAccessoryBlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DA5D3719A072EF00A61A85 /* BBAccessoryBlockView.m */; };
+		22DA5D3B19A07CBE00A61A85 /* BBOperatorBlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DA5D3A19A07CBE00A61A85 /* BBOperatorBlockView.m */; };
+		22DA5D3E19A07D5E00A61A85 /* BBLanguageBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DA5D3D19A07D5E00A61A85 /* BBLanguageBlock.m */; };
+		22DA5D4119A0860400A61A85 /* BBReactionBlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DA5D4019A0860400A61A85 /* BBReactionBlockView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,8 +82,6 @@
 		222299DD199673200016BE43 /* BBClosetCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBClosetCategory.m; sourceTree = "<group>"; };
 		222299DF199673200016BE43 /* BBFeeling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBFeeling.h; sourceTree = "<group>"; };
 		222299E0199673200016BE43 /* BBFeeling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBFeeling.m; sourceTree = "<group>"; };
-		222299E2199673200016BE43 /* BBLanguageBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLanguageBlock.h; sourceTree = "<group>"; };
-		222299E3199673200016BE43 /* BBLanguageBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLanguageBlock.m; sourceTree = "<group>"; };
 		222299E5199673200016BE43 /* BBAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAccessory.h; sourceTree = "<group>"; };
 		222299E6199673200016BE43 /* BBAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAccessory.m; sourceTree = "<group>"; };
 		222299E8199673200016BE43 /* BBLanguageGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLanguageGroup.h; sourceTree = "<group>"; };
@@ -161,6 +161,12 @@
 		22DA5D2F19A0688B00A61A85 /* BBQuantityParameterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBQuantityParameterView.m; sourceTree = "<group>"; };
 		22DA5D3619A072EF00A61A85 /* BBAccessoryBlockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBAccessoryBlockView.h; sourceTree = "<group>"; };
 		22DA5D3719A072EF00A61A85 /* BBAccessoryBlockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBAccessoryBlockView.m; sourceTree = "<group>"; };
+		22DA5D3919A07CBE00A61A85 /* BBOperatorBlockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBOperatorBlockView.h; sourceTree = "<group>"; };
+		22DA5D3A19A07CBE00A61A85 /* BBOperatorBlockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBOperatorBlockView.m; sourceTree = "<group>"; };
+		22DA5D3C19A07D5E00A61A85 /* BBLanguageBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLanguageBlock.h; sourceTree = "<group>"; };
+		22DA5D3D19A07D5E00A61A85 /* BBLanguageBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLanguageBlock.m; sourceTree = "<group>"; };
+		22DA5D3F19A0860400A61A85 /* BBReactionBlockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBReactionBlockView.h; sourceTree = "<group>"; };
+		22DA5D4019A0860400A61A85 /* BBReactionBlockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBReactionBlockView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,12 +316,12 @@
 			isa = PBXGroup;
 			children = (
 				22B313A419958B4C0006AE57 /* BlobDataModel.xcdatamodeld */,
+				22DA5D3C19A07D5E00A61A85 /* BBLanguageBlock.h */,
+				22DA5D3D19A07D5E00A61A85 /* BBLanguageBlock.m */,
 				222299E8199673200016BE43 /* BBLanguageGroup.h */,
 				222299E9199673200016BE43 /* BBLanguageGroup.m */,
 				222299E5199673200016BE43 /* BBAccessory.h */,
 				222299E6199673200016BE43 /* BBAccessory.m */,
-				222299E2199673200016BE43 /* BBLanguageBlock.h */,
-				222299E3199673200016BE43 /* BBLanguageBlock.m */,
 				222299DF199673200016BE43 /* BBFeeling.h */,
 				222299E0199673200016BE43 /* BBFeeling.m */,
 				222299DC199673200016BE43 /* BBClosetCategory.h */,
@@ -398,9 +404,15 @@
 				22DA5D19199FEEA300A61A85 /* BBIfThenElseBlockView.xib */,
 				22DA5D1B199FEEE800A61A85 /* BBWaitBlockView.xib */,
 				22DA5D1D199FEF1700A61A85 /* BBRepeatBlockView.xib */,
+				22DA5D3619A072EF00A61A85 /* BBAccessoryBlockView.h */,
+				22DA5D3719A072EF00A61A85 /* BBAccessoryBlockView.m */,
 				22DA5D1F199FEF4900A61A85 /* BBAccessoryBlockView.xib */,
+				22DA5D3919A07CBE00A61A85 /* BBOperatorBlockView.h */,
+				22DA5D3A19A07CBE00A61A85 /* BBOperatorBlockView.m */,
 				22DA5D21199FEF6300A61A85 /* BBOperatorBlockView.xib */,
 				22DA5D23199FEFC400A61A85 /* BBNotBlockView.xib */,
+				22DA5D3F19A0860400A61A85 /* BBReactionBlockView.h */,
+				22DA5D4019A0860400A61A85 /* BBReactionBlockView.m */,
 				22DA5D25199FEFD100A61A85 /* BBReactionBlockView.xib */,
 			);
 			name = Xibs;
@@ -409,8 +421,6 @@
 		22DA5D3519A0728300A61A85 /* ClassFiles */ = {
 			isa = PBXGroup;
 			children = (
-				22DA5D3619A072EF00A61A85 /* BBAccessoryBlockView.h */,
-				22DA5D3719A072EF00A61A85 /* BBAccessoryBlockView.m */,
 			);
 			name = ClassFiles;
 			sourceTree = "<group>";
@@ -541,11 +551,13 @@
 				22DA5D3819A072EF00A61A85 /* BBAccessoryBlockView.m in Sources */,
 				22DA5D3019A0688B00A61A85 /* BBQuantityParameterView.m in Sources */,
 				22DA5D12199FE78E00A61A85 /* BBLanguageBlock+Configure.m in Sources */,
-				222299E4199673200016BE43 /* BBLanguageBlock.m in Sources */,
 				227C6FA6199A5AEE0025BA2F /* SWRevealViewController.m in Sources */,
 				22DA5D0F199FE71300A61A85 /* BBLanguageBlockViewFactory.m in Sources */,
 				22CCF009199176A5005161B5 /* BBSecretLanguageViewController.m in Sources */,
+				22DA5D3E19A07D5E00A61A85 /* BBLanguageBlock.m in Sources */,
 				22B313A619958B4C0006AE57 /* BlobDataModel.xcdatamodeld in Sources */,
+				22DA5D4119A0860400A61A85 /* BBReactionBlockView.m in Sources */,
+				22DA5D3B19A07CBE00A61A85 /* BBOperatorBlockView.m in Sources */,
 				22CCEFD6199165D6005161B5 /* BBAppDelegate.m in Sources */,
 				222299F4199689AF0016BE43 /* BBLanguageBlockCollectionCell.m in Sources */,
 				222299E7199673200016BE43 /* BBAccessory.m in Sources */,

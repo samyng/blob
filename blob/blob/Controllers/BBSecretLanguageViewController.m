@@ -416,12 +416,15 @@ static NSInteger const kControlGroupIndexRow = 0;
 
     BBLanguageBlock *greaterThanBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
     greaterThanBlock.name = @"greaterThan";
+    greaterThanBlock.abbreviation = @">";
     
     BBLanguageBlock *lessThanBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
     lessThanBlock.name = @"lessThan";
+    lessThanBlock.abbreviation = @"<";
     
     BBLanguageBlock *equalToBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
     equalToBlock.name = @"equalTo";
+    equalToBlock.abbreviation = @"=";
     
     BBLanguageBlock *orBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
     orBlock.name = @"or";
@@ -434,15 +437,19 @@ static NSInteger const kControlGroupIndexRow = 0;
     
     BBLanguageBlock *additionBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
     additionBlock.name = @"addition";
+    additionBlock.abbreviation = @"+";
     
     BBLanguageBlock *subtractionBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
     subtractionBlock.name = @"subtraction";
+    subtractionBlock.abbreviation = @"–";
     
     BBLanguageBlock *divisionBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
     divisionBlock.name = @"division";
+    divisionBlock.abbreviation = @"/";
     
     BBLanguageBlock *multiplicationBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
     multiplicationBlock.name = @"multiplication";
+    multiplicationBlock.abbreviation = @"x";
     
     BBLanguageBlock *newBooleanVariable = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
     newBooleanVariable.name = @"newBooleanVariable";

@@ -6,8 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BBLanguageBlockView">
-            <rect key="frame" x="0.0" y="0.0" width="188" height="55"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BBOperatorBlockView">
+            <rect key="frame" x="0.0" y="0.0" width="198" height="55"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k4s-n4-jFA" customClass="BBQuantityParameterView">
@@ -20,7 +20,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GED-AU-PKl" customClass="BBQuantityParameterView">
-                    <rect key="frame" x="122" y="11" width="48" height="34"/>
+                    <rect key="frame" x="134" y="11" width="48" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     <constraints>
@@ -29,10 +29,9 @@
                     </constraints>
                 </view>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xlq-PV-Jsi">
-                    <rect key="frame" x="74" y="15" width="40" height="25"/>
+                    <rect key="frame" x="74" y="15" width="52" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="40" id="Sj4-ih-qjE"/>
                         <constraint firstAttribute="height" constant="25" id="v9b-m5-cxp"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="21"/>
@@ -42,13 +41,19 @@
             </subviews>
             <color key="backgroundColor" red="0.58039215686274503" green="0.85490196078431369" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="GED-AU-PKl" firstAttribute="leading" secondItem="xlq-PV-Jsi" secondAttribute="trailing" constant="8" id="5aQ-Bs-uNm"/>
-                <constraint firstItem="k4s-n4-jFA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="11" id="6Gd-Zj-YBI"/>
-                <constraint firstItem="xlq-PV-Jsi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="Dcq-hv-9M5"/>
-                <constraint firstItem="GED-AU-PKl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="11" id="EjA-7t-PmN"/>
-                <constraint firstItem="xlq-PV-Jsi" firstAttribute="leading" secondItem="k4s-n4-jFA" secondAttribute="trailing" constant="8" id="cVL-pQ-aaQ"/>
-                <constraint firstItem="k4s-n4-jFA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="18" id="r98-TS-VVB"/>
+                <constraint firstAttribute="trailing" secondItem="GED-AU-PKl" secondAttribute="trailing" constant="16" id="3We-HA-KIA"/>
+                <constraint firstItem="xlq-PV-Jsi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="5SK-gp-IaM"/>
+                <constraint firstItem="GED-AU-PKl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="11" id="APy-65-f3q"/>
+                <constraint firstItem="xlq-PV-Jsi" firstAttribute="leading" secondItem="k4s-n4-jFA" secondAttribute="trailing" constant="8" id="Dxj-eA-m5f"/>
+                <constraint firstItem="GED-AU-PKl" firstAttribute="leading" secondItem="xlq-PV-Jsi" secondAttribute="trailing" constant="8" id="Ost-Xx-2Cw"/>
+                <constraint firstItem="k4s-n4-jFA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="11" id="d1H-bf-nD4"/>
+                <constraint firstItem="k4s-n4-jFA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="18" id="zeA-VN-Jga"/>
             </constraints>
+            <connections>
+                <outlet property="leftSlot" destination="k4s-n4-jFA" id="mY9-EY-81h"/>
+                <outlet property="nameLabel" destination="xlq-PV-Jsi" id="4oI-ZM-agC"/>
+                <outlet property="rightSlot" destination="GED-AU-PKl" id="LG3-hH-rZW"/>
+            </connections>
         </view>
     </objects>
 </document>

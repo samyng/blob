@@ -19,6 +19,7 @@
 
 - (void)updateUI
 {
+    self.layer.cornerRadius = 7.0f;
     const CGFloat xPadding = 12.0f;
     const CGFloat yPadding = 15.0f;
     
@@ -33,7 +34,7 @@
     
     CGFloat calculatedWidth = labelStringSize.width + xPadding * 3 + CGRectGetWidth(self.thumbnailImageView.frame);
     CGFloat height = CGRectGetHeight(self.frame);
-    CGRect calculatedFrame = CGRectMake(0.0f, 0.0f, calculatedWidth, height);
+    CGRect calculatedFrame = CGRectMake(CGPointZero.x, CGPointZero.y, calculatedWidth, height);
     self.frame = calculatedFrame;
 }
 

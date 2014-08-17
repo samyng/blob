@@ -12,6 +12,7 @@
         <attribute name="name" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="LanguageBlock" representedClassName="BBLanguageBlock" syncable="YES">
+        <attribute name="abbreviation" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LanguageGroup" inverseName="blocks" inverseEntity="LanguageGroup" syncable="YES"/>
     </entity>
@@ -22,8 +23,8 @@
     <elements>
         <element name="Accessory" positionX="-1800" positionY="-1699" width="128" height="73"/>
         <element name="ClosetCategory" positionX="-1980" positionY="-1746" width="128" height="73"/>
-        <element name="LanguageBlock" positionX="-1800" positionY="-1585" width="128" height="73"/>
-        <element name="LanguageGroup" positionX="-1980" positionY="-1602" width="128" height="73"/>
         <element name="Feeling" positionX="-1980" positionY="-1485" width="128" height="58"/>
+        <element name="LanguageBlock" positionX="-1800" positionY="-1585" width="128" height="88"/>
+        <element name="LanguageGroup" positionX="-1980" positionY="-1602" width="128" height="73"/>
     </elements>
 </model>
