@@ -18,9 +18,6 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
 @interface BBMyBlobViewController () <UICollectionViewDataSource, NSFetchedResultsControllerDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *feelingsCollectionView;
 @property (weak, nonatomic) IBOutlet UIImageView *currentFeelingSlot;
-@property (weak, nonatomic) IBOutlet UILabel *letsMakeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *beLabel;
-@property (weak, nonatomic) IBOutlet UILabel *connectedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *periodLabel;
 
 @property (strong, nonatomic) NSMutableArray *feelings;
@@ -39,12 +36,6 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
 {
     [super viewDidLoad];
     [self.feelingsCollectionView registerNib:[UINib nibWithNibName:@"BBFeelingCollectionCell" bundle:nil] forCellWithReuseIdentifier:kFeelingCollectionCellIdentifier];
-    self.currentFeelingSlot.backgroundColor = [BBConstants yellowColor];
-    self.connectedLabel.textColor = [BBConstants lightBlueColor];
-    self.letsMakeLabel.textColor = [BBConstants blueColor];
-    self.beLabel.textColor = [BBConstants orangeColor];
-    self.feelingsCollectionView.backgroundColor = [BBConstants yellowBackgroundColor];
-    self.periodLabel.backgroundColor = [BBConstants lightBlueColor];
     self.periodLabel.layer.cornerRadius = CGRectGetWidth(self.periodLabel.frame)/2;
     
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panned:)];

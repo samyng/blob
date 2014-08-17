@@ -29,12 +29,7 @@ static NSInteger kAddNewRowOffset = 1;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [BBConstants blueBackgroundColor];
-    self.feelingsTableView.backgroundColor = [BBConstants blueBackgroundColor];
-    self.feelingsSearchBar.backgroundColor = [UIColor whiteColor];
-    self.feelingsSearchBar.barTintColor = [BBConstants blueBackgroundColor];
     self.feelingsSearchBar.searchBarStyle = UISearchBarStyleMinimal;
-    self.feelingsTableView.separatorColor = [BBConstants magnesiumGrayColor];
     [self populateFeelings];
 }
 

@@ -17,7 +17,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="1" green="0.44010689780000001" blue="0.4469227455" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.98431372549999996" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
         </view>
     </objects>
 </document>

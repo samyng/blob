@@ -6,11 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BBMyBlobViewController">
             <connections>
-                <outlet property="beLabel" destination="VH9-gM-3NO" id="33w-PX-PDL"/>
-                <outlet property="connectedLabel" destination="Vul-lS-Yxl" id="eN5-tJ-ChQ"/>
                 <outlet property="currentFeelingSlot" destination="oxN-xK-8pG" id="dlS-Rf-sMY"/>
                 <outlet property="feelingsCollectionView" destination="EX7-u6-eFl" id="aQF-x3-Luc"/>
-                <outlet property="letsMakeLabel" destination="VaV-xL-ftw" id="Zt5-en-kIA"/>
                 <outlet property="periodLabel" destination="LAm-Zn-0wu" id="e1I-cJ-KlO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -52,6 +49,7 @@
                         <constraint firstAttribute="height" constant="60" id="lRs-K0-9cT"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="40"/>
+                    <color key="textColor" red="0.0" green="0.60392156862745094" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="be" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VH9-gM-3NO">
@@ -62,12 +60,13 @@
                         <constraint firstAttribute="height" constant="60" id="aMo-7A-g31"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="40"/>
+                    <color key="textColor" red="1" green="0.51372549019607838" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oxN-xK-8pG" userLabel="Current Feeling Image View">
                     <rect key="frame" x="568" y="52" width="168" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="1" green="0.90196078431372551" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="168" id="0AM-4j-KH3"/>
                         <constraint firstAttribute="height" constant="44" id="3lc-eY-KJt"/>
@@ -81,11 +80,13 @@
                         <constraint firstAttribute="height" constant="21" id="pgg-y5-wT9"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="21"/>
+                    <color key="textColor" red="0.58039215686274503" green="0.85490196078431369" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="EX7-u6-eFl" userLabel="Feelings Collection View">
                     <rect key="frame" x="0.0" y="949" width="768" height="75"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" red="1" green="0.97647058823529409" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="75" id="wzh-Z6-0NT"/>
                     </constraints>
@@ -111,6 +112,7 @@
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAm-Zn-0wu" userLabel="Label - Period">
                     <rect key="frame" x="748" y="73" width="18" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.58039215686274503" green="0.85490196078431369" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="18" id="dFl-p2-Fgy"/>
                         <constraint firstAttribute="height" constant="18" id="fH8-2g-Ahm"/>

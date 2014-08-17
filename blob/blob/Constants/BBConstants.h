@@ -91,7 +91,4 @@ static CGFloat const kViewAnimationDuration = 0.25f;
 + (UIColor *)backgroundColorForCellWithLanguageGroupName:(NSString *)name;
 + (UIColor *)colorForCellWithLanguageGroupName:(NSString *)name;
 
-+ (UIColor *)lightGrayColor;
-+ (UIColor *)magnesiumGrayColor;
-
 @end

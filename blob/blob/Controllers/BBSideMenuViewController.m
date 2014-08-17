@@ -22,9 +22,8 @@ static NSString * const kSideMenuTableCellIdentifier = @"sideMenuTableCellIdenti
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.sideMenuTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kSideMenuTableCellIdentifier];
-    self.sideMenuTableView.backgroundColor = [BBConstants tealColor];
-    self.sideMenuTableView.separatorColor = [BBConstants tealBackgroundColor];
+    [self.sideMenuTableView registerClass:[UITableViewCell class]
+                   forCellReuseIdentifier:kSideMenuTableCellIdentifier];
     self.sideMenuTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
     self.rowTitles = @[@"Examples", @"Tutorial", @"About Blob", @"User Settings", @"Logout"];
 }

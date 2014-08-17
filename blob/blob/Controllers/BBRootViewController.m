@@ -20,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *myBlobButton;
 @property (weak, nonatomic) IBOutlet UIButton *secretLanguageButton;
 @property (strong, nonatomic) UIViewController *currentChildViewController;
-@property (strong, nonatomic) NSArray *tabButtons;
 @end
 
 @implementation BBRootViewController
@@ -36,22 +35,13 @@
     [revealViewController tapGestureRecognizer];
     UIBarButtonItem *menuBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStylePlain target:revealViewController action:@selector(revealToggle:)];
     self.navigationItem.leftBarButtonItem = menuBarButtonItem;
-
-    self.tabButtons = @[self.closetButton, self.myBlobButton, self.secretLanguageButton];
-    for (UIButton *button in self.tabButtons)
-    {
-        [button setTitleColor:[BBConstants tealColor] forState:UIControlStateNormal];
-    }
-    [self.closetButton setTitleColor:[BBConstants blueColor] forState:UIControlStateSelected];
-    [self.myBlobButton setTitleColor:[BBConstants pinkColor] forState:UIControlStateSelected];
-    [self.secretLanguageButton setTitleColor:[BBConstants orangeColor] forState:UIControlStateSelected];
     
-    UIImage *defaultClosetImage = [[UIImage imageNamed:CLOSET_ICON_NAME] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    [self.closetButton setImage:defaultClosetImage forState:UIControlStateNormal];
-    UIImage *defaultMyBlobImage = [[UIImage imageNamed:MY_BLOB_ICON_NAME] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    [self.myBlobButton setImage:defaultMyBlobImage forState:UIControlStateNormal];
-    UIImage *defaultSecretLanguageImage = [[UIImage imageNamed:SECRET_LANGUAGE_ICON_NAME] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    [self.secretLanguageButton setImage:defaultSecretLanguageImage forState:UIControlStateNormal];
+    UIImage *templateClosetImage = [[UIImage imageNamed:CLOSET_ICON_NAME] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [self.closetButton setImage:templateClosetImage forState:UIControlStateNormal];
+    UIImage *templateMyBlobImage = [[UIImage imageNamed:MY_BLOB_ICON_NAME] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [self.myBlobButton setImage:templateMyBlobImage forState:UIControlStateNormal];
+    UIImage *templateSecretLanguageImage = [[UIImage imageNamed:SECRET_LANGUAGE_ICON_NAME] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [self.secretLanguageButton setImage:templateSecretLanguageImage forState:UIControlStateNormal];
     
     [self myBlobButtonPressed:self.myBlobButton];
 }

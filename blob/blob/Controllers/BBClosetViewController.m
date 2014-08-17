@@ -35,11 +35,7 @@ static NSInteger const kAllSectionIndex = 0;
     [super viewDidLoad];
     [self.categoriesTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kCategoriesTableCellIdentifier];
     [self.accessoriesCollectionView registerNib:[UINib nibWithNibName:@"BBAccessoryCollectionCell" bundle:nil] forCellWithReuseIdentifier:kAccessoriesCollectionCellIdentifier];
-    self.categoriesTableView.backgroundColor = [UIColor whiteColor];
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.addNewAccessoryButton.backgroundColor = [BBConstants tealBackgroundColor];
     [self.addNewAccessoryButton setTitle:PLUS_ADD_NEW_LABEL forState:UIControlStateNormal];
-    [self.addNewAccessoryButton setTitleColor:[BBConstants tealTextColor] forState:UIControlStateNormal];
     [self populateCategories];
     [self.categoriesTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
 }
