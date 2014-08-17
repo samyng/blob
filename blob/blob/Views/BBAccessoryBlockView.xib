@@ -6,19 +6,19 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BBLanguageBlockView">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BBAccessoryBlockView">
             <rect key="frame" x="0.0" y="0.0" width="250" height="55"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="near" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cv4-ht-s2b">
-                    <rect key="frame" x="12" y="15" width="178" height="25"/>
+                    <rect key="frame" x="12" y="15" width="171" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="21"/>
                     <color key="textColor" red="0.59999999999999998" green="0.28627450980392155" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kpr-Wh-wKR">
-                    <rect key="frame" x="200" y="5" width="45" height="45"/>
+                    <rect key="frame" x="193" y="5" width="45" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="45" id="BI2-ce-zkB"/>
@@ -28,13 +28,17 @@
             </subviews>
             <color key="backgroundColor" red="1" green="0.51372549020000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Kpr-Wh-wKR" secondAttribute="trailing" constant="5" id="2aj-MT-kBw"/>
+                <constraint firstAttribute="trailing" secondItem="Kpr-Wh-wKR" secondAttribute="trailing" constant="12" id="2aj-MT-kBw"/>
                 <constraint firstItem="Kpr-Wh-wKR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="BH1-MK-lCj"/>
                 <constraint firstItem="Cv4-ht-s2b" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="LiL-mD-m43"/>
                 <constraint firstItem="Cv4-ht-s2b" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="PDH-DV-KEo"/>
                 <constraint firstItem="Kpr-Wh-wKR" firstAttribute="leading" secondItem="Cv4-ht-s2b" secondAttribute="trailing" constant="10" id="Q9Y-HC-xs8"/>
                 <constraint firstAttribute="bottom" secondItem="Kpr-Wh-wKR" secondAttribute="bottom" constant="5" id="vOT-vM-HnF"/>
             </constraints>
+            <connections>
+                <outlet property="nearAccessoryLabel" destination="Cv4-ht-s2b" id="mZe-aj-vRD"/>
+                <outlet property="thumbnailImageView" destination="Kpr-Wh-wKR" id="cXG-f4-2sO"/>
+            </connections>
         </view>
     </objects>
 </document>

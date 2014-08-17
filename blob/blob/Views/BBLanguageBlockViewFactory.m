@@ -47,6 +47,7 @@
     {
         blockView = [self viewFromNibName:REACTION_BLOCK_NIB_NAME];
     }
+    blockView.languageBlock = languageBlock;
     return blockView;
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class BBLanguageBlock;
 @class BBLanguageBlockView;
 
 @protocol LanguageBlockDelegate <NSObject>
@@ -18,4 +19,5 @@
 
 @interface BBLanguageBlockView : UIView
 @property (weak, nonatomic) id <LanguageBlockDelegate> delegate;
+@property (strong, nonatomic) BBLanguageBlock *languageBlock;
 @end

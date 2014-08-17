@@ -53,6 +53,7 @@ static NSString * const PLUS_ADD_NEW_LABEL = @"+ NEW";
 
 static NSInteger const kTotalNumberOfSections = 1;
 static CGFloat const BLOB_FONT_19PT = 19.0f;
+static CGFloat const BLOB_FONT_21PT = 21.0f;
 static CGFloat const BLOB_PADDING_5PX = 5.0f;
 static CGFloat const BLOB_PADDING_10PX = 10.0f;
 static CGFloat const BLOB_PADDING_15PX = 15.0f;
