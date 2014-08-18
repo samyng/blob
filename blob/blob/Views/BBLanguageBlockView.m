@@ -29,7 +29,7 @@
 {
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panned:)];
     [self addGestureRecognizer:panGestureRecognizer];
-    self.snappedBlockViews = [[NSMutableArray alloc] init];
+    self.snappedBlockViews = [[NSMutableSet alloc] init];
     self.userInteractionEnabled = YES;
 }
 

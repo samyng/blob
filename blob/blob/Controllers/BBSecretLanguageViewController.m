@@ -321,10 +321,12 @@ static NSInteger const kControlGroupIndexRow = 0;
 
 - (void)panDidChange:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)blockView
 {
-    CGPoint touchLocation = [sender locationInView:self.view];
-    [blockView moveCenterToPoint:touchLocation];
     blockView.alpha = CGRectIntersectsRect(self.blocksContainerView.frame, blockView.frame) ? kAlphaHalf : kAlphaOpaque;
     [self.view bringSubviewToFront:blockView];
+    
+    CGPoint touchLocation = [sender locationInView:self.view];
+    [blockView moveCenterToPoint:touchLocation];
+
     [self checkIntersectionFromSender:sender forLanguageBlockView:blockView];
 }
 
