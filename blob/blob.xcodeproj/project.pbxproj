@@ -19,6 +19,10 @@
 		22641E68199A6D3600A4E5EA /* BBSideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22641E66199A6D3600A4E5EA /* BBSideMenuViewController.m */; };
 		22641E69199A6D3600A4E5EA /* BBSideMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22641E67199A6D3600A4E5EA /* BBSideMenuViewController.xib */; };
 		227C6FA6199A5AEE0025BA2F /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227C6FA5199A5AEE0025BA2F /* SWRevealViewController.m */; };
+		228978A919A1A9D400B02C18 /* BBIfThenBlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 228978A819A1A9D400B02C18 /* BBIfThenBlockView.m */; };
+		228978AC19A1A9ED00B02C18 /* BBIfThenElseBlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 228978AB19A1A9ED00B02C18 /* BBIfThenElseBlockView.m */; };
+		228978AF19A1AA0300B02C18 /* BBWaitBlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 228978AE19A1AA0300B02C18 /* BBWaitBlockView.m */; };
+		228978B219A1AA1500B02C18 /* BBRepeatBlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 228978B119A1AA1500B02C18 /* BBRepeatBlockView.m */; };
 		22A2866D1992E9780087A311 /* BBFeelingCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A2866C1992E9780087A311 /* BBFeelingCollectionCell.m */; };
 		22A2866F1992EA5C0087A311 /* BBFeelingCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A2866E1992EA5C0087A311 /* BBFeelingCollectionCell.xib */; };
 		22B313A319958AE60006AE57 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B313A219958AE60006AE57 /* CoreData.framework */; };
@@ -100,6 +104,14 @@
 		22641E67199A6D3600A4E5EA /* BBSideMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBSideMenuViewController.xib; sourceTree = "<group>"; };
 		227C6FA4199A5AEE0025BA2F /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		227C6FA5199A5AEE0025BA2F /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		228978A719A1A9D400B02C18 /* BBIfThenBlockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBIfThenBlockView.h; sourceTree = "<group>"; };
+		228978A819A1A9D400B02C18 /* BBIfThenBlockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBIfThenBlockView.m; sourceTree = "<group>"; };
+		228978AA19A1A9ED00B02C18 /* BBIfThenElseBlockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBIfThenElseBlockView.h; sourceTree = "<group>"; };
+		228978AB19A1A9ED00B02C18 /* BBIfThenElseBlockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBIfThenElseBlockView.m; sourceTree = "<group>"; };
+		228978AD19A1AA0300B02C18 /* BBWaitBlockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBWaitBlockView.h; sourceTree = "<group>"; };
+		228978AE19A1AA0300B02C18 /* BBWaitBlockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBWaitBlockView.m; sourceTree = "<group>"; };
+		228978B019A1AA1500B02C18 /* BBRepeatBlockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBRepeatBlockView.h; sourceTree = "<group>"; };
+		228978B119A1AA1500B02C18 /* BBRepeatBlockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBRepeatBlockView.m; sourceTree = "<group>"; };
 		22A2866B1992E9780087A311 /* BBFeelingCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBFeelingCollectionCell.h; path = Cells/BBFeelingCollectionCell.h; sourceTree = "<group>"; };
 		22A2866C1992E9780087A311 /* BBFeelingCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBFeelingCollectionCell.m; path = Cells/BBFeelingCollectionCell.m; sourceTree = "<group>"; };
 		22A2866E1992EA5C0087A311 /* BBFeelingCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBFeelingCollectionCell.xib; sourceTree = "<group>"; };
@@ -407,9 +419,17 @@
 		22DA5D3419A0727600A61A85 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				228978A719A1A9D400B02C18 /* BBIfThenBlockView.h */,
+				228978A819A1A9D400B02C18 /* BBIfThenBlockView.m */,
 				22DA5D17199FEDC700A61A85 /* BBIfThenBlockView.xib */,
+				228978AA19A1A9ED00B02C18 /* BBIfThenElseBlockView.h */,
+				228978AB19A1A9ED00B02C18 /* BBIfThenElseBlockView.m */,
 				22DA5D19199FEEA300A61A85 /* BBIfThenElseBlockView.xib */,
+				228978AD19A1AA0300B02C18 /* BBWaitBlockView.h */,
+				228978AE19A1AA0300B02C18 /* BBWaitBlockView.m */,
 				22DA5D1B199FEEE800A61A85 /* BBWaitBlockView.xib */,
+				228978B019A1AA1500B02C18 /* BBRepeatBlockView.h */,
+				228978B119A1AA1500B02C18 /* BBRepeatBlockView.m */,
 				22DA5D1D199FEF1700A61A85 /* BBRepeatBlockView.xib */,
 				22DA5D3619A072EF00A61A85 /* BBAccessoryBlockView.h */,
 				22DA5D3719A072EF00A61A85 /* BBAccessoryBlockView.m */,
@@ -559,6 +579,7 @@
 				22DA5D3019A0688B00A61A85 /* BBQuantityParameterView.m in Sources */,
 				22DA5D12199FE78E00A61A85 /* BBLanguageBlock+Configure.m in Sources */,
 				227C6FA6199A5AEE0025BA2F /* SWRevealViewController.m in Sources */,
+				228978AF19A1AA0300B02C18 /* BBWaitBlockView.m in Sources */,
 				22DA5D0F199FE71300A61A85 /* BBLanguageBlockViewFactory.m in Sources */,
 				22CCF009199176A5005161B5 /* BBSecretLanguageViewController.m in Sources */,
 				22DA5D3E19A07D5E00A61A85 /* BBLanguageBlock.m in Sources */,
@@ -566,6 +587,7 @@
 				22DA5D4119A0860400A61A85 /* BBReactionBlockView.m in Sources */,
 				22DA5D3B19A07CBE00A61A85 /* BBOperatorBlockView.m in Sources */,
 				22CCEFD6199165D6005161B5 /* BBAppDelegate.m in Sources */,
+				228978AC19A1A9ED00B02C18 /* BBIfThenElseBlockView.m in Sources */,
 				222299F4199689AF0016BE43 /* BBLanguageBlockCollectionCell.m in Sources */,
 				222299E7199673200016BE43 /* BBAccessory.m in Sources */,
 				22641E68199A6D3600A4E5EA /* BBSideMenuViewController.m in Sources */,
@@ -574,7 +596,9 @@
 				22CCEFD2199165D6005161B5 /* main.m in Sources */,
 				22DA5D2A19A062D900A61A85 /* BBBlockSlotParameterView.m in Sources */,
 				222299E1199673200016BE43 /* BBFeeling.m in Sources */,
+				228978B219A1AA1500B02C18 /* BBRepeatBlockView.m in Sources */,
 				22CCF00419917680005161B5 /* BBClosetViewController.m in Sources */,
+				228978A919A1A9D400B02C18 /* BBIfThenBlockView.m in Sources */,
 				22A2866D1992E9780087A311 /* BBFeelingCollectionCell.m in Sources */,
 				22CA6B81199D583E00CDD665 /* BBCollapsedLanguageBlockImageView.m in Sources */,
 				22DA5D4419A0F04600A61A85 /* BBLogicOperatorBlockView.m in Sources */,
