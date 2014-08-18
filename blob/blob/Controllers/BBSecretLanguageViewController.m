@@ -352,7 +352,7 @@ static NSInteger const kControlGroupIndexRow = 0;
             
             if (blockView.overlapped == NO && blockView.isOverlapped == YES) // if they were overlapping and now aren't
             {
-                if ([aBlockView.snappedBlockViews count] > 1)
+                if ([aBlockView.snappedBlockViews count] > 0)
                 {
                     [aBlockView.snappedBlockViews removeObject:blockView];
                     CGSize originalSize = [aBlockView originalSize];
