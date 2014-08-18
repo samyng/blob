@@ -350,11 +350,14 @@ static NSInteger const kControlGroupIndexRow = 0;
             
             if (blockView.overlapped == NO && blockView.isOverlapped == YES) // if they were overlapping and now aren't
             {
-                [aBlockView.snappedBlockViews removeObject:blockView];
-                CGSize originalSize = [aBlockView originalSize];
-                CGPoint origin = aBlockView.frame.origin;
-                CGRect originalFrame = CGRectMake(origin.x, origin.y, originalSize.width, originalSize.height);
-                aBlockView.frame = originalFrame;
+                if ([aBlockView.snappedBlockViews count] > 1)
+                {
+                    [aBlockView.snappedBlockViews removeObject:blockView];
+                    CGSize originalSize = [aBlockView originalSize];
+                    CGPoint origin = aBlockView.frame.origin;
+                    CGRect originalFrame = CGRectMake(origin.x, origin.y, originalSize.width, originalSize.height);
+                    aBlockView.frame = originalFrame;
+                }
             }
             else if (blockView.overlapped)
             {
