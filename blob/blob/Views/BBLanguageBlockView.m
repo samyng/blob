@@ -71,4 +71,9 @@
     // overridden by subclasses
 }
 
+- (CGSize)originalSize
+{
+    return CGSizeZero; // overridden by subclasses
+}
+
 @end

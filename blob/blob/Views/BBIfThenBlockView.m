@@ -34,4 +34,9 @@
     }
 }
 
+- (CGSize)originalSize
+{
+    return CGSizeMake(210.0f, 144.0f);
+}
+
 @end

@@ -350,10 +350,24 @@ static NSInteger const kControlGroupIndexRow = 0;
 {
     for (BBLanguageBlockView *aBlockView in self.blockViewsInUse)
     {
-        if (CGRectIntersectsRect(aBlockView.frame, blockView.frame) && aBlockView != blockView)
+        if (aBlockView != blockView)
         {
-            CGPoint touchPoint = [sender locationInView:aBlockView];
-            [aBlockView touchedByLanguageBlockView:blockView atTouchLocation:touchPoint];
+            blockView.overlapped = CGRectIntersectsRect(aBlockView.frame, blockView.frame) ? YES : NO;
+            
+            if (blockView.overlapped == NO && blockView.isOverlapped == YES)
+            {
+                [aBlockView.snappedBlockViews removeAllObjects];
+                CGSize originalSize = [aBlockView originalSize];
+                CGPoint origin = aBlockView.frame.origin;
+                CGRect originalFrame = CGRectMake(origin.x, origin.y, originalSize.width, originalSize.height);
+                aBlockView.frame = originalFrame;
+            }
+            else if (blockView.overlapped)
+            {
+                CGPoint touchPoint = [sender locationInView:aBlockView];
+                [aBlockView touchedByLanguageBlockView:blockView atTouchLocation:touchPoint];
+            }
+            blockView.isOverlapped = blockView.overlapped;
         }
     }
 }

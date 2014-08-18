@@ -25,9 +25,12 @@
 @interface BBLanguageBlockView : UIView
 @property (weak, nonatomic) id <LanguageBlockDelegate> delegate;
 @property (strong, nonatomic) BBLanguageBlock *languageBlock;
-@property (nonatomic) BOOL dragEnabled;
 @property (strong, nonatomic) NSMutableArray *snappedBlockViews;
+@property (nonatomic) BOOL dragEnabled;
+@property (nonatomic) BOOL overlapped;
+@property (nonatomic) BOOL isOverlapped;
 - (void)touchedByLanguageBlockView:(BBLanguageBlockView *)blockView
                    atTouchLocation:(CGPoint)touchLocation;
 - (void)moveCenterToPoint:(CGPoint)newCenterPoint;
+- (CGSize)originalSize;
 @end
