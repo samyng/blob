@@ -14,10 +14,16 @@
 
 - (void)panDidChange:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)blockView;
 - (void)panDidEnd:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)blockView;
+- (void)updateFrameForLanguageBlockView:(BBLanguageBlockView *)blockView
+                                    byX:(CGFloat)xDifference
+                                    byY:(CGFloat)yDifference;
 
 @end
 
 @interface BBLanguageBlockView : UIView
 @property (weak, nonatomic) id <LanguageBlockDelegate> delegate;
 @property (strong, nonatomic) BBLanguageBlock *languageBlock;
+- (void)touchedByLanguageBlockView:(BBLanguageBlockView *)blockView
+                   atTouchLocation:(CGPoint)touchLocation;
+- (void)resetUI;
 @end

@@ -44,4 +44,14 @@
     }
 }
 
+- (void)touchedByLanguageBlockView:(BBLanguageBlockView *)blockView atTouchLocation:(CGPoint)touchLocation
+{
+    // overridden by subclasses
+}
+
+- (void)resetUI
+{
+    // overridden by subclasses
+}
+
 @end
