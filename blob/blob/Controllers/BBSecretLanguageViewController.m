@@ -25,7 +25,6 @@ static NSInteger const kControlGroupIndexRow = 0;
 @property (weak, nonatomic) IBOutlet UIScrollView *blocksContainerView;
 @property (weak, nonatomic) IBOutlet UIPageControl *blocksContainerPageControl;
 @property (strong, nonatomic) NSMutableSet *blockViewsInUse;
-@property (nonatomic) BOOL testCanDrag;
 
 @property (strong, nonatomic) NSArray *groups;
 @property (strong, nonatomic) NSArray *accessories;
@@ -62,8 +61,6 @@ static NSInteger const kControlGroupIndexRow = 0;
     self.blocksContainerPageControl.hidesForSinglePage = YES;
     [self.groupsTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
     [self updateBlocksContainerViewForGroup:[self.groups objectAtIndex:kControlGroupIndexRow]];
-    
-    self.testCanDrag = YES;
 }
 
 - (void)doneButtonPressed:(UIBarButtonItem *)sender
@@ -320,12 +317,12 @@ static NSInteger const kControlGroupIndexRow = 0;
 
 - (void)panDidBegin:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)blockView
 {
-    self.testCanDrag = YES;
+    blockView.dragEnabled = YES;
 }
 
 - (void)panDidChange:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)blockView
 {
-    if (self.testCanDrag)
+    if (blockView.dragEnabled)
     {
         CGPoint touchLocation = [sender locationInView:self.view];
         blockView.center = touchLocation;
@@ -375,7 +372,7 @@ static NSInteger const kControlGroupIndexRow = 0;
     CGFloat newCenterYPoint = origin.y + parameterOrigin.y + (CGRectGetHeight(draggedBlockView.frame)/2);
     CGPoint newCenter = CGPointMake(newCenterXPoint, newCenterYPoint);
     draggedBlockView.center = newCenter;
-    self.testCanDrag = NO;
+    draggedBlockView.dragEnabled = NO;
 }
 
 #pragma mark - Collpased Language Block Delegate Methods
@@ -391,14 +388,13 @@ static NSInteger const kControlGroupIndexRow = 0;
     [self.view bringSubviewToFront:expandedBlockView];
     [UIView animateWithDuration:kViewAnimationDuration animations:^{
         expandedBlockView.alpha = kAlphaOpaque;
+        expandedBlockView.dragEnabled = YES;
     }];
-    
-    self.testCanDrag = YES;
 }
 
 - (void)panDidChange:(UIPanGestureRecognizer *)sender forCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)collapsedView
 {
-    if (self.testCanDrag)
+    if (collapsedView.expandedBlockView.dragEnabled)
     {
         CGPoint touchLocation = [sender locationInView:self.view];
         collapsedView.expandedBlockView.center = touchLocation;

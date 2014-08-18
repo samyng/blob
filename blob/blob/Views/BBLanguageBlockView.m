@@ -30,6 +30,7 @@
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panned:)];
     [self addGestureRecognizer:panGestureRecognizer];
     self.userInteractionEnabled = YES;
+    self.dragEnabled = YES;
 }
 
 - (void)panned:(UIPanGestureRecognizer *)sender

@@ -27,4 +27,5 @@
 @property (strong, nonatomic) BBLanguageBlock *languageBlock;
 - (void)touchedByLanguageBlockView:(BBLanguageBlockView *)blockView
                    atTouchLocation:(CGPoint)touchLocation;
+@property (nonatomic) BOOL dragEnabled;
 @end
