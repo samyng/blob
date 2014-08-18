@@ -34,7 +34,11 @@
 
 - (void)panned:(UIPanGestureRecognizer *)sender
 {
-    if (sender.state == UIGestureRecognizerStateChanged)
+    if (sender.state == UIGestureRecognizerStateBegan)
+    {
+        [self.delegate panDidBegin:sender forLanguageBlockView:self];
+    }
+    else if (sender.state == UIGestureRecognizerStateChanged)
     {
         [self.delegate panDidChange:sender forLanguageBlockView:self];
     }
@@ -45,11 +49,6 @@
 }
 
 - (void)touchedByLanguageBlockView:(BBLanguageBlockView *)blockView atTouchLocation:(CGPoint)touchLocation
-{
-    // overridden by subclasses
-}
-
-- (void)resetUI
 {
     // overridden by subclasses
 }

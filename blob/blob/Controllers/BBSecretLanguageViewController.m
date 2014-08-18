@@ -44,7 +44,7 @@ static NSInteger const kControlGroupIndexRow = 0;
     [self.groupsTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kGroupsTableCellIdentifier];
     [self populateLanguageGroups];
     
-//TODO - preload model data and test heavily before shipping final product -SY (8/8/14)
+    //TODO - preload model data and test heavily before shipping final product -SY (8/8/14)
     
 #if DEBUG
     if ([self.groups count] == 0)
@@ -53,7 +53,7 @@ static NSInteger const kControlGroupIndexRow = 0;
         [self populateLanguageGroups];
     }
 #endif
-
+    
     self.blockViewsInUse = [[NSMutableSet alloc] init];
     self.blocksContainerView.userInteractionEnabled = YES;
     self.blocksContainerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
@@ -79,9 +79,9 @@ static NSInteger const kControlGroupIndexRow = 0;
     if (context)
     {
         self.groupsFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:[self allGroupsFetchRequest]
-                                                                                      managedObjectContext:context
-                                                                                        sectionNameKeyPath:nil
-                                                                                                 cacheName:nil];
+                                                                                  managedObjectContext:context
+                                                                                    sectionNameKeyPath:nil
+                                                                                             cacheName:nil];
         [self.groupsFetchedResultsController setDelegate:self];
         [self.groupsFetchedResultsController performFetch:nil];
         self.groups = [self.groupsFetchedResultsController fetchedObjects];
@@ -162,7 +162,7 @@ static NSInteger const kControlGroupIndexRow = 0;
     {
         [self arrangeVariableBlocks:languageBlocks];
     }
-
+    
 }
 
 #pragma mark - Arrange Blocks
@@ -257,29 +257,29 @@ static NSInteger const kControlGroupIndexRow = 0;
 
 - (void)arrangeOperatorBlocks:(NSArray *)operatorBlocks
 {
-        const CGFloat xPadding = BLOB_PADDING_25PX;
-        const CGFloat yPadding = BLOB_PADDING_20PX;
-        CGFloat xOrigin = BLOB_PADDING_20PX;
-        CGFloat yOrigin = BLOB_PADDING_20PX;
-        for (BBLanguageBlock *languageBlock in operatorBlocks)
+    const CGFloat xPadding = BLOB_PADDING_25PX;
+    const CGFloat yPadding = BLOB_PADDING_20PX;
+    CGFloat xOrigin = BLOB_PADDING_20PX;
+    CGFloat yOrigin = BLOB_PADDING_20PX;
+    for (BBLanguageBlock *languageBlock in operatorBlocks)
+    {
+        NSString *imageName = [NSString stringWithFormat:kCollapsedImageStringFormat,languageBlock.name];
+        BBCollapsedLanguageBlockImageView *blockView = [[BBCollapsedLanguageBlockImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
+        CGSize blockViewSize = blockView.frame.size;
+        
+        CGFloat calculatedEndingX = xOrigin + blockViewSize.width + xPadding;
+        if (calculatedEndingX >= self.blocksContainerView.frame.size.width)
         {
-            NSString *imageName = [NSString stringWithFormat:kCollapsedImageStringFormat,languageBlock.name];
-            BBCollapsedLanguageBlockImageView *blockView = [[BBCollapsedLanguageBlockImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
-            CGSize blockViewSize = blockView.frame.size;
-            
-            CGFloat calculatedEndingX = xOrigin + blockViewSize.width + xPadding;
-            if (calculatedEndingX >= self.blocksContainerView.frame.size.width)
-            {
-                xOrigin = BLOB_PADDING_20PX;
-                yOrigin += (blockViewSize.height + yPadding);
-            }
-            
-            blockView.frame = CGRectMake(xOrigin, yOrigin, blockViewSize.width, blockViewSize.height);
-            [blockView configureWithLanguageBlock:languageBlock];
-            blockView.delegate = self;
-            [self.blocksContainerView addSubview:blockView];
-            xOrigin += (blockViewSize.width + xPadding);
+            xOrigin = BLOB_PADDING_20PX;
+            yOrigin += (blockViewSize.height + yPadding);
         }
+        
+        blockView.frame = CGRectMake(xOrigin, yOrigin, blockViewSize.width, blockViewSize.height);
+        [blockView configureWithLanguageBlock:languageBlock];
+        blockView.delegate = self;
+        [self.blocksContainerView addSubview:blockView];
+        xOrigin += (blockViewSize.width + xPadding);
+    }
 }
 
 - (void)arrangeVariableBlocks:(NSArray *)variableBlocks
@@ -318,27 +318,20 @@ static NSInteger const kControlGroupIndexRow = 0;
 
 #pragma mark - Expanded Language Block Delegate Methods
 
+- (void)panDidBegin:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)blockView
+{
+    self.testCanDrag = YES;
+}
+
 - (void)panDidChange:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)blockView
 {
     if (self.testCanDrag)
     {
-    CGPoint touchLocation = [sender locationInView:self.view];
-    blockView.center = touchLocation;
-    blockView.alpha = CGRectIntersectsRect(self.blocksContainerView.frame, blockView.frame) ? kAlphaHalf : kAlphaOpaque;
-    [self.view bringSubviewToFront:blockView];
-    [self checkIntersectionFromSender:sender forLanguageBlockView:blockView];
-    }
-}
-
-- (void)checkIntersectionFromSender:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)blockView
-{
-    for (BBLanguageBlockView *aBlockView in self.blockViewsInUse)
-    {
-        if (CGRectIntersectsRect(aBlockView.frame, blockView.frame) && aBlockView != blockView)
-        {
-            CGPoint touchPoint = [sender locationInView:aBlockView];
-            [aBlockView touchedByLanguageBlockView:blockView atTouchLocation:touchPoint];
-        }
+        CGPoint touchLocation = [sender locationInView:self.view];
+        blockView.center = touchLocation;
+        blockView.alpha = CGRectIntersectsRect(self.blocksContainerView.frame, blockView.frame) ? kAlphaHalf : kAlphaOpaque;
+        [self.view bringSubviewToFront:blockView];
+        [self checkIntersectionFromSender:sender forLanguageBlockView:blockView];
     }
 }
 
@@ -351,6 +344,18 @@ static NSInteger const kControlGroupIndexRow = 0;
         }];
         [blockView removeFromSuperview];
         blockView = nil;
+    }
+}
+
+- (void)checkIntersectionFromSender:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)blockView
+{
+    for (BBLanguageBlockView *aBlockView in self.blockViewsInUse)
+    {
+        if (CGRectIntersectsRect(aBlockView.frame, blockView.frame) && aBlockView != blockView)
+        {
+            CGPoint touchPoint = [sender locationInView:aBlockView];
+            [aBlockView touchedByLanguageBlockView:blockView atTouchLocation:touchPoint];
+        }
     }
 }
 
@@ -392,14 +397,15 @@ static NSInteger const kControlGroupIndexRow = 0;
 }
 
 - (void)panDidChange:(UIPanGestureRecognizer *)sender forCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)collapsedView
-{if (self.testCanDrag)
 {
-    CGPoint touchLocation = [sender locationInView:self.view];
-    collapsedView.expandedBlockView.center = touchLocation;
-    collapsedView.expandedBlockView.alpha = CGRectIntersectsRect(self.blocksContainerView.frame, collapsedView.expandedBlockView.frame) ? kAlphaHalf : kAlphaOpaque;
-    [self.view bringSubviewToFront:collapsedView.expandedBlockView];
-    [self checkIntersectionFromSender:sender forLanguageBlockView:collapsedView.expandedBlockView];
-}
+    if (self.testCanDrag)
+    {
+        CGPoint touchLocation = [sender locationInView:self.view];
+        collapsedView.expandedBlockView.center = touchLocation;
+        collapsedView.expandedBlockView.alpha = CGRectIntersectsRect(self.blocksContainerView.frame, collapsedView.expandedBlockView.frame) ? kAlphaHalf : kAlphaOpaque;
+        [self.view bringSubviewToFront:collapsedView.expandedBlockView];
+        [self checkIntersectionFromSender:sender forLanguageBlockView:collapsedView.expandedBlockView];
+    }
 }
 
 - (void)panDidEnd:(UIPanGestureRecognizer *)sender forCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)collapsedView
@@ -460,9 +466,9 @@ static NSInteger const kControlGroupIndexRow = 0;
     BBLanguageBlock *waitBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
     waitBlock.name = WAIT_BLOCK_NAME;
     
-//    BBLanguageBlock *switchStateToBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
-//    switchStateToBlock.name = @"switchStateTo";
-
+    //    BBLanguageBlock *switchStateToBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+    //    switchStateToBlock.name = @"switchStateTo";
+    
     BBLanguageBlock *greaterThanBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
     greaterThanBlock.name = @"greaterThan";
     greaterThanBlock.abbreviation = @">";
@@ -516,7 +522,7 @@ static NSInteger const kControlGroupIndexRow = 0;
     }
     
     BBLanguageGroup *control = [[BBLanguageGroup alloc] initWithEntity:groupEntityDescription
-                                         insertIntoManagedObjectContext:context];
+                                        insertIntoManagedObjectContext:context];
     control.name = CONTROL_GROUP;
     control.blocks = [NSSet setWithArray:@[ifThenBlock, ifThenElseBlock, repeatBlock, waitBlock]];
     

@@ -12,6 +12,7 @@
 
 @protocol LanguageBlockDelegate <NSObject>
 
+- (void)panDidBegin:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)blockView;
 - (void)panDidChange:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)blockView;
 - (void)panDidEnd:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)blockView;
 - (void)updateFrameForTouchedLanguageBlockView:(BBLanguageBlockView *)touchedBlockView andDraggedLanguageBlockView:(BBLanguageBlockView *)draggedBlockView
@@ -26,5 +27,4 @@
 @property (strong, nonatomic) BBLanguageBlock *languageBlock;
 - (void)touchedByLanguageBlockView:(BBLanguageBlockView *)blockView
                    atTouchLocation:(CGPoint)touchLocation;
-- (void)resetUI;
 @end

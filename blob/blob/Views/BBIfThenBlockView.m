@@ -38,9 +38,4 @@
     }
 }
 
-- (void)resetUI
-{
-
-}
-
 @end
