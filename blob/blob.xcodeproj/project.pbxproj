@@ -23,6 +23,7 @@
 		228978AC19A1A9ED00B02C18 /* BBIfThenElseBlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 228978AB19A1A9ED00B02C18 /* BBIfThenElseBlockView.m */; };
 		228978AF19A1AA0300B02C18 /* BBWaitBlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 228978AE19A1AA0300B02C18 /* BBWaitBlockView.m */; };
 		228978B219A1AA1500B02C18 /* BBRepeatBlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 228978B119A1AA1500B02C18 /* BBRepeatBlockView.m */; };
+		229C924B19A29050009C1B9E /* BBParameterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 229C924A19A29050009C1B9E /* BBParameterView.m */; };
 		22A2866D1992E9780087A311 /* BBFeelingCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A2866C1992E9780087A311 /* BBFeelingCollectionCell.m */; };
 		22A2866F1992EA5C0087A311 /* BBFeelingCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A2866E1992EA5C0087A311 /* BBFeelingCollectionCell.xib */; };
 		22B313A319958AE60006AE57 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B313A219958AE60006AE57 /* CoreData.framework */; };
@@ -112,6 +113,8 @@
 		228978AE19A1AA0300B02C18 /* BBWaitBlockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBWaitBlockView.m; sourceTree = "<group>"; };
 		228978B019A1AA1500B02C18 /* BBRepeatBlockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBRepeatBlockView.h; sourceTree = "<group>"; };
 		228978B119A1AA1500B02C18 /* BBRepeatBlockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBRepeatBlockView.m; sourceTree = "<group>"; };
+		229C924919A29050009C1B9E /* BBParameterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBParameterView.h; sourceTree = "<group>"; };
+		229C924A19A29050009C1B9E /* BBParameterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBParameterView.m; sourceTree = "<group>"; };
 		22A2866B1992E9780087A311 /* BBFeelingCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBFeelingCollectionCell.h; path = Cells/BBFeelingCollectionCell.h; sourceTree = "<group>"; };
 		22A2866C1992E9780087A311 /* BBFeelingCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBFeelingCollectionCell.m; path = Cells/BBFeelingCollectionCell.m; sourceTree = "<group>"; };
 		22A2866E1992EA5C0087A311 /* BBFeelingCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBFeelingCollectionCell.xib; sourceTree = "<group>"; };
@@ -406,6 +409,8 @@
 		22DA5D2719A050B200A61A85 /* ParameterViews */ = {
 			isa = PBXGroup;
 			children = (
+				229C924919A29050009C1B9E /* BBParameterView.h */,
+				229C924A19A29050009C1B9E /* BBParameterView.m */,
 				22DA5D2819A062D900A61A85 /* BBBlockSlotParameterView.h */,
 				22DA5D2919A062D900A61A85 /* BBBlockSlotParameterView.m */,
 				22DA5D2B19A0687C00A61A85 /* BBBlockStackParameterView.h */,
@@ -589,6 +594,7 @@
 				22CCEFD6199165D6005161B5 /* BBAppDelegate.m in Sources */,
 				228978AC19A1A9ED00B02C18 /* BBIfThenElseBlockView.m in Sources */,
 				222299F4199689AF0016BE43 /* BBLanguageBlockCollectionCell.m in Sources */,
+				229C924B19A29050009C1B9E /* BBParameterView.m in Sources */,
 				222299E7199673200016BE43 /* BBAccessory.m in Sources */,
 				22641E68199A6D3600A4E5EA /* BBSideMenuViewController.m in Sources */,
 				22CCEFFA199166A2005161B5 /* BBRootViewController.m in Sources */,

@@ -6,9 +6,7 @@
 //  Copyright (c) 2014 Crazy Machine. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-@class BBLanguageBlockView;
+#import "BBParameterView.h"
 
-@interface BBQuantityParameterView : UIView
-- (BOOL)acceptsBlockView:(BBLanguageBlockView *)blockView;
+@interface BBQuantityParameterView : BBParameterView
 @end
