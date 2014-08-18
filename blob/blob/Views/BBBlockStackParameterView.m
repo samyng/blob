@@ -29,12 +29,12 @@
 
 - (void)setup
 {
-    NSLog(@"setup stack view");
+    self.isVacant = YES;
 }
 
-+ (BOOL)acceptsBlockView:(BBLanguageBlockView *)blockView
+- (BOOL)acceptsBlockView:(BBLanguageBlockView *)blockView
 {
-    return [blockView.languageBlock isReactionBlock] ? YES : NO;
+    return [blockView.languageBlock isReactionBlock] && self.isVacant ? YES : NO;
 }
 
 @end

@@ -30,15 +30,17 @@
 - (void)setup
 {
     self.layer.cornerRadius = BLOB_BLOCK_SLOT_CORNER_RADIUS;
+    self.isVacant = YES;
 }
 
-+ (BOOL)acceptsBlockView:(BBLanguageBlockView *)blockView
+- (BOOL)acceptsBlockView:(BBLanguageBlockView *)blockView
 {
     return ([blockView.languageBlock isAccessoryBlock] ||
             [blockView.languageBlock isReactionBlock] ||
             [blockView.languageBlock isLogicOperatorBlock] ||
             [blockView.languageBlock isNotBlock] ||
-            [blockView.languageBlock isComparisonOperatorBlock]) ? YES : NO;
+            [blockView.languageBlock isComparisonOperatorBlock]) &&
+            self.isVacant ? YES : NO;
 }
 
 @end

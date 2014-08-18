@@ -10,5 +10,6 @@
 @class BBLanguageBlockView;
 
 @interface BBBlockStackParameterView : UIView
-+ (BOOL)acceptsBlockView:(BBLanguageBlockView *)blockView;
+@property (nonatomic) BOOL isVacant;
+- (BOOL)acceptsBlockView:(BBLanguageBlockView *)blockView;
 @end
