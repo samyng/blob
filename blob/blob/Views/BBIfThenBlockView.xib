@@ -33,7 +33,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="then" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DE1-lH-AtC">
-                    <rect key="frame" x="157" y="16" width="44" height="22"/>
+                    <rect key="frame" x="144" y="16" width="44" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="22" id="IHd-Hi-k07"/>
@@ -44,7 +44,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2N0-fq-56H" userLabel="Block Slot" customClass="BBBlockSlotParameterView">
-                    <rect key="frame" x="64" y="7" width="85" height="40"/>
+                    <rect key="frame" x="64" y="7" width="72" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
@@ -91,16 +91,16 @@
                 <constraint firstItem="aGP-Cl-pYi" firstAttribute="top" secondItem="2N0-fq-56H" secondAttribute="bottom" constant="7" id="GhS-lc-VGW"/>
                 <constraint firstItem="2N0-fq-56H" firstAttribute="leading" secondItem="h1T-gV-f2w" secondAttribute="trailing" constant="9" id="JHH-4b-SDk"/>
                 <constraint firstItem="2N0-fq-56H" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="7" id="L1Y-3r-RRx"/>
-                <constraint firstAttribute="trailing" secondItem="2N0-fq-56H" secondAttribute="trailing" constant="61" id="Msl-mK-izA"/>
                 <constraint firstItem="Buf-Wa-d73" firstAttribute="top" secondItem="zId-3f-n48" secondAttribute="bottom" constant="7" id="RoR-WC-ipA"/>
                 <constraint firstItem="d2n-rN-2cv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="UGm-nB-Lix"/>
                 <constraint firstItem="Buf-Wa-d73" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="Uia-bB-JR9"/>
                 <constraint firstItem="zId-3f-n48" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="VxK-YQ-sAQ"/>
                 <constraint firstItem="3hM-Du-k20" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="ZpS-wK-Hed"/>
+                <constraint firstItem="DE1-lH-AtC" firstAttribute="leading" secondItem="2N0-fq-56H" secondAttribute="trailing" constant="8" id="akk-eP-vnr"/>
                 <constraint firstAttribute="bottom" secondItem="aGP-Cl-pYi" secondAttribute="bottom" constant="35" id="d0Z-Pt-ujx"/>
                 <constraint firstAttribute="trailing" secondItem="aGP-Cl-pYi" secondAttribute="trailing" id="hfb-UM-3xe"/>
                 <constraint firstItem="2N0-fq-56H" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="64" id="skb-pI-HsQ"/>
-                <constraint firstAttribute="trailing" secondItem="DE1-lH-AtC" secondAttribute="trailing" constant="9" id="uSb-gE-ZTC"/>
+                <constraint firstAttribute="trailing" secondItem="DE1-lH-AtC" secondAttribute="trailing" constant="22" id="uSb-gE-ZTC"/>
                 <constraint firstItem="DE1-lH-AtC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="uba-GL-eV8"/>
                 <constraint firstItem="3hM-Du-k20" firstAttribute="top" secondItem="Buf-Wa-d73" secondAttribute="bottom" constant="6" id="uny-I5-SzH"/>
                 <constraint firstItem="h1T-gV-f2w" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="wcR-D8-XXI"/>

@@ -25,6 +25,7 @@ static NSInteger const kControlGroupIndexRow = 0;
 @property (weak, nonatomic) IBOutlet UIScrollView *blocksContainerView;
 @property (weak, nonatomic) IBOutlet UIPageControl *blocksContainerPageControl;
 @property (strong, nonatomic) NSMutableSet *blockViewsInUse;
+@property (nonatomic) BOOL testCanDrag;
 
 @property (strong, nonatomic) NSArray *groups;
 @property (strong, nonatomic) NSArray *accessories;
@@ -61,6 +62,8 @@ static NSInteger const kControlGroupIndexRow = 0;
     self.blocksContainerPageControl.hidesForSinglePage = YES;
     [self.groupsTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
     [self updateBlocksContainerViewForGroup:[self.groups objectAtIndex:kControlGroupIndexRow]];
+    
+    self.testCanDrag = YES;
 }
 
 - (void)doneButtonPressed:(UIBarButtonItem *)sender
@@ -317,11 +320,14 @@ static NSInteger const kControlGroupIndexRow = 0;
 
 - (void)panDidChange:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)blockView
 {
+    if (self.testCanDrag)
+    {
     CGPoint touchLocation = [sender locationInView:self.view];
     blockView.center = touchLocation;
     blockView.alpha = CGRectIntersectsRect(self.blocksContainerView.frame, blockView.frame) ? kAlphaHalf : kAlphaOpaque;
     [self.view bringSubviewToFront:blockView];
     [self checkIntersectionFromSender:sender forLanguageBlockView:blockView];
+    }
 }
 
 - (void)checkIntersectionFromSender:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)blockView
@@ -348,13 +354,23 @@ static NSInteger const kControlGroupIndexRow = 0;
     }
 }
 
-- (void)updateFrameForLanguageBlockView:(BBLanguageBlockView *)blockView byX:(CGFloat)xDifference byY:(CGFloat)yDifference
+- (void)updateFrameForTouchedLanguageBlockView:(BBLanguageBlockView *)touchedBlockView
+                   andDraggedLanguageBlockView:(BBLanguageBlockView *)draggedBlockView
+                                           byX:(CGFloat)xDifference
+                                           byY:(CGFloat)yDifference
+                       withParameterViewOrigin:(CGPoint)parameterOrigin
 {
-    CGPoint origin = blockView.frame.origin;
-    CGFloat newWidth = CGRectGetWidth(blockView.frame) + xDifference;
-    CGFloat newHeight = CGRectGetHeight(blockView.frame) + yDifference;
+    CGPoint origin = touchedBlockView.frame.origin;
+    CGFloat newWidth = CGRectGetWidth(touchedBlockView.frame) + xDifference;
+    CGFloat newHeight = CGRectGetHeight(touchedBlockView.frame) + yDifference;
     CGRect newFrame = CGRectMake(origin.x, origin.y, newWidth, newHeight);
-    blockView.frame = newFrame;
+    touchedBlockView.frame = newFrame;
+    
+    CGFloat newCenterXPoint = origin.x + parameterOrigin.x + (CGRectGetWidth(draggedBlockView.frame)/2);
+    CGFloat newCenterYPoint = origin.y + parameterOrigin.y + (CGRectGetHeight(draggedBlockView.frame)/2);
+    CGPoint newCenter = CGPointMake(newCenterXPoint, newCenterYPoint);
+    draggedBlockView.center = newCenter;
+    self.testCanDrag = NO;
 }
 
 #pragma mark - Collpased Language Block Delegate Methods
@@ -371,15 +387,19 @@ static NSInteger const kControlGroupIndexRow = 0;
     [UIView animateWithDuration:kViewAnimationDuration animations:^{
         expandedBlockView.alpha = kAlphaOpaque;
     }];
+    
+    self.testCanDrag = YES;
 }
 
 - (void)panDidChange:(UIPanGestureRecognizer *)sender forCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)collapsedView
+{if (self.testCanDrag)
 {
     CGPoint touchLocation = [sender locationInView:self.view];
     collapsedView.expandedBlockView.center = touchLocation;
     collapsedView.expandedBlockView.alpha = CGRectIntersectsRect(self.blocksContainerView.frame, collapsedView.expandedBlockView.frame) ? kAlphaHalf : kAlphaOpaque;
     [self.view bringSubviewToFront:collapsedView.expandedBlockView];
     [self checkIntersectionFromSender:sender forLanguageBlockView:collapsedView.expandedBlockView];
+}
 }
 
 - (void)panDidEnd:(UIPanGestureRecognizer *)sender forCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)collapsedView

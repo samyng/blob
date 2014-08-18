@@ -24,11 +24,12 @@
         blockView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         CGFloat xDifference = CGRectGetWidth(blockView.frame) - CGRectGetWidth(self.blockSlot.frame);
         CGFloat yDifference = CGRectGetHeight(blockView.frame) - CGRectGetHeight(self.blockSlot.frame);
-        NSLog(@"before frame: %@", NSStringFromCGRect(self.blockSlot.frame));
-        [self.delegate updateFrameForLanguageBlockView:self byX:xDifference byY:yDifference];
-        NSLog(@"after frame: %@", NSStringFromCGRect(self.blockSlot.frame));
-        [blockView removeFromSuperview];
-        [self addSubview:blockView];
+        CGPoint blockSlotOrigin = self.blockSlot.frame.origin;
+        [self.delegate updateFrameForTouchedLanguageBlockView:self
+                                  andDraggedLanguageBlockView:blockView
+                                                          byX:xDifference
+                                                          byY:yDifference
+                                      withParameterViewOrigin:blockSlotOrigin];
         self.blockSlot.isVacant = NO;
     }
     else if (CGRectContainsPoint(self.blockStack.frame, touchLocation) && [self.blockStack acceptsBlockView:blockView])
