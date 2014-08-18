@@ -9,6 +9,7 @@
 #import "BBIfThenBlockView.h"
 #import "BBBlockSlotParameterView.h"
 #import "BBBlockStackParameterView.h"
+#import "BBReactionBlockView.h"
 
 @interface BBIfThenBlockView ()
 @property (weak, nonatomic) IBOutlet BBBlockSlotParameterView *blockSlot;
@@ -30,6 +31,20 @@
                                                           byX:xDifference
                                                           byY:yDifference
                                       withParameterViewOrigin:blockSlotOrigin];
+        [self.snappedBlockViews addObject:blockView];
+    }
+    // will only accept one block for now hack until find more scalable way to stack blocks - SY
+    else if (CGRectContainsPoint(self.blockStack.frame, touchLocation) && [self.blockStack acceptsBlockView:blockView])
+    {
+        blockView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        CGFloat xDifference = 0.0f;
+        CGFloat yDifference = 0.0f;
+        CGPoint blockStackOrigin = self.blockStack.frame.origin;
+        [self.delegate updateFrameForTouchedLanguageBlockView:self
+                                  andDraggedLanguageBlockView:blockView
+                                                          byX:xDifference
+                                                          byY:yDifference
+                                      withParameterViewOrigin:blockStackOrigin];
         [self.snappedBlockViews addObject:blockView];
     }
 }
