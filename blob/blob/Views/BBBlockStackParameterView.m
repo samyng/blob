@@ -7,6 +7,8 @@
 //
 
 #import "BBBlockStackParameterView.h"
+#import "BBLanguageBlockView.h"
+#import "BBLanguageBlock+Configure.h"
 
 @implementation BBBlockStackParameterView
 
@@ -28,6 +30,11 @@
 - (void)setup
 {
     NSLog(@"setup stack view");
+}
+
++ (BOOL)acceptsBlockView:(BBLanguageBlockView *)blockView
+{
+    return [blockView.languageBlock isReactionBlock] ? YES : NO;
 }
 
 @end

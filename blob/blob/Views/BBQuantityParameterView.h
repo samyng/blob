@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+@class BBLanguageBlockView;
 
 @interface BBQuantityParameterView : UIView
-
++ (BOOL)acceptsBlockView:(BBLanguageBlockView *)blockView;
 @end

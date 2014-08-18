@@ -7,6 +7,8 @@
 //
 
 #import "BBBlockSlotParameterView.h"
+#import "BBLanguageBlockView.h"
+#import "BBLanguageBlock+Configure.h"
 
 @implementation BBBlockSlotParameterView
 
@@ -28,6 +30,15 @@
 - (void)setup
 {
     self.layer.cornerRadius = BLOB_BLOCK_SLOT_CORNER_RADIUS;
+}
+
++ (BOOL)acceptsBlockView:(BBLanguageBlockView *)blockView
+{
+    return ([blockView.languageBlock isAccessoryBlock] ||
+            [blockView.languageBlock isReactionBlock] ||
+            [blockView.languageBlock isLogicOperatorBlock] ||
+            [blockView.languageBlock isNotBlock] ||
+            [blockView.languageBlock isComparisonOperatorBlock]) ? YES : NO;
 }
 
 @end
