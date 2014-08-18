@@ -12,29 +12,9 @@
 
 @implementation BBBlockStackParameterView
 
-- (void)awakeFromNib
-{
-    [super awakeFromNib];
-    [self setup];
-}
-
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self setup];
-    }
-    return self;
-}
-
-- (void)setup
-{
-    self.isVacant = YES;
-}
-
 - (BOOL)acceptsBlockView:(BBLanguageBlockView *)blockView
 {
-    return [blockView.languageBlock isReactionBlock] && self.isVacant ? YES : NO;
+    return [blockView.languageBlock isReactionBlock] ? YES : NO;
 }
 
 @end

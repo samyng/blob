@@ -10,6 +10,5 @@
 @class BBLanguageBlockView;
 
 @interface BBBlockSlotParameterView : UIView
-@property (nonatomic) BOOL isVacant;
 - (BOOL)acceptsBlockView:(BBLanguageBlockView *)blockView;
 @end

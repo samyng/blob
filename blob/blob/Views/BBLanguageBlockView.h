@@ -25,7 +25,9 @@
 @interface BBLanguageBlockView : UIView
 @property (weak, nonatomic) id <LanguageBlockDelegate> delegate;
 @property (strong, nonatomic) BBLanguageBlock *languageBlock;
+@property (nonatomic) BOOL dragEnabled;
+@property (strong, nonatomic) NSMutableArray *snappedBlockViews;
 - (void)touchedByLanguageBlockView:(BBLanguageBlockView *)blockView
                    atTouchLocation:(CGPoint)touchLocation;
-@property (nonatomic) BOOL dragEnabled;
+- (void)moveCenterToPoint:(CGPoint)newCenterPoint;
 @end

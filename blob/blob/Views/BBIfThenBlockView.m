@@ -30,11 +30,7 @@
                                                           byX:xDifference
                                                           byY:yDifference
                                       withParameterViewOrigin:blockSlotOrigin];
-        self.blockSlot.isVacant = NO;
-    }
-    else if (CGRectContainsPoint(self.blockStack.frame, touchLocation) && [self.blockStack acceptsBlockView:blockView])
-    {
-        self.blockStack.isVacant = NO;
+        [self.snappedBlockViews addObject:blockView];
     }
 }
 

@@ -324,11 +324,13 @@ static NSInteger const kControlGroupIndexRow = 0;
 {
     if (blockView.dragEnabled)
     {
-        CGPoint touchLocation = [sender locationInView:self.view];
-        blockView.center = touchLocation;
         blockView.alpha = CGRectIntersectsRect(self.blocksContainerView.frame, blockView.frame) ? kAlphaHalf : kAlphaOpaque;
         [self.view bringSubviewToFront:blockView];
+        
         [self checkIntersectionFromSender:sender forLanguageBlockView:blockView];
+        
+        CGPoint touchLocation = [sender locationInView:self.view];
+        [blockView moveCenterToPoint:touchLocation];
     }
 }
 

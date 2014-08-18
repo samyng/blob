@@ -10,6 +10,5 @@
 @class BBLanguageBlockView;
 
 @interface BBQuantityParameterView : UIView
-@property (nonatomic) BOOL isVacant;
 - (BOOL)acceptsBlockView:(BBLanguageBlockView *)blockView;
 @end

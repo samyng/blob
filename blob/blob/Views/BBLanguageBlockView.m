@@ -29,6 +29,7 @@
 {
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panned:)];
     [self addGestureRecognizer:panGestureRecognizer];
+    self.snappedBlockViews = [[NSMutableArray alloc] init];
     self.userInteractionEnabled = YES;
     self.dragEnabled = YES;
 }
@@ -46,6 +47,22 @@
     else if (sender.state == UIGestureRecognizerStateEnded)
     {
         [self.delegate panDidEnd:sender forLanguageBlockView:self];
+    }
+}
+
+- (void)moveCenterToPoint:(CGPoint)newCenterPoint
+{
+    CGPoint oldCenterPoint = self.center;
+    CGFloat xDifference = newCenterPoint.x - oldCenterPoint.x;
+    CGFloat yDifference = newCenterPoint.y - oldCenterPoint.y;
+    self.center = newCenterPoint;
+    
+    for (BBLanguageBlockView *blockView in self.snappedBlockViews)
+    {
+        CGFloat xPosition = blockView.center.x + xDifference;
+        CGFloat yPosition = blockView.center.y + yDifference;
+        blockView.center = CGPointMake(xPosition, yPosition);
+        [self.superview bringSubviewToFront:blockView];
     }
 }
 

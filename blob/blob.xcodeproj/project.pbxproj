@@ -398,7 +398,7 @@
 		22DA5D16199FED9500A61A85 /* BlockViews */ = {
 			isa = PBXGroup;
 			children = (
-				22DA5D3419A0727600A61A85 /* Xibs */,
+				22DA5D3419A0727600A61A85 /* Blocks */,
 			);
 			name = BlockViews;
 			sourceTree = "<group>";
@@ -416,7 +416,7 @@
 			name = ParameterViews;
 			sourceTree = "<group>";
 		};
-		22DA5D3419A0727600A61A85 /* Xibs */ = {
+		22DA5D3419A0727600A61A85 /* Blocks */ = {
 			isa = PBXGroup;
 			children = (
 				228978A719A1A9D400B02C18 /* BBIfThenBlockView.h */,
@@ -447,7 +447,7 @@
 				22DA5D4019A0860400A61A85 /* BBReactionBlockView.m */,
 				22DA5D25199FEFD100A61A85 /* BBReactionBlockView.xib */,
 			);
-			name = Xibs;
+			name = Blocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
