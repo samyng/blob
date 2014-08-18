@@ -23,7 +23,6 @@ static NSInteger const kControlGroupIndexRow = 0;
 @interface BBSecretLanguageViewController () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, NSFetchedResultsControllerDelegate, CollapsedLanguageBlockDelegate, LanguageBlockDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *groupsTableView;
 @property (weak, nonatomic) IBOutlet UIScrollView *blocksContainerView;
-@property (weak, nonatomic) IBOutlet UIPageControl *blocksContainerPageControl;
 @property (strong, nonatomic) NSMutableSet *blockViewsInUse;
 
 @property (strong, nonatomic) NSArray *groups;
@@ -58,7 +57,6 @@ static NSInteger const kControlGroupIndexRow = 0;
     self.blocksContainerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     self.blocksContainerView.scrollEnabled = YES;
     self.blocksContainerView.pagingEnabled = YES;
-    self.blocksContainerPageControl.hidesForSinglePage = YES;
     [self.groupsTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
     [self updateBlocksContainerViewForGroup:[self.groups objectAtIndex:kControlGroupIndexRow]];
 }
@@ -133,9 +131,6 @@ static NSInteger const kControlGroupIndexRow = 0;
 {
     NSString *groupName = group.name;
     self.blocksContainerView.backgroundColor = [BBConstants backgroundColorForCellWithLanguageGroupName:groupName];
-    self.blocksContainerPageControl.currentPageIndicatorTintColor = [BBConstants colorForCellWithLanguageGroupName:groupName];
-    self.blocksContainerPageControl.pageIndicatorTintColor = [BBConstants textColorForCellWithLanguageGroupName:groupName];
-    self.blocksContainerPageControl.numberOfPages = 1;
     
     [self resetBlocksContainerView];
     NSArray *languageBlocks = [group.blocks allObjects];
@@ -164,14 +159,6 @@ static NSInteger const kControlGroupIndexRow = 0;
 
 #pragma mark - Arrange Blocks
 
-- (void)updateNumberOfScrollViewPages
-{
-    if (self.blocksContainerView.contentSize.width > CGRectGetWidth(self.blocksContainerView.frame))
-    {
-        self.blocksContainerPageControl.numberOfPages = ceil(self.blocksContainerView.contentSize.width / CGRectGetWidth(self.blocksContainerView.frame));
-    }
-}
-
 - (void)arrangeControlBlocks:(NSArray *)controlBlocks
 {
     const CGFloat xPadding = BLOB_PADDING_30PX;
@@ -189,7 +176,6 @@ static NSInteger const kControlGroupIndexRow = 0;
         [self.blocksContainerView addSubview:blockView];
     }
     self.blocksContainerView.contentSize = CGSizeMake(xOrigin, CGRectGetHeight(self.blocksContainerView.frame));
-    [self updateNumberOfScrollViewPages];
 }
 
 - (void)arrangeAccessoryBlocks:(NSArray *)accessoryBlocks
