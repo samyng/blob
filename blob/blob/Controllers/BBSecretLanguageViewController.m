@@ -354,7 +354,7 @@ static NSInteger const kControlGroupIndexRow = 0;
         {
             blockView.overlapped = CGRectIntersectsRect(aBlockView.frame, blockView.frame) ? YES : NO;
             
-            if (blockView.overlapped == NO && blockView.isOverlapped == YES)
+            if (blockView.overlapped == NO && blockView.isOverlapped == YES) // if they were overlapping and now aren't
             {
                 [aBlockView.snappedBlockViews removeAllObjects];
                 CGSize originalSize = [aBlockView originalSize];
