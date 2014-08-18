@@ -7,25 +7,66 @@
 //
 
 #import "BBIfThenElseBlockView.h"
+#import "BBBlockSlotParameterView.h"
+#import "BBBlockStackParameterView.h"
+
+@interface BBIfThenElseBlockView ()
+@property (weak, nonatomic) IBOutlet BBBlockSlotParameterView *blockSlot;
+@property (weak, nonatomic) IBOutlet BBBlockStackParameterView *topBlockStack;
+@property (weak, nonatomic) IBOutlet BBBlockStackParameterView *bottomBlockStack;
+
+@end
 
 @implementation BBIfThenElseBlockView
 
-- (id)initWithFrame:(CGRect)frame
+- (void)touchedByLanguageBlockView:(BBLanguageBlockView *)blockView atTouchLocation:(CGPoint)touchLocation
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
+    if (CGRectContainsPoint(self.blockSlot.frame, touchLocation) && [self.blockSlot acceptsBlockView:blockView])
+    {
+        blockView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        CGFloat xDifference = CGRectGetWidth(blockView.frame) - CGRectGetWidth(self.blockSlot.frame);
+        CGFloat yDifference = CGRectGetHeight(blockView.frame) - CGRectGetHeight(self.blockSlot.frame);
+        CGPoint blockSlotOrigin = self.blockSlot.frame.origin;
+        [self.delegate updateFrameForTouchedLanguageBlockView:self
+                                  andDraggedLanguageBlockView:blockView
+                                                          byX:xDifference
+                                                          byY:yDifference
+                                      withParameterViewOrigin:blockSlotOrigin];
+        [self.snappedBlockViews addObject:blockView];
     }
-    return self;
+    // hack - will only accept one block for now hack until find more scalable way to stack blocks - SY
+    else if (CGRectContainsPoint(self.topBlockStack.frame, touchLocation) && [self.topBlockStack acceptsBlockView:blockView])
+    {
+        blockView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        CGFloat xDifference = 0.0f;
+        CGFloat yDifference = 0.0f;
+        CGPoint blockStackOrigin = self.topBlockStack.frame.origin;
+        [self.delegate updateFrameForTouchedLanguageBlockView:self
+                                  andDraggedLanguageBlockView:blockView
+                                                          byX:xDifference
+                                                          byY:yDifference
+                                      withParameterViewOrigin:blockStackOrigin];
+        [self.snappedBlockViews addObject:blockView];
+    }
+    // hack - will only accept one block for now hack until find more scalable way to stack blocks - SY
+    else if (CGRectContainsPoint(self.bottomBlockStack.frame, touchLocation) && [self.bottomBlockStack acceptsBlockView:blockView])
+    {
+        blockView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        CGFloat xDifference = 0.0f;
+        CGFloat yDifference = 0.0f;
+        CGPoint blockStackOrigin = self.bottomBlockStack.frame.origin;
+        [self.delegate updateFrameForTouchedLanguageBlockView:self
+                                  andDraggedLanguageBlockView:blockView
+                                                          byX:xDifference
+                                                          byY:yDifference
+                                      withParameterViewOrigin:blockStackOrigin];
+        [self.snappedBlockViews addObject:blockView];
+    }
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (CGSize)originalSize
 {
-    // Drawing code
+    return CGSizeMake(210.0f, 231.0f);
 }
-*/
 
 @end
