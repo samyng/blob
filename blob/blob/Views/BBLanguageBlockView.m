@@ -31,7 +31,6 @@
     [self addGestureRecognizer:panGestureRecognizer];
     self.snappedBlockViews = [[NSMutableArray alloc] init];
     self.userInteractionEnabled = YES;
-    self.dragEnabled = YES;
 }
 
 - (void)panned:(UIPanGestureRecognizer *)sender

@@ -317,21 +317,15 @@ static NSInteger const kControlGroupIndexRow = 0;
 
 - (void)panDidBegin:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)blockView
 {
-    blockView.dragEnabled = YES;
 }
 
 - (void)panDidChange:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)blockView
 {
-    if (blockView.dragEnabled)
-    {
-        blockView.alpha = CGRectIntersectsRect(self.blocksContainerView.frame, blockView.frame) ? kAlphaHalf : kAlphaOpaque;
-        [self.view bringSubviewToFront:blockView];
-        
-        [self checkIntersectionFromSender:sender forLanguageBlockView:blockView];
-        
-        CGPoint touchLocation = [sender locationInView:self.view];
-        [blockView moveCenterToPoint:touchLocation];
-    }
+    CGPoint touchLocation = [sender locationInView:self.view];
+    [blockView moveCenterToPoint:touchLocation];
+    blockView.alpha = CGRectIntersectsRect(self.blocksContainerView.frame, blockView.frame) ? kAlphaHalf : kAlphaOpaque;
+    [self.view bringSubviewToFront:blockView];
+    [self checkIntersectionFromSender:sender forLanguageBlockView:blockView];
 }
 
 - (void)panDidEnd:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)blockView
@@ -356,7 +350,7 @@ static NSInteger const kControlGroupIndexRow = 0;
             
             if (blockView.overlapped == NO && blockView.isOverlapped == YES) // if they were overlapping and now aren't
             {
-                [aBlockView.snappedBlockViews removeAllObjects];
+                [aBlockView.snappedBlockViews removeObject:blockView];
                 CGSize originalSize = [aBlockView originalSize];
                 CGPoint origin = aBlockView.frame.origin;
                 CGRect originalFrame = CGRectMake(origin.x, origin.y, originalSize.width, originalSize.height);
@@ -388,7 +382,6 @@ static NSInteger const kControlGroupIndexRow = 0;
     CGFloat newCenterYPoint = origin.y + parameterOrigin.y + (CGRectGetHeight(draggedBlockView.frame)/2);
     CGPoint newCenter = CGPointMake(newCenterXPoint, newCenterYPoint);
     draggedBlockView.center = newCenter;
-    draggedBlockView.dragEnabled = NO;
 }
 
 #pragma mark - Collpased Language Block Delegate Methods
@@ -404,20 +397,16 @@ static NSInteger const kControlGroupIndexRow = 0;
     [self.view bringSubviewToFront:expandedBlockView];
     [UIView animateWithDuration:kViewAnimationDuration animations:^{
         expandedBlockView.alpha = kAlphaOpaque;
-        expandedBlockView.dragEnabled = YES;
     }];
 }
 
 - (void)panDidChange:(UIPanGestureRecognizer *)sender forCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)collapsedView
 {
-    if (collapsedView.expandedBlockView.dragEnabled)
-    {
         CGPoint touchLocation = [sender locationInView:self.view];
         collapsedView.expandedBlockView.center = touchLocation;
         collapsedView.expandedBlockView.alpha = CGRectIntersectsRect(self.blocksContainerView.frame, collapsedView.expandedBlockView.frame) ? kAlphaHalf : kAlphaOpaque;
         [self.view bringSubviewToFront:collapsedView.expandedBlockView];
         [self checkIntersectionFromSender:sender forLanguageBlockView:collapsedView.expandedBlockView];
-    }
 }
 
 - (void)panDidEnd:(UIPanGestureRecognizer *)sender forCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)collapsedView

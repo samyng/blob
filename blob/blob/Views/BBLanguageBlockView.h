@@ -26,7 +26,6 @@
 @property (weak, nonatomic) id <LanguageBlockDelegate> delegate;
 @property (strong, nonatomic) BBLanguageBlock *languageBlock;
 @property (strong, nonatomic) NSMutableArray *snappedBlockViews;
-@property (nonatomic) BOOL dragEnabled;
 @property (nonatomic) BOOL overlapped;
 @property (nonatomic) BOOL isOverlapped;
 - (void)touchedByLanguageBlockView:(BBLanguageBlockView *)blockView
