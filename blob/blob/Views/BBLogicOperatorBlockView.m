@@ -47,4 +47,9 @@ const CGFloat xPadding = 8.0f;
     self.frame = calculatedFrame;
 }
 
+- (CGSize)originalSize
+{
+    return CGSizeMake(215.0f, 144.0f);
+}
+
 @end

@@ -15,8 +15,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="48" id="SNz-EQ-cyK"/>
-                        <constraint firstAttribute="height" constant="34" id="hIR-bk-iGg"/>
+                        <constraint firstAttribute="width" constant="48" id="QvO-Jl-nP1"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NH5-hV-j8p" customClass="BBBlockSlotParameterView">
@@ -24,8 +23,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="48" id="2Xa-Jr-sXd"/>
-                        <constraint firstAttribute="height" constant="34" id="yH0-2p-DuZ"/>
+                        <constraint firstAttribute="width" constant="48" id="Opp-0j-HbZ"/>
                     </constraints>
                 </view>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NgR-GU-CST">
@@ -42,6 +40,8 @@
             <color key="backgroundColor" red="0.58039215690000001" green="0.85490196080000003" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="7IY-9c-TIa" firstAttribute="top" secondItem="SEz-Na-nK9" secondAttribute="top" constant="11" id="2ar-8X-GIc"/>
+                <constraint firstAttribute="bottom" secondItem="7IY-9c-TIa" secondAttribute="bottom" constant="10" id="748-gs-fse"/>
+                <constraint firstAttribute="bottom" secondItem="NH5-hV-j8p" secondAttribute="bottom" constant="10" id="Wja-4q-Egp"/>
                 <constraint firstItem="NgR-GU-CST" firstAttribute="leading" secondItem="7IY-9c-TIa" secondAttribute="trailing" constant="8" id="eiA-ki-auS"/>
                 <constraint firstItem="NH5-hV-j8p" firstAttribute="leading" secondItem="NgR-GU-CST" secondAttribute="trailing" constant="8" id="g0J-mH-fFh"/>
                 <constraint firstAttribute="trailing" secondItem="NH5-hV-j8p" secondAttribute="trailing" constant="16" id="gfu-Bh-SA7"/>

@@ -44,4 +44,9 @@
     [self updateUI];
 }
 
+- (CGSize)originalSize
+{
+    return CGSizeMake(250.0f, 55.0f);
+}
+
 @end

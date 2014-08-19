@@ -36,4 +36,9 @@
     self.frame = calculatedFrame;
 }
 
+- (CGSize)originalSize
+{
+    return CGSizeMake(190.0f, 25.0f);
+}
+
 @end
