@@ -127,6 +127,15 @@ static NSInteger const kControlGroupIndexRow = 0;
     [self updateBlocksContainerViewForGroup:group];
 }
 
+#pragma mark - Table View Helper Methods
+
+- (NSInteger)groupsTableCellSelectedRowIndex
+{
+    return [self.groupsTableView indexPathForSelectedRow].row;
+}
+
+#pragma mark - Arrange Blocks Container View
+
 - (void)updateBlocksContainerViewForGroup:(BBLanguageGroup *)group
 {
     NSString *groupName = group.name;
@@ -156,8 +165,6 @@ static NSInteger const kControlGroupIndexRow = 0;
     }
     
 }
-
-#pragma mark - Arrange Blocks
 
 - (void)arrangeControlBlocks:(NSArray *)controlBlocks
 {
@@ -283,14 +290,6 @@ static NSInteger const kControlGroupIndexRow = 0;
     }
 }
 
-#pragma mark - Helper Methods
-
-- (NSInteger)groupsTableCellSelectedRowIndex
-{
-    return [self.groupsTableView indexPathForSelectedRow].row;
-}
-
-
 - (void)resetBlocksContainerView
 {
     for (UIView *subview in self.blocksContainerView.subviews)
@@ -298,6 +297,48 @@ static NSInteger const kControlGroupIndexRow = 0;
         [subview removeFromSuperview];
     }
 }
+
+#pragma mark - Collpased Language Block Delegate Methods
+
+- (void)panDidBegin:(UIPanGestureRecognizer *)sender inCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)collapsedView
+{
+    BBLanguageBlockView *expandedBlockView = [BBLanguageBlockViewFactory viewForBlock:collapsedView.languageBlock];
+    expandedBlockView.delegate = self;
+    collapsedView.expandedBlockView = expandedBlockView;
+    
+    expandedBlockView.alpha = kAlphaZero;
+    [self.view addSubview:expandedBlockView];
+    [self.view bringSubviewToFront:expandedBlockView];
+    [UIView animateWithDuration:kViewAnimationDuration animations:^{
+        expandedBlockView.alpha = kAlphaOpaque;
+    }];
+}
+
+- (void)panDidChange:(UIPanGestureRecognizer *)sender forCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)collapsedView
+{
+    CGPoint touchLocation = [sender locationInView:self.view];
+    collapsedView.expandedBlockView.center = touchLocation;
+    collapsedView.expandedBlockView.alpha = CGRectIntersectsRect(self.blocksContainerView.frame, collapsedView.expandedBlockView.frame) ? kAlphaHalf : kAlphaOpaque;
+    [self.view bringSubviewToFront:collapsedView.expandedBlockView];
+    [self checkIntersectionFromSender:sender forLanguageBlockView:collapsedView.expandedBlockView];
+}
+
+- (void)panDidEnd:(UIPanGestureRecognizer *)sender forCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)collapsedView
+{
+    if (CGRectIntersectsRect(self.blocksContainerView.frame, collapsedView.expandedBlockView.frame))
+    {
+        [UIView animateWithDuration:kViewAnimationDuration animations:^{
+            collapsedView.expandedBlockView.alpha = kAlphaZero;
+        }];
+        [collapsedView.expandedBlockView removeFromSuperview];
+        collapsedView.expandedBlockView = nil;
+    }
+    else
+    {
+        [self.blockViewsInUse addObject:collapsedView.expandedBlockView];
+    }
+}
+
 
 #pragma mark - Expanded Language Block Delegate Methods
 
@@ -312,7 +353,7 @@ static NSInteger const kControlGroupIndexRow = 0;
     
     CGPoint touchLocation = [sender locationInView:self.view];
     [blockView moveCenterToPoint:touchLocation];
-
+    
     [self checkIntersectionFromSender:sender forLanguageBlockView:blockView];
 }
 
@@ -327,6 +368,8 @@ static NSInteger const kControlGroupIndexRow = 0;
         blockView = nil;
     }
 }
+
+#pragma mark - Expanded Blocks Intersect Methods
 
 - (void)checkIntersectionFromSender:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)blockView
 {
@@ -373,47 +416,6 @@ static NSInteger const kControlGroupIndexRow = 0;
     CGFloat newCenterYPoint = origin.y + parameterOrigin.y + (CGRectGetHeight(draggedBlockView.frame)/2);
     CGPoint newCenter = CGPointMake(newCenterXPoint, newCenterYPoint);
     draggedBlockView.center = newCenter;
-}
-
-#pragma mark - Collpased Language Block Delegate Methods
-
-- (void)panDidBegin:(UIPanGestureRecognizer *)sender inCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)collapsedView
-{
-    BBLanguageBlockView *expandedBlockView = [BBLanguageBlockViewFactory viewForBlock:collapsedView.languageBlock];
-    expandedBlockView.delegate = self;
-    collapsedView.expandedBlockView = expandedBlockView;
-    
-    expandedBlockView.alpha = kAlphaZero;
-    [self.view addSubview:expandedBlockView];
-    [self.view bringSubviewToFront:expandedBlockView];
-    [UIView animateWithDuration:kViewAnimationDuration animations:^{
-        expandedBlockView.alpha = kAlphaOpaque;
-    }];
-}
-
-- (void)panDidChange:(UIPanGestureRecognizer *)sender forCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)collapsedView
-{
-        CGPoint touchLocation = [sender locationInView:self.view];
-        collapsedView.expandedBlockView.center = touchLocation;
-        collapsedView.expandedBlockView.alpha = CGRectIntersectsRect(self.blocksContainerView.frame, collapsedView.expandedBlockView.frame) ? kAlphaHalf : kAlphaOpaque;
-        [self.view bringSubviewToFront:collapsedView.expandedBlockView];
-        [self checkIntersectionFromSender:sender forLanguageBlockView:collapsedView.expandedBlockView];
-}
-
-- (void)panDidEnd:(UIPanGestureRecognizer *)sender forCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)collapsedView
-{
-    if (CGRectIntersectsRect(self.blocksContainerView.frame, collapsedView.expandedBlockView.frame))
-    {
-        [UIView animateWithDuration:kViewAnimationDuration animations:^{
-            collapsedView.expandedBlockView.alpha = kAlphaZero;
-        }];
-        [collapsedView.expandedBlockView removeFromSuperview];
-        collapsedView.expandedBlockView = nil;
-    }
-    else
-    {
-        [self.blockViewsInUse addObject:collapsedView.expandedBlockView];
-    }
 }
 
 #pragma mark - Create test data
