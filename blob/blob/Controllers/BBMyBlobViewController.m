@@ -297,33 +297,33 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
     
     BBAccessory *slippers = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
                               insertIntoManagedObjectContext:context];
-    drums.name = @"slippers";
+    slippers.name = @"slippers";
     
     BBAccessory *soccer = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
                               insertIntoManagedObjectContext:context];
-    drums.name = @"soccer";
+    soccer.name = @"soccer";
     
     BBAccessory *lamb = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
                                insertIntoManagedObjectContext:context];
-    drums.name = @"lamb";
+    lamb.name = @"lamb";
     
     BBAccessory *umbrella = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
                                insertIntoManagedObjectContext:context];
-    drums.name = @"umbrella";
+    umbrella.name = @"umbrella";
     
     BBAccessory *roses = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
                                  insertIntoManagedObjectContext:context];
-    drums.name = @"roses";
+    roses.name = @"roses";
     
     // Categories
     
     BBClosetCategory *foods = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription insertIntoManagedObjectContext:context];
     foods.name = FOOD_CATEGORY;
-    foods.accessories = [NSSet setWithObjects:apple, carrot, nil];
+    foods.accessories = [NSSet setWithObjects:carrot, nil];
     
     BBClosetCategory *clothes = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription insertIntoManagedObjectContext:context];
     clothes.name = CLOTHES_CATEGORY;
-    clothes.accessories = [NSSet setWithObjects:hightops, rainboots, sweater, slippers, umbrella, nil];
+    clothes.accessories = [NSSet setWithObjects:hightops, sweater, slippers, umbrella, nil];
     
     BBClosetCategory *friends = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription insertIntoManagedObjectContext:context];
     friends.name = FRIENDS_CATEGORY;
@@ -331,7 +331,7 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
     
     BBClosetCategory *places = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription insertIntoManagedObjectContext:context];
     places.name = PLACES_CATEGORY;
-    places.accessories = [NSSet setWithObjects:colosseum, pisa, pool, roses, nil];
+    places.accessories = [NSSet setWithObjects:colosseum, pisa, roses, nil];
     
     BBClosetCategory *instruments = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription insertIntoManagedObjectContext:context];
     instruments.name = INSTRUMENTS_CATEGORY;
