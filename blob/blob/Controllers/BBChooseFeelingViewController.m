@@ -13,18 +13,23 @@
 static NSString * const kSearchFeelingsTableCellIdentifier = @"searchFeelingsTableCellIdentifier";
 static NSInteger kAddNewRowIndex = 0;
 static NSInteger kAddNewRowOffset = 1;
+static NSInteger kNewFeelingAlertViewTextFieldIndex = 0;
+static NSInteger kNewFeelingAlertViewAddButtonIndex = 1;
 #define offscreenFrame CGRectMake(2*CGRectGetWidth(self.view.frame), CGPointZero.y, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame))
 #define onscreenFrame CGRectMake(CGPointZero.x, CGPointZero.y, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame))
 
-@interface BBChooseFeelingViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, NSFetchedResultsControllerDelegate>
+@interface BBChooseFeelingViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, NSFetchedResultsControllerDelegate, UITextFieldDelegate, UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *feelingsTableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *feelingsSearchBar;
 @property (strong, nonatomic) NSFetchedResultsController *feelingsFetchedResultsController;
 @property (strong, nonatomic) BBSecretLanguageViewController *secretLanguageViewController;
+@property (strong, nonatomic) UIAlertView *addFeelingAlertView;
 @property (strong, nonatomic) NSArray *feelings;
 @end
 
 @implementation BBChooseFeelingViewController
+
+#pragma mark - Lifecycle
 
 - (void)viewDidLoad
 {
@@ -32,6 +37,8 @@ static NSInteger kAddNewRowOffset = 1;
     self.feelingsSearchBar.searchBarStyle = UISearchBarStyleMinimal;
     [self populateFeelings];
 }
+
+#pragma mark - Setup
 
 - (void)populateFeelings
 {
@@ -45,7 +52,7 @@ static NSInteger kAddNewRowOffset = 1;
         [self.feelingsTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kSearchFeelingsTableCellIdentifier];
         [self.feelingsFetchedResultsController setDelegate:self];
         [self.feelingsFetchedResultsController performFetch:nil];
-        self.feelings = [[self.feelingsFetchedResultsController fetchedObjects] mutableCopy];
+        self.feelings = [self.feelingsFetchedResultsController fetchedObjects];
     }
 }
 
@@ -95,9 +102,11 @@ static NSInteger kAddNewRowOffset = 1;
 {
     if (indexPath.row == kAddNewRowIndex)
     {
-        UIAlertView *comingSoon = [[UIAlertView alloc] initWithTitle:@"Oh darn" message:@"Functionality coming soon" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
-        [comingSoon show];
         [self.feelingsTableView deselectRowAtIndexPath:indexPath animated:NO];
+        self.addFeelingAlertView = [[UIAlertView alloc]initWithTitle:nil message:@"Add a new feeling:" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add", nil];
+        self.addFeelingAlertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+        [self.addFeelingAlertView textFieldAtIndex:kNewFeelingAlertViewTextFieldIndex].delegate = self;
+        [self.addFeelingAlertView show];
     }
     else
     {
@@ -117,10 +126,44 @@ static NSInteger kAddNewRowOffset = 1;
     }
 }
 
+#pragma mark - Text Field Delegate Methods
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    [self.addFeelingAlertView dismissWithClickedButtonIndex:kNewFeelingAlertViewAddButtonIndex animated:YES];
+    return YES;
+}
+
+#pragma mark - Alert View Delegate Methods
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == kNewFeelingAlertViewAddButtonIndex)
+    {
+        [self addNewFeelingFromAlertView:alertView];
+        self.addFeelingAlertView = nil;
+    }
+}
+
+#pragma mark - Helper Methods
+
+- (void)addNewFeelingFromAlertView:(UIAlertView *)alertView
+{
+    NSEntityDescription *feelingEntityDescription = [NSEntityDescription entityForName:FEELING_ENTITY_DESCRIPTION inManagedObjectContext:self.context];
+    BBFeeling *newFeeling = [[BBFeeling alloc] initWithEntity:feelingEntityDescription insertIntoManagedObjectContext:self.context];
+    UITextField *newFeelingTextField = [alertView textFieldAtIndex:kNewFeelingAlertViewTextFieldIndex];
+    newFeeling.name = newFeelingTextField.text;
+    [self populateFeelings];
+    [self.feelingsTableView reloadData];
+}
+
 - (BBFeeling *)feelingAtIndexPath:(NSIndexPath *)indexPath
 {
     return [self.feelings objectAtIndex:indexPath.row - kAddNewRowOffset];
 }
+
+#pragma mark - Dismiss Modal
 
 - (void)doneButtonPressed:(UIBarButtonItem *)doneButton
 {
