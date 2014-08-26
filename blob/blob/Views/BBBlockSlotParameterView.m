@@ -35,7 +35,6 @@
 - (BOOL)acceptsBlockView:(BBLanguageBlockView *)blockView
 {
     return ([blockView.languageBlock isAccessoryBlock] ||
-            [blockView.languageBlock isReactionBlock] ||
             [blockView.languageBlock isLogicOperatorBlock] ||
             [blockView.languageBlock isNotBlock] ||
             [blockView.languageBlock isComparisonOperatorBlock]) ? YES : NO;
