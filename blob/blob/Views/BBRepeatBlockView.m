@@ -21,16 +21,17 @@
     // will only accept one block for now hack until find more scalable way to stack blocks - SY
     if (CGRectContainsPoint(self.blockStack.frame, touchLocation) && [self.blockStack acceptsBlockView:blockView])
     {
-        blockView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-//        CGFloat xDifference = 0.0f;
-//        CGFloat yDifference = 0.0f;
-//        CGPoint blockStackOrigin = self.blockStack.frame.origin;
-//        [self.delegate updateFrameForTouchedLanguageBlockView:self
-//                                  andDraggedLanguageBlockView:blockView
-//                                                          byX:xDifference
-//                                                          byY:yDifference
-//                                      withParameterViewOrigin:blockStackOrigin];
+        [self updateFrameForBlockStack:self.blockStack withBlockView:blockView];
         [self.snappedBlockViews addObject:blockView];
+    }
+}
+
+- (void)untouchedByLanguageBlockView:(BBLanguageBlockView *)blockView fromStartingOrigin:(CGPoint)blockViewStartingOrigin
+{
+    if ([self.snappedBlockViews containsObject:blockView])
+    {
+        [self.snappedBlockViews removeObject:blockView];
+        [self updateFrameForBlockStack:self.blockStack withBlockView:blockView];
     }
 }
 

@@ -27,6 +27,8 @@
                     <color key="backgroundColor" red="0.59999999999999998" green="0.12549019610000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="16" id="FRK-JR-Hkk"/>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="16" id="HUf-o0-Tj9"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="1" id="JoA-WB-EdD"/>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="16" id="jZK-wJ-3hp"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="uLu-4R-bID"/>
                         <constraint firstAttribute="height" constant="1" id="zGZ-C9-LA1"/>
@@ -49,6 +51,8 @@
                     <color key="backgroundColor" red="0.59999999999999998" green="0.12549019610000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="16" id="2Dy-di-ASm"/>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="16" id="6m5-bR-PZp"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="1" id="7qs-5v-QSh"/>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="16" id="Dwr-8U-HfO"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="HPh-JD-SNf"/>
                         <constraint firstAttribute="height" constant="1" id="ZIY-Pf-7e5"/>
@@ -64,10 +68,12 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.59999999999999998" green="0.12549019610000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="16" id="00w-c3-FJX"/>
                         <constraint firstAttribute="height" constant="1" id="JNZ-fS-VRf"/>
                         <constraint firstAttribute="width" constant="16" id="OLD-TJ-ryk"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="Viq-rD-3LD"/>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="16" id="ZQa-m6-vqc"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="1" id="h8E-ZP-6hZ"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="htc-SD-NBX" customClass="BBQuantityParameterView">
@@ -82,24 +88,22 @@
             </subviews>
             <color key="backgroundColor" red="0.98431372549999996" green="0.20392156859999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="XhT-Th-m5i" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="I0X-Gz-Dj7"/>
-                <constraint firstItem="toZ-5y-vM1" firstAttribute="top" secondItem="dAQ-5r-09T" secondAttribute="bottom" constant="6" id="Jhz-tK-CUh"/>
-                <constraint firstItem="XhT-Th-m5i" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="SAH-PA-Sdb"/>
-                <constraint firstItem="UDB-KG-IIQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="54" id="Uuf-Jp-ff4"/>
-                <constraint firstItem="ehL-ct-BtQ" firstAttribute="top" secondItem="UDB-KG-IIQ" secondAttribute="bottom" constant="5" id="VsD-tL-t4S"/>
-                <constraint firstItem="toZ-5y-vM1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="Xbo-DI-sSf"/>
-                <constraint firstItem="Gci-ze-9ZP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="41" id="Y6Y-2l-IGH"/>
-                <constraint firstItem="Gci-ze-9ZP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="14" id="Zfv-SO-gHe"/>
-                <constraint firstItem="dAQ-5r-09T" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="b7G-qa-0gt"/>
-                <constraint firstItem="ehL-ct-BtQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="fU9-ws-Iha"/>
-                <constraint firstItem="htc-SD-NBX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="157" id="iX2-7d-TLD"/>
-                <constraint firstItem="dAQ-5r-09T" firstAttribute="top" secondItem="XhT-Th-m5i" secondAttribute="bottom" constant="7" id="mYb-QS-CPq"/>
-                <constraint firstItem="dAQ-5r-09T" firstAttribute="top" secondItem="XhT-Th-m5i" secondAttribute="bottom" constant="7" id="qBC-BK-xjg"/>
-                <constraint firstAttribute="trailing" secondItem="UDB-KG-IIQ" secondAttribute="trailing" id="rDh-Py-ST6"/>
-                <constraint firstItem="htc-SD-NBX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="sWl-8r-2Rk"/>
-                <constraint firstItem="UDB-KG-IIQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="tll-fP-5ED"/>
-                <constraint firstItem="toZ-5y-vM1" firstAttribute="top" secondItem="dAQ-5r-09T" secondAttribute="bottom" constant="6" id="wCp-ym-KCs"/>
-                <constraint firstItem="ehL-ct-BtQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="114" id="wx3-1m-kfr"/>
+                <constraint firstItem="dAQ-5r-09T" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="0cL-0k-VLS"/>
+                <constraint firstAttribute="trailing" secondItem="UDB-KG-IIQ" secondAttribute="trailing" id="1uc-ya-dV3"/>
+                <constraint firstItem="htc-SD-NBX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="157" id="4vb-U0-QXF"/>
+                <constraint firstItem="toZ-5y-vM1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="6Bl-sj-HvY"/>
+                <constraint firstAttribute="bottom" secondItem="ehL-ct-BtQ" secondAttribute="bottom" constant="8" id="7ta-uf-JHE"/>
+                <constraint firstItem="ehL-ct-BtQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="Ds8-R4-kNZ"/>
+                <constraint firstItem="XhT-Th-m5i" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="Gtt-T6-zeG"/>
+                <constraint firstItem="dAQ-5r-09T" firstAttribute="top" secondItem="XhT-Th-m5i" secondAttribute="bottom" constant="7" id="Oow-GC-XCE"/>
+                <constraint firstItem="Gci-ze-9ZP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="41" id="PiD-v7-Bbi"/>
+                <constraint firstItem="XhT-Th-m5i" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="TWs-QV-Qpp"/>
+                <constraint firstItem="Gci-ze-9ZP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="14" id="ZpT-p7-ogb"/>
+                <constraint firstItem="toZ-5y-vM1" firstAttribute="top" secondItem="dAQ-5r-09T" secondAttribute="bottom" constant="6" id="aHz-X8-KkY"/>
+                <constraint firstItem="htc-SD-NBX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="igc-9R-BP0"/>
+                <constraint firstItem="UDB-KG-IIQ" firstAttribute="top" secondItem="Gci-ze-9ZP" secondAttribute="bottom" constant="15" id="rAV-Rv-jRU"/>
+                <constraint firstItem="UDB-KG-IIQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="tnd-nE-v3T"/>
+                <constraint firstAttribute="bottom" secondItem="UDB-KG-IIQ" secondAttribute="bottom" constant="35" id="xkx-Tx-xcC"/>
             </constraints>
             <connections>
                 <outlet property="blockStack" destination="UDB-KG-IIQ" id="MXC-Kf-h8j"/>
