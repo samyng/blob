@@ -333,7 +333,10 @@ static NSInteger const kControlGroupIndexRow = 0;
         }];
         [collapsedView.expandedBlockView removeFromSuperview];
         collapsedView.expandedBlockView = nil;
-        [self.blockViewsInUse removeObject:collapsedView.expandedBlockView];
+        if ([self.blockViewsInUse containsObject:collapsedView.expandedBlockView])
+        {
+            [self.blockViewsInUse removeObject:collapsedView.expandedBlockView];
+        }
     }
     else
     {
@@ -369,7 +372,10 @@ static NSInteger const kControlGroupIndexRow = 0;
             blockView.alpha = kAlphaZero;
         }];
         [blockView removeFromSuperview];
-        [self.blockViewsInUse removeObject:blockView];
+        if ([self.blockViewsInUse containsObject:blockView])
+        {
+            [self.blockViewsInUse removeObject:blockView];
+        }
         blockView = nil;
     }
 }
