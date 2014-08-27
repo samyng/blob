@@ -24,7 +24,7 @@
     {
         CGFloat newWidth = CGRectGetWidth(self.frame);
         CGFloat xDifference = CGRectGetWidth(blockView.frame) - CGRectGetWidth(self.blockSlot.frame);
-        if (xDifference >= MARGIN_OF_ERROR_CONSTANT) // only change width if the difference is nontrivial
+        if (abs(xDifference) >= MARGIN_OF_ERROR_CONSTANT) // only change width if the difference is nontrivial
         {
             newWidth += xDifference;
         }

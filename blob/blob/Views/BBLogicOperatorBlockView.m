@@ -47,6 +47,86 @@ const CGFloat xPadding = 8.0f;
     self.frame = calculatedFrame;
 }
 
+
+- (void)touchedByLanguageBlockView:(BBLanguageBlockView *)blockView atTouchLocation:(CGPoint)touchLocation
+{
+    if (CGRectContainsPoint(self.leftSlot.frame, touchLocation) && [self.leftSlot acceptsBlockView:blockView])
+    {
+        [self expandSlotView:self.leftSlot forBlockView:blockView];
+    }
+    else if (CGRectContainsPoint(self.rightSlot.frame, touchLocation) && [self.rightSlot acceptsBlockView:blockView])
+    {
+        [self expandSlotView:self.rightSlot forBlockView:blockView];
+    }
+}
+
+- (void)untouchedByLanguageBlockView:(BBLanguageBlockView *)blockView fromStartingOrigin:(CGPoint)blockViewStartingOrigin
+{
+    if ([self.snappedBlockViews containsObject:blockView])
+    {
+        [self.snappedBlockViews removeObject:blockView];
+        CGPoint translatedPoint = CGPointMake(self.frame.origin.x + self.leftSlot.frame.origin.x, self.frame.origin.y + self.leftSlot.frame.origin.y);
+        
+        if (CGPointEqualToPoint(translatedPoint, blockViewStartingOrigin))
+        {
+            [self resetOriginalSizeOfSlotView:self.leftSlot];
+        }
+        else
+        {
+            [self resetOriginalSizeOfSlotView:self.rightSlot];
+        }
+    }
+}
+
+#pragma mark - Resize Helper Methods
+
+- (void)expandSlotView:(BBBlockSlotParameterView *)slotView forBlockView:(BBLanguageBlockView *)blockView
+{
+    CGFloat xDifference = CGRectGetWidth(blockView.frame) - CGRectGetWidth(slotView.frame);
+    CGFloat yDifference = CGRectGetHeight(blockView.frame) - CGRectGetHeight(slotView.frame);
+    CGFloat slotWidth = CGRectGetWidth(slotView.frame);
+    CGFloat slotHeight = CGRectGetHeight(slotView.frame);
+    CGFloat width = CGRectGetWidth(self.frame);
+    CGFloat height = CGRectGetHeight(self.frame);
+    if (abs(xDifference) >= MARGIN_OF_ERROR_CONSTANT)
+    {
+        slotWidth += xDifference;
+        width += xDifference;
+    }
+    if (abs(yDifference) >= MARGIN_OF_ERROR_CONSTANT)
+    {
+        slotHeight += yDifference;
+        height += yDifference;
+    }
+    slotView.frame = CGRectMake(slotView.frame.origin.x, slotView.frame.origin.y, slotWidth, slotHeight);
+    [self.delegate updateFrameForTouchedLanguageBlockView:self
+                              andDraggedLanguageBlockView:blockView
+                                                withWidth:width
+                                               withHeight:height
+                                  withParameterViewOrigin:slotView.frame.origin];
+    [self.snappedBlockViews addObject:blockView];
+}
+
+- (void)resetOriginalSizeOfSlotView:(BBBlockSlotParameterView *)slotView
+{
+    CGRect originalSlotFrame = CGRectMake(slotView.frame.origin.x, slotView.frame.origin.y, [self originalSlotSize].width, [self originalSlotSize].height);
+    CGFloat width = CGRectGetWidth(self.frame);
+    CGFloat xDifference = CGRectGetWidth(slotView.frame) - [self originalSlotSize].width;
+    if (abs(xDifference) >= MARGIN_OF_ERROR_CONSTANT)
+    {
+        width -= xDifference;
+    }
+    slotView.frame = originalSlotFrame;
+    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, width, self.frame.size.height);
+}
+
+#pragma mark - Size Helper Methods
+
+- (CGSize)originalSlotSize
+{
+    return CGSizeMake(48.0f, 34.0f);
+}
+
 - (CGSize)originalSize
 {
     return CGSizeMake(215.0f, 144.0f);

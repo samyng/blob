@@ -40,11 +40,11 @@
         CGFloat width = CGRectGetWidth(self.frame);
         CGFloat height = CGRectGetHeight(self.frame);
         
-        if (xDifference >= MARGIN_OF_ERROR_CONSTANT)
+        if (abs(xDifference) >= MARGIN_OF_ERROR_CONSTANT)
         {
             width += xDifference;
         }
-        if (yDifference >= MARGIN_OF_ERROR_CONSTANT)
+        if (abs(yDifference) >= MARGIN_OF_ERROR_CONSTANT)
         {
             height += yDifference;
         }
