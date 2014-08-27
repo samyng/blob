@@ -58,13 +58,12 @@
     CGSize screenSize = [BBConstants screenSize];
     CGFloat width = self.frame.size.width;
     CGFloat height = self.frame.size.height;
-    CGFloat topOffset = 44.0f;  // height of nav bar
     
     if ((newCenterX - width/2) < 0) // left boundary
     {
         newCenterX = width/2;
     }
-    if ((newCenterY - height/2) < topOffset) // top boundary
+    if ((newCenterY - height/2) < 0) // top boundary
     {
         newCenterY = height/2;
     }
