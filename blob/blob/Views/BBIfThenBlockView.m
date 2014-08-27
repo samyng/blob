@@ -11,6 +11,8 @@
 #import "BBBlockStackParameterView.h"
 #import "BBReactionBlockView.h"
 
+const CGFloat marginOfErrorConstant = 2.0f;
+
 @interface BBIfThenBlockView ()
 @property (weak, nonatomic) IBOutlet BBBlockSlotParameterView *blockSlot;
 @property (weak, nonatomic) IBOutlet BBBlockStackParameterView *blockStack;
@@ -22,9 +24,12 @@
 {
     if (CGRectContainsPoint(self.blockSlot.frame, touchLocation) && [self.blockSlot acceptsBlockView:blockView])
     {
-        blockView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        CGFloat newWidth = CGRectGetWidth(self.frame);
         CGFloat xDifference = CGRectGetWidth(blockView.frame) - CGRectGetWidth(self.blockSlot.frame);
-        CGFloat newWidth = CGRectGetWidth(self.frame) + xDifference;
+        if (xDifference >= marginOfErrorConstant) // only change width if the difference is nontrivial
+        {
+            newWidth += xDifference;
+        }
         CGPoint blockSlotOrigin = self.blockSlot.frame.origin;
         [self.delegate updateFrameForTouchedLanguageBlockView:self
                                   andDraggedLanguageBlockView:blockView
