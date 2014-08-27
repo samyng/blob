@@ -93,6 +93,7 @@ const CGFloat xPadding = 8.0f;
         slotWidth += xDifference;
         width += xDifference;
     }
+   
     if (abs(yDifference) >= MARGIN_OF_ERROR_CONSTANT)
     {
         slotHeight += yDifference;
@@ -109,15 +110,10 @@ const CGFloat xPadding = 8.0f;
 
 - (void)resetOriginalSizeOfSlotView:(BBBlockSlotParameterView *)slotView
 {
-    CGRect originalSlotFrame = CGRectMake(slotView.frame.origin.x, slotView.frame.origin.y, [self originalSlotSize].width, [self originalSlotSize].height);
-    CGFloat width = CGRectGetWidth(self.frame);
-    CGFloat xDifference = CGRectGetWidth(slotView.frame) - [self originalSlotSize].width;
-    if (abs(xDifference) >= MARGIN_OF_ERROR_CONSTANT)
+    if ([self.snappedBlockViews count] == 0)
     {
-        width -= xDifference;
+        self.frame = [self originalFrame];
     }
-    slotView.frame = originalSlotFrame;
-    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, width, self.frame.size.height);
 }
 
 #pragma mark - Size Helper Methods
@@ -129,7 +125,12 @@ const CGFloat xPadding = 8.0f;
 
 - (CGSize)originalSize
 {
-    return CGSizeMake(215.0f, 144.0f);
+    return CGSizeMake(198.0f, 55.0f);
+}
+
+- (CGRect)originalFrame
+{
+    return CGRectMake(self.frame.origin.x, self.frame.origin.y, [self originalSize].width, [self originalSize].height);
 }
 
 @end

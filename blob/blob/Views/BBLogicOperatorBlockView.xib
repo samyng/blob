@@ -40,16 +40,16 @@
             </subviews>
             <color key="backgroundColor" red="0.58039215690000001" green="0.85490196080000003" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="7IY-9c-TIa" firstAttribute="top" secondItem="SEz-Na-nK9" secondAttribute="top" constant="11" id="2tt-Y5-aat"/>
-                <constraint firstAttribute="bottom" secondItem="NH5-hV-j8p" secondAttribute="bottom" constant="10" id="GpL-V0-5uv"/>
-                <constraint firstAttribute="centerX" secondItem="NgR-GU-CST" secondAttribute="centerX" constant="-1" id="NuB-eU-Yhz"/>
-                <constraint firstItem="NH5-hV-j8p" firstAttribute="top" secondItem="SEz-Na-nK9" secondAttribute="top" constant="11" id="i81-1W-KJ9"/>
-                <constraint firstItem="7IY-9c-TIa" firstAttribute="leading" secondItem="SEz-Na-nK9" secondAttribute="leading" constant="18" id="l5i-LS-Uao"/>
-                <constraint firstItem="NgR-GU-CST" firstAttribute="leading" secondItem="7IY-9c-TIa" secondAttribute="trailing" constant="8" id="pi5-aj-5Qm"/>
-                <constraint firstAttribute="trailing" secondItem="NH5-hV-j8p" secondAttribute="trailing" constant="16" id="qjj-4i-s8M"/>
-                <constraint firstAttribute="centerY" secondItem="NgR-GU-CST" secondAttribute="centerY" id="vMJ-HK-zMm"/>
-                <constraint firstAttribute="bottom" secondItem="7IY-9c-TIa" secondAttribute="bottom" constant="10" id="waB-Ol-ajs"/>
-                <constraint firstItem="NH5-hV-j8p" firstAttribute="leading" secondItem="NgR-GU-CST" secondAttribute="trailing" constant="8" id="xho-Yb-dhQ"/>
+                <constraint firstItem="NH5-hV-j8p" firstAttribute="top" secondItem="SEz-Na-nK9" secondAttribute="top" constant="11" id="09m-sw-7QT"/>
+                <constraint firstAttribute="centerY" secondItem="NgR-GU-CST" secondAttribute="centerY" id="1dg-cX-6ep"/>
+                <constraint firstAttribute="centerX" secondItem="NgR-GU-CST" secondAttribute="centerX" constant="-1" id="NMo-Z7-reh"/>
+                <constraint firstItem="NgR-GU-CST" firstAttribute="leading" secondItem="7IY-9c-TIa" secondAttribute="trailing" constant="8" id="OL9-V2-apX"/>
+                <constraint firstAttribute="bottom" secondItem="7IY-9c-TIa" secondAttribute="bottom" constant="10" id="XdB-F9-yDF"/>
+                <constraint firstItem="7IY-9c-TIa" firstAttribute="top" secondItem="SEz-Na-nK9" secondAttribute="top" constant="11" id="dbB-bd-dWi"/>
+                <constraint firstAttribute="trailing" secondItem="NH5-hV-j8p" secondAttribute="trailing" constant="16" id="dx0-yg-7ae"/>
+                <constraint firstItem="7IY-9c-TIa" firstAttribute="leading" secondItem="SEz-Na-nK9" secondAttribute="leading" constant="18" id="fpf-3I-jYg"/>
+                <constraint firstAttribute="bottom" secondItem="NH5-hV-j8p" secondAttribute="bottom" constant="10" id="j4h-Hp-iy2"/>
+                <constraint firstItem="NH5-hV-j8p" firstAttribute="leading" secondItem="NgR-GU-CST" secondAttribute="trailing" constant="8" id="rph-am-ZfK"/>
             </constraints>
             <connections>
                 <outlet property="leftSlot" destination="7IY-9c-TIa" id="yXY-rr-OYl"/>

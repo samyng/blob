@@ -32,7 +32,7 @@
                 <constraint firstAttribute="bottom" secondItem="l90-Vv-wLe" secondAttribute="bottom" constant="10" id="9sy-C8-G0R"/>
                 <constraint firstItem="5O0-UZ-ocr" firstAttribute="leading" secondItem="twl-XN-wqU" secondAttribute="leading" constant="12" id="Qoh-bW-Ka0"/>
                 <constraint firstItem="l90-Vv-wLe" firstAttribute="top" secondItem="twl-XN-wqU" secondAttribute="top" constant="11" id="aW3-kW-JjX"/>
-                <constraint firstItem="5O0-UZ-ocr" firstAttribute="top" secondItem="twl-XN-wqU" secondAttribute="top" constant="15" id="gMG-4R-zxW"/>
+                <constraint firstAttribute="centerY" secondItem="5O0-UZ-ocr" secondAttribute="centerY" id="eNz-bo-AAw"/>
                 <constraint firstAttribute="trailing" secondItem="l90-Vv-wLe" secondAttribute="trailing" constant="12" id="lAQ-mR-Q4A"/>
                 <constraint firstItem="l90-Vv-wLe" firstAttribute="leading" secondItem="5O0-UZ-ocr" secondAttribute="trailing" constant="8" id="ulX-eY-2iS"/>
             </constraints>
