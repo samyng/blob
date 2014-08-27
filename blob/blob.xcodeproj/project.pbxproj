@@ -73,6 +73,8 @@
 		22DA5D4419A0F04600A61A85 /* BBLogicOperatorBlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DA5D4319A0F04600A61A85 /* BBLogicOperatorBlockView.m */; };
 		22DA5D4619A0F7A900A61A85 /* BBNotBlockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22DA5D4519A0F7A900A61A85 /* BBNotBlockView.xib */; };
 		22DA5D4919A0F7C900A61A85 /* BBNotBlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DA5D4819A0F7C900A61A85 /* BBNotBlockView.m */; };
+		F7591F2019AE98CC0070F110 /* BBSwitchToBlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7591F1F19AE98CC0070F110 /* BBSwitchToBlockView.m */; };
+		F7591F2219AE98E20070F110 /* BBSwitchToBlockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7591F2119AE98E20070F110 /* BBSwitchToBlockView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +192,9 @@
 		22DA5D4519A0F7A900A61A85 /* BBNotBlockView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBNotBlockView.xib; sourceTree = "<group>"; };
 		22DA5D4719A0F7C900A61A85 /* BBNotBlockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNotBlockView.h; sourceTree = "<group>"; };
 		22DA5D4819A0F7C900A61A85 /* BBNotBlockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNotBlockView.m; sourceTree = "<group>"; };
+		F7591F1E19AE98CC0070F110 /* BBSwitchToBlockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSwitchToBlockView.h; sourceTree = "<group>"; };
+		F7591F1F19AE98CC0070F110 /* BBSwitchToBlockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSwitchToBlockView.m; sourceTree = "<group>"; };
+		F7591F2119AE98E20070F110 /* BBSwitchToBlockView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBSwitchToBlockView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -424,6 +429,9 @@
 		22DA5D3419A0727600A61A85 /* Blocks */ = {
 			isa = PBXGroup;
 			children = (
+				F7591F1E19AE98CC0070F110 /* BBSwitchToBlockView.h */,
+				F7591F1F19AE98CC0070F110 /* BBSwitchToBlockView.m */,
+				F7591F2119AE98E20070F110 /* BBSwitchToBlockView.xib */,
 				228978A719A1A9D400B02C18 /* BBIfThenBlockView.h */,
 				228978A819A1A9D400B02C18 /* BBIfThenBlockView.m */,
 				22DA5D17199FEDC700A61A85 /* BBIfThenBlockView.xib */,
@@ -538,6 +546,7 @@
 				22CA6B72199C018100CDD665 /* BBChooseFeelingViewController.xib in Resources */,
 				22CCF00519917680005161B5 /* BBClosetViewController.xib in Resources */,
 				22CCF00F199176BD005161B5 /* BBMyBlobViewController.xib in Resources */,
+				F7591F2219AE98E20070F110 /* BBSwitchToBlockView.xib in Resources */,
 				22CCEFD0199165D6005161B5 /* InfoPlist.strings in Resources */,
 				22DA5D26199FEFD100A61A85 /* BBReactionBlockView.xib in Resources */,
 				222299F5199689AF0016BE43 /* BBLanguageBlockCollectionCell.xib in Resources */,
@@ -587,6 +596,7 @@
 				228978AF19A1AA0300B02C18 /* BBWaitBlockView.m in Sources */,
 				22DA5D0F199FE71300A61A85 /* BBLanguageBlockViewFactory.m in Sources */,
 				22CCF009199176A5005161B5 /* BBSecretLanguageViewController.m in Sources */,
+				F7591F2019AE98CC0070F110 /* BBSwitchToBlockView.m in Sources */,
 				22DA5D3E19A07D5E00A61A85 /* BBLanguageBlock.m in Sources */,
 				22B313A619958B4C0006AE57 /* BlobDataModel.xcdatamodeld in Sources */,
 				22DA5D4119A0860400A61A85 /* BBReactionBlockView.m in Sources */,

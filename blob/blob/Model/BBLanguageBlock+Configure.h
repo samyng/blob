@@ -9,6 +9,7 @@
 #import "BBLanguageBlock.h"
 
 @interface BBLanguageBlock (Configure)
+- (BOOL)isSwitchToBlock;
 - (BOOL)isIfThenBlock;
 - (BOOL)isIfThenElseBlock;
 - (BOOL)isWaitBlock;

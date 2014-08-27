@@ -51,6 +51,10 @@
     {
         blockView = [self viewFromNibName:REACTION_BLOCK_NIB_NAME];
     }
+    else if ([languageBlock isSwitchToBlock])
+    {
+        blockView = [self viewFromNibName:SWITCH_TO_BLOCK_NIB_NAME];
+    }
     blockView.languageBlock = languageBlock;
     return blockView;
 }

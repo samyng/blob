@@ -469,8 +469,8 @@ static NSInteger const kControlGroupIndexRow = 0;
     BBLanguageBlock *waitBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
     waitBlock.name = WAIT_BLOCK_NAME;
     
-    //    BBLanguageBlock *switchStateToBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
-    //    switchStateToBlock.name = @"switchStateTo";
+    BBLanguageBlock *switchStateToBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
+    switchStateToBlock.name = @"switchTo";
     
     BBLanguageBlock *greaterThanBlock = [[BBLanguageBlock alloc] initWithEntity:languageBlockEntityDescription insertIntoManagedObjectContext:context];
     greaterThanBlock.name = @"greaterThan";
@@ -527,7 +527,7 @@ static NSInteger const kControlGroupIndexRow = 0;
     BBLanguageGroup *control = [[BBLanguageGroup alloc] initWithEntity:groupEntityDescription
                                         insertIntoManagedObjectContext:context];
     control.name = CONTROL_GROUP;
-    control.blocks = [NSSet setWithArray:@[ifThenBlock, ifThenElseBlock, repeatBlock, waitBlock]];
+    control.blocks = [NSSet setWithArray:@[ifThenBlock, repeatBlock, waitBlock, switchStateToBlock]];
     
     BBLanguageGroup *fromCloset = [[BBLanguageGroup alloc] initWithEntity:groupEntityDescription insertIntoManagedObjectContext:context];
     fromCloset.name = FROM_CLOSET_GROUP;

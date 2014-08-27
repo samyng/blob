@@ -11,6 +11,12 @@
 
 @implementation BBLanguageBlock (Configure)
 
+- (BOOL)isSwitchToBlock
+{
+    return ([self isControlBlock] &&
+            [self.name isEqualToString:SWITCH_TO_BLOCK_NAME]) ? YES : NO;
+}
+
 - (BOOL)isIfThenBlock
 {
     return ([self isControlBlock] &&
