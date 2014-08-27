@@ -79,6 +79,8 @@ static CGFloat const kViewAnimationDuration = 0.25f;
 static CGFloat const BLOB_BLOCK_SLOT_CORNER_RADIUS = 5.0f;
 static CGFloat const BLOB_QUANTITY_CORNER_RADIUS = 18.0f;
 
+static CGFloat const MARGIN_OF_ERROR_CONSTANT = 2.0f;
+
 
 @interface BBConstants : NSObject
 

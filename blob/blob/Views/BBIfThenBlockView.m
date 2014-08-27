@@ -11,8 +11,6 @@
 #import "BBBlockStackParameterView.h"
 #import "BBReactionBlockView.h"
 
-const CGFloat marginOfErrorConstant = 2.0f;
-
 @interface BBIfThenBlockView ()
 @property (weak, nonatomic) IBOutlet BBBlockSlotParameterView *blockSlot;
 @property (weak, nonatomic) IBOutlet BBBlockStackParameterView *blockStack;
@@ -26,7 +24,7 @@ const CGFloat marginOfErrorConstant = 2.0f;
     {
         CGFloat newWidth = CGRectGetWidth(self.frame);
         CGFloat xDifference = CGRectGetWidth(blockView.frame) - CGRectGetWidth(self.blockSlot.frame);
-        if (xDifference >= marginOfErrorConstant) // only change width if the difference is nontrivial
+        if (xDifference >= MARGIN_OF_ERROR_CONSTANT) // only change width if the difference is nontrivial
         {
             newWidth += xDifference;
         }
