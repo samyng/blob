@@ -328,15 +328,7 @@ static NSInteger const kControlGroupIndexRow = 0;
 {
     if (CGRectIntersectsRect(self.blocksContainerView.frame, collapsedView.expandedBlockView.frame))
     {
-        [UIView animateWithDuration:kViewAnimationDuration animations:^{
-            collapsedView.expandedBlockView.alpha = kAlphaZero;
-        }];
-        [collapsedView.expandedBlockView removeFromSuperview];
-        collapsedView.expandedBlockView = nil;
-        if ([self.blockViewsInUse containsObject:collapsedView.expandedBlockView])
-        {
-            [self.blockViewsInUse removeObject:collapsedView.expandedBlockView];
-        }
+        [self removeBlockViewFromWorkspace:collapsedView.expandedBlockView];
     }
     else
     {
@@ -344,12 +336,10 @@ static NSInteger const kControlGroupIndexRow = 0;
     }
 }
 
-
 #pragma mark - Expanded Language Block Delegate Methods
 
 - (void)panDidBegin:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)blockView
 {
-    
     self.startingBlockViewOrigin = blockView.frame.origin;
 }
 
@@ -368,16 +358,34 @@ static NSInteger const kControlGroupIndexRow = 0;
 {
     if (CGRectIntersectsRect(self.blocksContainerView.frame, blockView.frame))
     {
-        [UIView animateWithDuration:kViewAnimationDuration animations:^{
-            blockView.alpha = kAlphaZero;
-        }];
-        [blockView removeFromSuperview];
-        if ([self.blockViewsInUse containsObject:blockView])
-        {
-            [self.blockViewsInUse removeObject:blockView];
-        }
-        blockView = nil;
+        [self removeBlockViewFromWorkspace:blockView];
     }
+}
+
+#pragma mark - Remove Blocks Helper Method
+
+- (void)removeBlockViewFromWorkspace:(BBLanguageBlockView *)blockView
+{
+    [UIView animateWithDuration:kViewAnimationDuration animations:^{
+        blockView.alpha = kAlphaZero;
+    }];
+    
+    for (BBLanguageBlockView *aSnappedView in blockView.snappedBlockViews)
+    {
+        [aSnappedView removeFromSuperview];
+        if ([self.blockViewsInUse containsObject:aSnappedView])
+        {
+            [self.blockViewsInUse removeObject:aSnappedView];
+        }
+    }
+    blockView.snappedBlockViews = nil;
+    
+    [blockView removeFromSuperview];
+    if ([self.blockViewsInUse containsObject:blockView])
+    {
+        [self.blockViewsInUse removeObject:blockView];
+    }
+    blockView = nil;
 }
 
 #pragma mark - Expanded Blocks Intersect Methods
