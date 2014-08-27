@@ -27,11 +27,11 @@
         CGFloat xDifference = CGRectGetWidth(blockView.frame) - CGRectGetWidth(self.blockSlot.frame);
         CGFloat yDifference = CGRectGetHeight(blockView.frame) - CGRectGetHeight(self.blockSlot.frame);
         CGPoint blockSlotOrigin = self.blockSlot.frame.origin;
-        [self.delegate updateFrameForTouchedLanguageBlockView:self
-                                  andDraggedLanguageBlockView:blockView
-                                                          byX:xDifference
-                                                          byY:yDifference
-                                      withParameterViewOrigin:blockSlotOrigin];
+//        [self.delegate updateFrameForTouchedLanguageBlockView:self
+//                                  andDraggedLanguageBlockView:blockView
+//                                                          byX:xDifference
+//                                                          byY:yDifference
+//                                      withParameterViewOrigin:blockSlotOrigin];
         [self.snappedBlockViews addObject:blockView];
     }
     // hack - will only accept one block for now hack until find more scalable way to stack blocks - SY
@@ -41,11 +41,11 @@
         CGFloat xDifference = 0.0f;
         CGFloat yDifference = 0.0f;
         CGPoint blockStackOrigin = self.topBlockStack.frame.origin;
-        [self.delegate updateFrameForTouchedLanguageBlockView:self
-                                  andDraggedLanguageBlockView:blockView
-                                                          byX:xDifference
-                                                          byY:yDifference
-                                      withParameterViewOrigin:blockStackOrigin];
+//        [self.delegate updateFrameForTouchedLanguageBlockView:self
+//                                  andDraggedLanguageBlockView:blockView
+//                                                          byX:xDifference
+//                                                          byY:yDifference
+//                                      withParameterViewOrigin:blockStackOrigin];
         [self.snappedBlockViews addObject:blockView];
     }
     // hack - will only accept one block for now hack until find more scalable way to stack blocks - SY
@@ -55,11 +55,11 @@
         CGFloat xDifference = 0.0f;
         CGFloat yDifference = 0.0f;
         CGPoint blockStackOrigin = self.bottomBlockStack.frame.origin;
-        [self.delegate updateFrameForTouchedLanguageBlockView:self
-                                  andDraggedLanguageBlockView:blockView
-                                                          byX:xDifference
-                                                          byY:yDifference
-                                      withParameterViewOrigin:blockStackOrigin];
+//        [self.delegate updateFrameForTouchedLanguageBlockView:self
+//                                  andDraggedLanguageBlockView:blockView
+//                                                          byX:xDifference
+//                                                          byY:yDifference
+//                                      withParameterViewOrigin:blockStackOrigin];
         [self.snappedBlockViews addObject:blockView];
     }
 }

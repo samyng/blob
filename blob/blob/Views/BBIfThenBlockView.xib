@@ -47,13 +47,16 @@
                     <rect key="frame" x="64" y="7" width="72" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" priority="250" constant="55" id="PDO-yV-OFO"/>
+                    </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aGP-Cl-pYi" userLabel="Block Stack" customClass="BBBlockStackParameterView">
                     <rect key="frame" x="12" y="54" width="198" height="55"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="55" id="6wO-SN-B3g"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="55" placeholder="YES" id="6wO-SN-B3g"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zId-3f-n48">

@@ -402,14 +402,12 @@ static NSInteger const kControlGroupIndexRow = 0;
 
 - (void)updateFrameForTouchedLanguageBlockView:(BBLanguageBlockView *)touchedBlockView
                    andDraggedLanguageBlockView:(BBLanguageBlockView *)draggedBlockView
-                                           byX:(CGFloat)xDifference
-                                           byY:(CGFloat)yDifference
+                                     withWidth:(CGFloat)width
+                                    withHeight:(CGFloat)height
                        withParameterViewOrigin:(CGPoint)parameterOrigin
 {
     CGPoint origin = touchedBlockView.frame.origin;
-    CGFloat newWidth = CGRectGetWidth(touchedBlockView.frame) + xDifference;
-    CGFloat newHeight = CGRectGetHeight(touchedBlockView.frame) + yDifference;
-    CGRect newFrame = CGRectMake(origin.x, origin.y, newWidth, newHeight);
+    CGRect newFrame = CGRectMake(origin.x, origin.y, width, height);
     touchedBlockView.frame = newFrame;
     
     CGFloat newCenterXPoint = origin.x + parameterOrigin.x + (CGRectGetWidth(draggedBlockView.frame)/2);

@@ -16,8 +16,8 @@
 - (void)panDidChange:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)blockView;
 - (void)panDidEnd:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)blockView;
 - (void)updateFrameForTouchedLanguageBlockView:(BBLanguageBlockView *)touchedBlockView andDraggedLanguageBlockView:(BBLanguageBlockView *)draggedBlockView
-                                    byX:(CGFloat)xDifference
-                                    byY:(CGFloat)yDifference
+                                    withWidth:(CGFloat)width
+                                    withHeight:(CGFloat)height
                 withParameterViewOrigin:(CGPoint)parameterOrigin;
 
 @end

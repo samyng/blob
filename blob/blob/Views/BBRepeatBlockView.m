@@ -25,11 +25,11 @@
         CGFloat xDifference = 0.0f;
         CGFloat yDifference = 0.0f;
         CGPoint blockStackOrigin = self.blockStack.frame.origin;
-        [self.delegate updateFrameForTouchedLanguageBlockView:self
-                                  andDraggedLanguageBlockView:blockView
-                                                          byX:xDifference
-                                                          byY:yDifference
-                                      withParameterViewOrigin:blockStackOrigin];
+//        [self.delegate updateFrameForTouchedLanguageBlockView:self
+//                                  andDraggedLanguageBlockView:blockView
+//                                                          byX:xDifference
+//                                                          byY:yDifference
+//                                      withParameterViewOrigin:blockStackOrigin];
         [self.snappedBlockViews addObject:blockView];
     }
 }
