@@ -7,6 +7,7 @@
 //
 
 #import "BBLanguageBlockView.h"
+#import "BBParameterView.h"
 
 @implementation BBLanguageBlockView
 
@@ -63,6 +64,37 @@
         blockView.center = CGPointMake(xPosition, yPosition);
         [self.superview bringSubviewToFront:blockView];
     }
+}
+
+
+- (void)updateFrameForBlockStack:(BBParameterView *)blockStack withBlockView:(BBLanguageBlockView *)blockView
+{
+    CGFloat width = CGRectGetWidth(self.frame);
+    CGFloat height = [self originalSize].height;
+    CGFloat reactionBlockHeight = CGRectGetHeight(blockView.frame);
+    CGPoint blockStackOrigin = blockStack.frame.origin;
+    
+    if ([self numberOfAdditionalStackBlockSpaces] > 0)
+    {
+        height = [self originalSize].height + ([self numberOfAdditionalStackBlockSpaces] *
+                                               reactionBlockHeight);
+        blockStackOrigin = CGPointMake(blockStackOrigin.x, blockStackOrigin.y + ([self numberOfAdditionalStackBlockSpaces] * reactionBlockHeight));
+    }
+    
+    [self.delegate updateFrameForTouchedLanguageBlockView:self
+                              andDraggedLanguageBlockView:blockView
+                                                withWidth:width
+                                               withHeight:height
+                                  withParameterViewOrigin:blockStackOrigin];
+}
+
+- (NSInteger)numberOfAdditionalStackBlockSpaces
+{
+    if (self.hasSlotBlock)
+    {
+        return  [self.snappedBlockViews count] - 2;
+    }
+    return [self.snappedBlockViews count] - 1;
 }
 
 - (void)touchedByLanguageBlockView:(BBLanguageBlockView *)blockView atTouchLocation:(CGPoint)touchLocation

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 @class BBLanguageBlock;
 @class BBLanguageBlockView;
+@class BBParameterView;
 
 @protocol LanguageBlockDelegate <NSObject>
 
@@ -28,10 +29,13 @@
 @property (strong, nonatomic) NSMutableSet *snappedBlockViews;
 @property (nonatomic) BOOL overlapped;
 @property (nonatomic) BOOL isOverlapped;
+@property (nonatomic) BOOL hasSlotBlock;
 - (void)touchedByLanguageBlockView:(BBLanguageBlockView *)blockView
                    atTouchLocation:(CGPoint)touchLocation;
 - (void)untouchedByLanguageBlockView:(BBLanguageBlockView *)blockView
                    fromStartingOrigin:(CGPoint)blockViewStartingOrigin;
 - (void)moveCenterToPoint:(CGPoint)newCenterPoint;
+- (void)updateFrameForBlockStack:(BBParameterView *)blockStack withBlockView:(BBLanguageBlockView *)blockView;
+- (NSInteger)numberOfAdditionalStackBlockSpaces;
 - (CGSize)originalSize;
 @end
