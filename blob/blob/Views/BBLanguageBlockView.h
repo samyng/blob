@@ -38,4 +38,5 @@
 - (void)updateFrameForBlockStack:(BBParameterView *)blockStack withBlockView:(BBLanguageBlockView *)blockView;
 - (NSInteger)numberOfAdditionalStackBlockSpaces;
 - (CGSize)originalSize;
+- (CGRect)originalFrame;
 @end

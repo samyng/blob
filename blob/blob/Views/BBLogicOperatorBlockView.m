@@ -128,9 +128,4 @@ const CGFloat xPadding = 8.0f;
     return CGSizeMake(198.0f, 55.0f);
 }
 
-- (CGRect)originalFrame
-{
-    return CGRectMake(self.frame.origin.x, self.frame.origin.y, [self originalSize].width, [self originalSize].height);
-}
-
 @end

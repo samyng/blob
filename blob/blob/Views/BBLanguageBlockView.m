@@ -89,14 +89,14 @@
 {
     CGFloat width = CGRectGetWidth(self.frame);
     CGFloat height = [self originalSize].height;
-    CGFloat reactionBlockHeight = CGRectGetHeight(blockView.frame);
+    CGFloat blockViewHeight = CGRectGetHeight(blockView.frame);
     CGPoint blockStackOrigin = blockStack.frame.origin;
     
     if ([self numberOfAdditionalStackBlockSpaces] > 0)
     {
         height = [self originalSize].height + ([self numberOfAdditionalStackBlockSpaces] *
-                                               reactionBlockHeight);
-        blockStackOrigin = CGPointMake(blockStackOrigin.x, blockStackOrigin.y + ([self numberOfAdditionalStackBlockSpaces] * reactionBlockHeight));
+                                               blockViewHeight);
+        blockStackOrigin = CGPointMake(blockStackOrigin.x, blockStackOrigin.y + ([self numberOfAdditionalStackBlockSpaces] * blockViewHeight));
     }
     
     [self.delegate updateFrameForTouchedLanguageBlockView:self
@@ -128,6 +128,12 @@
 - (CGSize)originalSize
 {
     return CGSizeZero; // overridden by subclasses
+}
+
+
+- (CGRect)originalFrame
+{
+    return CGRectMake(self.frame.origin.x, self.frame.origin.y, [self originalSize].width, [self originalSize].height);
 }
 
 @end

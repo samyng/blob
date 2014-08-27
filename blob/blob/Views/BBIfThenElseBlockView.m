@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet BBBlockSlotParameterView *blockSlot;
 @property (weak, nonatomic) IBOutlet BBBlockStackParameterView *topBlockStack;
 @property (weak, nonatomic) IBOutlet BBBlockStackParameterView *bottomBlockStack;
-
+@property (nonatomic) BOOL hasTopStackBlock;
 @end
 
 @implementation BBIfThenElseBlockView
@@ -23,50 +23,66 @@
 {
     if (CGRectContainsPoint(self.blockSlot.frame, touchLocation) && [self.blockSlot acceptsBlockView:blockView])
     {
-        blockView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-//        CGFloat xDifference = CGRectGetWidth(blockView.frame) - CGRectGetWidth(self.blockSlot.frame);
-//        CGFloat yDifference = CGRectGetHeight(blockView.frame) - CGRectGetHeight(self.blockSlot.frame);
-//        CGPoint blockSlotOrigin = self.blockSlot.frame.origin;
-//        [self.delegate updateFrameForTouchedLanguageBlockView:self
-//                                  andDraggedLanguageBlockView:blockView
-//                                                          byX:xDifference
-//                                                          byY:yDifference
-//                                      withParameterViewOrigin:blockSlotOrigin];
+        CGFloat newWidth = CGRectGetWidth(self.frame);
+        CGFloat xDifference = CGRectGetWidth(blockView.frame) - CGRectGetWidth(self.blockSlot.frame);
+        if (abs(xDifference) >= MARGIN_OF_ERROR_CONSTANT) // only change width if the difference is nontrivial
+        {
+            newWidth += xDifference;
+        }
+        CGPoint blockSlotOrigin = self.blockSlot.frame.origin;
+        [self.delegate updateFrameForTouchedLanguageBlockView:self
+                                  andDraggedLanguageBlockView:blockView
+                                                    withWidth:newWidth
+                                                   withHeight:CGRectGetHeight(self.frame)
+                                      withParameterViewOrigin:blockSlotOrigin];
         [self.snappedBlockViews addObject:blockView];
+        self.hasSlotBlock = YES;
     }
-    // hack - will only accept one block for now hack until find more scalable way to stack blocks - SY
     else if (CGRectContainsPoint(self.topBlockStack.frame, touchLocation) && [self.topBlockStack acceptsBlockView:blockView])
     {
-        blockView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-//        CGFloat xDifference = 0.0f;
-//        CGFloat yDifference = 0.0f;
-//        CGPoint blockStackOrigin = self.topBlockStack.frame.origin;
-//        [self.delegate updateFrameForTouchedLanguageBlockView:self
-//                                  andDraggedLanguageBlockView:blockView
-//                                                          byX:xDifference
-//                                                          byY:yDifference
-//                                      withParameterViewOrigin:blockStackOrigin];
+        [self updateFrameForBlockStack:self.topBlockStack withBlockView:blockView];
         [self.snappedBlockViews addObject:blockView];
     }
-    // hack - will only accept one block for now hack until find more scalable way to stack blocks - SY
     else if (CGRectContainsPoint(self.bottomBlockStack.frame, touchLocation) && [self.bottomBlockStack acceptsBlockView:blockView])
     {
-        blockView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-//        CGFloat xDifference = 0.0f;
-//        CGFloat yDifference = 0.0f;
-//        CGPoint blockStackOrigin = self.bottomBlockStack.frame.origin;
-//        [self.delegate updateFrameForTouchedLanguageBlockView:self
-//                                  andDraggedLanguageBlockView:blockView
-//                                                          byX:xDifference
-//                                                          byY:yDifference
-//                                      withParameterViewOrigin:blockStackOrigin];
+        [self updateFrameForBlockStack:self.bottomBlockStack withBlockView:blockView];
         [self.snappedBlockViews addObject:blockView];
+    }
+}
+
+- (void)untouchedByLanguageBlockView:(BBLanguageBlockView *)blockView fromStartingOrigin:(CGPoint)blockViewStartingOrigin
+{
+    if ([self.snappedBlockViews containsObject:blockView])
+    {
+        [self.snappedBlockViews removeObject:blockView];
+    }
+    if ([self.snappedBlockViews count] == 0)
+    {
+        self.frame = [self originalFrame];
     }
 }
 
 - (CGSize)originalSize
 {
-    return CGSizeMake(210.0f, 231.0f);
+    return CGSizeMake(210.0f, 246.0f);
+}
+
+- (NSInteger)numberOfAdditionalStackBlockSpaces
+{
+    NSInteger toSubtract = 0;
+    if (self.hasSlotBlock)
+    {
+        toSubtract = 3;
+    }
+    if (self.hasTopStackBlock)
+    {
+        toSubtract += 1;
+    }
+    if (!self.hasSlotBlock && !self.hasTopStackBlock)
+    {
+        toSubtract = 1;
+    }
+    return [self.snappedBlockViews count] - toSubtract;
 }
 
 @end
