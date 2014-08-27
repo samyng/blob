@@ -18,7 +18,6 @@
 
 - (void)touchedByLanguageBlockView:(BBLanguageBlockView *)blockView atTouchLocation:(CGPoint)touchLocation
 {
-    // will only accept one block for now hack until find more scalable way to stack blocks - SY
     if (CGRectContainsPoint(self.blockStack.frame, touchLocation) && [self.blockStack acceptsBlockView:blockView])
     {
         [self updateFrameForBlockStack:self.blockStack withBlockView:blockView];

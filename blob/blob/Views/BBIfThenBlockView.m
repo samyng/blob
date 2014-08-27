@@ -39,7 +39,6 @@ const CGFloat marginOfErrorConstant = 2.0f;
         [self.snappedBlockViews addObject:blockView];
         self.hasSlotBlock = YES;
     }
-    // will only accept one block for now hack until find more scalable way to stack blocks - SY
     else if (CGRectContainsPoint(self.blockStack.frame, touchLocation) && [self.blockStack acceptsBlockView:blockView])
     {
         [self updateFrameForBlockStack:self.blockStack withBlockView:blockView];
