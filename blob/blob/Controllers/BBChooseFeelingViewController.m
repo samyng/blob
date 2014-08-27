@@ -112,6 +112,7 @@ static NSInteger kNewFeelingAlertViewAddButtonIndex = 1;
     {
         self.secretLanguageViewController = [[BBSecretLanguageViewController alloc] initWithNibName:nil bundle:nil];
         self.secretLanguageViewController.context = self.context;
+        self.secretLanguageViewController.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         self.secretLanguageViewController.feeling = [self feelingAtIndexPath:indexPath];
         self.secretLanguageViewController.view.frame = offscreenFrame;
         [self.view addSubview:self.secretLanguageViewController.view];

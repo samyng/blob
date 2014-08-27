@@ -178,4 +178,19 @@
     }
 }
 
++ (CGSize)screenSize
+{
+    CGFloat shortSide = [UIScreen mainScreen].bounds.size.width;
+    CGFloat longSide = [UIScreen mainScreen].bounds.size.height;
+    
+    if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation))
+    {
+        return CGSizeMake(longSide, shortSide);
+    }
+    else
+    {
+        return CGSizeMake(shortSide, longSide);
+    }
+}
+
 @end

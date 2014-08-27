@@ -318,7 +318,7 @@ static NSInteger const kControlGroupIndexRow = 0;
 - (void)panDidChange:(UIPanGestureRecognizer *)sender forCollapsedLanguageBlockView:(BBCollapsedLanguageBlockImageView *)collapsedView
 {
     CGPoint touchLocation = [sender locationInView:self.view];
-    collapsedView.expandedBlockView.center = touchLocation;
+    [collapsedView.expandedBlockView moveCenterToPoint:touchLocation];
     collapsedView.expandedBlockView.alpha = CGRectIntersectsRect(self.blocksContainerView.frame, collapsedView.expandedBlockView.frame) ? kAlphaHalf : kAlphaOpaque;
     [self.view bringSubviewToFront:collapsedView.expandedBlockView];
     [self checkIntersectionFromSender:sender forLanguageBlockView:collapsedView.expandedBlockView];

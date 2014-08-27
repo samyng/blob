@@ -53,9 +53,29 @@
 - (void)moveCenterToPoint:(CGPoint)newCenterPoint
 {
     CGPoint oldCenterPoint = self.center;
-    CGFloat xDifference = newCenterPoint.x - oldCenterPoint.x;
-    CGFloat yDifference = newCenterPoint.y - oldCenterPoint.y;
-    self.center = newCenterPoint;
+    CGFloat newCenterX = newCenterPoint.x;
+    CGFloat newCenterY = newCenterPoint.y;
+    CGSize screenSize = [BBConstants screenSize];
+    CGFloat width = self.frame.size.width;
+    CGFloat height = self.frame.size.height;
+    CGFloat topOffset = 44.0f;  // height of nav bar
+    
+    if ((newCenterX - width/2) < 0) // left boundary
+    {
+        newCenterX = width/2;
+    }
+    if ((newCenterY - height/2) < topOffset) // top boundary
+    {
+        newCenterY = height/2;
+    }
+    if ((newCenterX + width/2) > screenSize.width) // right boundary
+    {
+        newCenterX = screenSize.width - width/2;
+    }
+    
+    CGFloat xDifference = newCenterX - oldCenterPoint.x;
+    CGFloat yDifference = newCenterY - oldCenterPoint.y;
+    self.center = CGPointMake(newCenterX, newCenterY);
     
     for (BBLanguageBlockView *blockView in self.snappedBlockViews)
     {
@@ -65,7 +85,6 @@
         [self.superview bringSubviewToFront:blockView];
     }
 }
-
 
 - (void)updateFrameForBlockStack:(BBParameterView *)blockStack withBlockView:(BBLanguageBlockView *)blockView
 {

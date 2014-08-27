@@ -105,4 +105,6 @@ static CGFloat const BLOB_QUANTITY_CORNER_RADIUS = 18.0f;
 + (UIColor *)backgroundColorForCellWithLanguageGroupName:(NSString *)name;
 + (UIColor *)colorForCellWithLanguageGroupName:(NSString *)name;
 
++ (CGSize)screenSize;
+
 @end
