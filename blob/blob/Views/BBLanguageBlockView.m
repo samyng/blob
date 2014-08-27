@@ -70,6 +70,11 @@
     // overridden by subclasses
 }
 
+- (void)untouchedByLanguageBlockView:(BBLanguageBlockView *)blockView fromStartingOrigin:(CGPoint)blockViewStartingOrigin
+{
+    // overridden by subclasses
+}
+
 - (CGSize)originalSize
 {
     return CGSizeZero; // overridden by subclasses

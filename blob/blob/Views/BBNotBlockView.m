@@ -35,9 +35,9 @@
     if (CGRectContainsPoint(self.rightSlot.frame, touchLocation) && [self.rightSlot acceptsBlockView:blockView])
     {
         blockView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-        CGFloat xDifference = CGRectGetWidth(blockView.frame) - CGRectGetWidth(self.rightSlot.frame);
-        CGFloat yDifference = CGRectGetHeight(blockView.frame) - CGRectGetHeight(self.rightSlot.frame);
-        CGPoint blockSlotOrigin = self.rightSlot.frame.origin;
+//        CGFloat xDifference = CGRectGetWidth(blockView.frame) - CGRectGetWidth(self.rightSlot.frame);
+//        CGFloat yDifference = CGRectGetHeight(blockView.frame) - CGRectGetHeight(self.rightSlot.frame);
+//        CGPoint blockSlotOrigin = self.rightSlot.frame.origin;
 //        [self.delegate updateFrameForTouchedLanguageBlockView:self
 //                                  andDraggedLanguageBlockView:blockView
 //                                                          byX:xDifference

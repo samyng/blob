@@ -29,6 +29,7 @@ static NSInteger const kControlGroupIndexRow = 0;
 @property (strong, nonatomic) NSArray *accessories;
 @property (strong, nonatomic) NSFetchedResultsController *groupsFetchedResultsController;
 @property (strong, nonatomic) NSFetchedResultsController *accessoriesFetchedResultsController;
+@property (nonatomic) CGPoint startingBlockViewOrigin;
 @end
 
 @implementation BBSecretLanguageViewController
@@ -332,6 +333,7 @@ static NSInteger const kControlGroupIndexRow = 0;
         }];
         [collapsedView.expandedBlockView removeFromSuperview];
         collapsedView.expandedBlockView = nil;
+        [self.blockViewsInUse removeObject:collapsedView.expandedBlockView];
     }
     else
     {
@@ -344,6 +346,8 @@ static NSInteger const kControlGroupIndexRow = 0;
 
 - (void)panDidBegin:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)blockView
 {
+    
+    self.startingBlockViewOrigin = blockView.frame.origin;
 }
 
 - (void)panDidChange:(UIPanGestureRecognizer *)sender forLanguageBlockView:(BBLanguageBlockView *)blockView
@@ -365,6 +369,7 @@ static NSInteger const kControlGroupIndexRow = 0;
             blockView.alpha = kAlphaZero;
         }];
         [blockView removeFromSuperview];
+        [self.blockViewsInUse removeObject:blockView];
         blockView = nil;
     }
 }
@@ -377,25 +382,17 @@ static NSInteger const kControlGroupIndexRow = 0;
     {
         if (aBlockView != blockView)
         {
-            blockView.overlapped = CGRectIntersectsRect(aBlockView.frame, blockView.frame) ? YES : NO;
-            
-            if (blockView.overlapped == NO && blockView.isOverlapped == YES) // if they were overlapping and now aren't
-            {
-                if ([aBlockView.snappedBlockViews count] > 0)
-                {
-                    [aBlockView.snappedBlockViews removeObject:blockView];
-                    CGSize originalSize = [aBlockView originalSize];
-                    CGPoint origin = aBlockView.frame.origin;
-                    CGRect originalFrame = CGRectMake(origin.x, origin.y, originalSize.width, originalSize.height);
-                    aBlockView.frame = originalFrame;
-                }
-            }
-            else if (blockView.overlapped)
+            BOOL doesIntersect = CGRectIntersectsRect(aBlockView.frame, blockView.frame);
+            blockView.overlapped = doesIntersect ? YES : NO;
+            if (blockView.overlapped)
             {
                 CGPoint touchPoint = [sender locationInView:aBlockView];
                 [aBlockView touchedByLanguageBlockView:blockView atTouchLocation:touchPoint];
             }
-            blockView.isOverlapped = blockView.overlapped;
+            else
+            {
+                [aBlockView untouchedByLanguageBlockView:blockView fromStartingOrigin:self.startingBlockViewOrigin];
+            }
         }
     }
 }

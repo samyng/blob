@@ -24,9 +24,9 @@
     if (CGRectContainsPoint(self.blockSlot.frame, touchLocation) && [self.blockSlot acceptsBlockView:blockView])
     {
         blockView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-        CGFloat xDifference = CGRectGetWidth(blockView.frame) - CGRectGetWidth(self.blockSlot.frame);
-        CGFloat yDifference = CGRectGetHeight(blockView.frame) - CGRectGetHeight(self.blockSlot.frame);
-        CGPoint blockSlotOrigin = self.blockSlot.frame.origin;
+//        CGFloat xDifference = CGRectGetWidth(blockView.frame) - CGRectGetWidth(self.blockSlot.frame);
+//        CGFloat yDifference = CGRectGetHeight(blockView.frame) - CGRectGetHeight(self.blockSlot.frame);
+//        CGPoint blockSlotOrigin = self.blockSlot.frame.origin;
 //        [self.delegate updateFrameForTouchedLanguageBlockView:self
 //                                  andDraggedLanguageBlockView:blockView
 //                                                          byX:xDifference
@@ -38,9 +38,9 @@
     else if (CGRectContainsPoint(self.topBlockStack.frame, touchLocation) && [self.topBlockStack acceptsBlockView:blockView])
     {
         blockView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-        CGFloat xDifference = 0.0f;
-        CGFloat yDifference = 0.0f;
-        CGPoint blockStackOrigin = self.topBlockStack.frame.origin;
+//        CGFloat xDifference = 0.0f;
+//        CGFloat yDifference = 0.0f;
+//        CGPoint blockStackOrigin = self.topBlockStack.frame.origin;
 //        [self.delegate updateFrameForTouchedLanguageBlockView:self
 //                                  andDraggedLanguageBlockView:blockView
 //                                                          byX:xDifference
@@ -52,9 +52,9 @@
     else if (CGRectContainsPoint(self.bottomBlockStack.frame, touchLocation) && [self.bottomBlockStack acceptsBlockView:blockView])
     {
         blockView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-        CGFloat xDifference = 0.0f;
-        CGFloat yDifference = 0.0f;
-        CGPoint blockStackOrigin = self.bottomBlockStack.frame.origin;
+//        CGFloat xDifference = 0.0f;
+//        CGFloat yDifference = 0.0f;
+//        CGPoint blockStackOrigin = self.bottomBlockStack.frame.origin;
 //        [self.delegate updateFrameForTouchedLanguageBlockView:self
 //                                  andDraggedLanguageBlockView:blockView
 //                                                          byX:xDifference

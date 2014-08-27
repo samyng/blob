@@ -30,6 +30,8 @@
 @property (nonatomic) BOOL isOverlapped;
 - (void)touchedByLanguageBlockView:(BBLanguageBlockView *)blockView
                    atTouchLocation:(CGPoint)touchLocation;
+- (void)untouchedByLanguageBlockView:(BBLanguageBlockView *)blockView
+                   fromStartingOrigin:(CGPoint)blockViewStartingOrigin;
 - (void)moveCenterToPoint:(CGPoint)newCenterPoint;
 - (CGSize)originalSize;
 @end
