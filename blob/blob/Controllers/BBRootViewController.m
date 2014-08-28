@@ -12,6 +12,7 @@
 #import "BBSecretLanguageViewController.h"
 #import "SWRevealViewController.h"
 #import "BBChooseFeelingViewController.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface BBRootViewController ()
 @property (weak, nonatomic) IBOutlet UIView *tabBarBackgroundView;
@@ -20,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *myBlobButton;
 @property (weak, nonatomic) IBOutlet UIButton *secretLanguageButton;
 @property (strong, nonatomic) UIViewController *currentChildViewController;
+@property (strong, nonatomic) MPMoviePlayerViewController *moviePlayerViewController;
+@property (strong, nonatomic) UIBarButtonItem *playIntroVideoBarButtonItem;
 @end
 
 @implementation BBRootViewController
@@ -36,6 +39,10 @@
     UIBarButtonItem *menuBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStylePlain target:revealViewController action:@selector(revealToggle:)];
     self.navigationItem.leftBarButtonItem = menuBarButtonItem;
     
+    self.playIntroVideoBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Watch Blob's Story" style:UIBarButtonItemStylePlain target:self action:@selector(playIntroVideo)];
+    [self.playIntroVideoBarButtonItem setTintColor:[BBConstants tealColor]];
+    self.navigationItem.rightBarButtonItem = self.playIntroVideoBarButtonItem;
+    
     UIImage *templateClosetImage = [[UIImage imageNamed:CLOSET_ICON_NAME] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [self.closetButton setImage:templateClosetImage forState:UIControlStateNormal];
     UIImage *templateMyBlobImage = [[UIImage imageNamed:MY_BLOB_ICON_NAME] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
@@ -44,6 +51,42 @@
     [self.secretLanguageButton setImage:templateSecretLanguageImage forState:UIControlStateNormal];
     
     [self myBlobButtonPressed:self.myBlobButton];
+}
+
+- (void)playIntroVideo
+{
+    NSString *introVideoPath = [[NSBundle mainBundle] pathForResource:@"blob-intro" ofType:@"mp4"];
+    NSURL *introVideoURL = [NSURL fileURLWithPath:introVideoPath];
+    
+    self.moviePlayerViewController = [[MPMoviePlayerViewController alloc] initWithContentURL:introVideoURL];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(doneButtonClicked:)
+                                                 name:MPMoviePlayerWillExitFullscreenNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(movieDidFinish:)
+                                                 name:MPMoviePlayerPlaybackDidFinishNotification
+                                               object:nil];
+    [self.navigationController presentViewController:self.moviePlayerViewController animated:YES completion:^{
+    }];
+}
+
+- (void)movieDidFinish:(NSNotification *)notification
+{
+    [self.moviePlayerViewController dismissViewControllerAnimated:YES completion:^{
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
+        [self closetButtonPressed:self.closetButton];
+        self.moviePlayerViewController = nil;
+    }];
+}
+
+- (void)doneButtonClicked:(NSNotification *)notification
+{
+    [self.moviePlayerViewController dismissViewControllerAnimated:YES completion:^{
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerWillExitFullscreenNotification object:nil];
+        [self closetButtonPressed:self.closetButton];
+        self.moviePlayerViewController = nil;
+    }];
 }
 
 # pragma mark - Button Pressed
@@ -130,7 +173,7 @@
 - (void)resetNavigationBar
 {
     self.navigationItem.title = nil;
-    self.navigationItem.rightBarButtonItem = nil;
+    self.navigationItem.rightBarButtonItem = self.playIntroVideoBarButtonItem;
 }
 
 @end

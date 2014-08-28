@@ -76,6 +76,7 @@
 		F7591F2019AE98CC0070F110 /* BBSwitchToBlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7591F1F19AE98CC0070F110 /* BBSwitchToBlockView.m */; };
 		F7591F2219AE98E20070F110 /* BBSwitchToBlockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7591F2119AE98E20070F110 /* BBSwitchToBlockView.xib */; };
 		F7591F2619AEB5030070F110 /* blob-intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F7591F2519AEB5030070F110 /* blob-intro.mp4 */; };
+		F7FED66A19AF62E200B985E2 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7FED66919AF62E200B985E2 /* MediaPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -197,6 +198,7 @@
 		F7591F1F19AE98CC0070F110 /* BBSwitchToBlockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSwitchToBlockView.m; sourceTree = "<group>"; };
 		F7591F2119AE98E20070F110 /* BBSwitchToBlockView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBSwitchToBlockView.xib; sourceTree = "<group>"; };
 		F7591F2519AEB5030070F110 /* blob-intro.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "blob-intro.mp4"; sourceTree = "<group>"; };
+		F7FED66919AF62E200B985E2 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7FED66A19AF62E200B985E2 /* MediaPlayer.framework in Frameworks */,
 				22B313A319958AE60006AE57 /* CoreData.framework in Frameworks */,
 				22CCEFC8199165D6005161B5 /* CoreGraphics.framework in Frameworks */,
 				22CCEFCA199165D6005161B5 /* UIKit.framework in Frameworks */,
@@ -273,6 +276,7 @@
 		22CCEFC4199165D6005161B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F7FED66919AF62E200B985E2 /* MediaPlayer.framework */,
 				22B313A219958AE60006AE57 /* CoreData.framework */,
 				22CCEFC5199165D6005161B5 /* Foundation.framework */,
 				22CCEFC7199165D6005161B5 /* CoreGraphics.framework */,
