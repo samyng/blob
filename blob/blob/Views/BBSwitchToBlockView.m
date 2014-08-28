@@ -21,11 +21,6 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    [self setup];
-}
-
-- (void)setup
-{
     [self populateFeelings];
 }
 
@@ -56,7 +51,7 @@
 
 
 - (IBAction)switchToButtonPressed:(UIButton *)sender {
-    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) + 255.0f);
+    self.frame = [self expandedPickerFrame];
     [self.switchToButton setTitle:nil forState:UIControlStateNormal];
     UIPickerView *moodPickerView = [[UIPickerView alloc] initWithFrame:self.switchToButton.frame];
     moodPickerView.dataSource = self;
@@ -87,6 +82,11 @@
     BBFeeling *feeling = [self.feelings objectAtIndex:row];
     self.switchToButton.titleLabel.alpha = 1.0f;
     [self.switchToButton setTitle:feeling.name forState:UIControlStateNormal];
+}
+
+- (CGRect)expandedPickerFrame
+{
+    return CGRectMake(self.frame.origin.x, self.frame.origin.y, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) + 216.0f);
 }
 
 - (CGSize)originalSize

@@ -14,7 +14,8 @@
 
 - (BOOL)acceptsBlockView:(BBLanguageBlockView *)blockView
 {
-    return [blockView.languageBlock isReactionBlock] ? YES : NO;
+    return ([blockView.languageBlock isReactionBlock] ||
+            [blockView.languageBlock isSwitchToBlock]) ? YES : NO;
 }
 
 @end
