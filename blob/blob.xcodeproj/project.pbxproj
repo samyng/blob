@@ -75,6 +75,7 @@
 		22DA5D4919A0F7C900A61A85 /* BBNotBlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DA5D4819A0F7C900A61A85 /* BBNotBlockView.m */; };
 		F7591F2019AE98CC0070F110 /* BBSwitchToBlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7591F1F19AE98CC0070F110 /* BBSwitchToBlockView.m */; };
 		F7591F2219AE98E20070F110 /* BBSwitchToBlockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7591F2119AE98E20070F110 /* BBSwitchToBlockView.xib */; };
+		F7591F2619AEB5030070F110 /* blob-intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F7591F2519AEB5030070F110 /* blob-intro.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -195,6 +196,7 @@
 		F7591F1E19AE98CC0070F110 /* BBSwitchToBlockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSwitchToBlockView.h; sourceTree = "<group>"; };
 		F7591F1F19AE98CC0070F110 /* BBSwitchToBlockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSwitchToBlockView.m; sourceTree = "<group>"; };
 		F7591F2119AE98E20070F110 /* BBSwitchToBlockView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBSwitchToBlockView.xib; sourceTree = "<group>"; };
+		F7591F2519AEB5030070F110 /* blob-intro.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "blob-intro.mp4"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,6 +300,7 @@
 		22CCEFCC199165D6005161B5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F7591F2519AEB5030070F110 /* blob-intro.mp4 */,
 				227C6FA4199A5AEE0025BA2F /* SWRevealViewController.h */,
 				227C6FA5199A5AEE0025BA2F /* SWRevealViewController.m */,
 				22CCEFCD199165D6005161B5 /* blob-Info.plist */,
@@ -543,6 +546,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22DA5D22199FEF6300A61A85 /* BBOperatorBlockView.xib in Resources */,
+				F7591F2619AEB5030070F110 /* blob-intro.mp4 in Resources */,
 				22CA6B72199C018100CDD665 /* BBChooseFeelingViewController.xib in Resources */,
 				22CCF00519917680005161B5 /* BBClosetViewController.xib in Resources */,
 				22CCF00F199176BD005161B5 /* BBMyBlobViewController.xib in Resources */,
