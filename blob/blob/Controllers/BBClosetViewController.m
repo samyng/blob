@@ -14,12 +14,15 @@
 static NSString * const kCategoriesTableCellIdentifier = @"categoriesTableCellIdentifier";
 static NSString * const kAccessoriesCollectionCellIdentifier = @"accessoriesCollectionCellIdentifier";
 static NSInteger const kAllSectionIndex = 0;
+static NSInteger const kNewAccessoryAlertViewTextFieldIndex = 0;
+static NSInteger const kAddAccessoryAlertViewButtonIndex = 1;
 
 
-@interface BBClosetViewController () <UITableViewDataSource, UICollectionViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
+@interface BBClosetViewController () <UITableViewDataSource, UICollectionViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, UIAlertViewDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *categoriesTableView;
 @property (weak, nonatomic) IBOutlet UICollectionView *accessoriesCollectionView;
 @property (weak, nonatomic) IBOutlet UIButton *addNewAccessoryButton;
+@property (strong, nonatomic) UIAlertView *addAccessoryAlertView;
 
 @property (strong, nonatomic) NSArray *categories;
 @property (strong, nonatomic) NSArray *accessories;
@@ -78,6 +81,36 @@ static NSInteger const kAllSectionIndex = 0;
                               initWithKey:NAME_SORT_DESCRIPTOR_KEY ascending:YES];
     [allCategoriesFetchRequest setSortDescriptors:@[sort]];
     return allCategoriesFetchRequest;
+}
+
+#pragma mark - Button Action
+
+- (IBAction)addButtonPressed:(UIButton *)sender {
+    self.addAccessoryAlertView = [[UIAlertView alloc] initWithTitle:nil message:@"Enter code" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add", nil];
+    self.addAccessoryAlertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [self.addAccessoryAlertView textFieldAtIndex:kNewAccessoryAlertViewTextFieldIndex].delegate = self;
+    [self.addAccessoryAlertView show];
+}
+
+#pragma mark - Text Field Delegate Methods
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    [self.addAccessoryAlertView dismissWithClickedButtonIndex:kNewAccessoryAlertViewTextFieldIndex animated:YES];
+    return YES;
+}
+
+#pragma mark - Alert View Delegate Methods
+
+- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == kAddAccessoryAlertViewButtonIndex)
+    {
+        self.addAccessoryAlertView = nil;
+        UIAlertView *confirmAlertView = [[UIAlertView alloc] initWithTitle:nil message:@"Babies added!" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+        [confirmAlertView show];
+    }
 }
 
 #pragma mark - Table View Datasource Methods
@@ -211,5 +244,7 @@ static NSInteger const kAllSectionIndex = 0;
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller{
     [self.categoriesTableView endUpdates];
 }
+
+
 
 @end
