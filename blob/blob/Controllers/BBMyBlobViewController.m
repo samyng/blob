@@ -230,91 +230,91 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
     
     // Accessories
     
-    NSEntityDescription *accessoryEntityDescription = [NSEntityDescription entityForName:ACCESSORY_ENTITY_DESCRIPTION inManagedObjectContext:context];
+//    NSEntityDescription *accessoryEntityDescription = [NSEntityDescription entityForName:ACCESSORY_ENTITY_DESCRIPTION inManagedObjectContext:context];
     NSEntityDescription *categoryEntityDescription = [NSEntityDescription entityForName:CLOSET_CATEGORY_ENTITY_DESCRIPTION inManagedObjectContext:context];
     
     // Accessories
     
-    BBAccessory *apple = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
-                              insertIntoManagedObjectContext:context];
-    apple.name = @"apple";
-    
-    BBAccessory *carrot = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
-                               insertIntoManagedObjectContext:context];
-    carrot.name = @"carrot";
-    
-    BBAccessory *hightops = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
-                                 insertIntoManagedObjectContext:context];
-    hightops.name = @"hightops";
-    
-    BBAccessory *rainboots = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
-                                  insertIntoManagedObjectContext:context];
-    rainboots.name = @"rainboots";
-    
-    BBAccessory *sweater = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
-                                insertIntoManagedObjectContext:context];
-    sweater.name = @"sweater";
-    
-    BBAccessory *babies = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
-                               insertIntoManagedObjectContext:context];
-    babies.name = @"babies";
-    
-    BBAccessory *colosseum = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
-                                  insertIntoManagedObjectContext:context];
-    colosseum.name = @"colosseum";
-    
-    BBAccessory *pisa = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
-                             insertIntoManagedObjectContext:context];
-    pisa.name = @"pisa";
-    
-    BBAccessory *pool = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription insertIntoManagedObjectContext:context];
-    pool.name = @"pool";
-    
-    BBAccessory *drums = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
-                              insertIntoManagedObjectContext:context];
-    drums.name = @"drums";
-    
-    BBAccessory *slippers = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
-                              insertIntoManagedObjectContext:context];
-    slippers.name = @"slippers";
-    
-    BBAccessory *soccer = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
-                              insertIntoManagedObjectContext:context];
-    soccer.name = @"soccer";
-    
-    BBAccessory *lamb = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
-                               insertIntoManagedObjectContext:context];
-    lamb.name = @"lamb";
-    
-    BBAccessory *umbrella = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
-                               insertIntoManagedObjectContext:context];
-    umbrella.name = @"umbrella";
-    
-    BBAccessory *roses = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
-                                 insertIntoManagedObjectContext:context];
-    roses.name = @"roses";
+//    BBAccessory *apple = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
+//                              insertIntoManagedObjectContext:context];
+//    apple.name = @"apple";
+//    
+//    BBAccessory *carrot = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
+//                               insertIntoManagedObjectContext:context];
+//    carrot.name = @"carrot";
+//    
+//    BBAccessory *hightops = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
+//                                 insertIntoManagedObjectContext:context];
+//    hightops.name = @"hightops";
+//    
+//    BBAccessory *rainboots = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
+//                                  insertIntoManagedObjectContext:context];
+//    rainboots.name = @"rainboots";
+//    
+//    BBAccessory *sweater = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
+//                                insertIntoManagedObjectContext:context];
+//    sweater.name = @"sweater";
+//    
+//    BBAccessory *babies = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
+//                               insertIntoManagedObjectContext:context];
+//    babies.name = @"babies";
+//
+//    BBAccessory *colosseum = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
+//                                  insertIntoManagedObjectContext:context];
+//    colosseum.name = @"colosseum";
+//    
+//    BBAccessory *pisa = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
+//                             insertIntoManagedObjectContext:context];
+//    pisa.name = @"pisa";
+//    
+//    BBAccessory *pool = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription insertIntoManagedObjectContext:context];
+//    pool.name = @"pool";
+//    
+//    BBAccessory *drums = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
+//                              insertIntoManagedObjectContext:context];
+//    drums.name = @"drums";
+//    
+//    BBAccessory *slippers = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
+//                              insertIntoManagedObjectContext:context];
+//    slippers.name = @"slippers";
+//    
+//    BBAccessory *soccer = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
+//                              insertIntoManagedObjectContext:context];
+//    soccer.name = @"soccer";
+//    
+//    BBAccessory *lamb = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
+//                               insertIntoManagedObjectContext:context];
+//    lamb.name = @"lamb";
+//    
+//    BBAccessory *umbrella = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
+//                               insertIntoManagedObjectContext:context];
+//    umbrella.name = @"umbrella";
+//    
+//    BBAccessory *roses = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
+//                                 insertIntoManagedObjectContext:context];
+//    roses.name = @"roses";
     
     // Categories
     
     BBClosetCategory *foods = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription insertIntoManagedObjectContext:context];
     foods.name = FOOD_CATEGORY;
-    foods.accessories = [NSSet setWithObjects:carrot, apple, nil];
+//    foods.accessories = [NSSet setWithObjects:carrot, apple, nil];
     
     BBClosetCategory *clothes = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription insertIntoManagedObjectContext:context];
     clothes.name = CLOTHES_CATEGORY;
-    clothes.accessories = [NSSet setWithObjects:hightops, rainboots, sweater, slippers, umbrella, nil];
+//    clothes.accessories = [NSSet setWithObjects:hightops, rainboots, sweater, slippers, umbrella, nil];
     
     BBClosetCategory *friends = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription insertIntoManagedObjectContext:context];
     friends.name = FRIENDS_CATEGORY;
-    friends.accessories = [NSSet setWithObjects:babies, lamb, nil];
+//    friends.accessories = [NSSet setWithObjects:babies, lamb, nil];
     
     BBClosetCategory *places = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription insertIntoManagedObjectContext:context];
     places.name = PLACES_CATEGORY;
-    places.accessories = [NSSet setWithObjects:colosseum, pisa, roses, pool, nil];
+//    places.accessories = [NSSet setWithObjects:colosseum, pisa, roses, pool, nil];
     
     BBClosetCategory *instruments = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription insertIntoManagedObjectContext:context];
     instruments.name = INSTRUMENTS_CATEGORY;
-    instruments.accessories = [NSSet setWithObjects:drums, nil];
+//    instruments.accessories = [NSSet setWithObjects:drums, nil];
     
     BBClosetCategory *all = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription
                                       insertIntoManagedObjectContext:context];
@@ -331,7 +331,7 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
     BBClosetCategory *sports = [[BBClosetCategory alloc] initWithEntity:categoryEntityDescription
                                               insertIntoManagedObjectContext:context];
     sports.name = @"Sports";
-    sports.accessories = [NSSet setWithObjects:soccer, nil];
+//    sports.accessories = [NSSet setWithObjects:soccer, nil];
     
     NSError *error;
     if (![context save:&error]) {

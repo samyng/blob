@@ -109,7 +109,20 @@ static NSInteger const kAddAccessoryAlertViewButtonIndex = 1;
     {
         self.addAccessoryAlertView = nil;
         UIAlertView *confirmAlertView = [[UIAlertView alloc] initWithTitle:nil message:@"Babies added!" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+        NSEntityDescription *accessoryEntityDescription = [NSEntityDescription entityForName:ACCESSORY_ENTITY_DESCRIPTION inManagedObjectContext:self.context];
+        BBAccessory *babies = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
+                                   insertIntoManagedObjectContext:self.context];
+        babies.name = @"babies";
+        for (BBClosetCategory *closetCategory in self.categories)
+        {
+            if ([closetCategory.name isEqualToString:FRIENDS_CATEGORY])
+            {
+                [closetCategory addAccessoriesObject:babies];
+            }
+        }
+        [self populateAccessories];
         [confirmAlertView show];
+        [self.accessoriesCollectionView reloadData];
     }
 }
 
