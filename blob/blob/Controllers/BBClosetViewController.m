@@ -108,21 +108,31 @@ static NSInteger const kAddAccessoryAlertViewButtonIndex = 1;
     if (buttonIndex == kAddAccessoryAlertViewButtonIndex)
     {
         self.addAccessoryAlertView = nil;
-        UIAlertView *confirmAlertView = [[UIAlertView alloc] initWithTitle:nil message:@"Babies added!" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
-        NSEntityDescription *accessoryEntityDescription = [NSEntityDescription entityForName:ACCESSORY_ENTITY_DESCRIPTION inManagedObjectContext:self.context];
-        BBAccessory *babies = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
-                                   insertIntoManagedObjectContext:self.context];
-        babies.name = @"babies";
-        for (BBClosetCategory *closetCategory in self.categories)
+
+        if ([self.accessories count] == 0)
         {
-            if ([closetCategory.name isEqualToString:FRIENDS_CATEGORY])
+            UIAlertView *confirmAlertView = [[UIAlertView alloc] initWithTitle:nil message:@"Babies added!" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+            NSEntityDescription *accessoryEntityDescription = [NSEntityDescription entityForName:ACCESSORY_ENTITY_DESCRIPTION inManagedObjectContext:self.context];
+            BBAccessory *babies = [[BBAccessory alloc] initWithEntity:accessoryEntityDescription
+                                       insertIntoManagedObjectContext:self.context];
+            babies.name = @"babies";
+            for (BBClosetCategory *closetCategory in self.categories)
             {
-                [closetCategory addAccessoriesObject:babies];
+                if ([closetCategory.name isEqualToString:FRIENDS_CATEGORY])
+                {
+                    [closetCategory addAccessoriesObject:babies];
+                }
             }
+            [self populateAccessories];
+            [self.accessoriesCollectionView reloadData];
+            [confirmAlertView show];
         }
-        [self populateAccessories];
-        [confirmAlertView show];
-        [self.accessoriesCollectionView reloadData];
+        else
+        {
+            UIAlertView *alreadyAddedAlertView = [[UIAlertView alloc] initWithTitle:nil message:@"You already have Babies!" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+            [alreadyAddedAlertView show];
+        }
+        
     }
 }
 
