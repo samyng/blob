@@ -73,20 +73,16 @@
 
 - (void)movieDidFinish:(NSNotification *)notification
 {
-    [self.moviePlayerViewController dismissViewControllerAnimated:YES completion:^{
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
-        [self closetButtonPressed:self.closetButton];
-        self.moviePlayerViewController = nil;
-    }];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
+    [self closetButtonPressed:self.closetButton];
+    self.moviePlayerViewController = nil;
 }
 
 - (void)doneButtonClicked:(NSNotification *)notification
 {
-    [self.moviePlayerViewController dismissViewControllerAnimated:YES completion:^{
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerWillExitFullscreenNotification object:nil];
-        [self closetButtonPressed:self.closetButton];
-        self.moviePlayerViewController = nil;
-    }];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerWillExitFullscreenNotification object:nil];
+    [self closetButtonPressed:self.closetButton];
+    self.moviePlayerViewController = nil;
 }
 
 # pragma mark - Button Pressed
