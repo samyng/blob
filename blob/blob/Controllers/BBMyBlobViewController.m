@@ -224,9 +224,9 @@ static NSString * const kFeelingCollectionCellIdentifier = @"feelingCollectionCe
     NSManagedObjectContext *context = self.context;
     NSEntityDescription *feelingEntityDescription = [NSEntityDescription entityForName:FEELING_ENTITY_DESCRIPTION inManagedObjectContext:context];
     
-    BBFeeling *happy = [[BBFeeling alloc] initWithEntity:feelingEntityDescription
+    BBFeeling *crazy = [[BBFeeling alloc] initWithEntity:feelingEntityDescription
                           insertIntoManagedObjectContext:context];
-    happy.name = @"happy";
+    crazy.name = @"crazy";
     
     // Accessories
     
