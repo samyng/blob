@@ -118,7 +118,7 @@ static NSInteger const kAddAccessoryAlertViewButtonIndex = 1;
             apple.name = @"apple";
             for (BBClosetCategory *closetCategory in self.categories)
             {
-                if ([closetCategory.name isEqualToString:FRIENDS_CATEGORY])
+                if ([closetCategory.name isEqualToString:FOOD_CATEGORY])
                 {
                     [closetCategory addAccessoriesObject:apple];
                 }
