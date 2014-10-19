@@ -1,11 +1,3 @@
-//
-//  BBMyBlobViewController.m
-//  blob
-//
-//  Created by Sam Yang on 8/5/14.
-//  Copyright (c) 2014 Crazy Machine. All rights reserved.
-//
-
 #import "BBMyBlobViewController.h"
 #import "BBFeelingCollectionCell.h"
 #import "BBFeeling.h"
